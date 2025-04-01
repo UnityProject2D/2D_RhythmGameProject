@@ -1,0 +1,11 @@
+# 모든 텍스트 파일은 줄바꿈 자동 관리
+* text=auto
+
+# C# 파일은 항상 LF 사용
+*.cs text eol=lf
+
+# JSON, Shader 등 기타 파일도 LF 강제
+*.json text eol=lf
+*.shader text eol=lf
+*.cginc text eol=lf
+*.txt text eol=lf
