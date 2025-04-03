@@ -18,10 +18,16 @@ public class RhythmPreviewer : MonoBehaviour
 
     private IEnumerator PlayPatternPreview()
     {
+        float beatDuration = 60f / pattern.bpm;
+        float musicStart = RhythmManager.Instance.MusicStartTime;
+
         foreach (var note in pattern.notes)
         {
-            float delay = note.beat * beatDuration;
-            yield return new WaitForSeconds(delay - Time.timeSinceLevelLoad);
+            float noteTime = musicStart + (note.beat * beatDuration) - 2f;
+            float waitTime = noteTime - Time.time;
+
+            if (waitTime > 0)
+                yield return new WaitForSeconds(waitTime);
 
             SpawnNote(note.expectedKey);
         }
@@ -31,6 +37,6 @@ public class RhythmPreviewer : MonoBehaviour
     {
         var obj = Instantiate(noteUIPrefab, uiSpawnParent);
         obj.GetComponent<NotePreviewUI>().Setup(key);
-        Destroy(obj, 2f);
+        Destroy(obj, 4f);
     }
 }

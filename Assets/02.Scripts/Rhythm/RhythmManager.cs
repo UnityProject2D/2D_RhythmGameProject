@@ -3,52 +3,30 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
-using static RhythmEvents;
-using Unity.VisualScripting;
 
 public class RhythmManager : MonoBehaviour
 {
     public static RhythmManager Instance { get; private set; }
 
-    [Header("FMOD 이벤트")]
     [SerializeField] private EventReference eventReference;
-    [Space(10)]
-    //=====
-    [Header("테스트용 (정식땐 지워야함!!)")]
-    [Tooltip("체크시 음악이 바로 시작됩니다")]public bool IsTest = true;
-    public bool IsPlaying => musicInstance.isValid() && musicInstance.getPlaybackState(out var state) == FMOD.RESULT.OK && state == PLAYBACK_STATE.PLAYING;
-
-    public void Play()
-    {
-        if (!IsPlaying)
-        {
-            musicInstance.start();
-        }
-    }
-    //=====
-    [Header("BPM")]
-    public float BPM { get;private set;}
-
+    public bool IsTest = true;
+    public bool IsPlaying = false;
+    public float BPM;
     private EventInstance musicInstance;
     private GCHandle timelineHandle;
-    private bool _hasDestroyed;
-    // 콜백으로 받을 데이터 구조
-    class TimelineInfo
-    {
-        public int currentBar = 0;
-        public string lastMarker = "";
-    }
 
+    public float CurrentTimelineTime { get; private set; } = 0f;
+
+    public static event Action<float> OnBeat; // beat 시간(초) 전달
     public static event Action<string> OnMarker;
 
-    void Awake()
+    private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-
     }
 
-    void Start()
+    private void Start()
     {
         TimelineInfo info = new TimelineInfo();
         timelineHandle = GCHandle.Alloc(info);
@@ -57,22 +35,33 @@ public class RhythmManager : MonoBehaviour
         musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
         musicInstance.setCallback(FMODCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
 
-
         if (IsTest)
+            Play();
+    }
+    public float MusicStartTime { get; private set; } = -1f;
+    public void Play()
+    {
+        if (!musicInstance.isValid()) return;
+        if (!IsPlaying)
         {
+            IsPlaying = true;
             musicInstance.start();
+            musicInstance.getTimelinePosition(out int ms);
+            MusicStartTime = Time.time - (ms / 1000f);
         }
+            
     }
 
-    public void OnBtnClick()
+    public float GetCurrentMusicTime()
     {
-        musicInstance.start();
+        if (!musicInstance.isValid()) return 0f;
+        musicInstance.getTimelinePosition(out int ms);
+        CurrentTimelineTime = ms / 1000f;
+        return CurrentTimelineTime;
     }
-    void OnDestroy()
-    {
-        if (_hasDestroyed) return;
-        _hasDestroyed = true;
 
+    private void OnDestroy()
+    {
         if (musicInstance.isValid())
         {
             musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
@@ -83,6 +72,14 @@ public class RhythmManager : MonoBehaviour
         if (timelineHandle.IsAllocated)
             timelineHandle.Free();
     }
+
+    // 콜백용 구조체
+    class TimelineInfo
+    {
+        public int currentBar = 0;
+        public string lastMarker = "";
+    }
+
     [AOT.MonoPInvokeCallback(typeof(EVENT_CALLBACK))]
     static FMOD.RESULT FMODCallback(EVENT_CALLBACK_TYPE type, IntPtr instancePtr, IntPtr parameterPtr)
     {
@@ -92,42 +89,25 @@ public class RhythmManager : MonoBehaviour
         if (dataPtr == IntPtr.Zero) return FMOD.RESULT.OK;
 
         var handle = GCHandle.FromIntPtr(dataPtr);
-
-        if (!handle.IsAllocated || handle.Target == null)
-        {
-            return FMOD.RESULT.OK;
-        }
-        var info = (TimelineInfo)handle.Target;
+        if (!handle.IsAllocated || handle.Target == null) return FMOD.RESULT.OK;
 
         switch (type)
         {
             case EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                 var beat = (TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_BEAT_PROPERTIES));
-                if(Instance != null)
-                {
-                    Instance.BPM = beat.tempo;
-                }
-                info.currentBar = beat.bar;
+                Instance.BPM = beat.tempo;
 
-                //Debug.Log($"Beat: bar={beat.bar}, position={beat.position}, tempo={beat.tempo}");
-                InvokeOnBeat();
+                float beatTime = beat.position / 1000f;
+                Instance.CurrentTimelineTime = beatTime;
+                OnBeat?.Invoke(beatTime); // 정확한 beat 시간 전달
                 break;
 
             case EVENT_CALLBACK_TYPE.TIMELINE_MARKER:
                 var marker = (TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_MARKER_PROPERTIES));
-                info.lastMarker = marker.name;
                 OnMarker?.Invoke(marker.name);
                 break;
         }
 
         return FMOD.RESULT.OK;
-    }
-
-    public float GetCurrentMusicTime()
-    {
-        if (!musicInstance.isValid()) return 0f;
-
-        musicInstance.getTimelinePosition(out int ms);
-        return ms / 1000f;
     }
 }

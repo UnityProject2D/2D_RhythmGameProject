@@ -9,4 +9,9 @@ public class NotePreviewUI : MonoBehaviour
     {
         keyText.text = key;
     }
+
+    private void Update()
+    {
+        GetComponent<RectTransform>().anchoredPosition = new Vector2(GetComponent<RectTransform>().anchoredPosition.x-1, GetComponent<RectTransform>().anchoredPosition.y);
+    }
 }
