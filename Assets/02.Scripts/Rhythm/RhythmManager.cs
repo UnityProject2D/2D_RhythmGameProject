@@ -10,15 +10,16 @@ public class RhythmManager : MonoBehaviour
 
     [Header("FMOD 이벤트")]
     [SerializeField] private EventReference eventReference;
+    [Space(10)]
+    //=====
+    [Header("테스트용 (정식땐 지워야함!!)")]
+    [Tooltip("체크시 음악이 바로 시작됩니다")]public bool IsTest = true;
+    //=====
+    [Space(10)]
+
 
     private EventInstance musicInstance;
     private GCHandle timelineHandle;
-
-    //=====
-    [Header("테스트용 (정식땐 지워야함!!)")]
-    public bool IsTest = true;
-    //=====
-
     private bool _hasDestroyed;
     // 콜백으로 받을 데이터 구조
     class TimelineInfo
