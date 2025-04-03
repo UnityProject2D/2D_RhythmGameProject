@@ -14,6 +14,12 @@ public class RhythmManager : MonoBehaviour
     private EventInstance musicInstance;
     private GCHandle timelineHandle;
 
+    //=====
+    [Header("테스트용 (정식땐 지워야함!!)")]
+    public bool IsTest = true;
+    //=====
+
+    private bool _hasDestroyed;
     // 콜백으로 받을 데이터 구조
     class TimelineInfo
     {
@@ -41,20 +47,25 @@ public class RhythmManager : MonoBehaviour
         musicInstance.setCallback(FMODCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
 
 
-        //자동재생 (테스트용)
-        musicInstance.start();
+        if (IsTest)
+        {
+            musicInstance.start();
+        }
     }
 
     void OnDestroy()
     {
+        if (_hasDestroyed) return;
+        _hasDestroyed = true;
+
+        if (timelineHandle.IsAllocated)
+            timelineHandle.Free();
+
         if (musicInstance.isValid())
         {
             musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             musicInstance.release();
         }
-
-        if (timelineHandle.IsAllocated)
-            timelineHandle.Free();
     }
 
 
@@ -80,7 +91,7 @@ public class RhythmManager : MonoBehaviour
                 var beat = (TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_BEAT_PROPERTIES));
                 info.currentBar = beat.bar;
 
-                Debug.Log("Beat");
+                Debug.Log($"Beat: bar={beat.bar}, position={beat.position}, tempo={beat.tempo}");
                 OnBeat?.Invoke(beat.bar);
                 break;
 
