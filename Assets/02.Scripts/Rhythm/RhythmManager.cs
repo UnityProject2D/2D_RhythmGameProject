@@ -21,43 +21,42 @@ public class RhythmManager : MonoBehaviour
         public string lastMarker = "";
     }
 
-    // 유니티 이벤트
-    public static event Action<int> OnBeat;         // bar 번호 전달
-    public static event Action<string> OnMarker;    // marker name 전달
+    public static event Action<int> OnBeat;
+    public static event Action<string> OnMarker;
 
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        RhythmManager.OnMarker += markerName => {
-            Debug.Log($"📍 마커 도착: {markerName}");
-        };
     }
 
     void Start()
     {
-        // 데이터 구조 생성 + 고정
         TimelineInfo info = new TimelineInfo();
         timelineHandle = GCHandle.Alloc(info);
 
-        // 인스턴스 생성 및 콜백 설정
         musicInstance = RuntimeManager.CreateInstance(eventReference);
         musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
         musicInstance.setCallback(FMODCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
 
-        // 재생 시작
+
+        //자동재생 (테스트용)
         musicInstance.start();
     }
 
     void OnDestroy()
     {
-        musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        musicInstance.release();
+        if (musicInstance.isValid())
+        {
+            musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            musicInstance.release();
+        }
 
         if (timelineHandle.IsAllocated)
             timelineHandle.Free();
     }
+
 
     [AOT.MonoPInvokeCallback(typeof(EVENT_CALLBACK))]
     static FMOD.RESULT FMODCallback(EVENT_CALLBACK_TYPE type, IntPtr instancePtr, IntPtr parameterPtr)
@@ -68,13 +67,20 @@ public class RhythmManager : MonoBehaviour
         if (dataPtr == IntPtr.Zero) return FMOD.RESULT.OK;
 
         var handle = GCHandle.FromIntPtr(dataPtr);
+
+        if (!handle.IsAllocated || handle.Target == null)
+        {
+            return FMOD.RESULT.OK;
+        }
         var info = (TimelineInfo)handle.Target;
-        Debug.Log("Beat");
+
         switch (type)
         {
             case EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                 var beat = (TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_BEAT_PROPERTIES));
                 info.currentBar = beat.bar;
+
+                Debug.Log("Beat");
                 OnBeat?.Invoke(beat.bar);
                 break;
 
