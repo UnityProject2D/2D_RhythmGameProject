@@ -4,6 +4,7 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 using static RhythmEvents;
+using Unity.VisualScripting;
 
 public class RhythmManager : MonoBehaviour
 {
@@ -15,6 +16,15 @@ public class RhythmManager : MonoBehaviour
     //=====
     [Header("테스트용 (정식땐 지워야함!!)")]
     [Tooltip("체크시 음악이 바로 시작됩니다")]public bool IsTest = true;
+    public bool IsPlaying => musicInstance.isValid() && musicInstance.getPlaybackState(out var state) == FMOD.RESULT.OK && state == PLAYBACK_STATE.PLAYING;
+
+    public void Play()
+    {
+        if (!IsPlaying)
+        {
+            musicInstance.start();
+        }
+    }
     //=====
     [Header("BPM")]
     public float BPM { get;private set;}
@@ -54,6 +64,10 @@ public class RhythmManager : MonoBehaviour
         }
     }
 
+    public void OnBtnClick()
+    {
+        musicInstance.start();
+    }
     void OnDestroy()
     {
         if (_hasDestroyed) return;
@@ -95,7 +109,7 @@ public class RhythmManager : MonoBehaviour
                 }
                 info.currentBar = beat.bar;
 
-                Debug.Log($"Beat: bar={beat.bar}, position={beat.position}, tempo={beat.tempo}");
+                //Debug.Log($"Beat: bar={beat.bar}, position={beat.position}, tempo={beat.tempo}");
                 InvokeOnBeat();
                 break;
 
@@ -107,5 +121,13 @@ public class RhythmManager : MonoBehaviour
         }
 
         return FMOD.RESULT.OK;
+    }
+
+    public float GetCurrentMusicTime()
+    {
+        if (!musicInstance.isValid()) return 0f;
+
+        musicInstance.getTimelinePosition(out int ms);
+        return ms / 1000f;
     }
 }
