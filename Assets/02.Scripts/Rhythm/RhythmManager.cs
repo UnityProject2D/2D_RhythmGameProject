@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using static RhythmEvents;
 
 public class RhythmManager : MonoBehaviour
 {
@@ -15,8 +16,8 @@ public class RhythmManager : MonoBehaviour
     [Header("테스트용 (정식땐 지워야함!!)")]
     [Tooltip("체크시 음악이 바로 시작됩니다")]public bool IsTest = true;
     //=====
-    [Space(10)]
-
+    [Header("BPM")]
+    public float BPM { get;private set;}
 
     private EventInstance musicInstance;
     private GCHandle timelineHandle;
@@ -28,7 +29,6 @@ public class RhythmManager : MonoBehaviour
         public string lastMarker = "";
     }
 
-    public static event Action<int> OnBeat;
     public static event Action<string> OnMarker;
 
     void Awake()
@@ -59,17 +59,16 @@ public class RhythmManager : MonoBehaviour
         if (_hasDestroyed) return;
         _hasDestroyed = true;
 
-        if (timelineHandle.IsAllocated)
-            timelineHandle.Free();
-
         if (musicInstance.isValid())
         {
             musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            musicInstance.setCallback(null);
             musicInstance.release();
         }
+
+        if (timelineHandle.IsAllocated)
+            timelineHandle.Free();
     }
-
-
     [AOT.MonoPInvokeCallback(typeof(EVENT_CALLBACK))]
     static FMOD.RESULT FMODCallback(EVENT_CALLBACK_TYPE type, IntPtr instancePtr, IntPtr parameterPtr)
     {
@@ -90,10 +89,14 @@ public class RhythmManager : MonoBehaviour
         {
             case EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                 var beat = (TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_BEAT_PROPERTIES));
+                if(Instance != null)
+                {
+                    Instance.BPM = beat.tempo;
+                }
                 info.currentBar = beat.bar;
 
                 Debug.Log($"Beat: bar={beat.bar}, position={beat.position}, tempo={beat.tempo}");
-                OnBeat?.Invoke(beat.bar);
+                InvokeOnBeat();
                 break;
 
             case EVENT_CALLBACK_TYPE.TIMELINE_MARKER:
