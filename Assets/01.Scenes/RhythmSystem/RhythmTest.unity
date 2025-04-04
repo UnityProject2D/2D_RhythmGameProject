@@ -1430,58 +1430,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
---- !u!1 &1205102011
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1205102013}
-  - component: {fileID: 1205102012}
-  m_Layer: 0
-  m_Name: RhythmJudge
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1205102012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205102011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a0b0b1282d9d384097e5044e52cb1e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pattern:
-  - {fileID: 11400000, guid: 51d18a65aa3e22f4a9127d1bb060f352, type: 2}
-  - {fileID: 11400000, guid: ce8944c85efc3134fa199b8d11dcd3a1, type: 2}
-  - {fileID: 11400000, guid: 08593ce86076a3f4d88f315e530fe56a, type: 2}
-  - {fileID: 11400000, guid: 341040bfd6695ba49862f232834bddce, type: 2}
-  perfectRange: 0.15
-  goodRange: 0.3
-  badRange: 0.45
---- !u!4 &1205102013
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205102011}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1272653231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2730,6 +2678,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077142493}
   m_CullTransparentMesh: 1
+--- !u!1001 &5872088234422309559
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 952654727111627479, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952654727111627479, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952654727111627479, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952654727111627479, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 952654727111627479, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952654727111627479, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952654727111627479, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952654727111627479, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952654727111627479, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952654727111627479, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805002393366028761, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
+      propertyPath: m_Name
+      value: RhythmJudge
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
 --- !u!1001 &7807927328696084621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2741,54 +2746,6 @@ PrefabInstance:
     - target: {fileID: 3594441550570531111, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
       propertyPath: m_Name
       value: RhythmManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-      propertyPath: BPM
-      value: 97
-      objectReference: {fileID: 0}
-    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-      propertyPath: stageNotes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-      propertyPath: musicTracks.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-      propertyPath: 'stageNotes.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 51d18a65aa3e22f4a9127d1bb060f352, type: 2}
-    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-      propertyPath: 'stageNotes.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: ce8944c85efc3134fa199b8d11dcd3a1, type: 2}
-    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-      propertyPath: 'stageNotes.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 08593ce86076a3f4d88f315e530fe56a, type: 2}
-    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-      propertyPath: 'stageNotes.Array.data[3]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 341040bfd6695ba49862f232834bddce, type: 2}
-    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-      propertyPath: musicTracks.Array.data[3].Path
-      value: event:/TestSound
-      objectReference: {fileID: 0}
-    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-      propertyPath: musicTracks.Array.data[3].Guid.Data1
-      value: 1711747660
-      objectReference: {fileID: 0}
-    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-      propertyPath: musicTracks.Array.data[3].Guid.Data2
-      value: 1263653468
-      objectReference: {fileID: 0}
-    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-      propertyPath: musicTracks.Array.data[3].Guid.Data3
-      value: 1932706494
-      objectReference: {fileID: 0}
-    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-      propertyPath: musicTracks.Array.data[3].Guid.Data4
-      value: -193646901
       objectReference: {fileID: 0}
     - target: {fileID: 9034453706349065766, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2899,7 +2856,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 7807927328696084621}
-  - {fileID: 1205102013}
+  - {fileID: 5872088234422309559}
   - {fileID: 7883001434818980345}
   - {fileID: 1704735459}
   - {fileID: 1351124039}
