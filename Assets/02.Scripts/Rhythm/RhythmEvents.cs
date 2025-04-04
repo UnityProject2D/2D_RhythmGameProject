@@ -16,7 +16,7 @@ public static class RhythmEvents
     /// <summary>
     /// 정박 비트마다 호출 (예: 1, 2, 3, 4...)
     /// </summary>
-    public static event Action OnBeat;
+    public static event Action<float> OnBeat;
 
     /// <summary>
     /// 반박 또는 서브 비트 호출 (예: 1 & 2 & 3 & ...)
@@ -35,9 +35,12 @@ public static class RhythmEvents
 
     public static event Action<NoteData> OnNotePreview;
 
-    // ===== Invoke =====
+    public static event Action OnMusicStart;
 
-    public static void InvokeOnBeat() => OnBeat?.Invoke();
+    // ===== Invoke =====
+    public static void InvokeOnMusicStart() => OnMusicStart?.Invoke();
+
+    public static void InvokeOnBeat(float beat) => OnBeat?.Invoke(beat);
     public static void InvokeOnSubBeat() => OnSubBeat?.Invoke();
     public static void InvokeOnInputJudged(JudgementResult result) => OnInputJudged?.Invoke(result);
     public static void InvokeOnMarkerHit(string name) => OnMarkerHit?.Invoke(name);

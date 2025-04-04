@@ -76,11 +76,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39732803da286674885fcedcc8e2adf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventReference:
-    Guid:
+  IsTest: 0
+  IsPlaying: 0
+  previewLeadTimeInBeat: 4
+  stageNotes:
+  - {fileID: 11400000, guid: 51d18a65aa3e22f4a9127d1bb060f352, type: 2}
+  - {fileID: 11400000, guid: ce8944c85efc3134fa199b8d11dcd3a1, type: 2}
+  - {fileID: 11400000, guid: 08593ce86076a3f4d88f315e530fe56a, type: 2}
+  - {fileID: 11400000, guid: 341040bfd6695ba49862f232834bddce, type: 2}
+  musicTracks:
+  - Guid:
+      Data1: -14626127
+      Data2: 1127277754
+      Data3: -138262356
+      Data4: 930445000
+    Path: event:/TeMP_StageSound/Track01
+  - Guid:
+      Data1: 852848855
+      Data2: 1079758966
+      Data3: -1660239187
+      Data4: 2054451962
+    Path: event:/TeMP_StageSound/Track02
+  - Guid:
+      Data1: -1744773704
+      Data2: 1147564557
+      Data3: -1046766201
+      Data4: 829228433
+    Path: event:/TeMP_StageSound/Track03
+  - Guid:
       Data1: 1711747660
       Data2: 1263653468
       Data3: 1932706494
       Data4: -193646901
     Path: event:/TestSound
-  IsTest: 1

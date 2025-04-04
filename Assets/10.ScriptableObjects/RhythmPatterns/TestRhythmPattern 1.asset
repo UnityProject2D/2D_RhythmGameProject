@@ -14,135 +14,79 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 97
   notes:
-  - beat: 25.590218
+  - beat: 25.5207
     expectedKey: W
-  - beat: 26.590935
-    expectedKey: S
+  - beat: 26.555368
+    expectedKey: D
   - beat: 27.556084
+    expectedKey: W
+  - beat: 28.453335
     expectedKey: D
-  - beat: 28.5568
+  - beat: 33.350216
+    expectedKey: A
+  - beat: 34.454403
+    expectedKey: D
+  - beat: 35.523018
     expectedKey: S
-  - beat: 33.5232
-    expectedKey: A
-  - beat: 34.5223
-    expectedKey: D
-  - beat: 35.489067
-    expectedKey: A
   - beat: 36.454216
-    expectedKey: D
-  - beat: 41.42062
     expectedKey: W
-  - beat: 42.421333
-    expectedKey: W
-  - beat: 43.456
-    expectedKey: S
-  - beat: 44.49067
+  - beat: 41.2832
+    expectedKey: A
+  - beat: 42.351818
     expectedKey: D
-  - beat: 49.38755
+  - beat: 43.386486
+    expectedKey: D
+  - beat: 44.3872
+    expectedKey: A
+  - beat: 49.457066
     expectedKey: A
   - beat: 50.388268
-    expectedKey: D
-  - beat: 51.353416
     expectedKey: S
-  - beat: 52.354134
-    expectedKey: S
-  - beat: 57.4919
-    expectedKey: A
-  - beat: 57.87182
+  - beat: 51.422935
+    expectedKey: W
+  - beat: 52.388084
     expectedKey: D
-  - beat: 58.319637
+  - beat: 57.424004
     expectedKey: A
-  - beat: 58.872536
+  - beat: 58.389153
     expectedKey: D
-  - beat: 59.286404
+  - beat: 59.38987
     expectedKey: A
-  - beat: 59.837685
-    expectedKey: D
-  - beat: 60.321068
-    expectedKey: A
-  - beat: 60.768887
+  - beat: 60.35502
     expectedKey: D
   - beat: 65.32142
-    expectedKey: A
-  - beat: 65.8048
-    expectedKey: D
-  - beat: 66.35608
-    expectedKey: W
-  - beat: 67.49422
-    expectedKey: D
-  - beat: 67.83857
-    expectedKey: A
-  - beat: 68.42542
-    expectedKey: D
-  - beat: 68.805336
-    expectedKey: A
-  - beat: 73.425766
     expectedKey: S
-  - beat: 74.39253
+  - beat: 66.322136
+    expectedKey: S
+  - beat: 67.390755
     expectedKey: W
-  - beat: 75.4272
+  - beat: 68.3559
+    expectedKey: W
+  - beat: 73.35787
     expectedKey: D
-  - beat: 76.3584
-    expectedKey: A
-  - beat: 81.28924
+  - beat: 74.39253
     expectedKey: D
-  - beat: 81.66915
+  - beat: 75.39163
+    expectedKey: S
+  - beat: 76.39235
     expectedKey: A
-  - beat: 82.256004
-    expectedKey: D
-  - beat: 82.77334
+  - beat: 81.22134
     expectedKey: A
+  - beat: 82.323906
+    expectedKey: W
   - beat: 83.29067
     expectedKey: D
-  - beat: 106.08729
-    expectedKey: W
-  - beat: 108.156624
+  - beat: 84.25582
     expectedKey: S
-  - beat: 121.056
+  - beat: 98.327286
+    expectedKey: D
+  - beat: 106.19075
+    expectedKey: D
+  - beat: 114.434135
+    expectedKey: D
+  - beat: 129.98808
     expectedKey: A
-  - beat: 121.503815
+  - beat: 131.16017
     expectedKey: D
-  - beat: 122.05511
+  - beat: 132.05742
     expectedKey: W
-  - beat: 122.608
-    expectedKey: S
-  - beat: 123.12534
-    expectedKey: D
-  - beat: 123.6071
-    expectedKey: A
-  - beat: 124.124435
-    expectedKey: W
-  - beat: 124.57387
-    expectedKey: S
-  - beat: 129.02293
-    expectedKey: A
-  - beat: 129.50471
-    expectedKey: D
-  - beat: 130.0576
-    expectedKey: W
-  - beat: 130.60889
-    expectedKey: S
-  - beat: 131.09227
-    expectedKey: D
-  - beat: 132.02347
-    expectedKey: D
-  - beat: 156.92337
-    expectedKey: D
-  - beat: 157.85457
-    expectedKey: A
-  - beat: 158.85529
-    expectedKey: D
-  - beat: 159.856
-    expectedKey: W
-  - beat: 160.89067
-    expectedKey: S
-  - beat: 161.85582
-    expectedKey: D
-  - beat: 162.82097
-    expectedKey: A
-  - beat: 163.82169
-    expectedKey: D
-  - beat: 169.7888
-    expectedKey: W
-  - beat: 171.85814
-    expectedKey: S

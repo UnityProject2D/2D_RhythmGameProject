@@ -1,11 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class RhythmPreviewer : MonoBehaviour
 {
     [SerializeField] private RhythmPatternSO pattern;
     [SerializeField] private GameObject noteUIPrefab;
     [SerializeField] private Transform uiSpawnParent;
+
+    public TMP_Dropdown dropdown;
 
     private float beatDuration;
 
@@ -16,6 +20,11 @@ public class RhythmPreviewer : MonoBehaviour
     void OnDisable()
     {
         RhythmEvents.OnNotePreview -= ShowNoteUI;
+    }
+
+    public void OnClickStartButton()
+    {
+        RhythmManager.Instance.OnLoadedStage(dropdown.value);
     }
 
     void ShowNoteUI(NoteData note)

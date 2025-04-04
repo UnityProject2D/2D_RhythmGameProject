@@ -3,28 +3,39 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using static RhythmEvents;
 
 public class RhythmManager : MonoBehaviour
 {
     public static RhythmManager Instance { get; private set; }
-    [SerializeField] private EventReference[] musicTracks;
-    //[SerializeField] private EventReference eventReference;
-    public bool IsTest = true;
-    public bool IsPlaying = false;
-    public float BPM;
-    private EventInstance musicInstance;
-    private GCHandle timelineHandle;
-    [SerializeField] private float previewLeadTimeInBeat = 4f;
-    public RhythmPatternSO pattern;
-    private float beatDuration => 60f / RhythmManager.Instance.BPM;
 
+    public bool IsTest = true;
+
+    public bool IsPlaying = false;
+    private float _bpm;
+    public float BPM
+    {
+        get => _bpm;
+        private set => _bpm = value;
+    }
+
+    [SerializeField] private float previewLeadTimeInBeat = 4f;
+    [SerializeField] private RhythmPatternSO[] stageNotes;
+    [SerializeField] private EventReference[] musicTracks;
+    public float beatDuration => 60f / _bpm;
     public float CurrentTimelineTime { get; private set; } = 0f;
     public float MusicStartTime { get; private set; } = -1f;
 
-    public static event Action<float> OnBeat; // beat 시간(초) 전달
-    public static event Action<string> OnMarker;
+    private int _previewIndex = 0;
+    private EventInstance _musicInstance;
+    private GCHandle _timelineHandle;
+    private int _stageMusicIndex;
 
-    private int previewIndex = 0;
+    public int StageMusicIndex
+    {
+        get => _stageMusicIndex;
+        private set => _stageMusicIndex = value;
+    }
 
     private void Awake()
     {
@@ -35,33 +46,35 @@ public class RhythmManager : MonoBehaviour
     private void Start()
     {
         TimelineInfo info = new TimelineInfo();
-        timelineHandle = GCHandle.Alloc(info);
-
-        musicInstance = RuntimeManager.CreateInstance(musicTracks[0]);
-        musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
-        musicInstance.setCallback(FMODCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
+        _timelineHandle = GCHandle.Alloc(info);
+        
+        _musicInstance.setUserData(GCHandle.ToIntPtr(_timelineHandle));
+        _musicInstance.setCallback(FMODCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
 
         if (IsTest)
+        {
+            _musicInstance = RuntimeManager.CreateInstance(musicTracks[0]);
             Play();
+        }
+
     }
 
     void Update()
     {
-        if (!RhythmManager.Instance.IsPlaying) return;
+        if (!Instance.IsPlaying) return;
 
-        float currentTime = RhythmManager.Instance.GetCurrentMusicTime();
-
-        while (previewIndex < pattern.notes.Count)
+        float currentTime = Instance.GetCurrentMusicTime();
+        while (_previewIndex < stageNotes[_stageMusicIndex].notes.Count)
         {
-            var note = pattern.notes[previewIndex];
+            var note = stageNotes[_stageMusicIndex].notes[_previewIndex];
             float noteTime = note.beat * beatDuration;
             float previewTime = noteTime - (previewLeadTimeInBeat * beatDuration);
 
             if (currentTime >= previewTime)
             {
-                RhythmEvents.InvokeOnNotePreview(note);
+                InvokeOnNotePreview(note);
                 Debug.Log($"[미리보기] 키: {note.expectedKey}, 비트: {note.beat}");
-                previewIndex++;
+                _previewIndex++;
             }
             else
             {
@@ -69,38 +82,58 @@ public class RhythmManager : MonoBehaviour
             }
         }
     }
+
+    public void OnLoadedStage(int stageMusicIndex)
+    {
+        _stageMusicIndex = stageMusicIndex;
+
+        Play();
+    }
     public void Play()
     {
-        if (!musicInstance.isValid()) return;
+
+        //음악을 종료하고
+        if (_musicInstance.isValid())
+        {
+            _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            _musicInstance.release();
+            IsPlaying = false;
+        }
+
+        _musicInstance = RuntimeManager.CreateInstance(musicTracks[_stageMusicIndex]);
+        _previewIndex = 0;
+        _bpm = stageNotes[_stageMusicIndex].bpm;
+
+
+        //음악을 재생한다
         if (!IsPlaying)
         {
-            IsPlaying = true;
-            musicInstance.start();
-            musicInstance.getTimelinePosition(out int ms);
+            InvokeOnMusicStart();
+            _musicInstance.start();
+            _musicInstance.getTimelinePosition(out int ms);
             MusicStartTime = Time.time - (ms / 1000f);
+            IsPlaying = true;
         }
             
     }
-
     public float GetCurrentMusicTime()
     {
-        if (!musicInstance.isValid()) return 0f;
-        musicInstance.getTimelinePosition(out int ms);
+        if (!_musicInstance.isValid()) return 0f;
+        _musicInstance.getTimelinePosition(out int ms);
         CurrentTimelineTime = ms / 1000f;
         return CurrentTimelineTime;
     }
-
     private void OnDestroy()
     {
-        if (musicInstance.isValid())
+        if (_musicInstance.isValid())
         {
-            musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            musicInstance.setCallback(null);
-            musicInstance.release();
+            _musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            _musicInstance.setCallback(null);
+            _musicInstance.release();
         }
 
-        if (timelineHandle.IsAllocated)
-            timelineHandle.Free();
+        if (_timelineHandle.IsAllocated)
+            _timelineHandle.Free();
     }
 
     // 콜백용 구조체
@@ -125,16 +158,15 @@ public class RhythmManager : MonoBehaviour
         {
             case EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                 var beat = (TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_BEAT_PROPERTIES));
-                Instance.BPM = beat.tempo;
 
                 float beatTime = beat.position / 1000f;
                 Instance.CurrentTimelineTime = beatTime;
-                OnBeat?.Invoke(beatTime); // 정확한 beat 시간 전달
+                InvokeOnBeat(beatTime); // 정확한 beat 시간 전달
                 break;
 
             case EVENT_CALLBACK_TYPE.TIMELINE_MARKER:
                 var marker = (TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_MARKER_PROPERTIES));
-                OnMarker?.Invoke(marker.name);
+                InvokeOnMarkerHit(marker.name);
                 break;
         }
 
