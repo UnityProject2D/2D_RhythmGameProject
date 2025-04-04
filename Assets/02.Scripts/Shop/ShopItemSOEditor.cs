@@ -15,7 +15,7 @@ public class ShopItemSOEditor : Editor
         item.description = EditorGUILayout.TextField("설명", item.description);
 
         item.price = EditorGUILayout.IntField("가격", item.price);
-        item.category = (ItemCategory)EditorGUILayout.ObjectField("카테고리", item.category, typeof(ItemCategory), false);
+        item.category = (ItemCategorySO)EditorGUILayout.ObjectField("카테고리", item.category, typeof(ItemCategorySO), false);
 
 
         EditorGUILayout.Space();
