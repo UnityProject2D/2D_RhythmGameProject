@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ffe6f99ff81690409cf3a698c5b9330, type: 3}
+  m_Name: TestConsumable 4
+  m_EditorClassIdentifier: 
+  itemName: 5
+  icon: {fileID: 4606908045521496030, guid: 2b8558b645a07d74582677fd0bf9dfa9, type: 3}
+  description: 5
+  price: 5
+  category: {fileID: 11400000, guid: dbacc609a7692aa4bbb3487a966d718b, type: 2}
+  OnPurchase:
+    m_PersistentCalls:
+      m_Calls: []
