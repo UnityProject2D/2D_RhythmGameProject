@@ -53,7 +53,6 @@ public class RhythmManager : MonoBehaviour
 
         if (IsTest)
         {
-            _musicInstance = RuntimeManager.CreateInstance(musicTracks[0]);
             Play();
         }
 
