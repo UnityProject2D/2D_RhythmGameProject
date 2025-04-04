@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7133115056143398769
+--- !u!114 &-3644513081274754174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,35 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Master Bank.bank
   m_EditorClassIdentifier: 
-  Path: Assets/99.FMOD/FMOD Studio/TestProject/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638793236248631744
+  Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master Bank.bank
+  Name: Master Bank
+  StudioPath: bank:/Master Bank
+  lastModified: 638793612372019686
   FileSizes:
   - Name: Desktop
-    Value: 794
-  Exists: 1
---- !u!114 &-1144346365305724475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/99.FMOD/FMOD Studio/TestProject/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638793236248621774
-  FileSizes:
-  - Name: Desktop
-    Value: 1036
+    Value: 7517248
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -53,19 +33,22 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -7133115056143398769}
-  - {fileID: 4177749831597032886}
-  - {fileID: -1144346365305724475}
+  - {fileID: 8715239452212113364}
+  - {fileID: -3644513081274754174}
+  - {fileID: 1804769092360819530}
   EditorEvents:
   - {fileID: 4359499885671770860}
+  - {fileID: 2009736794682629809}
+  - {fileID: 8228620800520554647}
+  - {fileID: 7775161475479854030}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -1144346365305724475}
+  - {fileID: 1804769092360819530}
   StringsBanks:
-  - {fileID: -7133115056143398769}
-  cacheTime: 638793245596862033
+  - {fileID: 8715239452212113364}
+  cacheTime: 638793659428276076
   cacheVersion: 131623
---- !u!114 &4177749831597032886
+--- !u!114 &1804769092360819530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,16 +58,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master Bank.bank
+  m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: Assets/99.FMOD/FMOD Studio/TestProject/Build/Desktop/Master Bank.bank
-  Name: Master Bank
-  StudioPath: bank:/Master Bank
-  lastModified: 638793245596862033
+  Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638793659428266075
   FileSizes:
   - Name: Desktop
-    Value: 7517248
+    Value: 10002880
   Exists: 1
+--- !u!114 &2009736794682629809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TeMP_StageSound/Track01
+  m_EditorClassIdentifier: 
+  Path: event:/TeMP_StageSound/Track01
+  Guid:
+    Data1: -14626127
+    Data2: 1127277754
+    Data3: -138262356
+    Data4: 930445000
+  Banks:
+  - {fileID: 1804769092360819530}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 235384
 --- !u!114 &4359499885671770860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +114,7 @@ MonoBehaviour:
     Data3: 1932706494
     Data4: -193646901
   Banks:
-  - {fileID: 4177749831597032886}
+  - {fileID: -3644513081274754174}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -112,3 +122,77 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 600203
+--- !u!114 &7775161475479854030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TeMP_StageSound/Track02
+  m_EditorClassIdentifier: 
+  Path: event:/TeMP_StageSound/Track02
+  Guid:
+    Data1: 852848855
+    Data2: 1079758966
+    Data3: -1660239187
+    Data4: 2054451962
+  Banks:
+  - {fileID: 1804769092360819530}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 240048
+--- !u!114 &8228620800520554647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TeMP_StageSound/Track03
+  m_EditorClassIdentifier: 
+  Path: event:/TeMP_StageSound/Track03
+  Guid:
+    Data1: -1744773704
+    Data2: 1147564557
+    Data3: -1046766201
+    Data4: 829228433
+  Banks:
+  - {fileID: 1804769092360819530}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 240048
+--- !u!114 &8715239452212113364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638793659428276076
+  FileSizes:
+  - Name: Desktop
+    Value: 934
+  Exists: 1
