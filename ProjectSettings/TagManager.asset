@@ -41,14 +41,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ground
+  - name: BackGround
     uniqueID: 3896985519
     locked: 0
-  - name: BackGround
+  - name: Object0
     uniqueID: 1114416595
     locked: 0
-  - name: Object
+  - name: Ground
     uniqueID: 3118580799
+    locked: 0
+  - name: 
+    uniqueID: 1435008869
     locked: 0
   m_RenderingLayers:
   - Default
