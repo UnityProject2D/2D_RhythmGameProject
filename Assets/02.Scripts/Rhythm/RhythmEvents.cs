@@ -33,10 +33,14 @@ public static class RhythmEvents
     /// </summary>
     public static event Action<string> OnMarkerHit;
 
+    public static event Action<NoteData> OnNotePreview;
+
     // ===== Invoke =====
 
     public static void InvokeOnBeat() => OnBeat?.Invoke();
     public static void InvokeOnSubBeat() => OnSubBeat?.Invoke();
     public static void InvokeOnInputJudged(JudgementResult result) => OnInputJudged?.Invoke(result);
     public static void InvokeOnMarkerHit(string name) => OnMarkerHit?.Invoke(name);
+
+    public static void InvokeOnNotePreview(NoteData note) => OnNotePreview?.Invoke(note);
 }

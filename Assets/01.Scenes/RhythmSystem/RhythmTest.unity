@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0b0b1282d9d384097e5044e52cb1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pattern: {fileID: 11400000, guid: 806a9e805715cd549825769e326245ac, type: 2}
+  pattern: {fileID: 11400000, guid: 51d18a65aa3e22f4a9127d1bb060f352, type: 2}
   perfectRange: 0.15
   goodRange: 0.3
   badRange: 0.45
@@ -1112,7 +1112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -365, y: 148}
+  m_AnchoredPosition: {x: -460.6, y: 148}
   m_SizeDelta: {x: 3, y: 416.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1272653233
@@ -1353,18 +1353,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1704735458}
-        m_TargetAssemblyTypeName: RhythmPreviewer, Assembly-CSharp
-        m_MethodName: StartPreview
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1437456068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1433,7 +1421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d195a56a291bbe4f9e1f29c2cf2cfb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pattern: {fileID: 11400000, guid: 806a9e805715cd549825769e326245ac, type: 2}
+  pattern: {fileID: 11400000, guid: 51d18a65aa3e22f4a9127d1bb060f352, type: 2}
   noteUIPrefab: {fileID: 783586115796944255, guid: ac5b1c39ee5fae7419fb86c2c3e8e107, type: 3}
   uiSpawnParent: {fileID: 1351124039}
 --- !u!4 &1704735459
@@ -1464,7 +1452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPattern: {fileID: 11400000, guid: 806a9e805715cd549825769e326245ac, type: 2}
-  bpm: 120
+  bpm: 97
 --- !u!1 &1865310775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,8 +1602,80 @@ PrefabInstance:
       value: RhythmManager
       objectReference: {fileID: 0}
     - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: BPM
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
       propertyPath: IsTest
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: pattern
+      value: 
+      objectReference: {fileID: 11400000, guid: 51d18a65aa3e22f4a9127d1bb060f352, type: 2}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[0].Path
+      value: event:/TeMP_StageSound/Track01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[1].Path
+      value: event:/TeMP_StageSound/Track02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[2].Path
+      value: event:/TeMP_StageSound/Track03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[0].Guid.Data1
+      value: -14626127
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[0].Guid.Data2
+      value: 1127277754
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[0].Guid.Data3
+      value: -138262356
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[0].Guid.Data4
+      value: 930445000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[1].Guid.Data1
+      value: 852848855
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[1].Guid.Data2
+      value: 1079758966
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[1].Guid.Data3
+      value: -1660239187
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[1].Guid.Data4
+      value: 2054451962
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[2].Guid.Data1
+      value: -1744773704
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[2].Guid.Data2
+      value: 1147564557
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[2].Guid.Data3
+      value: -1046766201
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[2].Guid.Data4
+      value: 829228433
       objectReference: {fileID: 0}
     - target: {fileID: 9034453706349065766, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
       propertyPath: m_LocalPosition.x

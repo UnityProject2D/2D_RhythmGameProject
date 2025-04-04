@@ -7,18 +7,24 @@ using FMOD.Studio;
 public class RhythmManager : MonoBehaviour
 {
     public static RhythmManager Instance { get; private set; }
-
-    [SerializeField] private EventReference eventReference;
+    [SerializeField] private EventReference[] musicTracks;
+    //[SerializeField] private EventReference eventReference;
     public bool IsTest = true;
     public bool IsPlaying = false;
     public float BPM;
     private EventInstance musicInstance;
     private GCHandle timelineHandle;
+    [SerializeField] private float previewLeadTimeInBeat = 4f;
+    public RhythmPatternSO pattern;
+    private float beatDuration => 60f / RhythmManager.Instance.BPM;
 
     public float CurrentTimelineTime { get; private set; } = 0f;
+    public float MusicStartTime { get; private set; } = -1f;
 
     public static event Action<float> OnBeat; // beat 시간(초) 전달
     public static event Action<string> OnMarker;
+
+    private int previewIndex = 0;
 
     private void Awake()
     {
@@ -31,14 +37,38 @@ public class RhythmManager : MonoBehaviour
         TimelineInfo info = new TimelineInfo();
         timelineHandle = GCHandle.Alloc(info);
 
-        musicInstance = RuntimeManager.CreateInstance(eventReference);
+        musicInstance = RuntimeManager.CreateInstance(musicTracks[0]);
         musicInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
         musicInstance.setCallback(FMODCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
 
         if (IsTest)
             Play();
     }
-    public float MusicStartTime { get; private set; } = -1f;
+
+    void Update()
+    {
+        if (!RhythmManager.Instance.IsPlaying) return;
+
+        float currentTime = RhythmManager.Instance.GetCurrentMusicTime();
+
+        while (previewIndex < pattern.notes.Count)
+        {
+            var note = pattern.notes[previewIndex];
+            float noteTime = note.beat * beatDuration;
+            float previewTime = noteTime - (previewLeadTimeInBeat * beatDuration);
+
+            if (currentTime >= previewTime)
+            {
+                RhythmEvents.InvokeOnNotePreview(note);
+                Debug.Log($"[미리보기] 키: {note.expectedKey}, 비트: {note.beat}");
+                previewIndex++;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
     public void Play()
     {
         if (!musicInstance.isValid()) return;
