@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/99.FMOD/FMOD Studio/TestProject/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638792862783001333
+  lastModified: 638793236248631744
   FileSizes:
   - Name: Desktop
     Value: 794
@@ -35,7 +35,7 @@ MonoBehaviour:
   Path: Assets/99.FMOD/FMOD Studio/TestProject/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638792862782991334
+  lastModified: 638793236248621774
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -57,15 +57,35 @@ MonoBehaviour:
   - {fileID: 4177749831597032886}
   - {fileID: -1144346365305724475}
   EditorEvents:
-  - {fileID: 3264618439977057523}
+  - {fileID: 4359499885671770860}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1144346365305724475}
   StringsBanks:
   - {fileID: -7133115056143398769}
-  cacheTime: 638792862783001333
+  cacheTime: 638793245596862033
   cacheVersion: 131623
---- !u!114 &3264618439977057523
+--- !u!114 &4177749831597032886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master Bank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/99.FMOD/FMOD Studio/TestProject/Build/Desktop/Master Bank.bank
+  Name: Master Bank
+  StudioPath: bank:/Master Bank
+  lastModified: 638793245596862033
+  FileSizes:
+  - Name: Desktop
+    Value: 7517248
+  Exists: 1
+--- !u!114 &4359499885671770860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,24 +111,4 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 123115
---- !u!114 &4177749831597032886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master Bank.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/99.FMOD/FMOD Studio/TestProject/Build/Desktop/Master Bank.bank
-  Name: Master Bank
-  StudioPath: bank:/Master Bank
-  lastModified: 638792862782981212
-  FileSizes:
-  - Name: Desktop
-    Value: 1624960
-  Exists: 1
+  Length: 600203
