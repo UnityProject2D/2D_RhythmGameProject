@@ -1,0 +1,148 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ca63dec1e6d6745b9b64a9faf96794, type: 3}
+  m_Name: TestRhythmPattern 1
+  m_EditorClassIdentifier: 
+  bpm: 97
+  notes:
+  - beat: 25.590218
+    expectedKey: W
+  - beat: 26.590935
+    expectedKey: S
+  - beat: 27.556084
+    expectedKey: D
+  - beat: 28.5568
+    expectedKey: S
+  - beat: 33.5232
+    expectedKey: A
+  - beat: 34.5223
+    expectedKey: D
+  - beat: 35.489067
+    expectedKey: A
+  - beat: 36.454216
+    expectedKey: D
+  - beat: 41.42062
+    expectedKey: W
+  - beat: 42.421333
+    expectedKey: W
+  - beat: 43.456
+    expectedKey: S
+  - beat: 44.49067
+    expectedKey: D
+  - beat: 49.38755
+    expectedKey: A
+  - beat: 50.388268
+    expectedKey: D
+  - beat: 51.353416
+    expectedKey: S
+  - beat: 52.354134
+    expectedKey: S
+  - beat: 57.4919
+    expectedKey: A
+  - beat: 57.87182
+    expectedKey: D
+  - beat: 58.319637
+    expectedKey: A
+  - beat: 58.872536
+    expectedKey: D
+  - beat: 59.286404
+    expectedKey: A
+  - beat: 59.837685
+    expectedKey: D
+  - beat: 60.321068
+    expectedKey: A
+  - beat: 60.768887
+    expectedKey: D
+  - beat: 65.32142
+    expectedKey: A
+  - beat: 65.8048
+    expectedKey: D
+  - beat: 66.35608
+    expectedKey: W
+  - beat: 67.49422
+    expectedKey: D
+  - beat: 67.83857
+    expectedKey: A
+  - beat: 68.42542
+    expectedKey: D
+  - beat: 68.805336
+    expectedKey: A
+  - beat: 73.425766
+    expectedKey: S
+  - beat: 74.39253
+    expectedKey: W
+  - beat: 75.4272
+    expectedKey: D
+  - beat: 76.3584
+    expectedKey: A
+  - beat: 81.28924
+    expectedKey: D
+  - beat: 81.66915
+    expectedKey: A
+  - beat: 82.256004
+    expectedKey: D
+  - beat: 82.77334
+    expectedKey: A
+  - beat: 83.29067
+    expectedKey: D
+  - beat: 106.08729
+    expectedKey: W
+  - beat: 108.156624
+    expectedKey: S
+  - beat: 121.056
+    expectedKey: A
+  - beat: 121.503815
+    expectedKey: D
+  - beat: 122.05511
+    expectedKey: W
+  - beat: 122.608
+    expectedKey: S
+  - beat: 123.12534
+    expectedKey: D
+  - beat: 123.6071
+    expectedKey: A
+  - beat: 124.124435
+    expectedKey: W
+  - beat: 124.57387
+    expectedKey: S
+  - beat: 129.02293
+    expectedKey: A
+  - beat: 129.50471
+    expectedKey: D
+  - beat: 130.0576
+    expectedKey: W
+  - beat: 130.60889
+    expectedKey: S
+  - beat: 131.09227
+    expectedKey: D
+  - beat: 132.02347
+    expectedKey: D
+  - beat: 156.92337
+    expectedKey: D
+  - beat: 157.85457
+    expectedKey: A
+  - beat: 158.85529
+    expectedKey: D
+  - beat: 159.856
+    expectedKey: W
+  - beat: 160.89067
+    expectedKey: S
+  - beat: 161.85582
+    expectedKey: D
+  - beat: 162.82097
+    expectedKey: A
+  - beat: 163.82169
+    expectedKey: D
+  - beat: 169.7888
+    expectedKey: W
+  - beat: 171.85814
+    expectedKey: S
