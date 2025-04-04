@@ -13,4 +13,40 @@ MonoBehaviour:
   m_Name: TestRhythmPattern
   m_EditorClassIdentifier: 
   bpm: 97
-  notes: []
+  notes:
+  - beat: 0.08781667
+    expectedKey: W
+  - beat: 0.104166664
+    expectedKey: W
+  - beat: 0.12123334
+    expectedKey: W
+  - beat: 0.13688333
+    expectedKey: W
+  - beat: 0.15395
+    expectedKey: W
+  - beat: 0.17101666
+    expectedKey: W
+  - beat: 0.18773334
+    expectedKey: W
+  - beat: 0.20336667
+    expectedKey: W
+  - beat: 0.22043332
+    expectedKey: W
+  - beat: 0.2375
+    expectedKey: W
+  - beat: 0.25386667
+    expectedKey: W
+  - beat: 0.27093333
+    expectedKey: W
+  - beat: 0.28835002
+    expectedKey: W
+  - beat: 0.30435
+    expectedKey: W
+  - beat: 0.32106668
+    expectedKey: W
+  - beat: 0.33776668
+    expectedKey: W
+  - beat: 0.3541333
+    expectedKey: W
+  - beat: 0.3712
+    expectedKey: W

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ca63dec1e6d6745b9b64a9faf96794, type: 3}
+  m_Name: TestRhythmPattern 4
+  m_EditorClassIdentifier: 
+  bpm: 120
+  notes:
+  - beat: 6.484
+    expectedKey: W
+  - beat: 7.38
+    expectedKey: W
+  - beat: 8.234
+    expectedKey: W
+  - beat: 9.172
+    expectedKey: W
+  - beat: 14.42
+    expectedKey: W
+  - beat: 15.402
+    expectedKey: W
+  - beat: 16.212
+    expectedKey: W
+  - beat: 17.236
+    expectedKey: W
+  - beat: 22.4
+    expectedKey: W
+  - beat: 23.424
+    expectedKey: D
+  - beat: 24.276
+    expectedKey: A
+  - beat: 25.344
+    expectedKey: D
+  - beat: 30.292
+    expectedKey: S
+  - beat: 31.316
+    expectedKey: A
+  - beat: 32.256
+    expectedKey: D
+  - beat: 33.152
+    expectedKey: A
+  - beat: 38.612
+    expectedKey: S
+  - beat: 39.552
+    expectedKey: W
+  - beat: 40.49
+    expectedKey: D
+  - beat: 41.556
+    expectedKey: A
+  - beat: 46.42
+    expectedKey: S
+  - beat: 47.402
+    expectedKey: A
+  - beat: 48.426
+    expectedKey: D
+  - beat: 49.322
+    expectedKey: A
