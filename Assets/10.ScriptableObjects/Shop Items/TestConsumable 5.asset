@@ -16,6 +16,7 @@ MonoBehaviour:
   icon: {fileID: 4606908045521496030, guid: 2b8558b645a07d74582677fd0bf9dfa9, type: 3}
   description: 4
   price: 4
+  currencyType: 1
   category: {fileID: 11400000, guid: dbacc609a7692aa4bbb3487a966d718b, type: 2}
   OnPurchase:
     m_PersistentCalls:

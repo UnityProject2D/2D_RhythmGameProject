@@ -15,6 +15,7 @@ public class ShopItemSOEditor : Editor
         item.description = EditorGUILayout.TextField("설명", item.description);
 
         item.price = EditorGUILayout.IntField("가격", item.price);
+        item.currencyType = (CurrencyType)EditorGUILayout.EnumPopup("재화 종류", item.currencyType);
         item.category = (ItemCategorySO)EditorGUILayout.ObjectField("카테고리", item.category, typeof(ItemCategorySO), false);
 
 
