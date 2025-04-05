@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using TMPro;
 
 public class ShopSystem : MonoBehaviour
 {
@@ -20,13 +21,38 @@ public class ShopSystem : MonoBehaviour
     [Tooltip("소비 아이템")]
     private int _consumableItemsCount;
 
+    [Header("재화")]
+    [SerializeField] private TMP_Text _quantumKeyText;
+    [SerializeField] private TMP_Text _creditText;
+
     private List<ShopItemSO> _currentEquipmentItems = new();
     private List<ShopItemSO> _currentConsumableItems = new();
 
 
-    private void Start()
+    private void OnEnable()
     {
         GenerateShopItems();
+        UpdateCurrency();
+    }
+    private void OnDisable()
+    {
+        foreach (Transform child in _equipSlotParent)
+        {
+            child.GetComponent<ShopSlotUI>().OnPurchaseSuccess -= UpdateCurrency;
+
+            Destroy(child.gameObject);
+        }
+        foreach (Transform child in _consumableSlotParent)
+        {
+            child.GetComponent<ShopSlotUI>().OnPurchaseSuccess -= UpdateCurrency;
+
+            Destroy(child.gameObject);
+        }
+    }
+    public void UpdateCurrency()
+    {
+        _quantumKeyText.text = CurrencyManager.Instance.Get(CurrencyType.QuantumKey).ToString();
+        _creditText.text = CurrencyManager.Instance.Get(CurrencyType.Credit).ToString();
     }
 
     public void GenerateShopItems()
@@ -45,27 +71,19 @@ public class ShopSystem : MonoBehaviour
 
     private void CreateSlots()
     {
-        foreach (Transform child in _equipSlotParent)
-        {
-            Destroy(child.gameObject);
-        }
-        foreach (Transform child in _consumableSlotParent)
-        {
-            Destroy(child.gameObject);
-        }
-
-
         foreach (var item in _currentEquipmentItems)
         {
             var slot = Instantiate(_shopSlotPrefab, _equipSlotParent);
             var slotUI = slot.GetComponent<ShopSlotUI>();
             slotUI.Setup(item);
+            slotUI.OnPurchaseSuccess += UpdateCurrency;
         }
         foreach (var item in _currentConsumableItems)
         {
             var slot = Instantiate(_shopSlotPrefab, _consumableSlotParent);
             var slotUI = slot.GetComponent<ShopSlotUI>();
             slotUI.Setup(item);
+            slotUI.OnPurchaseSuccess += UpdateCurrency;
         }
     }
 
@@ -83,4 +101,6 @@ public class ShopSystem : MonoBehaviour
 
         return result;
     }
+
+    
 }
