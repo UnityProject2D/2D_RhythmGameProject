@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using static RhythmInputHandler; // 플레이어 입력 처리
 
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public GameObject[] vfxPrefabs; // 0: Jump, 1: Down, 2: Roll, 3: BackFlip
     public Transform vfxSpawnPoint;
     private int _comboCount = 0; // 콤보 카운트
+    [SerializeField]
+    private TextMeshProUGUI _comboText; // 콤보 UI 텍스트
 
     private void Awake()
     {
@@ -75,44 +78,55 @@ public class PlayerController : MonoBehaviour
 
     private void OnInputJudg(JudgementResult result)
     {
-        //Debug.Log($"판정 결과: {result}");
+        Debug.Log($"판정 결과: {result}");
         switch (result)
         {
             case JudgementResult.Perfect:
             case JudgementResult.Good:
                 _comboCount++;
-                //ShowComboEffect(result); // 효과 출력
+                ShowComboEffect(result); // 효과 출력
                 break;
             case JudgementResult.Bad:
-                _comboCount = 0;
-                //ShowMissEffect();
-                break;
             case JudgementResult.Miss:
                 _comboCount = 0;
-                ShowMissEffect();
+                ShowMissEffect(); //대미지 애니메이션 출력
+                break;
+        }
+        UpdateComboUI();
+    }
+
+    private void ShowComboEffect(JudgementResult result)
+    {
+        // 판정 결과에 따라 색/이펙트 다르게 출력 가능
+        switch (result)
+        {
+            case JudgementResult.Perfect:
+                Debug.Log("퍼펙트 이펙트 출력!");
+                break;
+            case JudgementResult.Good:
+                Debug.Log("굿 이펙트 출력!");
                 break;
         }
     }
 
-    //private void ShowComboEffect(JudgementResult result)
-    //{
-    //    // 판정 결과에 따라 색/이펙트 다르게 출력 가능
-    //    switch (result)
-    //    {
-    //        case JudgementResult.Perfect:
-    //            Debug.Log("퍼펙트 이펙트 출력!");
-    //            break;
-    //        case JudgementResult.Good:
-    //            Debug.Log("굿 이펙트 출력!");
-    //            break;
-    //    }
-    //}
-
     private void ShowMissEffect()
     {
+        Debug.Log("미스 이펙트 출력!");
         RhythmAction direction = RhythmAction.None;
         direction = RhythmAction.Damage;
         _animator.SetInteger("Direction", (int)direction);
         StartCoroutine(ResetAnimation());
+    }
+
+    private void UpdateComboUI()
+    {
+        if (_comboCount > 0)
+        {
+            _comboText.text = $"Combo: {_comboCount}";
+        }
+        else
+        {
+            _comboText.text = "Miss!";
+        }
     }
 }
