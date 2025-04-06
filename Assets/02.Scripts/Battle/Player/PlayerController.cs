@@ -10,7 +10,8 @@ public enum RhythmAction
     Slide,
     Roll,
     BackFlip,
-    Damage
+    Hit,
+    Die
 }
 
 public class PlayerController : MonoBehaviour
@@ -101,19 +102,19 @@ public class PlayerController : MonoBehaviour
         switch (result)
         {
             case JudgementResult.Perfect:
-                Debug.Log("퍼펙트 이펙트 출력!");
+                Debug.Log("Perfect!!");
                 break;
             case JudgementResult.Good:
-                Debug.Log("굿 이펙트 출력!");
+                Debug.Log("Good!!");
                 break;
         }
     }
 
     private void ShowMissEffect()
     {
-        Debug.Log("미스 이펙트 출력!");
+        Debug.Log("Miss!!");
         RhythmAction direction = RhythmAction.None;
-        direction = RhythmAction.Damage;
+        direction = RhythmAction.Hit;
         _animator.SetInteger("Direction", (int)direction);
         StartCoroutine(ResetAnimation());
     }

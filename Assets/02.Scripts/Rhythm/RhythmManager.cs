@@ -1,8 +1,8 @@
+using FMOD.Studio;
+using FMODUnity;
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
-using FMODUnity;
-using FMOD.Studio;
 using static RhythmEvents;
 
 public class RhythmManager : MonoBehaviour
@@ -47,7 +47,7 @@ public class RhythmManager : MonoBehaviour
     {
         TimelineInfo info = new TimelineInfo();
         _timelineHandle = GCHandle.Alloc(info);
-        
+
         _musicInstance.setUserData(GCHandle.ToIntPtr(_timelineHandle));
         _musicInstance.setCallback(FMODCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
 
@@ -114,7 +114,7 @@ public class RhythmManager : MonoBehaviour
             MusicStartTime = Time.time - (ms / 1000f);
             IsPlaying = true;
         }
-            
+
     }
     public float GetCurrentMusicTime()
     {
