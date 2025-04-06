@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
 using UnityEngine;
 
+//const int CELL_SIZE = 128;
+//const float TILE_SCALE_ADJ = 0.9f;
 public class Cell
 {
     public Vector2 Coords {  get; private set; }
@@ -24,5 +25,28 @@ public class Cell
             OnCollapsed?.Invoke(this);
     }
 
+    public void Collapse(int selectedIndex)
+    {
+        if (IsCollapsed)
+            return;
+        // -1일 경우 랜덤
+        if(-1 == selectedIndex)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, PossibleTiles.Count);
+            Collapse(PossibleTiles[randomIndex]);
+            return;
+        }
+
+        // 후보에 없을 경우
+        if (!PossibleTiles.Contains(selectedIndex)) return;
+
+        PossibleTiles = new List<int> { selectedIndex };
+        OnCollapsed?.Invoke(this);
+    }
+
+    public void Propagate(Vector2Int coords)
+    {
+
+    }
 
 }
