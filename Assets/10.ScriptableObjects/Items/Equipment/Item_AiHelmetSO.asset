@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ffe6f99ff81690409cf3a698c5b9330, type: 3}
-  m_Name: TestEquipment 1
+  m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
+  m_Name: Item_AiHelmetSO
   m_EditorClassIdentifier: 
-  itemName: Hat
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  description: This is hat.
-  price: 10
+  itemName: "AI \uD5EC\uBA67"
+  icon: {fileID: -4646211311651353469, guid: 545cbd8ce1c36f54085c5f8669e96422, type: 3}
+  description: "\uD5EC\uBA67\uC774\uB2E4"
   category: {fileID: 11400000, guid: 1800b112f2b16884c8dd374b5b274634, type: 2}
-  OnPurchase:
-    m_PersistentCalls:
-      m_Calls: []
+  effects: []
