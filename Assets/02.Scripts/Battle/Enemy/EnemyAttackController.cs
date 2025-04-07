@@ -18,7 +18,7 @@ public class EnemyAttackController : MonoBehaviour
 
     public GameObject EnemyBulletPrefab;
     public Transform EnemyBulletSpawnPoints;
-    private List<GameObject> bulletPool = new();
+    private List<GameObject> EnemyBulletPool = new();
 
     private int poolSize = 10;
 
@@ -34,29 +34,46 @@ public class EnemyAttackController : MonoBehaviour
         {
             GameObject bullet = Instantiate(EnemyBulletPrefab);
             bullet.SetActive(false);
-            bulletPool.Add(bullet);
+            EnemyBulletPool.Add(bullet);
         }
     }
 
     private void OnEnable()
     {
-        OnBeat += OnBeatReceived;
+        OnNote += OnNoteReceived;
     }
 
     private void OnDisable()
     {
-        OnBeat -= OnBeatReceived;
+        OnNote -= OnNoteReceived;
     }
 
-    private void OnBeatReceived(float beatTime)
+    private void OnNoteReceived(NoteData beatTime)
     {
-        if (!EnemyPatternBuffer.Instance.TryDequeue(out int index)) return;
+        int index = GetIndexFromKey(beatTime.expectedKey); // 입력 키(WASD) → 인덱스로 변환 (0~3)
+        if (index < 0 || index >= EnemyBulletPool.Count) return;
+
+        // bullet 메서드
+        FireBullet(index);
 
         _animator.SetInteger("Direction", index + 1);
         _animator.SetTrigger("Attack");
-        FireBullet(index);
+
 
         StartCoroutine(ResetAnimation());
+    }
+
+    // 키 문자열 → 인덱스로 변환 (매핑용)
+    private int GetIndexFromKey(string key)
+    {
+        return key switch
+        {
+            "W" => 0,
+            "S" => 1,
+            "A" => 2,
+            "D" => 3,
+            _ => -1
+        };
     }
 
     private void FireBullet(int directionIndex)
@@ -78,13 +95,13 @@ public class EnemyAttackController : MonoBehaviour
         bullet.transform.rotation = Quaternion.Euler(0f, 0f, zRotation);
 
         // 회전 방향 기준으로 이동 방향 설정
-        bullet.GetComponent<EnemyBullet>().direction = bullet.transform.up;
+        bullet.GetComponent<EnemyBullet>().direction = Vector2.left;
         bullet.SetActive(true);
     }
 
     private GameObject GetBulletFromPool()
     {
-        foreach (var bullet in bulletPool)
+        foreach (var bullet in EnemyBulletPool)
         {
             if (!bullet.activeInHierarchy)
                 return bullet;

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Grasshopper_Bullet_0: 3799289709143599989
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

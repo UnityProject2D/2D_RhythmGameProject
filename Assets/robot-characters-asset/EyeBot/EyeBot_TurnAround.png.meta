@@ -747,7 +747,32 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      EyeBot_TurnAround_0: 5932832108398375208
+      EyeBot_TurnAround_1: 3020191370098298264
+      EyeBot_TurnAround_10: 6898626766719024853
+      EyeBot_TurnAround_11: 316405330919219847
+      EyeBot_TurnAround_12: 7734157455744519077
+      EyeBot_TurnAround_13: -2051764339751610673
+      EyeBot_TurnAround_14: -6237649453384879328
+      EyeBot_TurnAround_15: 6670692033261187525
+      EyeBot_TurnAround_16: -871060878404965635
+      EyeBot_TurnAround_17: -6556307309496192751
+      EyeBot_TurnAround_18: 4252981220989957566
+      EyeBot_TurnAround_19: -6961543865919462583
+      EyeBot_TurnAround_2: 2429421070090905030
+      EyeBot_TurnAround_20: -3397350782883677453
+      EyeBot_TurnAround_21: 2429754814432611036
+      EyeBot_TurnAround_22: 4936860440489565333
+      EyeBot_TurnAround_23: 4117831854833597836
+      EyeBot_TurnAround_24: 7844782611391830095
+      EyeBot_TurnAround_3: -6611627740845858221
+      EyeBot_TurnAround_4: -3007520518915851198
+      EyeBot_TurnAround_5: 4847154611477374790
+      EyeBot_TurnAround_6: 3219486054414867853
+      EyeBot_TurnAround_7: 3702660680995384795
+      EyeBot_TurnAround_8: 4244603666111479596
+      EyeBot_TurnAround_9: 2396725519300568979
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

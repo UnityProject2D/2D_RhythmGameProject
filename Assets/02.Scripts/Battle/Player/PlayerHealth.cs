@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     {
         PlayerCurrentHealth -= amount;
         Debug.Log($"플레이어 피격! 현재 체력: {PlayerCurrentHealth}");
-        _animator.SetInteger("Direction", (int)RhythmAction.Hit);
+        //_animator.SetInteger("Direction", (int)RhythmAction.Hit);
 
         UpdatePlayerHealthUI();
 

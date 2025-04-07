@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour
         shadow.transform.position = EnemyShadowSpawnPoint[index].position;
         shadow.SetActive(true);
 
-        EnemyPatternBuffer.Instance.EnqueuePattern(index); // 잔상 패턴 저장해서 실제 공격 때 사용해야 함. 
+        //EnemyPatternBuffer.Instance.EnqueuePattern(index); // 잔상 패턴 저장해서 실제 공격 때 사용해야 함. 
         StartCoroutine(HidePatternAfterDelay(shadow, 1f)); // 1f초 후 비활성화
     }
 

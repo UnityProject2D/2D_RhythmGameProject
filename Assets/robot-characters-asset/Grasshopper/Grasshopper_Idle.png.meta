@@ -522,7 +522,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Grasshopper_Idle_0: 2868403101466375235
+      Grasshopper_Idle_1: 4937746579165911890
+      Grasshopper_Idle_10: 2730626781606183728
+      Grasshopper_Idle_11: -45729120332237790
+      Grasshopper_Idle_12: 654142754295890547
+      Grasshopper_Idle_13: 8475894737761216172
+      Grasshopper_Idle_14: 1882209955640271471
+      Grasshopper_Idle_15: -6816675621408646916
+      Grasshopper_Idle_2: 2785543115039958352
+      Grasshopper_Idle_3: 1794971565073010789
+      Grasshopper_Idle_4: -7079974946036014173
+      Grasshopper_Idle_5: -8920303873965568750
+      Grasshopper_Idle_6: 8835827085178587449
+      Grasshopper_Idle_7: -4816719273415491584
+      Grasshopper_Idle_8: -7143967889471272631
+      Grasshopper_Idle_9: -875473254905722604
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -397,7 +397,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Grasshopper_Shoot2_0: 5979972385404334981
+      Grasshopper_Shoot2_1: 6513123541913839892
+      Grasshopper_Shoot2_10: -4993893355026694573
+      Grasshopper_Shoot2_2: 6838070057500384552
+      Grasshopper_Shoot2_3: -8772323416419737132
+      Grasshopper_Shoot2_4: 7587393070793759589
+      Grasshopper_Shoot2_5: -8470449995087470559
+      Grasshopper_Shoot2_6: -1946345650848357161
+      Grasshopper_Shoot2_7: 1378087483019806447
+      Grasshopper_Shoot2_8: -3260599867504698645
+      Grasshopper_Shoot2_9: 7748861390048430920
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

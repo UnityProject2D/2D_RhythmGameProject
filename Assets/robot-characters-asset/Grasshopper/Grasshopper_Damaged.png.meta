@@ -347,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Grasshopper_Damaged_0: -4625393707071000589
+      Grasshopper_Damaged_1: 1350081437660627299
+      Grasshopper_Damaged_2: -2133469544419696529
+      Grasshopper_Damaged_3: -952367530545146043
+      Grasshopper_Damaged_4: -3151668023612102040
+      Grasshopper_Damaged_5: 2660842260005029302
+      Grasshopper_Damaged_6: 347168020263452847
+      Grasshopper_Damaged_7: 6654147490419389720
+      Grasshopper_Damaged_8: 8659864847659512031
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

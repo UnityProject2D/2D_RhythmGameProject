@@ -622,7 +622,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      EyeBot_Attack4_0: 357848538005411032
+      EyeBot_Attack4_1: -2757306675993672849
+      EyeBot_Attack4_10: 6056176837492961714
+      EyeBot_Attack4_11: -4459547061876898441
+      EyeBot_Attack4_12: -7220803940503711673
+      EyeBot_Attack4_13: 403804252344069000
+      EyeBot_Attack4_14: -3556106780460235354
+      EyeBot_Attack4_15: 8201632171698559734
+      EyeBot_Attack4_16: -8739747384540542507
+      EyeBot_Attack4_17: 1144408308439539499
+      EyeBot_Attack4_18: 4605122156975632126
+      EyeBot_Attack4_19: -324189431749986563
+      EyeBot_Attack4_2: 4956979625865567278
+      EyeBot_Attack4_3: -573446268859120022
+      EyeBot_Attack4_4: -5238830636630686057
+      EyeBot_Attack4_5: 620072308475866380
+      EyeBot_Attack4_6: -4977073905122493879
+      EyeBot_Attack4_7: 3116909247699842421
+      EyeBot_Attack4_8: 6901473563441095954
+      EyeBot_Attack4_9: 2170436455524638547
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

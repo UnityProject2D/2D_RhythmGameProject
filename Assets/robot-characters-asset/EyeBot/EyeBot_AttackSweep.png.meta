@@ -2072,7 +2072,85 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      EyeBot_AttackSweep_0: -1816602424573636497
+      EyeBot_AttackSweep_1: -6275512525990352610
+      EyeBot_AttackSweep_10: 7377540488269428143
+      EyeBot_AttackSweep_11: 183056851480164734
+      EyeBot_AttackSweep_12: 2161710080802213798
+      EyeBot_AttackSweep_13: -6966066071148200743
+      EyeBot_AttackSweep_14: -959912221886634782
+      EyeBot_AttackSweep_15: -7764191924140907913
+      EyeBot_AttackSweep_16: -751809783395810882
+      EyeBot_AttackSweep_17: -3965145410439926211
+      EyeBot_AttackSweep_18: 3170337287079096618
+      EyeBot_AttackSweep_19: -5508961693924236122
+      EyeBot_AttackSweep_2: -4612266730177430
+      EyeBot_AttackSweep_20: 4143192265607414987
+      EyeBot_AttackSweep_21: -5605784232633671671
+      EyeBot_AttackSweep_22: -6940830650733086291
+      EyeBot_AttackSweep_23: 9073296719459934431
+      EyeBot_AttackSweep_24: -5784591160537742614
+      EyeBot_AttackSweep_25: -618143878655504008
+      EyeBot_AttackSweep_26: 2775484593239068860
+      EyeBot_AttackSweep_27: -5202943630640505665
+      EyeBot_AttackSweep_28: 3665079808718470617
+      EyeBot_AttackSweep_29: -321497623471632068
+      EyeBot_AttackSweep_3: 4604558144792379768
+      EyeBot_AttackSweep_30: 2810945756475527548
+      EyeBot_AttackSweep_31: 709870750642594184
+      EyeBot_AttackSweep_32: -1382772802382683631
+      EyeBot_AttackSweep_33: -7720246598330690181
+      EyeBot_AttackSweep_34: -5146307400406493506
+      EyeBot_AttackSweep_35: -1140169758159462612
+      EyeBot_AttackSweep_36: -6051126931986257470
+      EyeBot_AttackSweep_37: 2536081519422037877
+      EyeBot_AttackSweep_38: -1781680501818344531
+      EyeBot_AttackSweep_39: -8401206295998773457
+      EyeBot_AttackSweep_4: -6017963758409408579
+      EyeBot_AttackSweep_40: 6600491493899757034
+      EyeBot_AttackSweep_41: 8037117451368052922
+      EyeBot_AttackSweep_42: 1868399577081236366
+      EyeBot_AttackSweep_43: -5258129638159538653
+      EyeBot_AttackSweep_44: 4704702022474745190
+      EyeBot_AttackSweep_45: 8623527002255308048
+      EyeBot_AttackSweep_46: 6076905218540649049
+      EyeBot_AttackSweep_47: -4344545602648700786
+      EyeBot_AttackSweep_48: 7844231790560749336
+      EyeBot_AttackSweep_49: 6504835677766264111
+      EyeBot_AttackSweep_5: 186468237990547852
+      EyeBot_AttackSweep_50: 7708146950206196118
+      EyeBot_AttackSweep_51: 7892761541890858571
+      EyeBot_AttackSweep_52: -1291970452092609855
+      EyeBot_AttackSweep_53: -6017593385957454676
+      EyeBot_AttackSweep_54: -225885877647109780
+      EyeBot_AttackSweep_55: -7627961614033057586
+      EyeBot_AttackSweep_56: -9099498876914096548
+      EyeBot_AttackSweep_57: 2784262668303231129
+      EyeBot_AttackSweep_58: -3395176492216946884
+      EyeBot_AttackSweep_59: -3083876807049113470
+      EyeBot_AttackSweep_6: -2633684194344352406
+      EyeBot_AttackSweep_60: -635198891016984299
+      EyeBot_AttackSweep_61: -8372085561786600008
+      EyeBot_AttackSweep_62: 2778856271893943554
+      EyeBot_AttackSweep_63: -1812887555115996949
+      EyeBot_AttackSweep_64: 5609405101815522497
+      EyeBot_AttackSweep_65: -6623477546380872913
+      EyeBot_AttackSweep_66: -8560278812876448488
+      EyeBot_AttackSweep_67: 4945974321704585029
+      EyeBot_AttackSweep_68: 2962522859465150391
+      EyeBot_AttackSweep_69: -5112238195087069772
+      EyeBot_AttackSweep_7: 2047980296399633178
+      EyeBot_AttackSweep_70: 8336756243069704845
+      EyeBot_AttackSweep_71: 2857612436166936981
+      EyeBot_AttackSweep_72: -6779537182054882974
+      EyeBot_AttackSweep_73: 7654962163489809403
+      EyeBot_AttackSweep_74: -1942082973890953264
+      EyeBot_AttackSweep_75: 8225182927480843706
+      EyeBot_AttackSweep_76: -8321679048124544824
+      EyeBot_AttackSweep_77: 8131140238077617054
+      EyeBot_AttackSweep_8: 5570130953230571187
+      EyeBot_AttackSweep_9: -9198155702819099040
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

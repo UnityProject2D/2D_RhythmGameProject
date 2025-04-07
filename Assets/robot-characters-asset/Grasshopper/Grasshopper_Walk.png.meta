@@ -472,7 +472,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Grasshopper_Walk_0: -6175188111351983566
+      Grasshopper_Walk_1: 375184290238602372
+      Grasshopper_Walk_10: 59705869375085084
+      Grasshopper_Walk_11: -6180886811518269646
+      Grasshopper_Walk_12: 1473240391533261008
+      Grasshopper_Walk_13: 9171049552419964842
+      Grasshopper_Walk_2: -7181020293510513805
+      Grasshopper_Walk_3: 3129813222409520706
+      Grasshopper_Walk_4: 7914980023065308059
+      Grasshopper_Walk_5: 5568797793831897883
+      Grasshopper_Walk_6: 3718870882814178496
+      Grasshopper_Walk_7: 3572049937323332364
+      Grasshopper_Walk_8: -7655269586629820691
+      Grasshopper_Walk_9: -8291015876082951570
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

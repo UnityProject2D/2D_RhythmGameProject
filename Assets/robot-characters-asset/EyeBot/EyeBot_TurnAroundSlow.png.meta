@@ -1422,7 +1422,59 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      EyeBot_TurnAroundSlow_0: -7285482037899711159
+      EyeBot_TurnAroundSlow_1: -3381591694173691832
+      EyeBot_TurnAroundSlow_10: 6752710078361393934
+      EyeBot_TurnAroundSlow_11: 3726039083761616110
+      EyeBot_TurnAroundSlow_12: -4558025989856758098
+      EyeBot_TurnAroundSlow_13: 1153482755090582103
+      EyeBot_TurnAroundSlow_14: 7550521235226238737
+      EyeBot_TurnAroundSlow_15: -2918567459533156516
+      EyeBot_TurnAroundSlow_16: -1607349325971316173
+      EyeBot_TurnAroundSlow_17: -9047524980069254122
+      EyeBot_TurnAroundSlow_18: -4460841383178878309
+      EyeBot_TurnAroundSlow_19: 6771271312964816541
+      EyeBot_TurnAroundSlow_2: -5687135018666679134
+      EyeBot_TurnAroundSlow_20: -2058986968085925499
+      EyeBot_TurnAroundSlow_21: 3899228863182450301
+      EyeBot_TurnAroundSlow_22: -1880076984852692453
+      EyeBot_TurnAroundSlow_23: 6462889935581602421
+      EyeBot_TurnAroundSlow_24: -2545272038417858286
+      EyeBot_TurnAroundSlow_25: 1182735519440210122
+      EyeBot_TurnAroundSlow_26: 3782300341074277444
+      EyeBot_TurnAroundSlow_27: 2531214718184635495
+      EyeBot_TurnAroundSlow_28: 8357370451396270459
+      EyeBot_TurnAroundSlow_29: -4265400707537300656
+      EyeBot_TurnAroundSlow_3: 4719433148562502916
+      EyeBot_TurnAroundSlow_30: 2839590817805902313
+      EyeBot_TurnAroundSlow_31: -4751578197348521672
+      EyeBot_TurnAroundSlow_32: -5281261782931530223
+      EyeBot_TurnAroundSlow_33: -2955540806409070088
+      EyeBot_TurnAroundSlow_34: 3783928561364745069
+      EyeBot_TurnAroundSlow_35: 5452639709484777634
+      EyeBot_TurnAroundSlow_36: -1801406351495796770
+      EyeBot_TurnAroundSlow_37: 8588860012751287823
+      EyeBot_TurnAroundSlow_38: -2340820499337106214
+      EyeBot_TurnAroundSlow_39: 8515527589689701421
+      EyeBot_TurnAroundSlow_4: 9128929995003489255
+      EyeBot_TurnAroundSlow_40: -8644958691925258538
+      EyeBot_TurnAroundSlow_41: 2123917764537579939
+      EyeBot_TurnAroundSlow_42: -1667468297758834081
+      EyeBot_TurnAroundSlow_43: 1521948616119437678
+      EyeBot_TurnAroundSlow_44: -2943184229356191319
+      EyeBot_TurnAroundSlow_45: 3981219798965678905
+      EyeBot_TurnAroundSlow_46: -4012512604590626258
+      EyeBot_TurnAroundSlow_47: 66513630551820457
+      EyeBot_TurnAroundSlow_48: -8096345168564999384
+      EyeBot_TurnAroundSlow_49: -6568768498643202025
+      EyeBot_TurnAroundSlow_5: -2614954349332609866
+      EyeBot_TurnAroundSlow_50: 1096089141105861382
+      EyeBot_TurnAroundSlow_51: 4851627698190355276
+      EyeBot_TurnAroundSlow_6: -1951915443885337438
+      EyeBot_TurnAroundSlow_7: 2203251500241360910
+      EyeBot_TurnAroundSlow_8: 549259325240551393
+      EyeBot_TurnAroundSlow_9: -7670375235175123620
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

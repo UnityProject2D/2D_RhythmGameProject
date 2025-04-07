@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _comboText; // 콤보 UI 텍스트
 
+    public PlayerHealth PlayerHealth; // 플레이어 체력 스크립트
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -113,6 +115,7 @@ public class PlayerController : MonoBehaviour
     private void ShowMissEffect()
     {
         Debug.Log("Miss!!");
+        PlayerHealth.TakeDamage(1); // 체력 감소
         RhythmAction direction = RhythmAction.None;
         direction = RhythmAction.Hit;
         _animator.SetInteger("Direction", (int)direction);

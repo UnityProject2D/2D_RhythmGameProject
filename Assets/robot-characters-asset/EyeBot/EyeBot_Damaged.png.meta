@@ -697,7 +697,30 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      EyeBot_Damaged_0: 6113828787628253099
+      EyeBot_Damaged_1: 8636175733654801861
+      EyeBot_Damaged_10: 6867027713425012744
+      EyeBot_Damaged_11: 6870231325992624671
+      EyeBot_Damaged_12: -851875804199065046
+      EyeBot_Damaged_13: 7616719414888493073
+      EyeBot_Damaged_14: -1722177156496462503
+      EyeBot_Damaged_15: -2134944626444420045
+      EyeBot_Damaged_16: 2081972628373890228
+      EyeBot_Damaged_17: 8455611906264752189
+      EyeBot_Damaged_18: 3522894806209771670
+      EyeBot_Damaged_19: 1658136560388409984
+      EyeBot_Damaged_2: 8183663518560996491
+      EyeBot_Damaged_20: 5079472556939328885
+      EyeBot_Damaged_21: 7993125356559476903
+      EyeBot_Damaged_22: 5957557758494122755
+      EyeBot_Damaged_3: 7981456472735154686
+      EyeBot_Damaged_4: 5935555026251253303
+      EyeBot_Damaged_5: 1108374879258809142
+      EyeBot_Damaged_6: 8130607784797510773
+      EyeBot_Damaged_7: 5434309592523422822
+      EyeBot_Damaged_8: 2235565150111343065
+      EyeBot_Damaged_9: -5049187005169273072
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

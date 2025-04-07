@@ -922,7 +922,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      EyeBot_Move_0: 7910239521423918325
+      EyeBot_Move_1: -6827449169826418094
+      EyeBot_Move_10: 1348847476328804676
+      EyeBot_Move_11: -3541130120068823355
+      EyeBot_Move_12: -937911725023678352
+      EyeBot_Move_13: -1301616481810869909
+      EyeBot_Move_14: -7740610050846565395
+      EyeBot_Move_15: 283983165873600175
+      EyeBot_Move_16: 4413648422641605200
+      EyeBot_Move_17: 1572264406345349554
+      EyeBot_Move_18: 2253329677684001480
+      EyeBot_Move_19: 2353413259205929220
+      EyeBot_Move_2: 9175136176892902463
+      EyeBot_Move_20: 3460526888792991929
+      EyeBot_Move_21: 5725410386481076106
+      EyeBot_Move_22: -3443176658959933727
+      EyeBot_Move_23: 8814714504052676844
+      EyeBot_Move_24: -469280464686243330
+      EyeBot_Move_25: -669863442787773010
+      EyeBot_Move_26: 7122854378876062865
+      EyeBot_Move_27: 5012607684074883808
+      EyeBot_Move_28: -8703988008371943053
+      EyeBot_Move_29: 1310688123089596228
+      EyeBot_Move_3: 8076399394026131476
+      EyeBot_Move_30: 5316164667838075455
+      EyeBot_Move_31: -1532673338817308228
+      EyeBot_Move_4: 6941585710524597326
+      EyeBot_Move_5: -1211684953603094766
+      EyeBot_Move_6: -5235873108638021746
+      EyeBot_Move_7: 2020949976412832975
+      EyeBot_Move_8: 623695047800501977
+      EyeBot_Move_9: -5902873053713319032
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
