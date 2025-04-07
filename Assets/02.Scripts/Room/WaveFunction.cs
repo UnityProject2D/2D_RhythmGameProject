@@ -6,21 +6,24 @@ using UnityEngine;
 using UnityEngine.Animations;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
+
 public class WaveFunction : MonoBehaviour
 {
-    const int GRID_SIZE = 6;
-    const int GRID_SCALE = 128;
+    public const int GRID_SIZE = 6;
+    public const int GRID_SCALE = 128;
 
     // 타일 종류
-    const int TILE_TYPE = 8;
-    const int TILE_SIZE = 8;
+    public const int TILE_TYPE = 8;
+    public const int TILE_SIZE = 8;
 
     //public Dictionary<int, Dictionary<DIRECT, HashSet<int>>> Constraints;
     //// 1. 타일 인덱스, 2. 방향에 따라 적용할 수 있는 타일 셋(방향, 타일 번호)
 
     public List<TileData> TileData;
 
-    private Stack<Vector2Int> propagateStack;
+    public MapTilePainter MapTilePainter;
+
+    private Stack<Vector2Int> propagateStack = new Stack<Vector2Int>();
     public enum DIRECT
     {
         LEFT,
@@ -38,12 +41,14 @@ public class WaveFunction : MonoBehaviour
         Vector2Int.down
     };
 
-    public List<List<Cell>> cellDatas;
+    public List<List<Cell>> cellDatas = new List<List<Cell>>();
+
 
     // 초기화 - 셀 정보 설정
     public void Init()
     {
-        for(int i = 0; i < GRID_SIZE; i++)
+        cellDatas.Clear();
+        for (int i = 0; i < GRID_SIZE; i++)
         {
             List<Cell> cells = new List<Cell>();
             for (int j = 0; j < GRID_SIZE; j++)
@@ -69,9 +74,9 @@ public class WaveFunction : MonoBehaviour
     }
 
     // 가장 엔트로피가 낮은(배치 가능한 타일 종류가 적은 인덱스 반환)
-    public Vector2 Get_lowest_entropy_coords()
+    public Vector2Int Get_lowest_entropy_coords()
     {
-        Vector2 lowest_coords = Vector2.zero;
+        Vector2Int lowest_coords = Vector2Int.zero;
         int lowest_entropy = int.MaxValue;
         for (int i = 0; i < GRID_SIZE; i++)
         {
@@ -83,7 +88,7 @@ public class WaveFunction : MonoBehaviour
                 else if (entropy < lowest_entropy)
                 {
                     lowest_entropy = entropy;
-                    lowest_coords = new Vector2(i, j);
+                    lowest_coords = new Vector2Int(i, j);
                 }
             }
         }
@@ -94,6 +99,7 @@ public class WaveFunction : MonoBehaviour
     public void Collapse_at_coords(Vector2Int coords)
     {
         cellDatas[coords.x][coords.y].Collapse(-1);
+        Debug.Log($"현재 인덱스: x: {coords.x} y: {coords.y}");
     }
 
     // 전파 함수
@@ -156,5 +162,23 @@ public class WaveFunction : MonoBehaviour
         }
 
         return possibilities;
+    }
+
+    public void Solve()
+    {
+        Init();
+        // 모두 Collapse될 때까지 실행
+        while (!Is_fully_collapsed()){
+            Iterate();
+        }
+
+        MapTilePainter.SettingTileMap(TileData, cellDatas);
+    }
+
+    public void Iterate()
+    {
+        Vector2Int coords = Get_lowest_entropy_coords();
+        Collapse_at_coords(coords);
+        Propagate(coords);
     }
 }

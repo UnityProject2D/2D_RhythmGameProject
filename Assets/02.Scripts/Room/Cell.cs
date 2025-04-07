@@ -33,6 +33,7 @@ public class Cell
         if(-1 == selectedIndex)
         {
             int randomIndex = UnityEngine.Random.Range(0, PossibleTiles.Count);
+            Debug.Log($"후보 결정: {randomIndex} , 현재 가능한 타일 인덱스: {PossibleTiles[randomIndex]}");
             Collapse(PossibleTiles[randomIndex]);
             return;
         }
@@ -43,10 +44,4 @@ public class Cell
         PossibleTiles = new List<int> { selectedIndex };
         OnCollapsed?.Invoke(this);
     }
-
-    public void Propagate(Vector2Int coords)
-    {
-
-    }
-
 }
