@@ -11,8 +11,19 @@ public class PlayerHealth : MonoBehaviour
 
     public event Action<float> OnPlayerHealthChanged;
 
+    public PlayerHealth Instance { get; private set; }
+
+
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         _playerCurrentHealth = PlayerMaxHealth;
         _animator = GetComponent<Animator>();
     }
@@ -140,6 +151,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void ApplyDamage(float finalDamage)
     {
+        if (GetComponent<PlayerController>().IsDead) return;
         _playerCurrentHealth = Mathf.Max(0, _playerCurrentHealth - finalDamage);
 
 #if UNITY_EDITOR
@@ -181,6 +193,6 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("플레이어 사망");
         GetComponent<PlayerController>().IsDead = true;
-        _animator.SetInteger("Direction", (int)RhythmAction.Die);
+        _animator.SetTrigger("Die");
     }
 }

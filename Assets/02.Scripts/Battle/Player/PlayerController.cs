@@ -119,13 +119,7 @@ public class PlayerController : MonoBehaviour
         //RhythmAction direction = RhythmAction.None;
         //direction = RhythmAction.Hit;
 
-        if (IsDead && IsAlive)
-        {
-            IsAlive = false;
-            _animator.SetTrigger("Die");
-            _animator.SetBool("Dead", true);
-        }
-        else if(IsAlive)
+        if(!IsDead)
         {
             _animator.SetTrigger("Hit");
         }
