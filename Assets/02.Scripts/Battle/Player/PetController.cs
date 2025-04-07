@@ -46,9 +46,9 @@ public class PetController : MonoBehaviour
         petBullet.SetActive(true);
     }
 
-    private void OnInputJudgedReceived(JudgementResult result)
+    private void OnInputJudgedReceived(JudgedContext result)
     {
-        if (result == JudgementResult.Perfect)
+        if (result.Result == JudgementResult.Perfect)
         {
             FireBullet(); // 퍼펙트 판정일 때만 총알 발사
         }
