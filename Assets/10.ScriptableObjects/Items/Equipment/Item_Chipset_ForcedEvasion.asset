@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
+  m_Name: Item_Chipset_ForcedEvasion
+  m_EditorClassIdentifier: 
+  itemName: "\uCE69\uC14B: \uAC15\uC81C \uD68C\uD53C \uD504\uB85C\uD1A0\uCF5C"
+  icon: {fileID: 0}
+  description: "Miss \uD310\uC815\uC744 \uC77C\uC815 \uD655\uB960\uB85C Good\uC73C\uB85C
+    \uCE58\uD658\uD558\uB294 \uD68C\uD53C \uC54C\uACE0\uB9AC\uC998. \n\uC785\uB825
+    \uC624\uB958\uB97C AI\uAC00 \uB300\uC2E0 \uD68C\uD53C \uCC98\uB9AC\uD568."
+  category: {fileID: 11400000, guid: 1800b112f2b16884c8dd374b5b274634, type: 2}
+  effects: []

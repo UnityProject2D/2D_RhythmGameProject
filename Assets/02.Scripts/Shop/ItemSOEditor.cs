@@ -14,7 +14,7 @@ public class ItemSOEditor : Editor
         // ItemSO 연결 필드
         item.itemName = EditorGUILayout.TextField("이름", item.itemName);
         item.icon = (Sprite)EditorGUILayout.ObjectField("아이콘", item.icon, typeof(Sprite), false);
-        item.description = EditorGUILayout.TextField("설명", item.description);
+        item.description = EditorGUILayout.TextArea(item.description, GUILayout.Height(60));
         item.category = (ItemCategorySO)EditorGUILayout.ObjectField("카테고리", item.category, typeof(ItemCategorySO), false);
 
         EditorGUILayout.Space();
