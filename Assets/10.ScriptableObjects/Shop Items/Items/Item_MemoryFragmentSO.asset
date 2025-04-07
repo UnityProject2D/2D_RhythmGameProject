@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ffe6f99ff81690409cf3a698c5b9330, type: 3}
+  m_Name: Item_MemoryFragmentSO
+  m_EditorClassIdentifier: 
+  itemName: "\uAE30\uC5B5\uC758 \uC870\uAC01"
+  icon: {fileID: -5152973425299649951, guid: 0da7bd83a6b0515468fe93ff4551be45, type: 3}
+  description: "\uCD5C\uB300 \uCCB4\uB825 +1 (\uC601\uAD6C \uC801\uC6A9)"
+  price: 10
+  currencyType: 0
+  category: {fileID: 11400000, guid: 54a0efa29be0696489bd78ffa950df6d, type: 2}
+  OnPurchase:
+    m_PersistentCalls:
+      m_Calls: []
+  effects:
+  - effectType: 1
+    value: 1
