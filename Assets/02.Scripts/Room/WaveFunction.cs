@@ -2,14 +2,22 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class WaveFunction : MonoBehaviour
 {
     const int GRID_SIZE = 6;
     const int GRID_SCALE = 128;
 
+    // 타일 종류
+    const int TILE_TYPE = 8;
     const int TILE_SIZE = 8;
-    enum DIRECT
+
+    public Dictionary<int, Dictionary<DIRECT, HashSet<int>>> Constraints;
+    // 1. 타일 인덱스, 2. 방향에 따라 적용할 수 있는 타일 셋(방향, 타일 번호)
+
+    private Stack<Vector2Int> propagateStack;
+    public enum DIRECT
     {
         LEFT,
         RIGHT,
@@ -18,16 +26,17 @@ public class WaveFunction : MonoBehaviour
         DIRECT_END
     }
 
-    Vector2[] Dirs =
+    Vector2Int[] Dirs =
     {
-        Vector2.left,
-        Vector2.right,
-        Vector2.up,
-        Vector2.down
+        Vector2Int.left,
+        Vector2Int.right,
+        Vector2Int.up,
+        Vector2Int.down
     };
 
     public List<List<Cell>> cellDatas;
 
+    // 초기화 - 셀 정보 설정
     public void Init()
     {
         for(int i = 0; i < GRID_SIZE; i++)
@@ -41,6 +50,7 @@ public class WaveFunction : MonoBehaviour
         }
     }
 
+    // 모든 타일이 결정(collapse) 되었는지 반환
     public bool Is_fully_collapsed()
     {
         for (int i = 0; i < GRID_SIZE; i++)
@@ -54,7 +64,8 @@ public class WaveFunction : MonoBehaviour
         return true;
     }
 
-    public Vector2 get_lowest_entropy_coords()
+    // 가장 엔트로피가 낮은(배치 가능한 타일 종류가 적은 인덱스 반환)
+    public Vector2 Get_lowest_entropy_coords()
     {
         Vector2 lowest_coords = Vector2.zero;
         int lowest_entropy = int.MaxValue;
@@ -75,8 +86,71 @@ public class WaveFunction : MonoBehaviour
         return lowest_coords;
     }
 
-    public void collapse_at_coords(Vector2Int coords)
+    // 특정 인덱스 셀 확정(Collapse) - -1 설정(랜덤 값 지정)
+    public void Collapse_at_coords(Vector2Int coords)
     {
         cellDatas[coords.x][coords.y].Collapse(-1);
     }
+
+    // 전파 함수
+    public void Propagate(Vector2Int coords)
+    {
+        // 처음 전파할 값
+        propagateStack.Append(coords);
+
+        while (propagateStack.Count > 0){
+            // 현재 셀 기준 값
+            Vector2Int cur_coord = propagateStack.Pop();
+            Cell cur_cell = cellDatas[cur_coord.x][cur_coord.y];
+            List<int> cur_tiles = cur_cell.PossibleTiles;
+
+            // 상하좌우 방향이 다른 셀
+            foreach(Vector2Int dir in Dirs)
+            {
+                // 4가지 방향
+                Vector2Int other_coords = cur_coord + dir;
+
+                // 해당 인덱스가 유효한지 체크
+                if (!Is_valid_direction(other_coords)) continue;
+
+                Cell other_cell = cellDatas[other_coords.x][other_coords.y];
+                List<int> other_tiles = other_cell.PossibleTiles;
+
+                // 해당 방향 가능한 이웃 타일 리스트 반환
+                // List<int> possible_neighbours = Get_all_possible_neighbours(dir, cur_tiles);
+
+                // 특정 방향 타일 리스트
+                for(int i = 0; i < other_tiles.Count; i++)
+                {
+                    // 가능한 이웃 타일 목록에 해당 인덱스가 없으면 제거
+                    //if (!possible_neighbours.Contains(other_tiles[i])){
+                    //    other_tiles.RemoveAt(i--); // 해당 인덱스 삭제 후 인덱스 조절(--)
+                    //}
+                }
+            }
+
+        }
+    }
+
+
+    // 해당 셀이 유효한지
+    public bool Is_valid_direction(Vector2Int coords)
+    {
+        return (coords.x >= GRID_SIZE || coords.x < 0) ||
+            (coords.y >= GRID_SIZE || coords.y < 0);
+    }
+
+    // 특정 방향으로 유효한 타일 리스트 반환
+    //public List<int> Get_all_possible_neighbours(Vector2Int dir, List<int> tiles)
+    //{
+    //    List<int> possibilities;
+
+    //    foreach (int index in tiles)
+    //    {
+    //        // 현재 타일 추가 가능한 정보
+    //        // possibilities.Add();
+    //    }
+
+    //    return possibilities;
+    //}
 }
