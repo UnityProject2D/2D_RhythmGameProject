@@ -8,9 +8,9 @@ public class MapTilePainter : MonoBehaviour
 
     public void SettingTileMap(List<TileData> tileDataList, List<List<Cell>> cellDataList)
     {
-        for (int i = 0; i < WaveFunction.GRID_SIZE; i++)
+        for (int i = 0; i < WaveFunction.GRID_SIZE; i++) // y축
         {
-            for (int j = 0; j < WaveFunction.GRID_SIZE; j++)
+            for (int j = 0; j < WaveFunction.GRID_SIZE; j++) // x축
             {
                 Tile tileData = ScriptableObject.CreateInstance<Tile>();
                 if(cellDataList[i][j].PossibleTiles.Count > 0)

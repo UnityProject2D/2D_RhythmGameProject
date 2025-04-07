@@ -9,6 +9,9 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class WaveFunction : MonoBehaviour
 {
+    public static WaveFunction Instance;
+
+
     public const int GRID_SIZE = 6;
     public const int GRID_SCALE = 128;
 
@@ -43,7 +46,10 @@ public class WaveFunction : MonoBehaviour
 
     public List<List<Cell>> cellDatas = new List<List<Cell>>();
 
-
+    private void Awake()
+    {
+        Instance = this;
+    }
     // 초기화 - 셀 정보 설정
     public void Init()
     {
@@ -102,7 +108,7 @@ public class WaveFunction : MonoBehaviour
     // 특정 인덱스 셀 확정(Collapse) - -1 설정(랜덤 값 지정)
     public void Collapse_at_coords(Vector2Int coords)
     {
-        cellDatas[coords.x][coords.y].Collapse(-1);
+        cellDatas[coords.x][coords.y].Collapse(-1, coords.y, coords.x);
 
         Propagate(coords);
         Debug.Log($"현재 인덱스: x: {coords.x} y: {coords.y}");
@@ -144,11 +150,37 @@ public class WaveFunction : MonoBehaviour
                 // 특정 방향 타일 리스트
                 for (int j = other_tiles.Count - 1; j >= 0; j--)
                 {
+
+                    int tileId = other_tiles[j];
+                    TileData tileData = TileData[tileId];
+                    if (tileData.UseYConstraint)
+                    {
+                        int y = other_coords.y;
+                        if (y < tileData.MinY || y > tileData.MaxY)
+                        {
+                            other_tiles.RemoveAt(j);
+                            bChange = true;
+                            continue;
+                        }
+                    }
+
+                    if (tileData.UseXConstraint)
+                    {
+                        int x = other_coords.x;
+                        if (x < tileData.MinX || x > tileData.MaxX)
+                        {
+                            other_tiles.RemoveAt(j);
+                            bChange = true;
+                            continue;
+                        }
+                    }
+
                     // 가능한 이웃 타일 목록에 해당 인덱스가 없으면 제거
                     if (!possible_neighbours.Contains(other_tiles[j]))
                     {
                         other_tiles.RemoveAt(j); // 해당 인덱스 삭제 후 인덱스 조절(--)
                         bChange = true;
+                        continue;
                     }
                 }
 
@@ -156,12 +188,15 @@ public class WaveFunction : MonoBehaviour
                 {
                     return false;
                 }
+
                 if (bChange && !propagateStack.Contains(other_coords))
                     propagateStack.Push(other_coords);
             }
         }
         return true;
     }
+
+
 
 
     // 해당 셀이 유효한지
@@ -193,6 +228,7 @@ public class WaveFunction : MonoBehaviour
         }
 
         MapTilePainter.SettingTileMap(TileData, cellDatas);
+        RenderIndex();
     }
 
     public void Iterate()
@@ -200,5 +236,19 @@ public class WaveFunction : MonoBehaviour
         Vector2Int coords = Get_lowest_entropy_coords();
         Collapse_at_coords(coords);
         Propagate(coords);
+    }
+
+    public void RenderIndex()
+    {
+        for (int i = 0; i < GRID_SIZE; i++)
+        {
+            for (int j = 0; j < GRID_SIZE; j++)
+            {
+                if (cellDatas[i][j].IsCollapsed && cellDatas[i][j].PossibleTiles.Count > 0)
+                    Debug.Log(cellDatas[i][j].PossibleTiles[0] + " ");
+                else
+                    Debug.Log("X");
+            }
+        }
     }
 }

@@ -17,4 +17,12 @@ public class TileData : ScriptableObject
     }
 
     public List<Constraints> constraints = new List<Constraints>();
+
+    public bool UseYConstraint = false;
+    public int MinY = 0;
+    public int MaxY = 10;
+
+    public bool UseXConstraint = false;
+    public int MinX = 0;
+    public int MaxX = 10;
 }
