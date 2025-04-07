@@ -50,13 +50,21 @@ public static class RhythmEvents
     public static event Action<NoteData> OnNotePreview;
 
 
+
     /// <summary>
     /// 음악이 시작될 때 호출
     /// </summary>
     public static event Action OnMusicStart;
 
+
+    /// <summary>
+    /// 음악이 끝날 때 호출
+    /// </summary>
+    public static event Action OnMusicStopped;
+
     // ===== Invoke =====
     public static void InvokeOnMusicStart() => OnMusicStart?.Invoke();
+    public static void InvokeOnMusicStopped() => OnMusicStopped?.Invoke();
 
     public static void InvokeOnBeat(float beat) => OnBeat?.Invoke(beat);
     public static void InvokeOnSubBeat() => OnSubBeat?.Invoke();

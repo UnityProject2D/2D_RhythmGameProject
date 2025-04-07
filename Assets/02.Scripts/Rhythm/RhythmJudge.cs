@@ -17,6 +17,12 @@ public class RhythmJudge : MonoBehaviour
     [SerializeField] private float goodRange = 0.30f;
     [SerializeField] private float badRange = 0.45f;
 
+    [Header("아이템효과")]
+    public float PermenantEffect = 0.05f;
+    public int PermenantStack = 0;
+    public float TemporaryEffect = 0.05f;
+    public int TemporaryStack = 0;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -33,7 +39,7 @@ public class RhythmJudge : MonoBehaviour
         {
             float noteTime = pattern[_currentNotes].notes[currentNoteIndex].beat * beatDuration;
 
-            if (now - noteTime > beatDuration * badRange)
+            if (now - noteTime > beatDuration * badRange * (1 + PermenantEffect * PermenantStack) * (1 + TemporaryEffect * TemporaryStack))
             {
                 Debug.Log($"Miss 판정 (입력 없음) | 노트 시간: {noteTime:F2}s, 현재: {now:F2}s");
                 RhythmEvents.InvokeOnInputJudged(JudgementResult.Miss);
@@ -96,7 +102,9 @@ public class RhythmJudge : MonoBehaviour
 
         if (key != note.expectedKey)
         {
-            Debug.Log("잘못된 키");
+            Debug.Log("잘못된 키 → Miss 판정");
+            RhythmEvents.InvokeOnInputJudged(JudgementResult.Miss);
+            currentNoteIndex++;
             return;
         }
 
@@ -111,11 +119,11 @@ public class RhythmJudge : MonoBehaviour
     {
         float abs = Mathf.Abs(delta);
 
-        if (abs <= beatDuration * perfectRange)
+        if (abs <= beatDuration * perfectRange * (1+PermenantEffect * PermenantStack) * (1+TemporaryEffect * TemporaryStack))
             return JudgementResult.Perfect;
-        else if (abs <= beatDuration * goodRange)
+        else if (abs <= beatDuration * goodRange * (1 + PermenantEffect * PermenantStack) * (1 + TemporaryEffect * TemporaryStack))
             return JudgementResult.Good;
-        else if (abs <= beatDuration * badRange)
+        else if (abs <= beatDuration * badRange * (1 + PermenantEffect * PermenantStack) * (1 + TemporaryEffect * TemporaryStack))
             return JudgementResult.Bad;
         else
             return JudgementResult.Miss;

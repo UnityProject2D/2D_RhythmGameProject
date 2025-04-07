@@ -123,7 +123,10 @@ public class RhythmManager : MonoBehaviour
 
         _musicInstance = RuntimeManager.CreateInstance(musicTracks[_stageMusicIndex]);
         _musicInstance.setUserData(GCHandle.ToIntPtr(_timelineHandle));
-        _musicInstance.setCallback(FMODCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
+        _musicInstance.setCallback(FMODCallback,
+            EVENT_CALLBACK_TYPE.TIMELINE_BEAT |
+            EVENT_CALLBACK_TYPE.TIMELINE_MARKER |
+    EVENT_CALLBACK_TYPE.STOPPED);
 
         _previewIndex = 0;
         _bpm = stageNotes[_stageMusicIndex].bpm;
@@ -195,6 +198,12 @@ public class RhythmManager : MonoBehaviour
             case EVENT_CALLBACK_TYPE.TIMELINE_MARKER:
                 var marker = (TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_MARKER_PROPERTIES));
                 InvokeOnMarkerHit(marker.name);
+                break;
+            case EVENT_CALLBACK_TYPE.STOPPED:
+                Debug.Log("음악 종료됨!");
+                InvokeOnMusicStopped();
+                //TODO: 점수 기반 승리/패배 처리
+                // 게임 매니저 만들까?
                 break;
         }
 
