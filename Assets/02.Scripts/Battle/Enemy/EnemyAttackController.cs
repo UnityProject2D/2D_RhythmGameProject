@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static RhythmEvents;
+using FMODUnity;
 
 public enum EnemyAttackState
 {
@@ -50,6 +51,7 @@ public class EnemyAttackController : MonoBehaviour
 
     private void OnNoteReceived(NoteData beatTime)
     {
+        PlayAttackSound();
         int index = GetIndexFromKey(beatTime.expectedKey); // 입력 키(WASD) → 인덱스로 변환 (0~3)
         if (index < 0 || index >= EnemyBulletPool.Count) return;
 
@@ -60,7 +62,7 @@ public class EnemyAttackController : MonoBehaviour
         _animator.SetTrigger("Attack");
 
 
-        StartCoroutine(ResetAnimation());
+        //StartCoroutine(ResetAnimation());
     }
 
     // 키 문자열 → 인덱스로 변환 (매핑용)
@@ -75,7 +77,6 @@ public class EnemyAttackController : MonoBehaviour
             _ => -1
         };
     }
-
     private void FireBullet(int directionIndex)
     {
         GameObject bullet = GetBulletFromPool();
@@ -108,10 +109,13 @@ public class EnemyAttackController : MonoBehaviour
         }
         return null;
     }
-
-    private IEnumerator ResetAnimation()
+    public void PlayAttackSound()
     {
-        yield return new WaitForSeconds(0.5f);
-        _animator.SetInteger("Direction", 0);
+        RuntimeManager.PlayOneShot("event:/SFX/AttackSound");
     }
+    //private IEnumerator ResetAnimation()
+    //{
+    //    yield return new WaitForSeconds(0.5f);
+    //    _animator.SetInteger("Direction", 0);
+    //}
 }

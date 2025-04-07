@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using UnityEngine;
 using static RhythmEvents;
@@ -47,6 +48,7 @@ public class EnemyController : MonoBehaviour
     // 미리보기 비트 타이밍마다 호출
     private void OnNotePreviewReceived(NoteData beatNote)
     {
+        PlayAttackSound();
         int index = GetIndexFromKey(beatNote.expectedKey); // 입력 키(WASD) → 인덱스로 변환 (0~3)
         if (index < 0 || index >= enemyShadowPool.Length) return;
 
@@ -58,6 +60,10 @@ public class EnemyController : MonoBehaviour
 
         //EnemyPatternBuffer.Instance.EnqueuePattern(index); // 잔상 패턴 저장해서 실제 공격 때 사용해야 함. 
         StartCoroutine(HidePatternAfterDelay(shadow, 1f)); // 1f초 후 비활성화
+    }
+    public void PlayAttackSound()
+    {
+        RuntimeManager.PlayOneShot("event:/SFX/PreviewSound");
     }
 
     // 키 문자열 → 인덱스로 변환 (매핑용)
