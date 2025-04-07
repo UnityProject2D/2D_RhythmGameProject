@@ -36,19 +36,9 @@ public class PetController : MonoBehaviour
         OnInputJudged -= OnInputJudgedReceived; // 리듬 입력 판정 이벤트 구독 해제
     }
 
-    private void Update()
-    {
-        GameObject petBullet = GetPetBulletFromPool(); // 총알 오브젝트를 해당 위치에 배치하고 활성화
-        if (petBullet == null) return; // 비활성화된 총알이 없으면 리턴
-        petBullet.transform.position = PetBulletSpawnPoint.position;
-        petBullet.transform.rotation = Quaternion.identity; // 총알 회전 각도 설정 (Z축 회전)
-        petBullet.GetComponent<PetBullet>().direction = new Vector2(5f, -1f).normalized; // 총알 방향 설정
-        petBullet.SetActive(true);
-    }
-
     private void OnInputJudgedReceived(JudgedContext result)
     {
-        if (result.Result == JudgementResult.Perfect)
+        if (result.Result <= JudgementResult.Good)
         {
             FireBullet(); // 퍼펙트 판정일 때만 총알 발사
         }
@@ -56,12 +46,12 @@ public class PetController : MonoBehaviour
 
     private void FireBullet()
     {
-        //GameObject petBullet = GetPetBulletFromPool(); // 총알 오브젝트를 해당 위치에 배치하고 활성화
-        //if (petBullet == null) return; // 비활성화된 총알이 없으면 리턴
-        //petBullet.transform.position = PetBulletSpawnPoint.position;
-        //petBullet.transform.rotation = Quaternion.identity; // 총알 회전 각도 설정 (Z축 회전)
-        //petBullet.GetComponent<PetBullet>().direction = new Vector2(5f, -1f).normalized; // 총알 방향 설정
-        //petBullet.SetActive(true);
+        GameObject petBullet = GetPetBulletFromPool(); // 총알 오브젝트를 해당 위치에 배치하고 활성화
+        if (petBullet == null) return; // 비활성화된 총알이 없으면 리턴
+        petBullet.transform.position = PetBulletSpawnPoint.position;
+        petBullet.transform.rotation = Quaternion.identity; // 총알 회전 각도 설정 (Z축 회전)
+        petBullet.GetComponent<PetBullet>().direction = new Vector2(5f, -1f).normalized; // 총알 방향 설정
+        petBullet.SetActive(true);
     }
 
     // 사용 가능한 총알을 풀에서 찾아 반환
