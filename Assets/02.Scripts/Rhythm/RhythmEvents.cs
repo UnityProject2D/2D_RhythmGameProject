@@ -11,6 +11,12 @@ public enum JudgementResult
     Count
 }
 
+public struct JudgedContext
+{
+    public JudgementResult Result;
+    public float RandomValue;
+}
+
 public static class RhythmEvents
 {
     /// <summary>
@@ -31,7 +37,7 @@ public static class RhythmEvents
     /// <summary>
     /// 리듬 입력에 대한 판정 결과
     /// </summary>
-    public static event Action<JudgementResult> OnInputJudged;
+    public static event Action<JudgedContext> OnInputJudged;
 
     /// <summary>
     /// 특정 마커가 통과됐을 때 호출 (FMOD Marker 이름 기반)
@@ -54,7 +60,15 @@ public static class RhythmEvents
 
     public static void InvokeOnBeat(float beat) => OnBeat?.Invoke(beat);
     public static void InvokeOnSubBeat() => OnSubBeat?.Invoke();
-    public static void InvokeOnInputJudged(JudgementResult result) => OnInputJudged?.Invoke(result);
+    public static void InvokeOnInputJudged(JudgementResult result)
+    {
+        
+        OnInputJudged?.Invoke(new JudgedContext
+        {
+            RandomValue = UnityEngine.Random.value,
+            Result = result
+        });
+    }
     public static void InvokeOnMarkerHit(string name) => OnMarkerHit?.Invoke(name);
 
     public static void InvokeOnNotePreview(NoteData note) => OnNotePreview?.Invoke(note);
