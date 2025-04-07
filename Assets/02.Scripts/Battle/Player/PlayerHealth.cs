@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
 
     public event Action<float> OnPlayerHealthChanged;
 
-    public PlayerHealth Instance { get; private set; }
+    public static PlayerHealth Instance { get; private set; }
 
 
     private void Awake()
@@ -31,7 +31,6 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         RhythmEvents.OnInputJudged += HandleJudge;
-
         //TODO: 아이템 효과 구독해서 회복
         //RecoveryAlgorithmCore
         //체력회복아이템
@@ -57,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
                 break;
         }
 
-        finalDamage = ApplyEmergencyResponseCore(finalDamage);
+        finalDamage = ApplyEmergencyResponseCore(finalDamage); // 추후 추가할 아이템 관련 코드
 
         ApplyDamage(finalDamage);
     }
@@ -151,6 +150,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void ApplyDamage(float finalDamage)
     {
+        Debug.Log($"[HP] ApplyDamage: {finalDamage}");
         if (GetComponent<PlayerController>().IsDead) return;
         _playerCurrentHealth = Mathf.Max(0, _playerCurrentHealth - finalDamage);
 
