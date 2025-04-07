@@ -12,13 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ffe6f99ff81690409cf3a698c5b9330, type: 3}
   m_Name: ShopItem_AiHelmetSO
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  description: 
+  itemSO: {fileID: 11400000, guid: e1c4e26debfcc6d49b5a74f66b7cf0b3, type: 2}
   price: 0
   currencyType: 0
-  category: {fileID: 0}
   OnPurchase:
     m_PersistentCalls:
       m_Calls: []
-  effects: []
