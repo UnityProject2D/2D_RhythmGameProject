@@ -1,37 +1,40 @@
-using FMODUnity;
-using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
+using FMODUnity;
+using DG.Tweening;
 using static RhythmEvents;
-
-public enum EnemyState
-{
-    Idle,
-    Shoot1,
-    Shoot2,
-    Shoot3,
-    Shoot4
-}
 
 public class EnemyController : MonoBehaviour
 {
     public bool test;
     private Animator _animator;
-    public GameObject[] EnemyShadowPrefabs; // (0/W): Jump, (1/S): Down, (2/A): Roll, (3/D): BackFlip
-    public Transform[] EnemyShadowSpawnPoint; // 적 그림자 생성 위치
-    private GameObject[] enemyShadowPool = new GameObject[4]; // 적 그림자 풀
+
+    public Transform gunPoint; // 총구 위치 기준 Transform (필수!)
+
+    public Sprite[] directionSprites = new Sprite[4]; // W, S, A, D 순서
+    private const int PoolSizePerDirection = 8;
+    private List<GameObject>[] shadowPools = new List<GameObject>[4];
+
+    public Transform playerTransform;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+
+        for (int i = 0; i < 4; i++)
+            shadowPools[i] = new List<GameObject>();
     }
 
     private void Start()
     {
-        // 미리 잔상 오브젝트를 생성해서 비활성화 (오브젝트 풀 초기화)
-        for (int i = 0; i < 4; i++)
+        for (int dir = 0; dir < 4; dir++)
         {
-            enemyShadowPool[i] = Instantiate(EnemyShadowPrefabs[i]);
-            enemyShadowPool[i].SetActive(false);
+            for (int i = 0; i < PoolSizePerDirection; i++)
+            {
+                GameObject shadow = CreateShadowObject(dir);
+                shadow.SetActive(false);
+                shadowPools[dir].Add(shadow);
+            }
         }
     }
 
@@ -45,28 +48,62 @@ public class EnemyController : MonoBehaviour
         OnNotePreview -= OnNotePreviewReceived;
     }
 
-    // 미리보기 비트 타이밍마다 호출
     private void OnNotePreviewReceived(NoteData beatNote)
     {
         PlayAttackSound();
-        int index = GetIndexFromKey(beatNote.expectedKey); // 입력 키(WASD) → 인덱스로 변환 (0~3)
-        if (index < 0 || index >= enemyShadowPool.Length) return;
 
-        if(test)
-        _animator.SetTrigger("Attack");
-        GameObject shadow = enemyShadowPool[index]; // 잔상 오브젝트를 해당 위치에 배치하고 활성화
-        shadow.transform.position = EnemyShadowSpawnPoint[index].position;
+        int dir = GetIndexFromKey(beatNote.expectedKey);
+        if (dir < 0 || dir >= 4) return;
+
+        if (test)
+            _animator.SetTrigger("Attack");
+
+        GameObject shadow = GetInactiveShadow(dir);
+        if (shadow == null) return;
+
+        // 총구 위치 기준 생성
+        shadow.transform.position = gunPoint.position;
+
+        // 방향 계산: 총구 → 플레이어
+        Vector3 dirToPlayer = (GetTargetPositionFromKey(dir) - gunPoint.position).normalized;
+        float angle = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
+        shadow.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        // 초기 스케일 설정
+        shadow.transform.localScale = new Vector3(0.1f, 0.04f, 0.1f);
         shadow.SetActive(true);
 
-        //EnemyPatternBuffer.Instance.EnqueuePattern(index); // 잔상 패턴 저장해서 실제 공격 때 사용해야 함. 
-        StartCoroutine(HidePatternAfterDelay(shadow, 1f)); // 1f초 후 비활성화
+        // 투명도 초기화
+        var sr = shadow.GetComponent<SpriteRenderer>();
+        sr.DOFade(1f, 0f);
+
+        // Y방향 축소로 사라지게
+        shadow.transform.DOScaleY(0f, 1f).SetEase(Ease.InQuad).OnComplete(() =>
+        {
+            shadow.SetActive(false);
+        });
     }
+
+    private Vector3 GetTargetPositionFromKey(int dir)
+    {
+        if (playerTransform == null)
+            return gunPoint.position;
+
+        return dir switch
+        {
+            0 => playerTransform.position + Vector3.down * 0.25f,     // W - 머리
+            1 => playerTransform.position + Vector3.up * 2f,   // S - 다리
+            2 => gunPoint.position+Vector3.left * 1f,   // A - 왼쪽 몸통
+            3 => gunPoint.position + Vector3.left * 1f,  // D - 오른쪽 몸통
+            _ => playerTransform.position
+        };
+    }
+
     public void PlayAttackSound()
     {
         RuntimeManager.PlayOneShot("event:/SFX/PreviewSound");
     }
 
-    // 키 문자열 → 인덱스로 변환 (매핑용)
     private int GetIndexFromKey(string key)
     {
         return key switch
@@ -79,10 +116,41 @@ public class EnemyController : MonoBehaviour
         };
     }
 
-    // 잔상 오브젝트를 일정 시간 후 비활성화
-    private IEnumerator HidePatternAfterDelay(GameObject obj, float delay)
+    private GameObject GetInactiveShadow(int dir)
     {
-        yield return new WaitForSeconds(delay);
-        obj.SetActive(false);
+        foreach (var shadow in shadowPools[dir])
+        {
+            if (!shadow.activeInHierarchy)
+                return shadow;
+        }
+        return null;
+    }
+
+    private GameObject CreateShadowObject(int dir)
+    {
+        GameObject obj = new GameObject($"Shadow_{dir}");
+        obj.transform.SetParent(transform);
+
+        SpriteRenderer sr = obj.AddComponent<SpriteRenderer>();
+        sr.sprite = directionSprites[dir];
+        sr.sortingLayerName = "Enemy";
+        sr.sortingOrder = 10;
+        sr.color = GetColor(dir);
+        sr.material = new Material(Shader.Find("Sprites/Default"));
+        sr.DOFade(0f, 0f); // DOTween용 초기 투명도 설정
+
+        return obj;
+    }
+
+    private Color GetColor(int dir)
+    {
+        return dir switch
+        {
+            0 => new Color(1f, 0f, 0f, 0.3f),                         // W - 기본
+            1 => new Color(1f, 0f, 0f, 0.3f),                          // S - 머리
+            2 => new Color(0f, 1f, 1f, 0.3f),                        // A - 노란 몸통
+            3 => new Color(0.5f, 0f, 1f, 0.3f),
+            _ => Color.white
+        };
     }
 }
