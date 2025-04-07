@@ -5,9 +5,12 @@ public class RhythmJudge : MonoBehaviour
 {
     public static RhythmJudge Instance { get; private set; }
 
-    [SerializeField] private RhythmPatternSO pattern;
+    [SerializeField] private RhythmPatternSO[] pattern;
     private int currentNoteIndex = 0;
     private float beatDuration => 60f / RhythmManager.Instance.BPM;
+
+    private int _currentNotes => RhythmManager.Instance.StageMusicIndex;
+
 
     [Header("판정 범위 (비율)")]
     [SerializeField] private float perfectRange = 0.15f;
@@ -18,18 +21,17 @@ public class RhythmJudge : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-        _startTime = Time.time;
     }
-    private float _startTime;
+
     void Update()
     {
+        if (!RhythmManager.Instance.IsPlaying) return;
 
         float now = RhythmManager.Instance.GetCurrentMusicTime();
         
-        if (beatDuration > 1) return;
-        while (currentNoteIndex < pattern.notes.Count)
+        while (currentNoteIndex < pattern[_currentNotes].notes.Count)
         {
-            float noteTime = pattern.notes[currentNoteIndex].beat * beatDuration;
+            float noteTime = pattern[_currentNotes].notes[currentNoteIndex].beat * beatDuration;
 
             if (now - noteTime > beatDuration * badRange)
             {
@@ -42,14 +44,31 @@ public class RhythmJudge : MonoBehaviour
     }
     private void OnEnable()
     {
-        RhythmManager.OnBeat += OnBeatReceived;
-        RhythmInputHandler.Instance.OnInputPerformed += EvaluateInput;
+        RhythmEvents.OnBeat += OnBeatReceived;
+        RhythmEvents.OnMusicStart += OnMusicStartReceived;
     }
 
+    private void Start()
+    {
+        if (RhythmInputHandler.Instance != null)
+        {
+            RhythmInputHandler.Instance.OnInputPerformed += EvaluateInput;
+        }
+    }
     private void OnDisable()
     {
-        RhythmManager.OnBeat -= OnBeatReceived;
-        RhythmInputHandler.Instance.OnInputPerformed -= EvaluateInput;
+        RhythmEvents.OnBeat -= OnBeatReceived;
+        RhythmEvents.OnMusicStart -= OnMusicStartReceived;
+
+        if (RhythmInputHandler.Instance != null)
+        {
+            RhythmInputHandler.Instance.OnInputPerformed -= EvaluateInput;
+        }
+    }
+
+    private void OnMusicStartReceived()
+    {
+        currentNoteIndex = 0;
     }
 
     private void OnBeatReceived(float beatTime)
@@ -58,18 +77,18 @@ public class RhythmJudge : MonoBehaviour
 
     public void EvaluateInput(string key)
     {
-        if (currentNoteIndex >= pattern.notes.Count)
+        if (currentNoteIndex >= pattern[_currentNotes].notes.Count)
         {
             Debug.Log("모든 노트 완료");
             return;
         }
 
-        var note = pattern.notes[currentNoteIndex];
+        var note = pattern[_currentNotes].notes[currentNoteIndex];
         float currentTime = RhythmManager.Instance.GetCurrentMusicTime();
         float noteTime = note.beat * beatDuration;
         float delta = currentTime - noteTime;
         float abs = Mathf.Abs(delta);
-        if (abs > beatDuration * badRange)
+        if (abs > beatDuration * (badRange))
         {
             Debug.Log($"[무시됨] 노트 시간과 입력 시간차 초과 | 오차: {delta:F3}s");
             return;

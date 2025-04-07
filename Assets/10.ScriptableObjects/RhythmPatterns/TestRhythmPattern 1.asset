@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ca63dec1e6d6745b9b64a9faf96794, type: 3}
+  m_Name: TestRhythmPattern 1
+  m_EditorClassIdentifier: 
+  bpm: 97
+  notes:
+  - beat: 25.5207
+    expectedKey: W
+  - beat: 26.555368
+    expectedKey: D
+  - beat: 27.556084
+    expectedKey: W
+  - beat: 28.453335
+    expectedKey: D
+  - beat: 33.350216
+    expectedKey: A
+  - beat: 34.454403
+    expectedKey: D
+  - beat: 35.523018
+    expectedKey: S
+  - beat: 36.454216
+    expectedKey: W
+  - beat: 41.2832
+    expectedKey: A
+  - beat: 42.351818
+    expectedKey: D
+  - beat: 43.386486
+    expectedKey: D
+  - beat: 44.3872
+    expectedKey: A
+  - beat: 49.457066
+    expectedKey: A
+  - beat: 50.388268
+    expectedKey: S
+  - beat: 51.422935
+    expectedKey: W
+  - beat: 52.388084
+    expectedKey: D
+  - beat: 57.424004
+    expectedKey: A
+  - beat: 58.389153
+    expectedKey: D
+  - beat: 59.38987
+    expectedKey: A
+  - beat: 60.35502
+    expectedKey: D
+  - beat: 65.32142
+    expectedKey: S
+  - beat: 66.322136
+    expectedKey: S
+  - beat: 67.390755
+    expectedKey: W
+  - beat: 68.3559
+    expectedKey: W
+  - beat: 73.35787
+    expectedKey: D
+  - beat: 74.39253
+    expectedKey: D
+  - beat: 75.39163
+    expectedKey: S
+  - beat: 76.39235
+    expectedKey: A
+  - beat: 81.22134
+    expectedKey: A
+  - beat: 82.323906
+    expectedKey: W
+  - beat: 83.29067
+    expectedKey: D
+  - beat: 84.25582
+    expectedKey: S
+  - beat: 98.327286
+    expectedKey: D
+  - beat: 106.19075
+    expectedKey: D
+  - beat: 114.434135
+    expectedKey: D
+  - beat: 129.98808
+    expectedKey: A
+  - beat: 131.16017
+    expectedKey: D
+  - beat: 132.05742
+    expectedKey: W

@@ -12,61 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ca63dec1e6d6745b9b64a9faf96794, type: 3}
   m_Name: TestRhythmPattern
   m_EditorClassIdentifier: 
-  bpm: 120
+  bpm: 97
   notes:
-  - beat: 6.356
+  - beat: 0.08781667
     expectedKey: W
-  - beat: 7.296
-    expectedKey: A
-  - beat: 8.276
-    expectedKey: S
-  - beat: 9.172
-    expectedKey: D
-  - beat: 14.336
+  - beat: 0.104166664
     expectedKey: W
-  - beat: 15.232
-    expectedKey: A
-  - beat: 16.298
-    expectedKey: S
-  - beat: 17.236
-    expectedKey: D
-  - beat: 22.356
+  - beat: 0.12123334
     expectedKey: W
-  - beat: 23.252
-    expectedKey: A
-  - beat: 24.276
-    expectedKey: S
-  - beat: 25.216
-    expectedKey: D
-  - beat: 30.292
+  - beat: 0.13688333
     expectedKey: W
-  - beat: 31.316
+  - beat: 0.15395
     expectedKey: W
-  - beat: 32.34
-    expectedKey: S
-  - beat: 33.28
-    expectedKey: S
-  - beat: 38.356
-    expectedKey: A
-  - beat: 39.338
-    expectedKey: A
-  - beat: 40.362
-    expectedKey: D
-  - beat: 41.386
-    expectedKey: D
-  - beat: 46.378
+  - beat: 0.17101666
     expectedKey: W
-  - beat: 47.316
-    expectedKey: A
-  - beat: 48.468
-    expectedKey: S
-  - beat: 49.492
-    expectedKey: D
-  - beat: 54.4
-    expectedKey: D
-  - beat: 55.38
-    expectedKey: S
-  - beat: 56.404
-    expectedKey: A
-  - beat: 57.386
+  - beat: 0.18773334
+    expectedKey: W
+  - beat: 0.20336667
+    expectedKey: W
+  - beat: 0.22043332
+    expectedKey: W
+  - beat: 0.2375
+    expectedKey: W
+  - beat: 0.25386667
+    expectedKey: W
+  - beat: 0.27093333
+    expectedKey: W
+  - beat: 0.28835002
+    expectedKey: W
+  - beat: 0.30435
+    expectedKey: W
+  - beat: 0.32106668
+    expectedKey: W
+  - beat: 0.33776668
+    expectedKey: W
+  - beat: 0.3541333
+    expectedKey: W
+  - beat: 0.3712
     expectedKey: W

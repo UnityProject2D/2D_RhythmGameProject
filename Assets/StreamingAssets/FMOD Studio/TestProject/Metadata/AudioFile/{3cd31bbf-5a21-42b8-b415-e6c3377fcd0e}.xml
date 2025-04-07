@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{3cd31bbf-5a21-42b8-b415-e6c3377fcd0e}">
+		<property name="assetPath">
+			<value>Pulse and Clash 2.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>240.048</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{eb12cf5c-e765-4a9b-b0c8-dfcd7b291678}</destination>
+		</relationship>
+	</object>
+</objects>
