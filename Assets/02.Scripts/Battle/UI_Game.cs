@@ -6,6 +6,7 @@ public class UI_Game : MonoBehaviour
 {
     // 화면에 전체 시간 표시
     public TextMeshProUGUI TotalTimer;
+
     private int seconds = 0;
 
     private void Start()
