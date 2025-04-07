@@ -1769,7 +1769,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1704735458}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RhythmPreviewer, Assembly-CSharp
         m_MethodName: OnClickStartButton
         m_Mode: 1
@@ -2250,8 +2250,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1704735459}
-  - component: {fileID: 1704735458}
   - component: {fileID: 1704735460}
+  - component: {fileID: 1704735461}
   m_Layer: 0
   m_Name: ForDebug
   m_TagString: Untagged
@@ -2259,22 +2259,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1704735458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704735457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d195a56a291bbe4f9e1f29c2cf2cfb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pattern: {fileID: 11400000, guid: 51d18a65aa3e22f4a9127d1bb060f352, type: 2}
-  noteUIPrefab: {fileID: 783586115796944255, guid: ac5b1c39ee5fae7419fb86c2c3e8e107, type: 3}
-  uiSpawnParent: {fileID: 1351124039}
-  dropdown: {fileID: 701302336}
 --- !u!4 &1704735459
 Transform:
   m_ObjectHideFlags: 0
@@ -2305,6 +2289,22 @@ MonoBehaviour:
   targetPattern: {fileID: 11400000, guid: 51d18a65aa3e22f4a9127d1bb060f352, type: 2}
   dropdown: {fileID: 701302336}
   bpm: 97
+--- !u!114 &1704735461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704735457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c3ab15495330b4ea32b2af5798c180, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pattern: {fileID: 11400000, guid: 51d18a65aa3e22f4a9127d1bb060f352, type: 2}
+  noteUIPrefab: {fileID: 783586115796944255, guid: ac5b1c39ee5fae7419fb86c2c3e8e107, type: 3}
+  uiSpawnParent: {fileID: 1351124039}
+  dropdown: {fileID: 701302336}
 --- !u!1 &1795504290
 GameObject:
   m_ObjectHideFlags: 0

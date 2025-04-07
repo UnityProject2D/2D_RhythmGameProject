@@ -1,8 +1,8 @@
+using FMOD.Studio;
+using FMODUnity;
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
-using FMODUnity;
-using FMOD.Studio;
 using static RhythmEvents;
 using System.Collections.Generic;
 

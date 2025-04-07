@@ -14,79 +14,75 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 97
   notes:
-  - beat: 25.5207
+  - beat: 25.624168
     expectedKey: W
-  - beat: 26.555368
+  - beat: 26.5
     expectedKey: D
-  - beat: 27.556084
-    expectedKey: W
-  - beat: 28.453335
-    expectedKey: D
-  - beat: 33.350216
-    expectedKey: A
-  - beat: 34.454403
-    expectedKey: D
-  - beat: 35.523018
+  - beat: 27.5
     expectedKey: S
-  - beat: 36.454216
+  - beat: 28.5
+    expectedKey: A
+  - beat: 33.5
     expectedKey: W
-  - beat: 41.2832
-    expectedKey: A
-  - beat: 42.351818
+  - beat: 34.5
     expectedKey: D
-  - beat: 43.386486
+  - beat: 35.5
     expectedKey: D
-  - beat: 44.3872
-    expectedKey: A
-  - beat: 49.457066
-    expectedKey: A
-  - beat: 50.388268
+  - beat: 36.5
     expectedKey: S
-  - beat: 51.422935
+  - beat: 41.5
     expectedKey: W
-  - beat: 52.388084
+  - beat: 42.5
     expectedKey: D
-  - beat: 57.424004
+  - beat: 43.5
     expectedKey: A
-  - beat: 58.389153
+  - beat: 44.5
     expectedKey: D
-  - beat: 59.38987
+  - beat: 49.5
+    expectedKey: W
+  - beat: 50.5
+    expectedKey: D
+  - beat: 51.5
+    expectedKey: W
+  - beat: 52.5
+    expectedKey: D
+  - beat: 57.5
+    expectedKey: W
+  - beat: 58.5
+    expectedKey: D
+  - beat: 59.5
+    expectedKey: W
+  - beat: 60.5
+    expectedKey: D
+  - beat: 65.5
     expectedKey: A
-  - beat: 60.35502
-    expectedKey: D
-  - beat: 65.32142
+  - beat: 66.5
     expectedKey: S
-  - beat: 66.322136
-    expectedKey: S
-  - beat: 67.390755
-    expectedKey: W
-  - beat: 68.3559
-    expectedKey: W
-  - beat: 73.35787
-    expectedKey: D
-  - beat: 74.39253
-    expectedKey: D
-  - beat: 75.39163
-    expectedKey: S
-  - beat: 76.39235
+  - beat: 67.5
     expectedKey: A
-  - beat: 81.22134
-    expectedKey: A
-  - beat: 82.323906
-    expectedKey: W
-  - beat: 83.29067
-    expectedKey: D
-  - beat: 84.25582
+  - beat: 68.5
     expectedKey: S
-  - beat: 98.327286
-    expectedKey: D
-  - beat: 106.19075
-    expectedKey: D
-  - beat: 114.434135
-    expectedKey: D
-  - beat: 129.98808
+  - beat: 73.5
     expectedKey: A
-  - beat: 131.16017
+  - beat: 74.5
     expectedKey: D
-  - beat: 132.05742
+  - beat: 75.5
+    expectedKey: A
+  - beat: 76.5
+    expectedKey: D
+  - beat: 81
     expectedKey: W
+  - beat: 81.5
+    expectedKey: S
+  - beat: 82
+    expectedKey: W
+  - beat: 82.5
+    expectedKey: S
+  - beat: 83
+    expectedKey: W
+  - beat: 83.5
+    expectedKey: S
+  - beat: 84
+    expectedKey: W
+  - beat: 84.5
+    expectedKey: S

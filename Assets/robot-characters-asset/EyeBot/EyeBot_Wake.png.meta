@@ -1,0 +1,1534 @@
+fileFormatVersion: 2
+guid: da72cc6e07e82c34682c333a7b991de2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4857068035489884627
+    second: EyeBot_Wake_0
+  - first:
+      213: -713199671355638481
+    second: EyeBot_Wake_1
+  - first:
+      213: 7036048730970712388
+    second: EyeBot_Wake_2
+  - first:
+      213: -8425801480381672120
+    second: EyeBot_Wake_3
+  - first:
+      213: 8112133756161403791
+    second: EyeBot_Wake_4
+  - first:
+      213: 7238153863749121551
+    second: EyeBot_Wake_5
+  - first:
+      213: 7932248043883961507
+    second: EyeBot_Wake_6
+  - first:
+      213: 1715294575649912811
+    second: EyeBot_Wake_7
+  - first:
+      213: -6912600955412580858
+    second: EyeBot_Wake_8
+  - first:
+      213: 348283879038831208
+    second: EyeBot_Wake_9
+  - first:
+      213: 7485127932073185585
+    second: EyeBot_Wake_10
+  - first:
+      213: 3759336383872226737
+    second: EyeBot_Wake_11
+  - first:
+      213: 1066966029677716528
+    second: EyeBot_Wake_12
+  - first:
+      213: 3435371786109916801
+    second: EyeBot_Wake_13
+  - first:
+      213: -2505851751947058598
+    second: EyeBot_Wake_14
+  - first:
+      213: 9083253504467953647
+    second: EyeBot_Wake_15
+  - first:
+      213: 888121379901644873
+    second: EyeBot_Wake_16
+  - first:
+      213: 2472012695395718912
+    second: EyeBot_Wake_17
+  - first:
+      213: 1740538054807977254
+    second: EyeBot_Wake_18
+  - first:
+      213: 9097604288870378819
+    second: EyeBot_Wake_19
+  - first:
+      213: 3523119504071321682
+    second: EyeBot_Wake_20
+  - first:
+      213: 4506233213579078884
+    second: EyeBot_Wake_21
+  - first:
+      213: 4497872351899577863
+    second: EyeBot_Wake_22
+  - first:
+      213: -276154882901856147
+    second: EyeBot_Wake_23
+  - first:
+      213: -3616871200894400779
+    second: EyeBot_Wake_24
+  - first:
+      213: -8407348241706031433
+    second: EyeBot_Wake_25
+  - first:
+      213: -5808917665915125513
+    second: EyeBot_Wake_26
+  - first:
+      213: 1144041895380066204
+    second: EyeBot_Wake_27
+  - first:
+      213: 8021864103588327079
+    second: EyeBot_Wake_28
+  - first:
+      213: 6476161317501524061
+    second: EyeBot_Wake_29
+  - first:
+      213: -2342074184015547604
+    second: EyeBot_Wake_30
+  - first:
+      213: 4283598907076974877
+    second: EyeBot_Wake_31
+  - first:
+      213: -3989452900879240175
+    second: EyeBot_Wake_32
+  - first:
+      213: -3337998208641683055
+    second: EyeBot_Wake_33
+  - first:
+      213: 7040126412273903073
+    second: EyeBot_Wake_34
+  - first:
+      213: 3062831648863119329
+    second: EyeBot_Wake_35
+  - first:
+      213: -462144258852265287
+    second: EyeBot_Wake_36
+  - first:
+      213: 8949104378503647777
+    second: EyeBot_Wake_37
+  - first:
+      213: -67415119586276133
+    second: EyeBot_Wake_38
+  - first:
+      213: 2239906206798811121
+    second: EyeBot_Wake_39
+  - first:
+      213: 4446039213801379781
+    second: EyeBot_Wake_40
+  - first:
+      213: 8580036531949579248
+    second: EyeBot_Wake_41
+  - first:
+      213: -6662066797194184793
+    second: EyeBot_Wake_42
+  - first:
+      213: -139054093319565914
+    second: EyeBot_Wake_43
+  - first:
+      213: -6277083956591934572
+    second: EyeBot_Wake_44
+  - first:
+      213: -1453593140189302358
+    second: EyeBot_Wake_45
+  - first:
+      213: 7571918963903958108
+    second: EyeBot_Wake_46
+  - first:
+      213: 4150037671899287607
+    second: EyeBot_Wake_47
+  - first:
+      213: 7549185906389087857
+    second: EyeBot_Wake_48
+  - first:
+      213: 1305076557680941854
+    second: EyeBot_Wake_49
+  - first:
+      213: -416833011815473421
+    second: EyeBot_Wake_50
+  - first:
+      213: -5071557849547338352
+    second: EyeBot_Wake_51
+  - first:
+      213: -1930105974573922669
+    second: EyeBot_Wake_52
+  - first:
+      213: 7383749005498974503
+    second: EyeBot_Wake_53
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EyeBot_Wake_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2698b60b5a389cb0800000000000000
+      internalID: -4857068035489884627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2dfbe67da43a16f0800000000000000
+      internalID: -713199671355638481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 449e8dfca0115a160800000000000000
+      internalID: 7036048730970712388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 845d3e5023a811b80800000000000000
+      internalID: -8425801480381672120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_4
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8ba47adba6149070800000000000000
+      internalID: 8112133756161403791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_5
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f063366f696137460800000000000000
+      internalID: 7238153863749121551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_6
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ac9dfda191051e60800000000000000
+      internalID: 7932248043883961507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_7
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be774ca1453fdc710800000000000000
+      internalID: 1715294575649912811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_8
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6067b9a3e028110a0800000000000000
+      internalID: -6912600955412580858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_9
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86aca1bb75a55d400800000000000000
+      internalID: 348283879038831208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_10
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1319391423480e760800000000000000
+      internalID: 7485127932073185585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_11
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b5d7e7f588db2430800000000000000
+      internalID: 3759336383872226737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 31
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 034695273ff9ece00800000000000000
+      internalID: 1066966029677716528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_13
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 0
+        width: 33
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1861b762074ecaf20800000000000000
+      internalID: 3435371786109916801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_14
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 0
+        width: 33
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a52c761bb1d693dd0800000000000000
+      internalID: -2505851751947058598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_15
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 0
+        width: 33
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe762aaefe23e0e70800000000000000
+      internalID: 9083253504467953647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_16
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 0
+        width: 33
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 940a77680bd335c00800000000000000
+      internalID: 888121379901644873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_17
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 0
+        width: 33
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 007515df27a5e4220800000000000000
+      internalID: 2472012695395718912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_18
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 0
+        width: 33
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62df0ea9322a72810800000000000000
+      internalID: 1740538054807977254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_19
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 0
+        width: 33
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d603946ee214e70800000000000000
+      internalID: 9097604288870378819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_20
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 0
+        width: 33
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 258eb6dc582a4e030800000000000000
+      internalID: 3523119504071321682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_21
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 0
+        width: 33
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eca2729b3b598e30800000000000000
+      internalID: 4506233213579078884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_22
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 0
+        width: 33
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70e6604c217ab6e30800000000000000
+      internalID: 4497872351899577863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_23
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 0
+        width: 33
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6035add896ea2cf0800000000000000
+      internalID: -276154882901856147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_24
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 0
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f649584eca4ecdc0800000000000000
+      internalID: -3616871200894400779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_25
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b66b167159135b80800000000000000
+      internalID: -8407348241706031433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_26
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 13
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f043a9e824926fa0800000000000000
+      internalID: -5808917665915125513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_27
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9f1b4eda0470ef00800000000000000
+      internalID: 1144041895380066204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_28
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 14
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aee6da86e2635f60800000000000000
+      internalID: 8021864103588327079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_29
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 0
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d58ddc5f762ffd950800000000000000
+      internalID: 6476161317501524061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_30
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 15
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c23f32040f74f7fd0800000000000000
+      internalID: -2342074184015547604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_31
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 0
+        width: 23
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d191390b286627b30800000000000000
+      internalID: 4283598907076974877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_32
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 11
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 114f0f249bd92a8c0800000000000000
+      internalID: -3989452900879240175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_33
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 16
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 191b501905c0da1d0800000000000000
+      internalID: -3337998208641683055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_34
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 0
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e56e69fbad83b160800000000000000
+      internalID: 7040126412273903073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_35
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 13
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e76f45382d518a20800000000000000
+      internalID: 3062831648863119329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_36
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 16
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b2ef10ce322699f0800000000000000
+      internalID: -462144258852265287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_37
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 0
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1225a92940b913c70800000000000000
+      internalID: 8949104378503647777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_38
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 14
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdcc1905e4e701ff0800000000000000
+      internalID: -67415119586276133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_39
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 16
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ff8f6ad3deb51f10800000000000000
+      internalID: 2239906206798811121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_40
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 0
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c7961cdb1183bd30800000000000000
+      internalID: 4446039213801379781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_41
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 16
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fbaabe44c9621770800000000000000
+      internalID: 8580036531949579248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_42
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 16
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a7f05b8b859b83a0800000000000000
+      internalID: -6662066797194184793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_43
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 0
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad8f13f90bf11ef0800000000000000
+      internalID: -139054093319565914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_44
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 18
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 493c80e166153e8a0800000000000000
+      internalID: -6277083956591934572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_45
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa1721f8dbcc3dbe0800000000000000
+      internalID: -1453593140189302358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_46
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5c0a8f0e2cd41960800000000000000
+      internalID: 7571918963903958108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_47
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 1
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 730db065645e79930800000000000000
+      internalID: 4150037671899287607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_48
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 2
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 176f4b5a59814c860800000000000000
+      internalID: 7549185906389087857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_49
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 3
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b1341f6309c1210800000000000000
+      internalID: 1305076557680941854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_50
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 3
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fe1510959c173af0800000000000000
+      internalID: -416833011815473421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_51
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 0
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09d03ef81053e99b0800000000000000
+      internalID: -5071557849547338352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_52
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 2
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39689ae97d2e635e0800000000000000
+      internalID: -1930105974573922669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Wake_53
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 2
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72109678998587660800000000000000
+      internalID: 7383749005498974503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      EyeBot_Wake_0: -4857068035489884627
+      EyeBot_Wake_1: -713199671355638481
+      EyeBot_Wake_10: 7485127932073185585
+      EyeBot_Wake_11: 3759336383872226737
+      EyeBot_Wake_12: 1066966029677716528
+      EyeBot_Wake_13: 3435371786109916801
+      EyeBot_Wake_14: -2505851751947058598
+      EyeBot_Wake_15: 9083253504467953647
+      EyeBot_Wake_16: 888121379901644873
+      EyeBot_Wake_17: 2472012695395718912
+      EyeBot_Wake_18: 1740538054807977254
+      EyeBot_Wake_19: 9097604288870378819
+      EyeBot_Wake_2: 7036048730970712388
+      EyeBot_Wake_20: 3523119504071321682
+      EyeBot_Wake_21: 4506233213579078884
+      EyeBot_Wake_22: 4497872351899577863
+      EyeBot_Wake_23: -276154882901856147
+      EyeBot_Wake_24: -3616871200894400779
+      EyeBot_Wake_25: -8407348241706031433
+      EyeBot_Wake_26: -5808917665915125513
+      EyeBot_Wake_27: 1144041895380066204
+      EyeBot_Wake_28: 8021864103588327079
+      EyeBot_Wake_29: 6476161317501524061
+      EyeBot_Wake_3: -8425801480381672120
+      EyeBot_Wake_30: -2342074184015547604
+      EyeBot_Wake_31: 4283598907076974877
+      EyeBot_Wake_32: -3989452900879240175
+      EyeBot_Wake_33: -3337998208641683055
+      EyeBot_Wake_34: 7040126412273903073
+      EyeBot_Wake_35: 3062831648863119329
+      EyeBot_Wake_36: -462144258852265287
+      EyeBot_Wake_37: 8949104378503647777
+      EyeBot_Wake_38: -67415119586276133
+      EyeBot_Wake_39: 2239906206798811121
+      EyeBot_Wake_4: 8112133756161403791
+      EyeBot_Wake_40: 4446039213801379781
+      EyeBot_Wake_41: 8580036531949579248
+      EyeBot_Wake_42: -6662066797194184793
+      EyeBot_Wake_43: -139054093319565914
+      EyeBot_Wake_44: -6277083956591934572
+      EyeBot_Wake_45: -1453593140189302358
+      EyeBot_Wake_46: 7571918963903958108
+      EyeBot_Wake_47: 4150037671899287607
+      EyeBot_Wake_48: 7549185906389087857
+      EyeBot_Wake_49: 1305076557680941854
+      EyeBot_Wake_5: 7238153863749121551
+      EyeBot_Wake_50: -416833011815473421
+      EyeBot_Wake_51: -5071557849547338352
+      EyeBot_Wake_52: -1930105974573922669
+      EyeBot_Wake_53: 7383749005498974503
+      EyeBot_Wake_6: 7932248043883961507
+      EyeBot_Wake_7: 1715294575649912811
+      EyeBot_Wake_8: -6912600955412580858
+      EyeBot_Wake_9: 348283879038831208
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,57 @@
+Grasshopper_Idle:
+   * Frame size: 48x32
+   * Frame count: 16
+   * FPS: 20
+
+---------
+
+Grasshopper_Walk:
+   * Frame size: 48x32
+   * Frame count: 14
+   * FPS: 20
+
+----------
+
+Grasshopper_TurnAround:
+   * Frame size: 48x32
+   * Frame count: 16
+   * FPS: 20
+
+----------
+
+Grasshopper_Shoot:
+   * Frame size: 48x32
+   * Frame count: 16
+   * FPS: 20
+
+----------
+
+Grasshopper_Shoot2:
+   * Frame size: 48x32
+   * Frame count: 7
+   * FPS: 20
+
+----------
+
+Grasshopper_Damaged:
+   * Frame size: 48x32
+   * Frame count: 9
+   * FPS: 20
+
+----------
+
+Grasshopper_Death:
+   * Frame size: 96x64
+   * Frame count: 19
+   * FPS: 20
+   * Place pivot 12 pixels from bottom
+
+----------
+
+Grasshopper_Bullet:
+   * Frame size: 18x9
+   * Frame count: 5
+   * FPS: 20
+
+
+
