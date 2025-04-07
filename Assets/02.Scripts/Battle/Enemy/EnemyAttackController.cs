@@ -18,8 +18,9 @@ public class EnemyAttackController : MonoBehaviour
     private Animator _animator;
 
     public GameObject EnemyBulletPrefab;
-    public Transform EnemyBulletSpawnPoints;
     private List<GameObject> EnemyBulletPool = new();
+    public Transform PlayerTransform;
+    public Transform GunPosition;
 
     private int poolSize = 10;
 
@@ -33,7 +34,7 @@ public class EnemyAttackController : MonoBehaviour
         // 총알 오브젝트 풀 생성
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject bullet = Instantiate(EnemyBulletPrefab);
+            GameObject bullet = Instantiate(EnemyBulletPrefab, GunPosition.position, Quaternion.identity);
             bullet.SetActive(false);
             EnemyBulletPool.Add(bullet);
         }
@@ -82,23 +83,27 @@ public class EnemyAttackController : MonoBehaviour
         GameObject bullet = GetBulletFromPool();
         if (bullet == null) return;
 
-        bullet.transform.position = EnemyBulletSpawnPoints.position;
+        bullet.transform.position = GunPosition.position;
+        Vector2 direction;
+        if (PlayerTransform == null)
+            direction = GunPosition.position;
 
-        // 방향별 회전 각도 수동 설정 (Z축 회전)
-        float zRotation = directionIndex switch
+        switch (directionIndex)
         {
-            0 => -2.226f,    // 위
-            1 => 0f,  // 아래
-            2 => 3.079f,   // 왼쪽
-            3 => 7.893f,  // 오른쪽
-            _ => 0f
-        };
-        bullet.transform.rotation = Quaternion.Euler(0f, 0f, zRotation);
+            case 0: direction = (PlayerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
+            case 1: direction = (PlayerTransform.position + Vector3.up * 2f)-GunPosition.position; break;   // S - 다리
+            case 2: direction = Vector3.left; break;   // A - 왼쪽 몸통
+            case 3: direction = Vector3.left; break;  // D - 오른쪽 몸통
+            default: direction = PlayerTransform.position; break;
+        }
+
+        direction = direction.normalized;
 
         // 회전 방향 기준으로 이동 방향 설정
-        bullet.GetComponent<EnemyBullet>().direction = Vector2.left;
+        bullet.GetComponent<EnemyBullet>().direction = direction;
         bullet.SetActive(true);
     }
+
 
     private GameObject GetBulletFromPool()
     {
@@ -107,7 +112,12 @@ public class EnemyAttackController : MonoBehaviour
             if (!bullet.activeInHierarchy)
                 return bullet;
         }
-        return null;
+
+        var newBullet = Instantiate(EnemyBulletPrefab, GunPosition.position, Quaternion.identity);
+
+        newBullet.SetActive(false);
+        EnemyBulletPool.Add(newBullet);
+        return newBullet;
     }
     public void PlayAttackSound()
     {
