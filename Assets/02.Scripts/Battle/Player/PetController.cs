@@ -41,8 +41,8 @@ public class PetController : MonoBehaviour
         GameObject petBullet = GetPetBulletFromPool(); // 총알 오브젝트를 해당 위치에 배치하고 활성화
         if (petBullet == null) return; // 비활성화된 총알이 없으면 리턴
         petBullet.transform.position = PetBulletSpawnPoint.position;
-        petBullet.transform.rotation = Quaternion.Euler(0f, 0f, 90f); // 총알 회전 각도 설정 (Z축 회전)
-        petBullet.GetComponent<PetBullet>().direction = Vector2.right; // 총알 방향 설정
+        petBullet.transform.rotation = Quaternion.identity; // 총알 회전 각도 설정 (Z축 회전)
+        petBullet.GetComponent<PetBullet>().direction = new Vector2(5f, -1f).normalized; // 총알 방향 설정
         petBullet.SetActive(true);
     }
 
@@ -56,12 +56,12 @@ public class PetController : MonoBehaviour
 
     private void FireBullet()
     {
-        GameObject petBullet = GetPetBulletFromPool(); // 총알 오브젝트를 해당 위치에 배치하고 활성화
-        if (petBullet == null) return; // 비활성화된 총알이 없으면 리턴
-        petBullet.transform.position = PetBulletSpawnPoint.position;
-        petBullet.transform.rotation = Quaternion.Euler(0f, 0f, 45f); // 총알 회전 각도 설정 (Z축 회전)
-        petBullet.GetComponent<PetBullet>().direction = Vector2.down; // 총알 방향 설정
-        petBullet.SetActive(true);
+        //GameObject petBullet = GetPetBulletFromPool(); // 총알 오브젝트를 해당 위치에 배치하고 활성화
+        //if (petBullet == null) return; // 비활성화된 총알이 없으면 리턴
+        //petBullet.transform.position = PetBulletSpawnPoint.position;
+        //petBullet.transform.rotation = Quaternion.identity; // 총알 회전 각도 설정 (Z축 회전)
+        //petBullet.GetComponent<PetBullet>().direction = new Vector2(5f, -1f).normalized; // 총알 방향 설정
+        //petBullet.SetActive(true);
     }
 
     // 사용 가능한 총알을 풀에서 찾아 반환
