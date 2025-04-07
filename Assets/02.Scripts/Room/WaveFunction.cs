@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Animations;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class WaveFunction : MonoBehaviour
 {
@@ -13,8 +15,10 @@ public class WaveFunction : MonoBehaviour
     const int TILE_TYPE = 8;
     const int TILE_SIZE = 8;
 
-    public Dictionary<int, Dictionary<DIRECT, HashSet<int>>> Constraints;
-    // 1. 타일 인덱스, 2. 방향에 따라 적용할 수 있는 타일 셋(방향, 타일 번호)
+    //public Dictionary<int, Dictionary<DIRECT, HashSet<int>>> Constraints;
+    //// 1. 타일 인덱스, 2. 방향에 따라 적용할 수 있는 타일 셋(방향, 타일 번호)
+
+    public List<TileData> TileData;
 
     private Stack<Vector2Int> propagateStack;
     public enum DIRECT
@@ -105,10 +109,10 @@ public class WaveFunction : MonoBehaviour
             List<int> cur_tiles = cur_cell.PossibleTiles;
 
             // 상하좌우 방향이 다른 셀
-            foreach(Vector2Int dir in Dirs)
+            for(int i = 0; i < (int)DIRECT.DIRECT_END; i++)
             {
                 // 4가지 방향
-                Vector2Int other_coords = cur_coord + dir;
+                Vector2Int other_coords = cur_coord + Dirs[i];
 
                 // 해당 인덱스가 유효한지 체크
                 if (!Is_valid_direction(other_coords)) continue;
@@ -117,15 +121,16 @@ public class WaveFunction : MonoBehaviour
                 List<int> other_tiles = other_cell.PossibleTiles;
 
                 // 해당 방향 가능한 이웃 타일 리스트 반환
-                // List<int> possible_neighbours = Get_all_possible_neighbours(dir, cur_tiles);
+                List<int> possible_neighbours = Get_all_possible_neighbours(DIRECT.LEFT + i, cur_tiles);
 
                 // 특정 방향 타일 리스트
-                for(int i = 0; i < other_tiles.Count; i++)
+                for(int j = 0; j < other_tiles.Count; j++)
                 {
                     // 가능한 이웃 타일 목록에 해당 인덱스가 없으면 제거
-                    //if (!possible_neighbours.Contains(other_tiles[i])){
-                    //    other_tiles.RemoveAt(i--); // 해당 인덱스 삭제 후 인덱스 조절(--)
-                    //}
+                    if (!possible_neighbours.Contains(other_tiles[i]))
+                    {
+                        other_tiles.RemoveAt(i--); // 해당 인덱스 삭제 후 인덱스 조절(--)
+                    }
                 }
             }
 
@@ -141,16 +146,15 @@ public class WaveFunction : MonoBehaviour
     }
 
     // 특정 방향으로 유효한 타일 리스트 반환
-    //public List<int> Get_all_possible_neighbours(Vector2Int dir, List<int> tiles)
-    //{
-    //    List<int> possibilities;
+    public List<int> Get_all_possible_neighbours(DIRECT dir, List<int> tiles)
+    {
+        List<int> possibilities = new List<int>();
 
-    //    foreach (int index in tiles)
-    //    {
-    //        // 현재 타일 추가 가능한 정보
-    //        // possibilities.Add();
-    //    }
+        // 현재 들어올 수 있는 타일들을 기준으로 이웃 추가
+        foreach (int index in tiles) {
+            possibilities.AddRange(TileData[index].constraints[(int)dir].AllowNeighbours);
+        }
 
-    //    return possibilities;
-    //}
+        return possibilities;
+    }
 }
