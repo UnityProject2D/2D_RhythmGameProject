@@ -22,11 +22,9 @@ public class PlayerController : MonoBehaviour
     //public event Action<string> OnInputPerformed;
     public GameObject[] vfxPrefabs; // 0: Jump, 1: Down, 2: Roll, 3: BackFlip
     public Transform vfxSpawnPoint;
-    private int _comboCount = 0; // 콤보 카운트
-    [SerializeField]
-    private TextMeshProUGUI _comboText; // 콤보 UI 텍스트
 
-    public PlayerHealth PlayerHealth; // 플레이어 체력 스크립트
+    public bool IsDead;
+    public bool IsAlive = true;
 
     private void Awake()
     {
@@ -41,7 +39,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Instance.OnInputPerformed += OnInputPerf;
-
     }
 
     private void OnDisable()
@@ -52,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnInputPerf(string key)
     {
+        if (IsDead) return;
         RhythmAction direction = RhythmAction.None;
         //Debug.Log($"인풋 들어감");
         switch (key)
@@ -63,7 +61,8 @@ public class PlayerController : MonoBehaviour
         }
 
         _animator.SetInteger("Direction", (int)direction);
-        StartCoroutine(ResetAnimation()); // 애니메이션 재생
+        _animator.SetTrigger("Actioned");
+        //StartCoroutine(ResetAnimation()); // 애니메이션 재생
 
         // VFX도 재생
         PlayVFX(direction);
@@ -78,29 +77,26 @@ public class PlayerController : MonoBehaviour
         Destroy(vfx, 1f); // 1초 후 자동 삭제
     }
 
-    private IEnumerator ResetAnimation()
-    {
-        yield return new WaitForSeconds(0.5f); // 애니메이션 재생 시간
-        _animator.SetInteger("Direction", 0); //(int)RhythmAction.None
-    }
+    //private IEnumerator ResetAnimation()
+    //{
+    //    yield return new WaitForSeconds(0.5f); // 애니메이션 재생 시간
+    //    _animator.SetInteger("Direction", 0); //(int)RhythmAction.None
+    //}
 
-    private void OnInputJudg(JudgementResult result)
+    private void OnInputJudg(JudgedContext result)
     {
-        Debug.Log($"판정 결과: {result}");
-        switch (result)
+        Debug.Log($"판정 결과: {result.Result}");
+        switch (result.Result)
         {
             case JudgementResult.Perfect:
             case JudgementResult.Good:
-                _comboCount++;
-                ShowComboEffect(result); // 효과 출력
+                ShowComboEffect(result.Result); // 효과 출력
                 break;
             case JudgementResult.Bad:
             case JudgementResult.Miss:
-                _comboCount = 0;
                 ShowMissEffect(); //대미지 애니메이션 출력
                 break;
         }
-        UpdateComboUI();
     }
 
     private void ShowComboEffect(JudgementResult result)
@@ -119,23 +115,21 @@ public class PlayerController : MonoBehaviour
 
     private void ShowMissEffect()
     {
-        Debug.Log("Miss!!");
-        PlayerHealth.TakeDamage(1); // 체력 감소
-        RhythmAction direction = RhythmAction.None;
-        direction = RhythmAction.Hit;
-        _animator.SetInteger("Direction", (int)direction);
-        StartCoroutine(ResetAnimation());
+        //Debug.Log("Miss!!");
+        //RhythmAction direction = RhythmAction.None;
+        //direction = RhythmAction.Hit;
+
+        if (IsDead && IsAlive)
+        {
+            IsAlive = false;
+            _animator.SetTrigger("Die");
+            _animator.SetBool("Dead", true);
+        }
+        else if(IsAlive)
+        {
+            _animator.SetTrigger("Hit");
+        }
+        //StartCoroutine(ResetAnimation());
     }
 
-    private void UpdateComboUI()
-    {
-        if (_comboCount > 0)
-        {
-            _comboText.text = $"Combo: {_comboCount}";
-        }
-        else
-        {
-            _comboText.text = "Miss!";
-        }
-    }
 }
