@@ -102,7 +102,9 @@ public class RhythmJudge : MonoBehaviour
 
         if (key != note.expectedKey)
         {
-            Debug.Log("잘못된 키");
+            Debug.Log("잘못된 키 → Miss 판정");
+            RhythmEvents.InvokeOnInputJudged(JudgementResult.Miss);
+            currentNoteIndex++;
             return;
         }
 
