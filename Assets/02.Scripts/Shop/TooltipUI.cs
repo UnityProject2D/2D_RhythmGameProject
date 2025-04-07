@@ -37,12 +37,12 @@ public class TooltipUI : MonoBehaviour
     }
     public void Show(ShopItemSO item)
     {
-        _nameText.text = item.itemName;
-        _descriptionText.text = item.description;
-        _categoryText.text = item.category != null ? item.category.categoryName : "";
+        _nameText.text = item.itemSO.itemName;
+        _descriptionText.text = item.itemSO.description;
+        _categoryText.text = item.itemSO.category != null ? item.itemSO.category.categoryName : "";
         _priceText.text = item.price.ToString();
         _currencyIcon.sprite = sprites[(int)item.currencyType];
-        _iconImage.sprite = item.icon;
+        _iconImage.sprite = item.itemSO.icon;
 
         _tooltipRoot.SetActive(true);
         _isVisible = true;

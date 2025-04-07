@@ -19,8 +19,8 @@ public class ShopSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         currentItem = item;
 
-        _icon.sprite = item.icon;
-        _nameText.text = item.itemName;
+        _icon.sprite = item.itemSO.icon;
+        _nameText.text = item.itemSO.itemName;
 
         //_priceText.text = item.price.ToString();
 
@@ -42,7 +42,7 @@ public class ShopSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             Debug.Log("구매 실패: 재화 부족");
             return;
         }
-        Debug.Log($"{currentItem.itemName} 구매");
+        Debug.Log($"{currentItem.itemSO.itemName} 구매");
 
         currentItem.OnPurchase?.Invoke();
         OnPurchaseSuccess?.Invoke();
