@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public Vector2 direction;
-    public float speed = 5f;
+    public float speed = 20f;
     public float lifetime = 7f;
 
     private void OnEnable()
