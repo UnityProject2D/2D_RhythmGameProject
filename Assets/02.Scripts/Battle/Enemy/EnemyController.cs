@@ -13,7 +13,7 @@ public enum EnemyState
 
 public class EnemyController : MonoBehaviour
 {
-
+    public bool test;
     private Animator _animator;
     public GameObject[] EnemyShadowPrefabs; // (0/W): Jump, (1/S): Down, (2/A): Roll, (3/D): BackFlip
     public Transform[] EnemyShadowSpawnPoint; // 적 그림자 생성 위치
@@ -50,6 +50,8 @@ public class EnemyController : MonoBehaviour
         int index = GetIndexFromKey(beatNote.expectedKey); // 입력 키(WASD) → 인덱스로 변환 (0~3)
         if (index < 0 || index >= enemyShadowPool.Length) return;
 
+        if(test)
+        _animator.SetTrigger("Attack");
         GameObject shadow = enemyShadowPool[index]; // 잔상 오브젝트를 해당 위치에 배치하고 활성화
         shadow.transform.position = EnemyShadowSpawnPoint[index].position;
         shadow.SetActive(true);
