@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{68cf30a9-6177-4946-8ba0-26b04dddb60a}">
+		<property name="assetPath">
+			<value>scifi_weapon_blaster_mono_05.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.84999999999999998</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{eb12cf5c-e765-4a9b-b0c8-dfcd7b291678}</destination>
+		</relationship>
+	</object>
+</objects>

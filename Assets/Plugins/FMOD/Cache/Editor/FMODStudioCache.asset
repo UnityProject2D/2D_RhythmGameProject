@@ -1,32 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8442880695058114932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/TestSound
-  m_EditorClassIdentifier: 
-  Path: event:/TestSound
-  Guid:
-    Data1: 1711747660
-    Data2: 1263653468
-    Data3: 1932706494
-    Data4: -193646901
-  Banks:
-  - {fileID: 1524653733103864878}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 600203
 --- !u!114 &-4066195341452072739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,11 +42,65 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638796151553585174
+  lastModified: 638796418024265899
   FileSizes:
   - Name: Desktop
-    Value: 934
+    Value: 1086
   Exists: 1
+--- !u!114 &-1483674036965872788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/AttackSound
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/AttackSound
+  Guid:
+    Data1: -365091642
+    Data2: 1310253158
+    Data3: 956344199
+    Data4: 221715373
+  Banks:
+  - {fileID: 2325183216582169763}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 560
+--- !u!114 &-873132968375273417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/EnemyDie
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/EnemyDie
+  Guid:
+    Data1: -433749399
+    Data2: 1321246973
+    Data3: -2110194754
+    Data4: -1141800964
+  Banks:
+  - {fileID: 2325183216582169763}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3320
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,17 +118,74 @@ MonoBehaviour:
   - {fileID: 1524653733103864878}
   - {fileID: 2325183216582169763}
   EditorEvents:
-  - {fileID: -8442880695058114932}
   - {fileID: 5041779617968266673}
   - {fileID: 8308070795445531540}
   - {fileID: -4066195341452072739}
+  - {fileID: 636641812625273892}
+  - {fileID: 386619556000339076}
+  - {fileID: -873132968375273417}
+  - {fileID: -1483674036965872788}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2325183216582169763}
   StringsBanks:
   - {fileID: -2596667840957986642}
-  cacheTime: 638796151553585174
+  cacheTime: 638796418024265899
   cacheVersion: 131623
+--- !u!114 &386619556000339076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/PreviewSound
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/PreviewSound
+  Guid:
+    Data1: 1081333771
+    Data2: 1302913518
+    Data3: -1020517196
+    Data4: 347915610
+  Banks:
+  - {fileID: 2325183216582169763}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 997
+--- !u!114 &636641812625273892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TestSound
+  m_EditorClassIdentifier: 
+  Path: event:/TestSound
+  Guid:
+    Data1: 1711747660
+    Data2: 1263653468
+    Data3: 1932706494
+    Data4: -193646901
+  Banks:
+  - {fileID: 1524653733103864878}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 600203
 --- !u!114 &1524653733103864878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +201,7 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master Bank.bank
   Name: Master Bank
   StudioPath: bank:/Master Bank
-  lastModified: 638793929338822684
+  lastModified: 638796390710148197
   FileSizes:
   - Name: Desktop
     Value: 7517248
@@ -137,10 +221,10 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638796151553585174
+  lastModified: 638796418024245797
   FileSizes:
   - Name: Desktop
-    Value: 10002880
+    Value: 10314848
   Exists: 1
 --- !u!114 &5041779617968266673
 MonoBehaviour:
@@ -168,7 +252,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 235384
+  Length: 58500
 --- !u!114 &8308070795445531540
 MonoBehaviour:
   m_ObjectHideFlags: 0
