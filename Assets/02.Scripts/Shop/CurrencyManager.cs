@@ -19,7 +19,7 @@ public class CurrencyManager : MonoBehaviour
 
         foreach (CurrencyType type in System.Enum.GetValues(typeof(CurrencyType)))
         {
-            currencies[type] = 0;
+            currencies[type] = 99;
         }
     }
 

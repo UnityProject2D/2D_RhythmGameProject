@@ -296,15 +296,25 @@ MonoBehaviour:
   _consumableSlotParent: {fileID: 3610770093736582722}
   _shopSlotPrefab: {fileID: 7571025682886218253, guid: eaa62c240023c5c43bb8229ef0cf42a3, type: 3}
   _equipmentItems:
-  - {fileID: 11400000, guid: f00811189ea96514babc8bd7362df295, type: 2}
-  - {fileID: 11400000, guid: adb00493e528f1b4692573ae36a9d820, type: 2}
-  - {fileID: 11400000, guid: e4d2fd6eeef701d498c55eb54efe7e36, type: 2}
+  - {fileID: 11400000, guid: 9f7d8fb814a06dd4e824bc21f8805946, type: 2}
+  - {fileID: 11400000, guid: f743bfc317179df4aa8cf411d9e9bffa, type: 2}
+  - {fileID: 11400000, guid: ce7cb40489a966b4b86d6266aa5ec8f0, type: 2}
+  - {fileID: 11400000, guid: c8046124c7ef6c443a26b4c683fee3d1, type: 2}
+  - {fileID: 11400000, guid: 555b07f2e0176a549a56265c013467c3, type: 2}
+  - {fileID: 11400000, guid: 0fbbfd9326746134fb02058eaa7db44b, type: 2}
+  - {fileID: 11400000, guid: 69d79e096c0fa27489e740cd456633fd, type: 2}
+  - {fileID: 11400000, guid: 03388053e35496e4fb977c2a7aa49593, type: 2}
   _consumableItems:
-  - {fileID: 11400000, guid: a0713eb3f20dedd42b35f37541043923, type: 2}
-  - {fileID: 11400000, guid: d776c15c262e3ba4f961f5929f44fb31, type: 2}
-  - {fileID: 11400000, guid: ab254b9cb229c4747957eaeb0ecdd01e, type: 2}
-  - {fileID: 11400000, guid: ccb29a01edaf8d948bdeba19c167b13d, type: 2}
-  - {fileID: 11400000, guid: b6cf3d06569937c47ba9136f54770ad2, type: 2}
+  - {fileID: 11400000, guid: 8e44d27cbf7ff5849bd3b8d04e5ae5eb, type: 2}
+  - {fileID: 11400000, guid: 209f811fa10f5ca4db035b963d0c8665, type: 2}
+  - {fileID: 11400000, guid: 4ff14980f8076254ebd208c20b75a8be, type: 2}
+  - {fileID: 11400000, guid: 1a632d3f3038f3c4b9d986ca91e00c13, type: 2}
+  - {fileID: 11400000, guid: 3cbb6a72f6bb12b419af890175f55f35, type: 2}
+  - {fileID: 11400000, guid: 846090d1f927a6346821df0154378e95, type: 2}
+  - {fileID: 11400000, guid: 8e44d27cbf7ff5849bd3b8d04e5ae5eb, type: 2}
+  - {fileID: 11400000, guid: 1a632d3f3038f3c4b9d986ca91e00c13, type: 2}
+  - {fileID: 11400000, guid: 846090d1f927a6346821df0154378e95, type: 2}
+  - {fileID: 11400000, guid: 3cbb6a72f6bb12b419af890175f55f35, type: 2}
   _equipmentItemsCount: 2
   _consumableItemsCount: 4
   _quantumKeyText: {fileID: 4859390853081984806}
@@ -327,7 +337,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -541,10 +551,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8761672682534772031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 460, y: -177.53717}
-  m_SizeDelta: {x: 720, y: 155.07434}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -177.5}
+  m_SizeDelta: {x: 0, y: 155}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7854610505218448504
 CanvasRenderer:
@@ -722,10 +732,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8761672682534772031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 460, y: -352.6115}
-  m_SizeDelta: {x: 720, y: 155.07434}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -352.5}
+  m_SizeDelta: {x: 0, y: 155}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2821124421617882020
 CanvasRenderer:

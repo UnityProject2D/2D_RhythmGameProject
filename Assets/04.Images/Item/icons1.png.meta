@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0da7bd83a6b0515468fe93ff4551be45
+guid: 91b331d5ee652114f9e552833b6b2952
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5152973425299649951
-    second: icon_item_memory_fragment_0
+      213: 8242622823429068648
+    second: icons1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +126,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: icon_item_memory_fragment_0
+      name: icons1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 512
-        height: 512
+        y: 441
+        width: 353
+        height: 338
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 16a8cf7a8f5fc78b0800000000000000
-      internalID: -5152973425299649951
+      spriteID: 1bbbc6abe722d8844b5054893d0e2541
+      internalID: 304628644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons1_1
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 441
+        width: 408
+        height: 335
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f06a978d76f0444cab7879677978d68
+      internalID: 677990155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icons1_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 442
+        width: 400
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a49ca13506b4a438532bb17dc25752
+      internalID: -383251889
       vertices: []
       indices: 
       edges: []
@@ -151,7 +195,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 472fef61508fce241bcf5814dbadcfd5
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +205,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      icon_item_memory_fragment_0: -5152973425299649951
+      icons1_0: 304628644
+      icons1_1: 677990155
+      icons1_2: -383251889
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

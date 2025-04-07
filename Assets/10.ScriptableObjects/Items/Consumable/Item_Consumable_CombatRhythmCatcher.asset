@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Item_Consumable_CombatRhythmCatcher
   m_EditorClassIdentifier: 
   itemName: "\uC804\uD22C \uB9AC\uB4EC \uCE90\uCCD0"
-  icon: {fileID: 0}
+  icon: {fileID: -383251889, guid: 91b331d5ee652114f9e552833b6b2952, type: 3}
   description: "\uB9AC\uB4EC \uBD95\uAD34 \uBC29\uC9C0 \uC7A5\uCE58. \n\uC77C\uC815
     \uC2DC\uAC04 \uB3D9\uC548 \uC785\uB825 \uC2E4\uD328\uC5D0\uB3C4 \uCF64\uBCF4\uAC00
-    \uC720\uC9C0\uB418\uBA70, \n\uB0B4\uC7A5\uB41C \uC18C\uD615 AI\uAC00 \uC785\uB825\uC744
+    \uC720\uC9C0\uB418\uBA70, \uB0B4\uC7A5\uB41C \uC18C\uD615 AI\uAC00 \uC785\uB825\uC744
     \uBCF4\uC815\uD574\uC900\uB2E4. \n\n\uB2E8 1\uD68C \uC0AC\uC6A9 \uD6C4 \uD3D0\uAE30\uB428."
   category: {fileID: 11400000, guid: dbacc609a7692aa4bbb3487a966d718b, type: 2}
   effects: []
