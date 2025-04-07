@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
+  m_Name: Item_Chipset_PreciseCalibrationUnit
+  m_EditorClassIdentifier: 
+  itemName: "\uCE69\uC14B: \uC815\uBC00 \uBCF4\uC815 \uCE69\uC14B"
+  icon: {fileID: 677990155, guid: 91b331d5ee652114f9e552833b6b2952, type: 3}
+  description: "Bad \uD310\uC815\uB3C4 \uCF64\uBCF4\uB97C \uC720\uC9C0\uD558\uB3C4\uB85D
+    \uB3D5\uB294 \uACE0\uC815\uBC00 \uC785\uB825 \uD544\uD130. \n\uB2E4\uB9CC \uAE30\uBCF8
+    \uC810\uC218 \uD68D\uB4DD\uB7C9\uC740 \uB0AE\uC544\uC9D0. \n\uC815\uD655\uC131\uACFC
+    \uC810\uC218\uC758 \uB51C\uB808\uB9C8."
+  category: {fileID: 11400000, guid: 1800b112f2b16884c8dd374b5b274634, type: 2}
+  effects: []
