@@ -33,8 +33,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        Instance.OnInputPerformed += OnInputPerf;
         RhythmEvents.OnInputJudged += OnInputJudg; // 리듬 입력 판정 이벤트 구독
+    }
+
+    private void Start()
+    {
+        Instance.OnInputPerformed += OnInputPerf;
+
     }
 
     private void OnDisable()
