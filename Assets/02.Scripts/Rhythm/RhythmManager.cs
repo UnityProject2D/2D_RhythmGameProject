@@ -34,11 +34,13 @@ public class RhythmManager : MonoBehaviour
     public float CurrentTimelineTime { get; private set; } = 0f;
     public float MusicStartTime { get; private set; } = -1f;
 
-    private int _previewIndex = 0;
     private EventInstance _musicInstance;
     private GCHandle _timelineHandle;
     private int _stageMusicIndex;
     private List<NoteTriggerState> _noteStates;
+
+    private Queue<Action> _eventQueue = new Queue<Action>();
+    private object _lock = new object();
 
     public int StageMusicIndex
     {
@@ -55,19 +57,26 @@ public class RhythmManager : MonoBehaviour
     private void Start()
     {
 
+
+
         if (IsTest)
         {
             Play();
         }
-
-    }
+}
 
     void Update()
     {
         if (!IsPlaying) return;
-
+        lock (_lock)
+        {
+            while (_eventQueue.Count > 0)
+            {
+                _eventQueue.Dequeue()?.Invoke();
+            }
+        }
         float currentTime = GetCurrentMusicTime();
-
+            
         for (int i = 0; i < stageNotes[_stageMusicIndex].notes.Count; i++)
         {
             var note = stageNotes[_stageMusicIndex].notes[i];
@@ -128,7 +137,6 @@ public class RhythmManager : MonoBehaviour
             EVENT_CALLBACK_TYPE.TIMELINE_MARKER |
     EVENT_CALLBACK_TYPE.STOPPED);
 
-        _previewIndex = 0;
         _bpm = stageNotes[_stageMusicIndex].bpm;
         _noteStates = new List<NoteTriggerState>();
         for (int i = 0; i < stageNotes[_stageMusicIndex].notes.Count; i++)
@@ -187,23 +195,29 @@ public class RhythmManager : MonoBehaviour
 
         switch (type)
         {
-            case EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
-                var beat = (TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_BEAT_PROPERTIES));
-
-                float beatTime = beat.position / 1000f;
-                Instance.CurrentTimelineTime = beatTime;
-                InvokeOnBeat(beatTime); // 정확한 beat 시간 전달
+            case EVENT_CALLBACK_TYPE.STOPPED:
+                lock (Instance._lock)
+                {
+                    Instance._eventQueue.Enqueue(() => RhythmEvents.InvokeOnMusicStopped());
+                }
                 break;
 
             case EVENT_CALLBACK_TYPE.TIMELINE_MARKER:
                 var marker = (TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_MARKER_PROPERTIES));
-                InvokeOnMarkerHit(marker.name);
+                string markerName = marker.name;
+                lock (Instance._lock)
+                {
+                    Instance._eventQueue.Enqueue(() => RhythmEvents.InvokeOnMarkerHit(markerName));
+                }
                 break;
-            case EVENT_CALLBACK_TYPE.STOPPED:
-                Debug.Log("음악 종료됨!");
-                InvokeOnMusicStopped();
-                //TODO: 점수 기반 승리/패배 처리
-                // 게임 매니저 만들까?
+
+            case EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
+                var beat = (TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_BEAT_PROPERTIES));
+                float beatTime = beat.position / 1000f;
+                lock (Instance._lock)
+                {
+                    Instance._eventQueue.Enqueue(() => RhythmEvents.InvokeOnBeat(beatTime));
+                }
                 break;
         }
 

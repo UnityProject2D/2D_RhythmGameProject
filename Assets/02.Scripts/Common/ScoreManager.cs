@@ -40,6 +40,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         RhythmEvents.OnInputJudged += OnJudged;
+        RhythmEvents.OnMusicStopped += OnStageCleared;
     }
 
     private void OnJudged(JudgedContext judgementResult)
@@ -104,9 +105,11 @@ public class ScoreManager : MonoBehaviour
             ((int)JudgementResult.Count - (int)judgementResult.Result) *// 판정 보정
             (PlayerState.Instance.PreciseCalibrationUnitEnabled ? 0.8f : 1f) *// 보정칩 핸디캡
             comboMultiplier *
-            perfectBonus;
+            perfectBonus *
+            (judgementResult.Result == JudgementResult.Miss?0:1);
 
         OnComboChanged?.Invoke(_combo);
+        Debug.Log($"SCORE = {(int)_score}");
         OnScoreChanged?.Invoke((int)_score);
 
     }
@@ -114,6 +117,5 @@ public class ScoreManager : MonoBehaviour
     private void OnStageCleared()
     {
         _totalScore += _score;
-        _score = 0;
     }
 }
