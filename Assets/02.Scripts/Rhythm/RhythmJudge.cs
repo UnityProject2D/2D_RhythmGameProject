@@ -45,15 +45,25 @@ public class RhythmJudge : MonoBehaviour
     private void OnEnable()
     {
         RhythmEvents.OnBeat += OnBeatReceived;
-        RhythmInputHandler.Instance.OnInputPerformed += EvaluateInput;
         RhythmEvents.OnMusicStart += OnMusicStartReceived;
     }
 
+    private void Start()
+    {
+        if (RhythmInputHandler.Instance != null)
+        {
+            RhythmInputHandler.Instance.OnInputPerformed += EvaluateInput;
+        }
+    }
     private void OnDisable()
     {
         RhythmEvents.OnBeat -= OnBeatReceived;
-        RhythmInputHandler.Instance.OnInputPerformed -= EvaluateInput;
         RhythmEvents.OnMusicStart -= OnMusicStartReceived;
+
+        if (RhythmInputHandler.Instance != null)
+        {
+            RhythmInputHandler.Instance.OnInputPerformed -= EvaluateInput;
+        }
     }
 
     private void OnMusicStartReceived()
