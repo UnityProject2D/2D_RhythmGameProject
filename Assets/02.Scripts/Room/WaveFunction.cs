@@ -13,8 +13,8 @@ public class WaveFunction : MonoBehaviour
     public const int GRID_SCALE = 128;
 
     // 타일 종류
-    public const int TILE_TYPE = 8;
-    public const int TILE_SIZE = 8;
+    //public const int TILE_TYPE = 6;
+    public const int TILE_SIZE = 6;
 
     //public Dictionary<int, Dictionary<DIRECT, HashSet<int>>> Constraints;
     //// 1. 타일 인덱스, 2. 방향에 따라 적용할 수 있는 타일 셋(방향, 타일 번호)
@@ -53,7 +53,11 @@ public class WaveFunction : MonoBehaviour
             List<Cell> cells = new List<Cell>();
             for (int j = 0; j < GRID_SIZE; j++)
             {
-                cells.Add(new Cell(new Vector2(i, j), TILE_SIZE));
+                Cell cellComponent = new Cell(new Vector2Int(i, j), TILE_SIZE);
+                int row = i;
+                int col = j;
+                cellComponent.OnCollapsed += (Cell) => On_cell_collapsed(new Vector2Int(row, col));
+                cells.Add(cellComponent);
             }
             cellDatas.Add(cells);
         }
@@ -99,14 +103,21 @@ public class WaveFunction : MonoBehaviour
     public void Collapse_at_coords(Vector2Int coords)
     {
         cellDatas[coords.x][coords.y].Collapse(-1);
+
+        Propagate(coords);
         Debug.Log($"현재 인덱스: x: {coords.x} y: {coords.y}");
     }
 
+    public void On_cell_collapsed(Vector2Int coords)
+    {
+        Propagate(coords);
+    }
+
     // 전파 함수
-    public void Propagate(Vector2Int coords)
+    public bool Propagate(Vector2Int coords)
     {
         // 처음 전파할 값
-        propagateStack.Append(coords);
+        propagateStack.Push(coords);
 
         while (propagateStack.Count > 0){
             // 현재 셀 기준 값
@@ -129,26 +140,35 @@ public class WaveFunction : MonoBehaviour
                 // 해당 방향 가능한 이웃 타일 리스트 반환
                 List<int> possible_neighbours = Get_all_possible_neighbours(DIRECT.LEFT + i, cur_tiles);
 
+                bool bChange = false;
                 // 특정 방향 타일 리스트
-                for(int j = 0; j < other_tiles.Count; j++)
+                for (int j = other_tiles.Count - 1; j >= 0; j--)
                 {
                     // 가능한 이웃 타일 목록에 해당 인덱스가 없으면 제거
-                    if (!possible_neighbours.Contains(other_tiles[i]))
+                    if (!possible_neighbours.Contains(other_tiles[j]))
                     {
-                        other_tiles.RemoveAt(i--); // 해당 인덱스 삭제 후 인덱스 조절(--)
+                        other_tiles.RemoveAt(j); // 해당 인덱스 삭제 후 인덱스 조절(--)
+                        bChange = true;
                     }
                 }
-            }
 
+                if (other_tiles.Count == 0)
+                {
+                    return false;
+                }
+                if (bChange && !propagateStack.Contains(other_coords))
+                    propagateStack.Push(other_coords);
+            }
         }
+        return true;
     }
 
 
     // 해당 셀이 유효한지
     public bool Is_valid_direction(Vector2Int coords)
     {
-        return (coords.x >= GRID_SIZE || coords.x < 0) ||
-            (coords.y >= GRID_SIZE || coords.y < 0);
+        return !((coords.x >= GRID_SIZE || coords.x < 0) ||
+            (coords.y >= GRID_SIZE || coords.y < 0));
     }
 
     // 특정 방향으로 유효한 타일 리스트 반환
