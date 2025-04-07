@@ -59,7 +59,7 @@ public class WaveFunction : MonoBehaviour
             List<Cell> cells = new List<Cell>();
             for (int j = 0; j < GRID_SIZE; j++)
             {
-                Cell cellComponent = new Cell(new Vector2Int(i, j), TILE_SIZE);
+                Cell cellComponent = new Cell(new Vector2Int(i, j), TileData.Count);
                 int row = i;
                 int col = j;
                 cellComponent.OnCollapsed += (Cell) => On_cell_collapsed(new Vector2Int(row, col));

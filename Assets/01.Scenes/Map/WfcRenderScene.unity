@@ -1089,8 +1089,8 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367769690}
   m_Enabled: 1
-  m_CellSize: {x: 1.2, y: 1.2, z: 0}
-  m_CellGap: {x: 1, y: 0.05, z: 0}
+  m_CellSize: {x: 1, y: 1, z: 0}
+  m_CellGap: {x: 2, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
 --- !u!4 &1367769693
@@ -1142,10 +1142,38 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0f9dc6efd82b4ff408296cfdd99301d3, type: 2}
   - {fileID: 11400000, guid: ee208048d951bc442a198098daca7493, type: 2}
   - {fileID: 11400000, guid: 2ed257b7d53e4b849aba1e8ce7319ab6, type: 2}
+  - {fileID: 11400000, guid: f429fdf6209f80d4586adb1f564e8a55, type: 2}
   - {fileID: 11400000, guid: 4de59879868ba6447a06ec9537b128ed, type: 2}
   - {fileID: 11400000, guid: 01c0de9691d2bb04ea4e00fed439426f, type: 2}
   - {fileID: 11400000, guid: 4e55fa4364c386249b6fa0a4d42414c6, type: 2}
   - {fileID: 11400000, guid: 048ec44f4170ce04a930af7e9c732a4a, type: 2}
+  - {fileID: 11400000, guid: fbf1e151dc514764ca5de3493c20f79a, type: 2}
+  - {fileID: 11400000, guid: f5acfe6b14b246d41b8a1331e3c19bd1, type: 2}
+  - {fileID: 11400000, guid: f9c3acdeab368904786f3412abe6ab70, type: 2}
+  - {fileID: 11400000, guid: 8862742b09bdd1a48a68df9cfe28a37b, type: 2}
+  - {fileID: 11400000, guid: b61f8255febe7a44eb81bcfa043a6ffb, type: 2}
+  - {fileID: 11400000, guid: 9923231b76ef6674c9632ea8203667db, type: 2}
+  - {fileID: 11400000, guid: 5953acd1df2d7c545b1a2239428752f2, type: 2}
+  - {fileID: 11400000, guid: da08d5bf8d5cd1844bed8f3e8b168a33, type: 2}
+  - {fileID: 11400000, guid: 6421932f05b9e0e4a952c96d5b68560c, type: 2}
+  - {fileID: 11400000, guid: a634efb22b6f89e46ba9e6d6303eb11a, type: 2}
+  - {fileID: 11400000, guid: 9961850ce8608e64db89006222117cee, type: 2}
+  - {fileID: 11400000, guid: 35768695379a004459e2c3077bf8e826, type: 2}
+  - {fileID: 11400000, guid: 9657eb9aea3175041a7cbf7704eb6ee9, type: 2}
+  - {fileID: 11400000, guid: 82a54ac69c844e94fb5aa2dbf1b9fc99, type: 2}
+  - {fileID: 11400000, guid: f77fd0fc78f67dd479a13a1b01a27a29, type: 2}
+  - {fileID: 11400000, guid: 1419f69614f3fe640b4d9559db80dce8, type: 2}
+  - {fileID: 11400000, guid: 9c0931de03a66b1438e949e9a40bad46, type: 2}
+  - {fileID: 11400000, guid: c0b9ebb6f98ed7045a9e0ab3f1d90f01, type: 2}
+  - {fileID: 11400000, guid: b6eab74844d721744bab0beaad4e7e50, type: 2}
+  - {fileID: 11400000, guid: 128dcda703e7970418998814ea219939, type: 2}
+  - {fileID: 11400000, guid: c0ccfe47199ab9b49aa619c8e2cbc5c0, type: 2}
+  - {fileID: 11400000, guid: 64b47a4e57c926149bf33c15effd25ed, type: 2}
+  - {fileID: 11400000, guid: b54b6f639d36a8545b0c6b4a15aa13b4, type: 2}
+  - {fileID: 11400000, guid: 9fca93eb9fb94084f8b2c2312172854d, type: 2}
+  - {fileID: 11400000, guid: 0ff4591618b6a104383a03ae31934dc0, type: 2}
+  - {fileID: 11400000, guid: 2138b911e4fc7624a900f7463685e219, type: 2}
+  - {fileID: 11400000, guid: 1699062bb6e340d4d89cbe89a74421a1, type: 2}
   MapTilePainter: {fileID: 1367769691}
 --- !u!4 &1638873133
 Transform:
@@ -1550,7 +1578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2220865796793752365
 Transform:
   m_ObjectHideFlags: 0
@@ -5439,7 +5467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!483693784 &8527296145547906891
 TilemapRenderer:
   m_ObjectHideFlags: 0

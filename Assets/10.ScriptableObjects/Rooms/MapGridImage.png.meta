@@ -133,7 +133,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -171,7 +171,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -205,6 +205,58 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -213,9 +265,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1409
-        width: 965
-        height: 191
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +286,10 @@ TextureImporter:
       name: MapGridImage_1
       rect:
         serializedVersion: 2
-        x: 1102
-        y: 1508
-        width: 43
-        height: 92
+        x: 320
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +308,10 @@ TextureImporter:
       name: MapGridImage_2
       rect:
         serializedVersion: 2
-        x: 1379
-        y: 1503
-        width: 120
-        height: 97
+        x: 640
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,10 +330,10 @@ TextureImporter:
       name: MapGridImage_3
       rect:
         serializedVersion: 2
-        x: 1680
-        y: 1457
-        width: 161
-        height: 143
+        x: 960
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,10 +352,10 @@ TextureImporter:
       name: MapGridImage_4
       rect:
         serializedVersion: 2
-        x: 1998
-        y: 1514
-        width: 169
-        height: 86
+        x: 1280
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,10 +374,10 @@ TextureImporter:
       name: MapGridImage_5
       rect:
         serializedVersion: 2
-        x: 2333
-        y: 1526
-        width: 137
-        height: 74
+        x: 1600
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,10 +396,10 @@ TextureImporter:
       name: MapGridImage_6
       rect:
         serializedVersion: 2
-        x: 2665
-        y: 1529
-        width: 108
-        height: 71
+        x: 1920
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -366,10 +418,10 @@ TextureImporter:
       name: MapGridImage_7
       rect:
         serializedVersion: 2
-        x: 2992
-        y: 1550
-        width: 93
-        height: 50
+        x: 2240
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -388,10 +440,10 @@ TextureImporter:
       name: MapGridImage_8
       rect:
         serializedVersion: 2
-        x: 3337
-        y: 1495
-        width: 58
-        height: 105
+        x: 2560
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,10 +462,10 @@ TextureImporter:
       name: MapGridImage_9
       rect:
         serializedVersion: 2
-        x: 37
-        y: 959
-        width: 256
-        height: 157
+        x: 2880
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -432,10 +484,10 @@ TextureImporter:
       name: MapGridImage_10
       rect:
         serializedVersion: 2
-        x: 357
-        y: 958
-        width: 256
-        height: 158
+        x: 3200
+        y: 1280
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -454,10 +506,10 @@ TextureImporter:
       name: MapGridImage_11
       rect:
         serializedVersion: 2
-        x: 677
-        y: 959
-        width: 256
-        height: 157
+        x: 0
+        y: 960
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -476,10 +528,10 @@ TextureImporter:
       name: MapGridImage_12
       rect:
         serializedVersion: 2
-        x: 733
-        y: 958
-        width: 73
-        height: 41
+        x: 320
+        y: 960
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -498,10 +550,10 @@ TextureImporter:
       name: MapGridImage_13
       rect:
         serializedVersion: 2
-        x: 997
-        y: 959
-        width: 256
-        height: 175
+        x: 640
+        y: 960
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -520,10 +572,10 @@ TextureImporter:
       name: MapGridImage_14
       rect:
         serializedVersion: 2
-        x: 1317
-        y: 959
-        width: 256
-        height: 157
+        x: 960
+        y: 960
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -542,10 +594,10 @@ TextureImporter:
       name: MapGridImage_15
       rect:
         serializedVersion: 2
-        x: 57
-        y: 639
-        width: 212
-        height: 197
+        x: 1280
+        y: 960
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -564,10 +616,10 @@ TextureImporter:
       name: MapGridImage_16
       rect:
         serializedVersion: 2
-        x: 377
-        y: 639
-        width: 212
-        height: 158
+        x: 0
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -586,10 +638,10 @@ TextureImporter:
       name: MapGridImage_17
       rect:
         serializedVersion: 2
-        x: 692
-        y: 639
-        width: 160
-        height: 220
+        x: 320
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -608,10 +660,10 @@ TextureImporter:
       name: MapGridImage_18
       rect:
         serializedVersion: 2
-        x: 993
-        y: 639
-        width: 194
-        height: 180
+        x: 640
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -630,10 +682,10 @@ TextureImporter:
       name: MapGridImage_19
       rect:
         serializedVersion: 2
-        x: 1332
-        y: 639
-        width: 199
-        height: 228
+        x: 960
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -652,10 +704,10 @@ TextureImporter:
       name: MapGridImage_20
       rect:
         serializedVersion: 2
-        x: 1619
-        y: 638
-        width: 260
-        height: 258
+        x: 1280
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -674,10 +726,10 @@ TextureImporter:
       name: MapGridImage_21
       rect:
         serializedVersion: 2
-        x: 98
-        y: 317
-        width: 116
-        height: 221
+        x: 1600
+        y: 640
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -696,10 +748,10 @@ TextureImporter:
       name: MapGridImage_22
       rect:
         serializedVersion: 2
-        x: 370
-        y: 319
-        width: 218
-        height: 49
+        x: 0
+        y: 320
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -718,10 +770,10 @@ TextureImporter:
       name: MapGridImage_23
       rect:
         serializedVersion: 2
-        x: 404
-        y: 367
-        width: 195
-        height: 224
+        x: 320
+        y: 320
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -740,10 +792,10 @@ TextureImporter:
       name: MapGridImage_24
       rect:
         serializedVersion: 2
-        x: 649
-        y: 0
-        width: 309
-        height: 550
+        x: 640
+        y: 320
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -762,10 +814,10 @@ TextureImporter:
       name: MapGridImage_25
       rect:
         serializedVersion: 2
-        x: 968
-        y: 0
-        width: 302
-        height: 633
+        x: 960
+        y: 320
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -784,10 +836,10 @@ TextureImporter:
       name: MapGridImage_26
       rect:
         serializedVersion: 2
-        x: 5
-        y: 0
-        width: 310
-        height: 314
+        x: 1280
+        y: 320
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -806,10 +858,10 @@ TextureImporter:
       name: MapGridImage_27
       rect:
         serializedVersion: 2
-        x: 325
-        y: 0
-        width: 310
-        height: 314
+        x: 1600
+        y: 320
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -828,10 +880,10 @@ TextureImporter:
       name: MapGridImage_28
       rect:
         serializedVersion: 2
-        x: 1290
+        x: 0
         y: 0
-        width: 302
-        height: 321
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -850,10 +902,10 @@ TextureImporter:
       name: MapGridImage_29
       rect:
         serializedVersion: 2
-        x: 1610
+        x: 320
         y: 0
-        width: 302
-        height: 321
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -872,10 +924,10 @@ TextureImporter:
       name: MapGridImage_30
       rect:
         serializedVersion: 2
-        x: 1925
+        x: 640
         y: 0
-        width: 309
-        height: 223
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -894,10 +946,10 @@ TextureImporter:
       name: MapGridImage_31
       rect:
         serializedVersion: 2
-        x: 2250
+        x: 960
         y: 0
-        width: 302
-        height: 222
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -916,10 +968,10 @@ TextureImporter:
       name: MapGridImage_32
       rect:
         serializedVersion: 2
-        x: 2566
+        x: 1280
         y: 0
-        width: 309
-        height: 214
+        width: 320
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -934,11 +986,99 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: MapGridImage_33
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437c16c3944f5484980218c9c62ed0cf
+      internalID: -1167927188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapGridImage_34
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80113adb870fd2148accc01a8b910da3
+      internalID: 825396896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapGridImage_35
+      rect:
+        serializedVersion: 2
+        x: 2240
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1a6b4f5f24f01c49b9abb00da36f222
+      internalID: 2083983723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MapGridImage_36
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a9c9c13f8c5d64f86fb9b164d41238
+      internalID: 2083188312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 42a202c15263f0d4685549a9c96f122e
     internalID: 0
     vertices: []
     indices: 
@@ -947,7 +1087,44 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MapGridImage_0: 8441519790203350261
+      MapGridImage_1: -2783423852322595507
+      MapGridImage_10: -1913366573063392170
+      MapGridImage_11: -7134892243114930601
+      MapGridImage_12: 2521527443495212367
+      MapGridImage_13: 6055180002813051664
+      MapGridImage_14: -4438237038207612209
+      MapGridImage_15: 430230944532426556
+      MapGridImage_16: -4698999711218460391
+      MapGridImage_17: -2722036415670730683
+      MapGridImage_18: -8486204558723106089
+      MapGridImage_19: 1071542908898420552
+      MapGridImage_2: -8396932447471809355
+      MapGridImage_20: 3882027052096828612
+      MapGridImage_21: -7074325076285782554
+      MapGridImage_22: -7402945209662549972
+      MapGridImage_23: 7228635943438577808
+      MapGridImage_24: 3955618482615793612
+      MapGridImage_25: -4282780375991349450
+      MapGridImage_26: -2139593632360873299
+      MapGridImage_27: -4992361786662821419
+      MapGridImage_28: -3485506878377271281
+      MapGridImage_29: -3505143324970537828
+      MapGridImage_3: 2455490255185555337
+      MapGridImage_30: -6015040939413122901
+      MapGridImage_31: 8993858662424718799
+      MapGridImage_32: 2815027959466081221
+      MapGridImage_33: -1167927188
+      MapGridImage_34: 825396896
+      MapGridImage_35: 2083983723
+      MapGridImage_36: 2083188312
+      MapGridImage_4: 4727826084221018766
+      MapGridImage_5: -5623244286896066700
+      MapGridImage_6: -7517263457574028596
+      MapGridImage_7: 3901794926870998477
+      MapGridImage_8: 4746701719138501133
+      MapGridImage_9: 1541433112312996356
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
