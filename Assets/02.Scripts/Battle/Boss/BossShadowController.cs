@@ -17,11 +17,12 @@ public class BossShadowController : MonoBehaviour
 
     public Transform playerTransform;
     private bool _isDead = false; ////////////// 적 사망 여부
+    private SpriteRenderer _spriteRenderer; // 적 본체 페이드인&아웃용
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-
+        _spriteRenderer = GetComponent<SpriteRenderer>(); // 적 본체 페이드인&아웃용
         for (int i = 0; i < 4; i++)
             shadowPools[i] = new List<GameObject>();
     }
@@ -40,14 +41,29 @@ public class BossShadowController : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            FadeOutBoss();
+        }
+        else if (Input.GetKeyDown(KeyCode.G))
+        {
+            FadeInBoss();
+        }
+    }
+
     private void OnEnable()
     {
         OnNotePreview += OnNotePreviewReceived;
+        OnNote += OnNoteReceived;
+        _spriteRenderer.color = new Color(1f, 1f, 1f, 0f); // 투명도 초기화
     }
 
     private void OnDisable()
     {
         OnNotePreview -= OnNotePreviewReceived;
+        OnNote -= OnNoteReceived;
         ScoreManager.Instance.OnScoreChanged -= BossDieJdg;
     }
 
@@ -55,6 +71,7 @@ public class BossShadowController : MonoBehaviour
     {
         if (_isDead) return; /////////////// 적이 죽었으면 리턴
         PlayAttackSound();
+        FadeInBoss();
 
         int dir = GetIndexFromKey(beatNote.expectedKey);
         if (dir < 0 || dir >= 4) return;
@@ -86,6 +103,11 @@ public class BossShadowController : MonoBehaviour
         {
             shadow.SetActive(false);
         });
+    }
+
+    private void OnNoteReceived(NoteData beatTime)
+    {
+        FadeOutBoss();
     }
 
     private Vector3 GetTargetPositionFromKey(int dir)
@@ -150,9 +172,9 @@ public class BossShadowController : MonoBehaviour
     {
         return dir switch
         {
-            0 => new Color(1f, 0f, 0f, 0.3f),                         // W - 기본
-            1 => new Color(1f, 0f, 0f, 0.3f),                          // S - 머리
-            2 => new Color(0f, 1f, 1f, 0.3f),                        // A - 노란 몸통
+            0 => new Color(1f, 0f, 0f, 0.1f),                         // W - 기본
+            1 => new Color(1f, 0f, 0f, 0.1f),                          // S - 머리
+            2 => new Color(0f, 1f, 1f, 0.1f),                        // A - 노란 몸통
             3 => new Color(0.5f, 0f, 1f, 0.3f),
             _ => Color.white
         };
@@ -166,8 +188,20 @@ public class BossShadowController : MonoBehaviour
         if (score >= 5000)
         {
             _isDead = true;
-            gameObject.SetActive(false);
+            FadeOutBoss(); // 페이드아웃
+            DOVirtual.DelayedCall(0.5f, () => gameObject.SetActive(false)); // 0.5초 후 비활성화
         }
+    }
+
+    private void FadeInBoss(float duration = 0.5f)
+    {
+        //불투명한 빨간스프라이트로 변경
+        _spriteRenderer.color = new Color(1f, 0f, 0f, 0f); // 투명도 초기화
+        _spriteRenderer.DOFade(0.5f, duration).SetEase(Ease.OutQuad); //.SetEase(Ease.OutQuad)
+    }
+    private void FadeOutBoss(float duration = 0.5f)
+    {
+        _spriteRenderer.DOFade(0f, duration).SetEase(Ease.OutQuad); //.SetEase(Ease.OutQuad)
     }
 
 }
