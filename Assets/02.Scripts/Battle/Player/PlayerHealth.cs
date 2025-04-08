@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public float PlayerMaxHealth;
     public float Damage;
+    public MMF_Player OnMissFeedback;
 
     private Animator _animator;
     private float _playerCurrentHealth;
@@ -96,6 +98,7 @@ public class PlayerHealth : MonoBehaviour
 #if UNITY_EDITOR
             Debug.Log("오버드라이브: bad 일때 데미지");
 #endif
+            OnMissFeedback?.PlayFeedbacks();
             return Damage;
         }
         return 0;
@@ -125,6 +128,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
+            OnMissFeedback?.PlayFeedbacks();
             return Damage;
         }
         return 0;

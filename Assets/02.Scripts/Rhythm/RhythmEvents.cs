@@ -66,7 +66,12 @@ public static class RhythmEvents
     public static void InvokeOnMusicStart() => OnMusicStart?.Invoke();
     public static void InvokeOnMusicStopped() => OnMusicStopped?.Invoke();
 
-    public static void InvokeOnBeat(float beat) => OnBeat?.Invoke(beat);
+    public static void InvokeOnBeat(float beat)
+    {
+
+        VFXManager.Instance.PlayOnNoteFeedback();
+        OnBeat?.Invoke(beat);
+    }
     public static void InvokeOnSubBeat() => OnSubBeat?.Invoke();
     public static void InvokeOnInputJudged(JudgementResult result)
     {
