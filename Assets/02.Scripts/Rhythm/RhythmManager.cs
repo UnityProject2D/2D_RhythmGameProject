@@ -56,14 +56,11 @@ public class RhythmManager : MonoBehaviour
 
     private void Start()
     {
-
-
-
         if (IsTest)
         {
             Play();
         }
-}
+    }
 
     void Update()
     {
@@ -76,7 +73,7 @@ public class RhythmManager : MonoBehaviour
             }
         }
         float currentTime = GetCurrentMusicTime();
-            
+
         for (int i = 0; i < stageNotes[_stageMusicIndex].notes.Count; i++)
         {
             var note = stageNotes[_stageMusicIndex].notes[i];

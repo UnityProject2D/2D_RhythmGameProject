@@ -12,18 +12,23 @@ public class VFXManager : MonoBehaviour
     }
 
     [Header("MMF 피드백")]
-    public MMF_Player OnNoteFeedback;
+    public MMF_Player[] OnNoteFeedback;
+    public MMF_Player OnGoodFeedback;
     public MMF_Player OnPerfectFeedback;
     public MMF_Player ExplosionFeedback;
     public MMF_Player hitFlashFeedback;
-    public MMF_Player OnMissFeedback;
+   
 
-    public void PlayOnNoteFeedback() => OnNoteFeedback?.PlayFeedbacks();
+    public void PlayOnNoteFeedback()
+    {
+        foreach(var feedback in OnNoteFeedback)
+        {
+            feedback?.PlayFeedbacks();
+        }
+    }
     public void PlayOnPerfectFeedback() => OnPerfectFeedback?.PlayFeedbacks();
+    public void PlayOnGoodFeedback() => OnGoodFeedback?.PlayFeedbacks();
     public void PlayExplosionFeedback() => ExplosionFeedback?.PlayFeedbacks();
     public void PlayhitFlashFeedback() => hitFlashFeedback?.PlayFeedbacks();
 
-    public void PlayOnMissFeedback() => OnMissFeedback?.PlayFeedbacks();
-
-    public void SetOnMissFeedback(MMF_Player f) => OnMissFeedback = f;
 }

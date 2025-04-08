@@ -132,7 +132,6 @@ public class RhythmJudge : MonoBehaviour
             return JudgementResult.Bad;
         else
         {
-            VFXManager.Instance.PlayOnMissFeedback();
             return JudgementResult.Miss;
         }
     }
