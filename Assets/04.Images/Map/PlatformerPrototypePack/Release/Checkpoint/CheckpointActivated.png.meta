@@ -94,7 +94,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -108,7 +108,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,7 +132,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -622,7 +622,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CheckpointActivated_0: 5326835077527161662
+      CheckpointActivated_1: 8950081064118588465
+      CheckpointActivated_10: -4842232139518443018
+      CheckpointActivated_11: 4286874613300708665
+      CheckpointActivated_12: -7760578308848146591
+      CheckpointActivated_13: 9100168012144961784
+      CheckpointActivated_14: 7682801091380249738
+      CheckpointActivated_15: -7221363153980078615
+      CheckpointActivated_16: -5802040637345851418
+      CheckpointActivated_17: 1532144443286256736
+      CheckpointActivated_18: 3226357584205041207
+      CheckpointActivated_19: -1634920016295724129
+      CheckpointActivated_2: 2871393222949069009
+      CheckpointActivated_3: 4170706258500797326
+      CheckpointActivated_4: -7637094181620482572
+      CheckpointActivated_5: -244840797226696274
+      CheckpointActivated_6: -1737822529706678203
+      CheckpointActivated_7: 305303296474211946
+      CheckpointActivated_8: -7528502775786475082
+      CheckpointActivated_9: 8386430720548281775
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

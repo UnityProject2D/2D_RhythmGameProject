@@ -100,7 +100,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -114,7 +114,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,7 +138,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -672,7 +672,29 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueprintTilesetDark_0: 1366489355682452561
+      BlueprintTilesetDark_1: 108473784304207929
+      BlueprintTilesetDark_10: 7059630524103373058
+      BlueprintTilesetDark_11: 8988248517836284016
+      BlueprintTilesetDark_12: -5250935327961615785
+      BlueprintTilesetDark_13: 8181500262753347142
+      BlueprintTilesetDark_14: -6865322022679167886
+      BlueprintTilesetDark_15: 2782371876271651014
+      BlueprintTilesetDark_16: -391755241028888094
+      BlueprintTilesetDark_17: -278423711306046991
+      BlueprintTilesetDark_18: -7607256070915187717
+      BlueprintTilesetDark_19: 5856552634308428015
+      BlueprintTilesetDark_2: -6538952492197119273
+      BlueprintTilesetDark_20: -2291846231012798788
+      BlueprintTilesetDark_21: 4030274654059360841
+      BlueprintTilesetDark_3: 1675549561824931260
+      BlueprintTilesetDark_4: -2630133598808557566
+      BlueprintTilesetDark_5: -5218359499257132134
+      BlueprintTilesetDark_6: -4194552806859968232
+      BlueprintTilesetDark_7: -5272143579855710495
+      BlueprintTilesetDark_8: -1488771079120527792
+      BlueprintTilesetDark_9: -1255734045553107395
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

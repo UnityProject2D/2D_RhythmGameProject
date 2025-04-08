@@ -100,7 +100,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -114,7 +114,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,7 +138,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -672,7 +672,29 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueprintTilesetWarm_0: 4807623863582321478
+      BlueprintTilesetWarm_1: -2699046826965550286
+      BlueprintTilesetWarm_10: -3343552005361056026
+      BlueprintTilesetWarm_11: 5250543900376410544
+      BlueprintTilesetWarm_12: 4209057909805097019
+      BlueprintTilesetWarm_13: 7893925358676637384
+      BlueprintTilesetWarm_14: 8237894964834954676
+      BlueprintTilesetWarm_15: 7182728670103690789
+      BlueprintTilesetWarm_16: 5810432108277014581
+      BlueprintTilesetWarm_17: -8612921336658604561
+      BlueprintTilesetWarm_18: -7925397877291436528
+      BlueprintTilesetWarm_19: -4889578181157093039
+      BlueprintTilesetWarm_2: 5750018577783212733
+      BlueprintTilesetWarm_20: -4094295667444929391
+      BlueprintTilesetWarm_21: -6816308169357197574
+      BlueprintTilesetWarm_3: -7663002686465745746
+      BlueprintTilesetWarm_4: 5409673736458028044
+      BlueprintTilesetWarm_5: 3452501156588036706
+      BlueprintTilesetWarm_6: -283372190462981098
+      BlueprintTilesetWarm_7: -4996762368983393336
+      BlueprintTilesetWarm_8: 8487095169195807385
+      BlueprintTilesetWarm_9: 5531149159846196921
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

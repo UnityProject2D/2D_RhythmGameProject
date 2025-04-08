@@ -63,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PlayerHologramDeactivated_0: -2612425372415256968
+      PlayerHologramDeactivated_1: -4120132960355035468
+      PlayerHologramDeactivated_2: -2871708861050234594
+      PlayerHologramDeactivated_3: 1270764512930081309
+      PlayerHologramDeactivated_4: 7413627273537329906
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

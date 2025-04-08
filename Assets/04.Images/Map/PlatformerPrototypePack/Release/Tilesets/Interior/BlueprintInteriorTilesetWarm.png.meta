@@ -87,7 +87,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -447,7 +447,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueprintInteriorTilesetWarm_0: 8232130513623790844
+      BlueprintInteriorTilesetWarm_1: -904899313634865923
+      BlueprintInteriorTilesetWarm_10: -5471712082207615302
+      BlueprintInteriorTilesetWarm_11: -4804712570482166326
+      BlueprintInteriorTilesetWarm_12: -3243275020125384972
+      BlueprintInteriorTilesetWarm_2: 2962496219862235477
+      BlueprintInteriorTilesetWarm_3: -9089997710812408814
+      BlueprintInteriorTilesetWarm_4: -7899630738996885593
+      BlueprintInteriorTilesetWarm_5: -6909337750185168194
+      BlueprintInteriorTilesetWarm_6: -1596959555572172949
+      BlueprintInteriorTilesetWarm_7: 1419393896988704314
+      BlueprintInteriorTilesetWarm_8: -7040498436253701910
+      BlueprintInteriorTilesetWarm_9: -2542246195289370445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

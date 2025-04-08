@@ -85,7 +85,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -99,7 +99,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,7 +123,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -547,7 +547,24 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PickupIdle_0: -6672532286262879988
+      PickupIdle_1: 3441180658485769482
+      PickupIdle_10: -2289892862372267261
+      PickupIdle_11: -7043441105791303359
+      PickupIdle_12: 6750557824347949908
+      PickupIdle_13: -517961784254638255
+      PickupIdle_14: 8378604256500229824
+      PickupIdle_15: 6921447340219852893
+      PickupIdle_16: -8339142549965661909
+      PickupIdle_2: 6592489590371105417
+      PickupIdle_3: 7415825326357592785
+      PickupIdle_4: -7737669078784405613
+      PickupIdle_5: -7888835803404360972
+      PickupIdle_6: -6520658217279331816
+      PickupIdle_7: -4055565530894527587
+      PickupIdle_8: 2467866519427197788
+      PickupIdle_9: -3026099188280192348
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

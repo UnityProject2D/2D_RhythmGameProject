@@ -142,7 +142,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -156,7 +156,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -180,7 +180,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1022,7 +1022,43 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CrateDestroy_0: 3533843076353066928
+      CrateDestroy_1: 3171418358144720051
+      CrateDestroy_10: -8582065898896715524
+      CrateDestroy_11: 6268001290529184491
+      CrateDestroy_12: -1749039419221577914
+      CrateDestroy_13: -1643542200199749400
+      CrateDestroy_14: 1631343633031366009
+      CrateDestroy_15: -4130348979297360717
+      CrateDestroy_16: -7672088590326292048
+      CrateDestroy_17: -8519896231028765555
+      CrateDestroy_18: -7736032236180229902
+      CrateDestroy_19: 290326524339270922
+      CrateDestroy_2: -3334345393546152044
+      CrateDestroy_20: 8962823151001143606
+      CrateDestroy_21: 3677899937847139050
+      CrateDestroy_22: -3901670834251211016
+      CrateDestroy_23: -7559049747776613874
+      CrateDestroy_24: -1914476875385645314
+      CrateDestroy_25: -748930706899568210
+      CrateDestroy_26: 3674857826486608838
+      CrateDestroy_27: -3882292102956329515
+      CrateDestroy_28: 3609786152982704056
+      CrateDestroy_29: 4877568880289729593
+      CrateDestroy_3: 3209366116529487612
+      CrateDestroy_30: -985146542136405842
+      CrateDestroy_31: 3351401650359004011
+      CrateDestroy_32: 8812388620421409834
+      CrateDestroy_33: -4029162950498567781
+      CrateDestroy_34: 416565583577062087
+      CrateDestroy_35: -2644603984265985844
+      CrateDestroy_4: -6611889630825313041
+      CrateDestroy_5: 2317550992205013501
+      CrateDestroy_6: 7061717827123955814
+      CrateDestroy_7: 5390285034032413218
+      CrateDestroy_8: -7730477846834608276
+      CrateDestroy_9: -59042679313211762
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

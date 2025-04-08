@@ -100,7 +100,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -114,7 +114,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,7 +138,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -672,7 +672,29 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueprintTilesetLight_0: 2302292279743658239
+      BlueprintTilesetLight_1: -3412233181151638598
+      BlueprintTilesetLight_10: 4725266567066807646
+      BlueprintTilesetLight_11: 2692692117255372387
+      BlueprintTilesetLight_12: -350893366694672658
+      BlueprintTilesetLight_13: -7890999553150847893
+      BlueprintTilesetLight_14: -9049511908068351260
+      BlueprintTilesetLight_15: -1798743018918685518
+      BlueprintTilesetLight_16: -4999546874081025710
+      BlueprintTilesetLight_17: -978365646306337130
+      BlueprintTilesetLight_18: 6342381992368989467
+      BlueprintTilesetLight_19: -6494654778485268909
+      BlueprintTilesetLight_2: -2044417366575107002
+      BlueprintTilesetLight_20: -1353658137472226833
+      BlueprintTilesetLight_21: -3769878257270958699
+      BlueprintTilesetLight_3: -233751293733808222
+      BlueprintTilesetLight_4: 5921895809985426202
+      BlueprintTilesetLight_5: 5844497930209554575
+      BlueprintTilesetLight_6: 57613870082288560
+      BlueprintTilesetLight_7: -9084601015956113446
+      BlueprintTilesetLight_8: 2260497194217678408
+      BlueprintTilesetLight_9: 3084749686399298728
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
