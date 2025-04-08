@@ -947,7 +947,40 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MapGridImage_0: 8441519790203350261
+      MapGridImage_1: -2783423852322595507
+      MapGridImage_10: -1913366573063392170
+      MapGridImage_11: -7134892243114930601
+      MapGridImage_12: 2521527443495212367
+      MapGridImage_13: 6055180002813051664
+      MapGridImage_14: -4438237038207612209
+      MapGridImage_15: 430230944532426556
+      MapGridImage_16: -4698999711218460391
+      MapGridImage_17: -2722036415670730683
+      MapGridImage_18: -8486204558723106089
+      MapGridImage_19: 1071542908898420552
+      MapGridImage_2: -8396932447471809355
+      MapGridImage_20: 3882027052096828612
+      MapGridImage_21: -7074325076285782554
+      MapGridImage_22: -7402945209662549972
+      MapGridImage_23: 7228635943438577808
+      MapGridImage_24: 3955618482615793612
+      MapGridImage_25: -4282780375991349450
+      MapGridImage_26: -2139593632360873299
+      MapGridImage_27: -4992361786662821419
+      MapGridImage_28: -3485506878377271281
+      MapGridImage_29: -3505143324970537828
+      MapGridImage_3: 2455490255185555337
+      MapGridImage_30: -6015040939413122901
+      MapGridImage_31: 8993858662424718799
+      MapGridImage_32: 2815027959466081221
+      MapGridImage_4: 4727826084221018766
+      MapGridImage_5: -5623244286896066700
+      MapGridImage_6: -7517263457574028596
+      MapGridImage_7: 3901794926870998477
+      MapGridImage_8: 4746701719138501133
+      MapGridImage_9: 1541433112312996356
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

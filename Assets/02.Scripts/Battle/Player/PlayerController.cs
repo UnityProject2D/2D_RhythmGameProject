@@ -1,5 +1,3 @@
-using System.Collections;
-using TMPro;
 using UnityEngine;
 using static RhythmInputHandler; // 플레이어 입력 처리
 
@@ -94,7 +92,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case JudgementResult.Bad:
             case JudgementResult.Miss:
-                ShowMissEffect(); //대미지 애니메이션 출력
+                ShowMissEffect(result.Result); //대미지 애니메이션 출력
                 break;
         }
     }
@@ -113,17 +111,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void ShowMissEffect()
+    private void ShowMissEffect(JudgementResult result)
     {
-        //Debug.Log("Miss!!");
-        //RhythmAction direction = RhythmAction.None;
-        //direction = RhythmAction.Hit;
+        switch (result)
+        {
+            case JudgementResult.Bad:
+                Debug.Log("Bad!!");
+                break;
+            case JudgementResult.Miss:
+                Debug.Log("Miss!!");
+                break;
+        }
 
-        if(!IsDead)
+        if (!IsDead)
         {
             _animator.SetTrigger("Hit");
         }
-        //StartCoroutine(ResetAnimation());
     }
 
 }
