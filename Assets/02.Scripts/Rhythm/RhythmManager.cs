@@ -1,9 +1,17 @@
+using FMOD.Studio;
+using FMODUnity;
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
-using FMODUnity;
-using FMOD.Studio;
 using static RhythmEvents;
+using System.Collections.Generic;
+
+enum NoteTriggerState
+{
+    None,
+    Previewed,
+    Triggered
+}
 
 public class RhythmManager : MonoBehaviour
 {
@@ -26,10 +34,13 @@ public class RhythmManager : MonoBehaviour
     public float CurrentTimelineTime { get; private set; } = 0f;
     public float MusicStartTime { get; private set; } = -1f;
 
-    private int _previewIndex = 0;
     private EventInstance _musicInstance;
     private GCHandle _timelineHandle;
     private int _stageMusicIndex;
+    private List<NoteTriggerState> _noteStates;
+
+    private Queue<Action> _eventQueue = new Queue<Action>();
+    private object _lock = new object();
 
     public int StageMusicIndex
     {
@@ -45,39 +56,52 @@ public class RhythmManager : MonoBehaviour
 
     private void Start()
     {
-        TimelineInfo info = new TimelineInfo();
-        _timelineHandle = GCHandle.Alloc(info);
-        
-        _musicInstance.setUserData(GCHandle.ToIntPtr(_timelineHandle));
-        _musicInstance.setCallback(FMODCallback, EVENT_CALLBACK_TYPE.TIMELINE_BEAT | EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
+
+
 
         if (IsTest)
         {
             Play();
         }
-
-    }
+}
 
     void Update()
     {
-        if (!Instance.IsPlaying) return;
-
-        float currentTime = Instance.GetCurrentMusicTime();
-        while (_previewIndex < stageNotes[_stageMusicIndex].notes.Count)
+        if (!IsPlaying) return;
+        lock (_lock)
         {
-            var note = stageNotes[_stageMusicIndex].notes[_previewIndex];
+            while (_eventQueue.Count > 0)
+            {
+                _eventQueue.Dequeue()?.Invoke();
+            }
+        }
+        float currentTime = GetCurrentMusicTime();
+            
+        for (int i = 0; i < stageNotes[_stageMusicIndex].notes.Count; i++)
+        {
+            var note = stageNotes[_stageMusicIndex].notes[i];
             float noteTime = note.beat * beatDuration;
             float previewTime = noteTime - (previewLeadTimeInBeat * beatDuration);
 
-            if (currentTime >= previewTime)
+            switch (_noteStates[i])
             {
-                InvokeOnNotePreview(note);
-                Debug.Log($"[미리보기] 키: {note.expectedKey}, 비트: {note.beat}");
-                _previewIndex++;
-            }
-            else
-            {
-                break;
+                case NoteTriggerState.None:
+                    if (currentTime >= previewTime)
+                    {
+                        _noteStates[i] = NoteTriggerState.Previewed;
+                        InvokeOnNotePreview(note);
+                        Debug.Log($"[미리보기] 키: {note.expectedKey}, 비트: {note.beat}");
+                    }
+                    break;
+
+                case NoteTriggerState.Previewed:
+                    if (currentTime >= noteTime)
+                    {
+                        _noteStates[i] = NoteTriggerState.Triggered;
+                        InvokeOnNote(note);
+                        Debug.Log($"[노트 발동] 키: {note.expectedKey}, 비트: {note.beat}");
+                    }
+                    break;
             }
         }
     }
@@ -98,11 +122,27 @@ public class RhythmManager : MonoBehaviour
             _musicInstance.release();
             IsPlaying = false;
         }
+        if (_timelineHandle.IsAllocated)
+        {
+            _timelineHandle.Free();
+        }
+
+        TimelineInfo info = new TimelineInfo();
+        _timelineHandle = GCHandle.Alloc(info);
 
         _musicInstance = RuntimeManager.CreateInstance(musicTracks[_stageMusicIndex]);
-        _previewIndex = 0;
-        _bpm = stageNotes[_stageMusicIndex].bpm;
+        _musicInstance.setUserData(GCHandle.ToIntPtr(_timelineHandle));
+        _musicInstance.setCallback(FMODCallback,
+            EVENT_CALLBACK_TYPE.TIMELINE_BEAT |
+            EVENT_CALLBACK_TYPE.TIMELINE_MARKER |
+    EVENT_CALLBACK_TYPE.STOPPED);
 
+        _bpm = stageNotes[_stageMusicIndex].bpm;
+        _noteStates = new List<NoteTriggerState>();
+        for (int i = 0; i < stageNotes[_stageMusicIndex].notes.Count; i++)
+        {
+            _noteStates.Add(NoteTriggerState.None);
+        }
 
         //음악을 재생한다
         if (!IsPlaying)
@@ -113,7 +153,7 @@ public class RhythmManager : MonoBehaviour
             MusicStartTime = Time.time - (ms / 1000f);
             IsPlaying = true;
         }
-            
+
     }
     public float GetCurrentMusicTime()
     {
@@ -155,17 +195,29 @@ public class RhythmManager : MonoBehaviour
 
         switch (type)
         {
-            case EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
-                var beat = (TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_BEAT_PROPERTIES));
-
-                float beatTime = beat.position / 1000f;
-                Instance.CurrentTimelineTime = beatTime;
-                InvokeOnBeat(beatTime); // 정확한 beat 시간 전달
+            case EVENT_CALLBACK_TYPE.STOPPED:
+                lock (Instance._lock)
+                {
+                    Instance._eventQueue.Enqueue(() => RhythmEvents.InvokeOnMusicStopped());
+                }
                 break;
 
             case EVENT_CALLBACK_TYPE.TIMELINE_MARKER:
                 var marker = (TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_MARKER_PROPERTIES));
-                InvokeOnMarkerHit(marker.name);
+                string markerName = marker.name;
+                lock (Instance._lock)
+                {
+                    Instance._eventQueue.Enqueue(() => RhythmEvents.InvokeOnMarkerHit(markerName));
+                }
+                break;
+
+            case EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
+                var beat = (TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_BEAT_PROPERTIES));
+                float beatTime = beat.position / 1000f;
+                lock (Instance._lock)
+                {
+                    Instance._eventQueue.Enqueue(() => RhythmEvents.InvokeOnBeat(beatTime));
+                }
                 break;
         }
 

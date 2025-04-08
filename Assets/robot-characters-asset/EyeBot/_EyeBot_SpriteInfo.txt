@@ -1,0 +1,115 @@
+EyeBot_Idle:
+   * Frame size: 32x32
+   * Frame count: 16
+   * FPS: 20
+
+----------
+
+EyeBot_IdleToMove:
+   * Frame size: 32x32
+   * Frame count: 4
+   * FPS: 20
+
+----------
+
+EyeBot_MoveToIdle:
+   * Frame size: 32x32
+   * Frame count: 4
+   * FPS: 20
+
+----------
+
+EyeBot_Move:
+   * Frame size: 32x32
+   * Frame count: 16
+   * FPS: 20
+
+----------
+
+EyeBot_TurnAround:
+   * Frame size: 32x32
+   * Frame count: 6
+   * FPS: 20
+
+----------
+
+EyeBot_TurnAroundSlow:
+   * Frame size: 32x32
+   * Frame count: 12
+   * FPS: 20
+
+----------
+
+EyeBot_Sleeping:
+   * Frame size: 32x32
+   * Frame count: 10
+   * FPS: 20
+
+----------
+
+EyeBot_Wake:
+   * Frame size: 32x32
+   * Frame count: 33
+   * FPS: 20
+
+----------
+
+EyeBot_ToSleep:
+   * Frame size: 32x32
+   * Frame count: 28
+   * FPS: 20
+
+----------
+
+EyeBot_Attack1:
+   * Frame size: 64x32
+   * Frame count: 9
+   * FPS: 20
+   * Place pivot 16 pixels from left side
+
+----------
+
+EyeBot_Attack2:
+   * Frame size: 64x32
+   * Frame count: 9
+   * FPS: 20
+   * Place pivot 16 pixels from left side
+
+----------
+
+EyeBot_Attack3:
+   * Frame size: 64x32
+   * Frame count: 9
+   * FPS: 20
+   * Place pivot 16 pixels from left side
+
+----------
+
+EyeBot_Attack4:
+   * Frame size: 64x32
+   * Frame count: 9
+   * FPS: 20
+   * Place pivot 16 pixels from left side
+
+----------
+
+EyeBot_AttackSweep:
+   * Frame size: 64x48
+   * Frame count: 28
+   * FPS: 20
+
+----------
+
+EyeBot_Damaged:
+   * Frame size: 32x32
+   * Frame count: 12
+   * FPS: 20
+
+----------
+
+EyeBot_Death:
+   * Frame size: 64x64
+   * Frame count: 28
+   * FPS: 20
+
+----------

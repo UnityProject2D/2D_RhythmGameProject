@@ -1,0 +1,1560 @@
+fileFormatVersion: 2
+guid: 2e0fd3a195462174a8f6231c738283d4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7648910632965092047
+    second: EyeBot_ToSleep_0
+  - first:
+      213: -4329458456662885404
+    second: EyeBot_ToSleep_1
+  - first:
+      213: -784977688255980839
+    second: EyeBot_ToSleep_2
+  - first:
+      213: -5296612204123958805
+    second: EyeBot_ToSleep_3
+  - first:
+      213: 2590100317565469476
+    second: EyeBot_ToSleep_4
+  - first:
+      213: 6266544301506676222
+    second: EyeBot_ToSleep_5
+  - first:
+      213: -1312993434503898416
+    second: EyeBot_ToSleep_6
+  - first:
+      213: -7020979727787522055
+    second: EyeBot_ToSleep_7
+  - first:
+      213: 1729299692212670525
+    second: EyeBot_ToSleep_8
+  - first:
+      213: -3042453992997700630
+    second: EyeBot_ToSleep_9
+  - first:
+      213: -7946875600958787721
+    second: EyeBot_ToSleep_10
+  - first:
+      213: 5315589691135592550
+    second: EyeBot_ToSleep_11
+  - first:
+      213: -1717871062396294737
+    second: EyeBot_ToSleep_12
+  - first:
+      213: 4267823015396621344
+    second: EyeBot_ToSleep_13
+  - first:
+      213: 5414343515277584193
+    second: EyeBot_ToSleep_14
+  - first:
+      213: 7164277577753614572
+    second: EyeBot_ToSleep_15
+  - first:
+      213: 6434853719921415143
+    second: EyeBot_ToSleep_16
+  - first:
+      213: 3789469140123439128
+    second: EyeBot_ToSleep_17
+  - first:
+      213: -968600291720038339
+    second: EyeBot_ToSleep_18
+  - first:
+      213: -4861754189465362074
+    second: EyeBot_ToSleep_19
+  - first:
+      213: 529330858018953428
+    second: EyeBot_ToSleep_20
+  - first:
+      213: 6397626821035862007
+    second: EyeBot_ToSleep_21
+  - first:
+      213: 3825243722613457828
+    second: EyeBot_ToSleep_22
+  - first:
+      213: -7134272175296402399
+    second: EyeBot_ToSleep_23
+  - first:
+      213: -2448034080624016988
+    second: EyeBot_ToSleep_24
+  - first:
+      213: -2353353089004518785
+    second: EyeBot_ToSleep_25
+  - first:
+      213: 6098208989209526218
+    second: EyeBot_ToSleep_26
+  - first:
+      213: -2451444632970248694
+    second: EyeBot_ToSleep_27
+  - first:
+      213: 8346978918388789820
+    second: EyeBot_ToSleep_28
+  - first:
+      213: 7406941565825132328
+    second: EyeBot_ToSleep_29
+  - first:
+      213: 5483475974613364351
+    second: EyeBot_ToSleep_30
+  - first:
+      213: 1335690445114776795
+    second: EyeBot_ToSleep_31
+  - first:
+      213: -7216232666453942557
+    second: EyeBot_ToSleep_32
+  - first:
+      213: 2755595121301524873
+    second: EyeBot_ToSleep_33
+  - first:
+      213: -1610367403454757268
+    second: EyeBot_ToSleep_34
+  - first:
+      213: -5378307839870081259
+    second: EyeBot_ToSleep_35
+  - first:
+      213: -9024544242775638059
+    second: EyeBot_ToSleep_36
+  - first:
+      213: 7190472128883532137
+    second: EyeBot_ToSleep_37
+  - first:
+      213: -6448795464478050071
+    second: EyeBot_ToSleep_38
+  - first:
+      213: 7333457327783019692
+    second: EyeBot_ToSleep_39
+  - first:
+      213: -5623129245800145483
+    second: EyeBot_ToSleep_40
+  - first:
+      213: 4326439583183592107
+    second: EyeBot_ToSleep_41
+  - first:
+      213: -6208402944069487622
+    second: EyeBot_ToSleep_42
+  - first:
+      213: 7399707101445414819
+    second: EyeBot_ToSleep_43
+  - first:
+      213: -4883509860069425997
+    second: EyeBot_ToSleep_44
+  - first:
+      213: -6381460450721897224
+    second: EyeBot_ToSleep_45
+  - first:
+      213: 8730206395556273780
+    second: EyeBot_ToSleep_46
+  - first:
+      213: 188085630321554442
+    second: EyeBot_ToSleep_47
+  - first:
+      213: 1011229800455425541
+    second: EyeBot_ToSleep_48
+  - first:
+      213: -6437546331702474998
+    second: EyeBot_ToSleep_49
+  - first:
+      213: 120534826658443205
+    second: EyeBot_ToSleep_50
+  - first:
+      213: 1819251920368475101
+    second: EyeBot_ToSleep_51
+  - first:
+      213: 1298951967775740584
+    second: EyeBot_ToSleep_52
+  - first:
+      213: -8448028153551481550
+    second: EyeBot_ToSleep_53
+  - first:
+      213: -3419458461975629888
+    second: EyeBot_ToSleep_54
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 16
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc2b79ce1b3662a60800000000000000
+      internalID: 7648910632965092047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_1
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eb3cccd87caae3c0800000000000000
+      internalID: -4329458456662885404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_2
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 18
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9da15e693f23b15f0800000000000000
+      internalID: -784977688255980839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_3
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 16
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be151345347ae76b0800000000000000
+      internalID: -5296612204123958805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_4
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 423cd111482e1f320800000000000000
+      internalID: 2590100317565469476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_5
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 18
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef5cd8437dc37f650800000000000000
+      internalID: 6266544301506676222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_6
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 16
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0da99f78d6f47cde0800000000000000
+      internalID: -1312993434503898416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_7
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f78106e228709e90800000000000000
+      internalID: -7020979727787522055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_8
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 18
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30578868e4bff710800000000000000
+      internalID: 1729299692212670525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_9
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 16
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeb37e5863807c5d0800000000000000
+      internalID: -3042453992997700630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_10
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 0
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77fe1aaceb607b190800000000000000
+      internalID: -7946875600958787721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_11
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 18
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6688ddf29a4c4c940800000000000000
+      internalID: 5315589691135592550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_12
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 15
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa922f3de55e828e0800000000000000
+      internalID: -1717871062396294737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_13
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 1
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02cb3fcab6a5a3b30800000000000000
+      internalID: 4267823015396621344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_14
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 17
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1476f00adbc932b40800000000000000
+      internalID: 5414343515277584193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_15
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 14
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce8dc4ebf70ac6360800000000000000
+      internalID: 7164277577753614572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_16
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 0
+        width: 18
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e3548d6d513d4950800000000000000
+      internalID: 6434853719921415143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_17
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 15
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 810dc500b16e69430800000000000000
+      internalID: 3789469140123439128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_18
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 13
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d38ffa2aa27de82f0800000000000000
+      internalID: -968600291720038339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_19
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 0
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66166a7c254978cb0800000000000000
+      internalID: -4861754189465362074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_20
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 13
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d85fd06c9f885700800000000000000
+      internalID: 529330858018953428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_21
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 11
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f7aa5992bfe8c850800000000000000
+      internalID: 6397626821035862007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_22
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 0
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a30ba116eef51530800000000000000
+      internalID: 3825243722613457828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_23
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 11
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12c218c6149fdfc90800000000000000
+      internalID: -7134272175296402399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_24
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 9
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a10b5259f5d60ed0800000000000000
+      internalID: -2448034080624016988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_25
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 0
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7241da85d5375fd0800000000000000
+      internalID: -2353353089004518785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_26
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 9
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf7de714c031a450800000000000000
+      internalID: 6098208989209526218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_27
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 31
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0e35493818bafdd0800000000000000
+      internalID: -2451444632970248694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_28
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c32fc322a1d66d370800000000000000
+      internalID: 8346978918388789820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_29
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82725174c1ebac660800000000000000
+      internalID: 7406941565825132328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_30
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 31
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7ee731a858391c40800000000000000
+      internalID: 5483475974613364351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_31
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 0
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc13fe0263598210800000000000000
+      internalID: 1335690445114776795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_32
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 0
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ee51738f9acadb90800000000000000
+      internalID: -7216232666453942557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_33
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 0
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9811afdb927dd3620800000000000000
+      internalID: 2755595121301524873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_34
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c66063fe063d6a9e0800000000000000
+      internalID: -1610367403454757268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_35
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 0
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51768dfd3896c55b0800000000000000
+      internalID: -5378307839870081259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_36
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 32
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dfbf8543d062c280800000000000000
+      internalID: -9024544242775638059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_37
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 0
+        width: 65
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9612371fd40b9c360800000000000000
+      internalID: 7190472128883532137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_38
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 31
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e8b2a631b64186a0800000000000000
+      internalID: -6448795464478050071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_39
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 0
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca40ef5d59ca5c560800000000000000
+      internalID: 7333457327783019692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_40
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 0
+        width: 94
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bdd8f95eb1a6f1b0800000000000000
+      internalID: -5623129245800145483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_41
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 0
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baad8d1e0e99a0c30800000000000000
+      internalID: 4326439583183592107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_42
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 0
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af3bf387a6257d9a0800000000000000
+      internalID: -6208402944069487622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_43
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 3
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3afd697476a01b660800000000000000
+      internalID: 7399707101445414819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_44
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 1
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bcb17df7a94a3cb0800000000000000
+      internalID: -4883509860069425997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_45
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 3
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f4648ec78f7077a0800000000000000
+      internalID: -6381460450721897224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_46
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 2
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47e99fe467ce72970800000000000000
+      internalID: 8730206395556273780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_47
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 2
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a04fbae52e63c9200800000000000000
+      internalID: 188085630321554442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_48
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 2
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50e4f62552c980e00800000000000000
+      internalID: 1011229800455425541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_49
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 1
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0741c908bd39a6a0800000000000000
+      internalID: -6437546331702474998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_50
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 1
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cf2a0649c93ca100800000000000000
+      internalID: 120534826658443205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_51
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddb92869bf74f3910800000000000000
+      internalID: 1819251920368475101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_52
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a2519bbeedc60210800000000000000
+      internalID: 1298951967775740584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_53
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2359017672392ca80800000000000000
+      internalID: -8448028153551481550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_ToSleep_54
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 0
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cf2db955a4ab80d0800000000000000
+      internalID: -3419458461975629888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      EyeBot_ToSleep_0: 7648910632965092047
+      EyeBot_ToSleep_1: -4329458456662885404
+      EyeBot_ToSleep_10: -7946875600958787721
+      EyeBot_ToSleep_11: 5315589691135592550
+      EyeBot_ToSleep_12: -1717871062396294737
+      EyeBot_ToSleep_13: 4267823015396621344
+      EyeBot_ToSleep_14: 5414343515277584193
+      EyeBot_ToSleep_15: 7164277577753614572
+      EyeBot_ToSleep_16: 6434853719921415143
+      EyeBot_ToSleep_17: 3789469140123439128
+      EyeBot_ToSleep_18: -968600291720038339
+      EyeBot_ToSleep_19: -4861754189465362074
+      EyeBot_ToSleep_2: -784977688255980839
+      EyeBot_ToSleep_20: 529330858018953428
+      EyeBot_ToSleep_21: 6397626821035862007
+      EyeBot_ToSleep_22: 3825243722613457828
+      EyeBot_ToSleep_23: -7134272175296402399
+      EyeBot_ToSleep_24: -2448034080624016988
+      EyeBot_ToSleep_25: -2353353089004518785
+      EyeBot_ToSleep_26: 6098208989209526218
+      EyeBot_ToSleep_27: -2451444632970248694
+      EyeBot_ToSleep_28: 8346978918388789820
+      EyeBot_ToSleep_29: 7406941565825132328
+      EyeBot_ToSleep_3: -5296612204123958805
+      EyeBot_ToSleep_30: 5483475974613364351
+      EyeBot_ToSleep_31: 1335690445114776795
+      EyeBot_ToSleep_32: -7216232666453942557
+      EyeBot_ToSleep_33: 2755595121301524873
+      EyeBot_ToSleep_34: -1610367403454757268
+      EyeBot_ToSleep_35: -5378307839870081259
+      EyeBot_ToSleep_36: -9024544242775638059
+      EyeBot_ToSleep_37: 7190472128883532137
+      EyeBot_ToSleep_38: -6448795464478050071
+      EyeBot_ToSleep_39: 7333457327783019692
+      EyeBot_ToSleep_4: 2590100317565469476
+      EyeBot_ToSleep_40: -5623129245800145483
+      EyeBot_ToSleep_41: 4326439583183592107
+      EyeBot_ToSleep_42: -6208402944069487622
+      EyeBot_ToSleep_43: 7399707101445414819
+      EyeBot_ToSleep_44: -4883509860069425997
+      EyeBot_ToSleep_45: -6381460450721897224
+      EyeBot_ToSleep_46: 8730206395556273780
+      EyeBot_ToSleep_47: 188085630321554442
+      EyeBot_ToSleep_48: 1011229800455425541
+      EyeBot_ToSleep_49: -6437546331702474998
+      EyeBot_ToSleep_5: 6266544301506676222
+      EyeBot_ToSleep_50: 120534826658443205
+      EyeBot_ToSleep_51: 1819251920368475101
+      EyeBot_ToSleep_52: 1298951967775740584
+      EyeBot_ToSleep_53: -8448028153551481550
+      EyeBot_ToSleep_54: -3419458461975629888
+      EyeBot_ToSleep_6: -1312993434503898416
+      EyeBot_ToSleep_7: -7020979727787522055
+      EyeBot_ToSleep_8: 1729299692212670525
+      EyeBot_ToSleep_9: -3042453992997700630
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
