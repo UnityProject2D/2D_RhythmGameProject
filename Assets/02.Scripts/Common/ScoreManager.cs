@@ -61,6 +61,10 @@ public class ScoreManager : MonoBehaviour
                     _perfectStreak = 0;
                 }
                 break;
+            case JudgementResult.Good:
+                _perfectStreak = 0;
+                _combo++;
+                break;
 
             case JudgementResult.Bad:
                 _perfectStreak = 0;
@@ -106,7 +110,7 @@ public class ScoreManager : MonoBehaviour
             (PlayerState.Instance.PreciseCalibrationUnitEnabled ? 0.8f : 1f) *// 보정칩 핸디캡
             comboMultiplier *
             perfectBonus *
-            (judgementResult.Result == JudgementResult.Miss?0:1);
+            (judgementResult.Result == JudgementResult.Miss ? 0 : 1);
 
         OnComboChanged?.Invoke(_combo);
         Debug.Log($"SCORE = {(int)_score}");

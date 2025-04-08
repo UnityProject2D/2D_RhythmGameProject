@@ -84,49 +84,9 @@ public class PlayerController : MonoBehaviour
     private void OnInputJudg(JudgedContext result)
     {
         Debug.Log($"판정 결과: {result.Result}");
-        switch (result.Result)
-        {
-            case JudgementResult.Perfect:
-            case JudgementResult.Good:
-                ShowComboEffect(result.Result); // 효과 출력
-                break;
-            case JudgementResult.Bad:
-            case JudgementResult.Miss:
-                ShowMissEffect(result.Result); //대미지 애니메이션 출력
-                break;
-        }
-    }
-
-    private void ShowComboEffect(JudgementResult result)
-    {
-        // 판정 결과에 따라 색/이펙트 다르게 출력 가능
-        switch (result)
-        {
-            case JudgementResult.Perfect:
-                Debug.Log("Perfect!!");
-                break;
-            case JudgementResult.Good:
-                Debug.Log("Good!!");
-                break;
-        }
-    }
-
-    private void ShowMissEffect(JudgementResult result)
-    {
-        switch (result)
-        {
-            case JudgementResult.Bad:
-                Debug.Log("Bad!!");
-                break;
-            case JudgementResult.Miss:
-                Debug.Log("Miss!!");
-                break;
-        }
-
-        if (!IsDead)
+        if (result.Result == JudgementResult.Miss && !IsDead)
         {
             _animator.SetTrigger("Hit");
         }
     }
-
 }
