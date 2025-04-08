@@ -48,6 +48,19 @@ public class TooltipUI : MonoBehaviour
         _isVisible = true;
     }
 
+    public void Show(ItemSO item)
+    {
+        _nameText.text = item.itemName;
+        _descriptionText.text = item.description;
+        _categoryText.text = item.category != null ? item.category.categoryName : "";
+        _priceText.text = "";
+        _currencyIcon.sprite = null;
+        _iconImage.sprite = item.icon;
+
+        _tooltipRoot.SetActive(true);
+        _isVisible = true;
+    }
+
     public void Hide()
     {
         _tooltipRoot.SetActive(false);

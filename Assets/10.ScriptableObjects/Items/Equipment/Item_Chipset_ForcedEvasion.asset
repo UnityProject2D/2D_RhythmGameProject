@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "\uCE69\uC14B: \uAC15\uC81C \uD68C\uD53C \uD504\uB85C\uD1A0\uCF5C"
   icon: {fileID: -7377708058814999374, guid: 1b59644603ef90643bed922fb0827772, type: 3}
-  description: "Miss \uD310\uC815\uC744 \uC77C\uC815 \uD655\uB960\uB85C Good\uC73C\uB85C
-    \uCE58\uD658\uD558\uB294 \uD68C\uD53C \uC54C\uACE0\uB9AC\uC998. \n\uC785\uB825
-    \uC624\uB958\uB97C AI\uAC00 \uB300\uC2E0 \uD68C\uD53C \uCC98\uB9AC\uD568."
+  description: "???: \uC774\uAC8C \uC65C \uC548\uB9DE\uC544?"
+  EffectDescription: "\uC77C\uC815 \uD655\uB960\uB85C Miss\uB97C Good\uC73C\uB85C
+    \uCE58\uD658"
   category: {fileID: 11400000, guid: 1800b112f2b16884c8dd374b5b274634, type: 2}
-  effects: []
+  isConsumable: 0

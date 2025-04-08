@@ -18,5 +18,7 @@ MonoBehaviour:
     \uC778\uC99D \uCF54\uC5B4. \n\uC544\uC774\uD15C \uAC00\uACA9\uC774 20% \uD560\uC778\uB418\uBA70,
     \n\"\uB108\uBB34 \uB9CE\uC740 \uAC83\uC744 \uC54C\uACE0 \uC788\uB2E4\"\uB294
     \uACBD\uACE0\uC640 \uD568\uAED8 \uBD80\uCC29\uB428."
+  EffectDescription: "\uC544\uC774\uD15C \uAC00\uACA9\uC744 \uC601\uAD6C\uC801\uC73C\uB85C
+    20% \uD560\uC778"
   category: {fileID: 11400000, guid: 54a0efa29be0696489bd78ffa950df6d, type: 2}
-  effects: []
+  isConsumable: 0

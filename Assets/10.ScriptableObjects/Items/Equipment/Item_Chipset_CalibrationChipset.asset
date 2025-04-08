@@ -17,5 +17,7 @@ MonoBehaviour:
   description: "\uCE58\uBA85\uC801\uC778 \uD53C\uD574\uB97C 1\uD68C \uBB34\uD6A8\uD654\uD558\uB294
     \uC790\uAE30 \uBCF4\uC815 \uC720\uB2DB. \n\uB9AC\uB4EC \uC624\uB958\uB97C \uAC10\uC9C0\uD574
     \uC989\uC2DC \uBCF4\uC644 \uD504\uB85C\uC138\uC2A4\uB97C \uC2E4\uD589\uD568."
+  EffectDescription: "\uD53C\uD574\uB97C \uC785\uC744 \uB54C \uD574\uB2F9 \uD53C\uD574
+    \uBB34\uC2DC\n\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04: 20\uCD08"
   category: {fileID: 11400000, guid: 1800b112f2b16884c8dd374b5b274634, type: 2}
-  effects: []
+  isConsumable: 0

@@ -17,5 +17,7 @@ MonoBehaviour:
   description: "Perfect \uD310\uC815 3\uD68C\uB9C8\uB2E4 \uCD94\uAC00 \uCF64\uBCF4\uB97C
     \uB204\uC801\uD558\uB294 \uBCF4\uC870 \uCE69\uC14B. \n\uACE0\uC815\uBC00 \uBD84\uC11D\uC73C\uB85C
     \uCF64\uBCF4 \uACC4\uCE21\uC744 \uC790\uB3D9\uD654\uD568."
+  EffectDescription: "Perfect \uD310\uC815 \uC5F0\uC18D 3\uD68C\uB9C8\uB2E4 \uCF64\uBCF4
+    \uCD94\uAC00\uB85C \uC81C\uACF5"
   category: {fileID: 11400000, guid: 1800b112f2b16884c8dd374b5b274634, type: 2}
-  effects: []
+  isConsumable: 0

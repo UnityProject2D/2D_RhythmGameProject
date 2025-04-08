@@ -19,5 +19,7 @@ MonoBehaviour:
     \uD68D\uB4DD\uD55C\uB2E4. \n\uD754\uC801\uC744 \uC644\uBCBD\uD788 \uC0AD\uC81C\uD558\uC9C0
     \uBABB\uD558\uBBC0\uB85C \uBC18\uBCF5 \uC0AC\uC6A9\uC740 \uAE08\uC9C0\uB418\uC5B4
     \uC788\uB2E4.\n\n"
+  EffectDescription: "\uC0AC\uC6A9\uC2DC \uC0C1\uC810\uC5D0 \uC788\uB294 \uC544\uC774\uD15C
+    \uC911 \uB79C\uB364\uC73C\uB85C 1\uAC1C \uBB34\uB8CC"
   category: {fileID: 11400000, guid: dbacc609a7692aa4bbb3487a966d718b, type: 2}
-  effects: []
+  isConsumable: 1

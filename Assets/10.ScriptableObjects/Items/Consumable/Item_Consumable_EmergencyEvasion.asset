@@ -16,8 +16,10 @@ MonoBehaviour:
   icon: {fileID: 852628137, guid: b8b9894dffe76c9478e7c8bb81e731cf, type: 3}
   description: "\uCE58\uBA85\uC801\uC778 \uC190\uC0C1\uC744 \uC785\uC744 \uACBD\uC6B0,
     \uC790\uB3D9\uC73C\uB85C \uBC29\uC5B4 \uB9E4\uCEE4\uB2C8\uC998\uC744 \uC791\uB3D9\uC2DC\uCF1C
-    \uC0DD\uC874\uC744 1\uD68C \uBCF4\uC7A5\uD55C\uB2E4. \n\uC0DD\uBA85 \uC720\uC9C0
+    \n\uC0DD\uC874\uC744 1\uD68C \uBCF4\uC7A5\uD55C\uB2E4. \n\n\uC0DD\uBA85 \uC720\uC9C0
     \uC7A5\uCE58\uC758 \uC751\uAE09 \uC11C\uBE0C\uB8E8\uD2F4\uC5D0\uC11C \uC720\uCD9C\uB41C
     \uAE30\uC220."
+  EffectDescription: "\uCCB4\uB825\uC774 0\uC774 \uB420 \uACBD\uC6B0 \uC8FD\uC9C0
+    \uC54A\uB294 \uB300\uC2E0 \uCCB4\uB825 \uD68C\uBCF5"
   category: {fileID: 11400000, guid: dbacc609a7692aa4bbb3487a966d718b, type: 2}
-  effects: []
+  isConsumable: 0
