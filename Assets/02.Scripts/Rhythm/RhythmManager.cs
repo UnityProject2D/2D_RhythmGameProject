@@ -1,10 +1,11 @@
 using FMOD.Studio;
 using FMODUnity;
 using System;
-using System.Runtime.InteropServices;
 using UnityEngine;
 using static RhythmEvents;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using MoreMountains.Tools;
 
 enum NoteTriggerState
 {
@@ -41,6 +42,7 @@ public class RhythmManager : MonoBehaviour
 
     private Queue<Action> _eventQueue = new Queue<Action>();
     private object _lock = new object();
+    public CustomMMAudioAnalyzer mmaudioAnalyzer;
 
     public int StageMusicIndex
     {
@@ -56,9 +58,6 @@ public class RhythmManager : MonoBehaviour
 
     private void Start()
     {
-
-
-
         if (IsTest)
         {
             Play();
@@ -75,6 +74,7 @@ public class RhythmManager : MonoBehaviour
                 _eventQueue.Dequeue()?.Invoke();
             }
         }
+
         float currentTime = GetCurrentMusicTime();
             
         for (int i = 0; i < stageNotes[_stageMusicIndex].notes.Count; i++)
@@ -102,6 +102,35 @@ public class RhythmManager : MonoBehaviour
                         Debug.Log($"[노트 발동] 키: {note.expectedKey}, 비트: {note.beat}");
                     }
                     break;
+            }
+        }
+
+
+        if (_fftDSP.hasHandle())
+        {
+            IntPtr dataPtr;
+            uint length;
+            var result = _fftDSP.getParameterData((int)FMOD.DSP_FFT.SPECTRUMDATA, out dataPtr, out length);
+            Debug.Log($"[FMOD] getParameterData result: {result}, hasHandle: {_fftDSP.hasHandle()}");
+            if (result == FMOD.RESULT.OK)
+            {
+                FMOD.DSP_PARAMETER_FFT fftData = (FMOD.DSP_PARAMETER_FFT)Marshal.PtrToStructure(dataPtr, typeof(FMOD.DSP_PARAMETER_FFT));
+                if (fftData.numchannels > 0 && fftData.spectrum != null && fftData.length > 0)
+                {
+                    if (_fmodSpectrum == null || _fmodSpectrum.Length != fftData.length)
+                    {
+                        _fmodSpectrum = new float[fftData.length];
+                    }
+
+                    fftData.getSpectrum(0, ref _fmodSpectrum);
+
+                    //Debug.Log($"FFT[0]: {_fmodSpectrum[0]}");
+
+                    if (mmaudioAnalyzer != null)
+                    {
+                        mmaudioAnalyzer.ExternalSpectrumData = _fmodSpectrum;
+                    }
+                }
             }
         }
     }
@@ -148,6 +177,8 @@ public class RhythmManager : MonoBehaviour
         if (!IsPlaying)
         {
             InvokeOnMusicStart();
+
+            SetupFmodFFT();
             _musicInstance.start();
             _musicInstance.getTimelinePosition(out int ms);
             MusicStartTime = Time.time - (ms / 1000f);
@@ -155,6 +186,52 @@ public class RhythmManager : MonoBehaviour
         }
 
     }
+
+    private FMOD.DSP _fftDSP;
+    private float[] _fmodSpectrum;
+    const int FFT_WINDOW_SIZE = 1024;
+
+    private void SetupFmodFFT()
+    {
+        Debug.Log("[FMOD] SetupFmodFFT 시작");
+        FMODUnity.RuntimeManager.StudioSystem.flushCommands();
+
+        var resultDSP = FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.FFT, out _fftDSP);
+        Debug.Log($"[FMOD] createDSP result: {resultDSP}");
+
+        if (resultDSP == FMOD.RESULT.OK)
+        {
+            _fftDSP.setParameterInt((int)FMOD.DSP_FFT.WINDOWTYPE, (int)FMOD.DSP_FFT_WINDOW.HANNING);
+            _fftDSP.setParameterInt((int)FMOD.DSP_FFT.WINDOWSIZE, FFT_WINDOW_SIZE * 2);
+
+            var bus = FMODUnity.RuntimeManager.GetBus("bus:/");
+
+            if (bus.hasHandle())
+            {
+                var resultGroup = bus.getChannelGroup(out FMOD.ChannelGroup channelGroup);
+                Debug.Log($"[FMOD] getChannelGroup result: {resultGroup}");
+
+                if (resultGroup == FMOD.RESULT.OK)
+                {
+                    var resultAdd = channelGroup.addDSP(FMOD.CHANNELCONTROL_DSP_INDEX.HEAD, _fftDSP);
+                    Debug.Log($"[FMOD] addDSP result: {resultAdd}");
+                }
+                else
+                {
+                    Debug.LogWarning("[FMOD] X getChannelGroup 실패");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("[FMOD] X bus.hasHandle() == false");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("[FMOD] X createDSPByType 실패");
+        }
+    }
+
     public float GetCurrentMusicTime()
     {
         if (!_musicInstance.isValid()) return 0f;
