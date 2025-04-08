@@ -1,0 +1,730 @@
+fileFormatVersion: 2
+guid: dab5a7a6541d953478c277f0a2b0da47
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7677796410819476918
+    second: BlueprintTilesetLeftAngleCold_0
+  - first:
+      213: 2457691502048811693
+    second: BlueprintTilesetLeftAngleCold_1
+  - first:
+      213: 5099937561759388411
+    second: BlueprintTilesetLeftAngleCold_2
+  - first:
+      213: -50583527549184505
+    second: BlueprintTilesetLeftAngleCold_3
+  - first:
+      213: 1257499214535141286
+    second: BlueprintTilesetLeftAngleCold_4
+  - first:
+      213: -7000761064895996593
+    second: BlueprintTilesetLeftAngleCold_5
+  - first:
+      213: 3753952628113164750
+    second: BlueprintTilesetLeftAngleCold_6
+  - first:
+      213: -2882947182084727136
+    second: BlueprintTilesetLeftAngleCold_7
+  - first:
+      213: 18829406957200726
+    second: BlueprintTilesetLeftAngleCold_8
+  - first:
+      213: -1689592347573486925
+    second: BlueprintTilesetLeftAngleCold_9
+  - first:
+      213: 2153651162437316638
+    second: BlueprintTilesetLeftAngleCold_10
+  - first:
+      213: 7558196592917124018
+    second: BlueprintTilesetLeftAngleCold_11
+  - first:
+      213: -9355854274535500
+    second: BlueprintTilesetLeftAngleCold_12
+  - first:
+      213: 5821708632218736209
+    second: BlueprintTilesetLeftAngleCold_13
+  - first:
+      213: 1377648121993214667
+    second: BlueprintTilesetLeftAngleCold_14
+  - first:
+      213: 5528243358469311230
+    second: BlueprintTilesetLeftAngleCold_15
+  - first:
+      213: -5262556331603353762
+    second: BlueprintTilesetLeftAngleCold_16
+  - first:
+      213: 7893741172014397260
+    second: BlueprintTilesetLeftAngleCold_17
+  - first:
+      213: -2343013662259631737
+    second: BlueprintTilesetLeftAngleCold_18
+  - first:
+      213: 9023077266845506530
+    second: BlueprintTilesetLeftAngleCold_19
+  - first:
+      213: -3285582561543575195
+    second: BlueprintTilesetLeftAngleCold_20
+  - first:
+      213: -1368411763488632214
+    second: BlueprintTilesetLeftAngleCold_21
+  - first:
+      213: -4700133776415978851
+    second: BlueprintTilesetLeftAngleCold_22
+  - first:
+      213: -3019063430481399523
+    second: BlueprintTilesetLeftAngleCold_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 303
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bdf9ac28230d8a60800000000000000
+      internalID: 7677796410819476918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 303
+        width: 18
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daa9d1356697b1220800000000000000
+      internalID: 2457691502048811693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 319
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf21759113e96c640800000000000000
+      internalID: 5099937561759388411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 303
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 706d1f8bc8a4c4ff0800000000000000
+      internalID: -50583527549184505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_4
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 303
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a723b38fd8837110800000000000000
+      internalID: 1257499214535141286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_5
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 303
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4d1d7137ec48de90800000000000000
+      internalID: -7000761064895996593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 271
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec94456a608b81430800000000000000
+      internalID: 3753952628113164750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_7
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 271
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ae50a9ffc6bdf7d0800000000000000
+      internalID: -2882947182084727136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_8
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 239
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 655e301fe35e24000800000000000000
+      internalID: 18829406957200726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_9
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 223
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3baf9a336bc5d88e0800000000000000
+      internalID: -1689592347573486925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 146
+        width: 64
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e10fe2b525e43ed10800000000000000
+      internalID: 2153651162437316638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_11
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 143
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b3946791cb14e860800000000000000
+      internalID: 7558196592917124018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 159
+        width: 64
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bf556d66e2cedff0800000000000000
+      internalID: -9355854274535500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_13
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 79
+        width: 114
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1561931082ddac050800000000000000
+      internalID: 5821708632218736209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_14
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 66
+        width: 34
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcab3e8faa36e1310800000000000000
+      internalID: 1377648121993214667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_15
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 79
+        width: 64
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efac97d6b0448bc40800000000000000
+      internalID: 5528243358469311230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_16
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 63
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5f9c4c06e4a7f6b0800000000000000
+      internalID: -5262556331603353762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_17
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 79
+        width: 50
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c473bcae5c33c8d60800000000000000
+      internalID: 7893741172014397260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_18
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 789a02dec71fb7fd0800000000000000
+      internalID: -2343013662259631737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_19
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 18
+        width: 34
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb9a37c7f8683d70800000000000000
+      internalID: 9023077266845506530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_20
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 15
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5692afa61144762d0800000000000000
+      internalID: -3285582561543575195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_21
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 15
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a625bc250cc620de0800000000000000
+      internalID: -1368411763488632214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_22
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 15
+        width: 114
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9a09e39b35c5ceb0800000000000000
+      internalID: -4700133776415978851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetLeftAngleCold_23
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 15
+        width: 114
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d11b8cf3ec12a16d0800000000000000
+      internalID: -3019063430481399523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

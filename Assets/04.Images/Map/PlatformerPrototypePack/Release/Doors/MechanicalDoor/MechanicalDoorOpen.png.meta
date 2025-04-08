@@ -1,0 +1,955 @@
+fileFormatVersion: 2
+guid: a71fedb506885584f9dc75cd052eff04
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -244041722732964546
+    second: MechanicalDoorOpen_0
+  - first:
+      213: 1439648564999892516
+    second: MechanicalDoorOpen_1
+  - first:
+      213: -6873389139345957485
+    second: MechanicalDoorOpen_2
+  - first:
+      213: 6790923051195793965
+    second: MechanicalDoorOpen_3
+  - first:
+      213: 9194216563878811160
+    second: MechanicalDoorOpen_4
+  - first:
+      213: -7944965344959121151
+    second: MechanicalDoorOpen_5
+  - first:
+      213: -5080482682221829497
+    second: MechanicalDoorOpen_6
+  - first:
+      213: 1756818256214021581
+    second: MechanicalDoorOpen_7
+  - first:
+      213: 3820956163310267160
+    second: MechanicalDoorOpen_8
+  - first:
+      213: -7439431829938548252
+    second: MechanicalDoorOpen_9
+  - first:
+      213: 5455261755729067039
+    second: MechanicalDoorOpen_10
+  - first:
+      213: -6890336410940947892
+    second: MechanicalDoorOpen_11
+  - first:
+      213: 5096546614241293922
+    second: MechanicalDoorOpen_12
+  - first:
+      213: 653215538116272547
+    second: MechanicalDoorOpen_13
+  - first:
+      213: 2718582123071192473
+    second: MechanicalDoorOpen_14
+  - first:
+      213: 2353431648789412398
+    second: MechanicalDoorOpen_15
+  - first:
+      213: -8487460014665442416
+    second: MechanicalDoorOpen_16
+  - first:
+      213: -7121915395855432343
+    second: MechanicalDoorOpen_17
+  - first:
+      213: 8442363276657496900
+    second: MechanicalDoorOpen_18
+  - first:
+      213: 7020902633272963174
+    second: MechanicalDoorOpen_19
+  - first:
+      213: -4012720088495598811
+    second: MechanicalDoorOpen_20
+  - first:
+      213: -7975042344384473824
+    second: MechanicalDoorOpen_21
+  - first:
+      213: -3141704989746217359
+    second: MechanicalDoorOpen_22
+  - first:
+      213: 7204165640319643109
+    second: MechanicalDoorOpen_23
+  - first:
+      213: -7374958848831257335
+    second: MechanicalDoorOpen_24
+  - first:
+      213: -7480487520469656107
+    second: MechanicalDoorOpen_25
+  - first:
+      213: 7730725094521200250
+    second: MechanicalDoorOpen_26
+  - first:
+      213: -2844797251207878417
+    second: MechanicalDoorOpen_27
+  - first:
+      213: -7113111697784809500
+    second: MechanicalDoorOpen_28
+  - first:
+      213: -6622347404224172080
+    second: MechanicalDoorOpen_29
+  - first:
+      213: -3705129005491139188
+    second: MechanicalDoorOpen_30
+  - first:
+      213: -3650203235081784047
+    second: MechanicalDoorOpen_31
+  - first:
+      213: -8323978640518107335
+    second: MechanicalDoorOpen_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_0
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 13
+        width: 14
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e35902e985dfc9cf0800000000000000
+      internalID: -244041722732964546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 13
+        width: 20
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42e28360eb8aaf310800000000000000
+      internalID: 1439648564999892516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_2
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 13
+        width: 20
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39d914a9ef0dc90a0800000000000000
+      internalID: -6873389139345957485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_3
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 32
+        width: 14
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d22898309843e3e50800000000000000
+      internalID: 6790923051195793965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_4
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 25
+        width: 14
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8165206704b689f70800000000000000
+      internalID: 9194216563878811160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_5
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 24
+        width: 14
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1093cecec10ddb190800000000000000
+      internalID: -7944965344959121151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_6
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 60
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 782e4a60bef7e79b0800000000000000
+      internalID: -5080482682221829497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_7
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 60
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc5de8065e8716810800000000000000
+      internalID: 1756818256214021581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_8
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 60
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81ba270e263c60530800000000000000
+      internalID: 3820956163310267160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_9
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 60
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e157cd9a24d1c890800000000000000
+      internalID: -7439431829938548252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_10
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 60
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1c3103e9abf4bb40800000000000000
+      internalID: 5455261755729067039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_11
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 60
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c42cce27a8b9060a0800000000000000
+      internalID: -6890336410940947892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_12
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 13
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 266721b94229ab640800000000000000
+      internalID: 5096546614241293922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_13
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 13
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a1af2f2210b01900800000000000000
+      internalID: 653215538116272547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_14
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 13
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99db26a89085ab520800000000000000
+      internalID: 2718582123071192473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_15
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 13
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2a31459d9119a020800000000000000
+      internalID: 2353431648789412398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_16
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 13
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09bd88cc51c763a80800000000000000
+      internalID: -8487460014665442416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_17
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 13
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 965c6a55eafd92d90800000000000000
+      internalID: -7121915395855432343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_18
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 13
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44319f9abac492570800000000000000
+      internalID: 8442363276657496900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_19
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 13
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 660f6d22fb14f6160800000000000000
+      internalID: 7020902633272963174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_20
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 14
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 523552ef654ff48c0800000000000000
+      internalID: -4012720088495598811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_21
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 14
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 025d34acd35f25190800000000000000
+      internalID: -7975042344384473824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_22
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 13
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17eba1115fb6664d0800000000000000
+      internalID: -3141704989746217359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_23
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 14
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eda3560b765af360800000000000000
+      internalID: 7204165640319643109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_24
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 14
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9050a4e4002e6a990800000000000000
+      internalID: -7374958848831257335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_25
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 16
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ddd9a3cb38ff2890800000000000000
+      internalID: -7480487520469656107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_26
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 13
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7e522ba38d094b60800000000000000
+      internalID: 7730725094521200250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_27
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 16
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe82fbfe8ff3588d0800000000000000
+      internalID: -2844797251207878417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_28
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 13
+        width: 50
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e75cd50996294d90800000000000000
+      internalID: -7113111697784809500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_29
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 13
+        width: 52
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dfecff5f12b814a0800000000000000
+      internalID: -6622347404224172080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_30
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 13
+        width: 52
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8d44b4dcccb49cc0800000000000000
+      internalID: -3705129005491139188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_31
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 13
+        width: 44
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 115f7fe4f7fd75dc0800000000000000
+      internalID: -3650203235081784047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MechanicalDoorOpen_32
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 13
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93faafd57894b7c80800000000000000
+      internalID: -8323978640518107335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
