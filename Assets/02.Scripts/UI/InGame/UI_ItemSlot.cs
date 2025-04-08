@@ -17,9 +17,8 @@ public class UI_ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     [SerializeField] private bool _isEquipmentSlot;
 
-    public event Action OnPurchaseSuccess;
-
     private ItemSO currentItem;
+
 
     public void Setup(ItemSO item)
     {
