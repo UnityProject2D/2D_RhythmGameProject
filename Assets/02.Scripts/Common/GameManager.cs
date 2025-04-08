@@ -4,6 +4,8 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public GameObject Player;
+    public GameObject Target;
 
     [SerializeField] private double winScoreThreshold = 10000; // 승리 기준 점수
 
