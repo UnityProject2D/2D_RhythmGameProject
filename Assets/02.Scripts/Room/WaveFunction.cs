@@ -9,16 +9,12 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class WaveFunction : MonoBehaviour
 {
-    public static WaveFunction Instance;
 
-
-    public const int GRID_SIZE = 6;
+    public int GRID_SIZE;
     public const int GRID_SCALE = 128;
 
     // 타일 종류
     //public const int TILE_TYPE = 6;
-    public const int TILE_SIZE = 6;
-
     //public Dictionary<int, Dictionary<DIRECT, HashSet<int>>> Constraints;
     //// 1. 타일 인덱스, 2. 방향에 따라 적용할 수 있는 타일 셋(방향, 타일 번호)
 
@@ -46,10 +42,6 @@ public class WaveFunction : MonoBehaviour
 
     public List<List<Cell>> cellDatas = new List<List<Cell>>();
 
-    private void Awake()
-    {
-        Instance = this;
-    }
     // 초기화 - 셀 정보 설정
     public void Init()
     {
@@ -108,7 +100,7 @@ public class WaveFunction : MonoBehaviour
     // 특정 인덱스 셀 확정(Collapse) - -1 설정(랜덤 값 지정)
     public void Collapse_at_coords(Vector2Int coords)
     {
-        cellDatas[coords.x][coords.y].Collapse(-1, coords.y, coords.x);
+        cellDatas[coords.x][coords.y].Collapse(-1, coords.y, coords.x, TileData);
 
         Propagate(coords);
         Debug.Log($"현재 인덱스: x: {coords.x} y: {coords.y}");
