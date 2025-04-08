@@ -8,10 +8,11 @@ public class ItemSOEditor : Editor
     public override void OnInspectorGUI()
     {
         ItemSO item = (ItemSO)target;
-
+        serializedObject.Update();
         EditorGUILayout.LabelField("=== 아이템 정보 ===", EditorStyles.boldLabel);
 
         // ItemSO 연결 필드
+        item.itemID = (ItemID)EditorGUILayout.EnumPopup("아이템 ID", item.itemID);
         item.itemName = EditorGUILayout.TextField("이름", item.itemName);
         item.icon = (Sprite)EditorGUILayout.ObjectField("아이콘", item.icon, typeof(Sprite), false);
         item.description = EditorGUILayout.TextArea(item.description, GUILayout.Height(120));

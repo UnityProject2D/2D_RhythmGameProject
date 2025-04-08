@@ -61,12 +61,20 @@ public class ScoreManager : MonoBehaviour
                     _perfectStreak = 0;
                 }
                 break;
+            case JudgementResult.Good:
+                _combo++;
+                _perfectStreak = 0;
+                break;
 
             case JudgementResult.Bad:
                 _perfectStreak = 0;
                 if (PlayerState.Instance.PreciseCalibrationUnitEnabled)
                 {
                     _combo++;
+                }
+                else if (PlayerState.Instance.ComboProtectorUsed)
+                {
+                    PlayerState.Instance.ComboProtectorUsed = false;
                 }
                 else
                 {
@@ -83,7 +91,6 @@ public class ScoreManager : MonoBehaviour
                 }
                 else if (PlayerState.Instance.ComboProtectorUsed)
                 {
-                    _combo++;
                     PlayerState.Instance.ComboProtectorUsed = false;
                 }
                 else
@@ -106,7 +113,7 @@ public class ScoreManager : MonoBehaviour
             (PlayerState.Instance.PreciseCalibrationUnitEnabled ? 0.8f : 1f) *// 보정칩 핸디캡
             comboMultiplier *
             perfectBonus *
-            (judgementResult.Result == JudgementResult.Miss?0:1);
+            (judgementResult.Result == JudgementResult.Miss ? 0 : 1);
 
         OnComboChanged?.Invoke(_combo);
         Debug.Log($"SCORE = {(int)_score}");

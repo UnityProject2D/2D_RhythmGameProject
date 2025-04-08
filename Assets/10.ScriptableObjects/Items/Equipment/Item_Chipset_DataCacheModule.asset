@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Chipset_DataCacheModule
   m_EditorClassIdentifier: 
+  itemID: 8
   itemName: "\uCE69\uC14B: \uB370\uC774\uD130 \uCE90\uC2DC \uBAA8\uB4C8"
   icon: {fileID: -5152973425299649951, guid: 0da7bd83a6b0515468fe93ff4551be45, type: 3}
   description: "\uC2A4\uD14C\uC774\uC9C0 \uD074\uB9AC\uC5B4 \uC2DC \uCD94\uAC00 \uC7AC\uD654\uB97C
@@ -22,3 +23,6 @@ MonoBehaviour:
     \uC7AC\uD654\uB97C \uD68D\uB4DD"
   category: {fileID: 11400000, guid: 1800b112f2b16884c8dd374b5b274634, type: 2}
   isConsumable: 0
+  EffectValue: 0
+  EffectDuration: 0
+  EffectCooldown: 0

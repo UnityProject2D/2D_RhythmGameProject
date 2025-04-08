@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Consumable_HackingTool
   m_EditorClassIdentifier: 
+  itemID: 15
   itemName: "\uD574\uD0B9 \uD234"
   icon: {fileID: 677990155, guid: 91b331d5ee652114f9e552833b6b2952, type: 3}
   description: "\uC0C1\uC810 \uBCF4\uC548 \uCF54\uB4DC\uB97C \uC6B0\uD68C\uD558\uC5EC
@@ -23,3 +24,6 @@ MonoBehaviour:
     \uC911 \uB79C\uB364\uC73C\uB85C 1\uAC1C \uBB34\uB8CC"
   category: {fileID: 11400000, guid: dbacc609a7692aa4bbb3487a966d718b, type: 2}
   isConsumable: 1
+  EffectValue: 0
+  EffectDuration: 0
+  EffectCooldown: 0
