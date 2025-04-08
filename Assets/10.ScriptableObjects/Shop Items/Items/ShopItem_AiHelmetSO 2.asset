@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ffe6f99ff81690409cf3a698c5b9330, type: 3}
+  m_Name: ShopItem_AiHelmetSO 2
+  m_EditorClassIdentifier: 
+  itemSO: {fileID: 11400000, guid: 63dd520f5099e80459978b3e26aadd8e, type: 2}
+  price: 1
+  currencyType: 0
+  OnPurchase:
+    m_PersistentCalls:
+      m_Calls: []

@@ -1,0 +1,1456 @@
+fileFormatVersion: 2
+guid: 99512692e8f128c44a1cad68b1dba632
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7267183689673280544
+    second: Grasshopper_Death_0
+  - first:
+      213: -1290919998619709156
+    second: Grasshopper_Death_1
+  - first:
+      213: 6510147450919842819
+    second: Grasshopper_Death_2
+  - first:
+      213: -4266836956451291567
+    second: Grasshopper_Death_3
+  - first:
+      213: -3070694832287317643
+    second: Grasshopper_Death_4
+  - first:
+      213: -2359510843988374250
+    second: Grasshopper_Death_5
+  - first:
+      213: -3335771973240004142
+    second: Grasshopper_Death_6
+  - first:
+      213: 6570991079561318802
+    second: Grasshopper_Death_7
+  - first:
+      213: -8556868960189529843
+    second: Grasshopper_Death_8
+  - first:
+      213: 3885243265302749635
+    second: Grasshopper_Death_9
+  - first:
+      213: 1746446319083700612
+    second: Grasshopper_Death_10
+  - first:
+      213: 5893296817456903071
+    second: Grasshopper_Death_11
+  - first:
+      213: 1432993201584384650
+    second: Grasshopper_Death_12
+  - first:
+      213: -631499567370820109
+    second: Grasshopper_Death_13
+  - first:
+      213: 526140646403814284
+    second: Grasshopper_Death_14
+  - first:
+      213: -2450638095111722835
+    second: Grasshopper_Death_15
+  - first:
+      213: 4881980448478771630
+    second: Grasshopper_Death_16
+  - first:
+      213: 8758532559378703262
+    second: Grasshopper_Death_17
+  - first:
+      213: 4741439287469636462
+    second: Grasshopper_Death_18
+  - first:
+      213: 7213334529645307335
+    second: Grasshopper_Death_19
+  - first:
+      213: -5224158520493252400
+    second: Grasshopper_Death_20
+  - first:
+      213: 2809748424744425231
+    second: Grasshopper_Death_21
+  - first:
+      213: -2258744383149874559
+    second: Grasshopper_Death_22
+  - first:
+      213: 3792847401394460927
+    second: Grasshopper_Death_23
+  - first:
+      213: -4407873957970417618
+    second: Grasshopper_Death_24
+  - first:
+      213: -5058062162809683079
+    second: Grasshopper_Death_25
+  - first:
+      213: -7502492692169489816
+    second: Grasshopper_Death_26
+  - first:
+      213: -325606452315100808
+    second: Grasshopper_Death_27
+  - first:
+      213: -7713918694980716541
+    second: Grasshopper_Death_28
+  - first:
+      213: -1925820806556284419
+    second: Grasshopper_Death_29
+  - first:
+      213: 4138563629167840736
+    second: Grasshopper_Death_30
+  - first:
+      213: 6717218831516695776
+    second: Grasshopper_Death_31
+  - first:
+      213: -2330932751341161889
+    second: Grasshopper_Death_32
+  - first:
+      213: 3879321989065674597
+    second: Grasshopper_Death_33
+  - first:
+      213: 2098610050864326260
+    second: Grasshopper_Death_34
+  - first:
+      213: 1946961713897184540
+    second: Grasshopper_Death_35
+  - first:
+      213: -2087698810274533196
+    second: Grasshopper_Death_36
+  - first:
+      213: -1887437456248102677
+    second: Grasshopper_Death_37
+  - first:
+      213: 4768945271688406180
+    second: Grasshopper_Death_38
+  - first:
+      213: 5592945590213660511
+    second: Grasshopper_Death_39
+  - first:
+      213: -3667504176053406150
+    second: Grasshopper_Death_40
+  - first:
+      213: 8552446705787469993
+    second: Grasshopper_Death_41
+  - first:
+      213: 7703804788821650543
+    second: Grasshopper_Death_42
+  - first:
+      213: 4671244736685211811
+    second: Grasshopper_Death_43
+  - first:
+      213: 6745736718818735560
+    second: Grasshopper_Death_44
+  - first:
+      213: 6044341561146278619
+    second: Grasshopper_Death_45
+  - first:
+      213: -9031358431923673700
+    second: Grasshopper_Death_46
+  - first:
+      213: -619284938727058377
+    second: Grasshopper_Death_47
+  - first:
+      213: -989249081782519996
+    second: Grasshopper_Death_48
+  - first:
+      213: -9150977606615660415
+    second: Grasshopper_Death_49
+  - first:
+      213: -3304229514631889556
+    second: Grasshopper_Death_50
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Grasshopper_Death_0
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 11
+        width: 87
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02c0d7400193ad460800000000000000
+      internalID: 7267183689673280544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_1
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 43
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1113d0d91bb51ee0800000000000000
+      internalID: -1290919998619709156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_2
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 13
+        width: 87
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 304fd774d90b85a50800000000000000
+      internalID: 6510147450919842819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_3
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 11
+        width: 88
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15e3630156629c4c0800000000000000
+      internalID: -4266836956451291567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_4
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 11
+        width: 76
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57103ebb153b265d0800000000000000
+      internalID: -3070694832287317643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_5
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 7
+        width: 81
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d046c7365514fd0800000000000000
+      internalID: -2359510843988374250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_6
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 20
+        width: 85
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d163536015f4b1d0800000000000000
+      internalID: -3335771973240004142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_7
+      rect:
+        serializedVersion: 2
+        x: 1347
+        y: 20
+        width: 91
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 291538f7299d03b50800000000000000
+      internalID: 6570991079561318802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_8
+      rect:
+        serializedVersion: 2
+        x: 1443
+        y: 21
+        width: 92
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0146565405ef3980800000000000000
+      internalID: -8556868960189529843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_9
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 46
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c169563a282be530800000000000000
+      internalID: 3885243265302749635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_10
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 56
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 481c5449caf9c3810800000000000000
+      internalID: 1746446319083700612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_11
+      rect:
+        serializedVersion: 2
+        x: 1597
+        y: 50
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9375704b3239c150800000000000000
+      internalID: 5893296817456903071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_12
+      rect:
+        serializedVersion: 2
+        x: 1651
+        y: 49
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8aacf979b303e310800000000000000
+      internalID: 1432993201584384650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_13
+      rect:
+        serializedVersion: 2
+        x: 1659
+        y: 49
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f5ac034d767c37f0800000000000000
+      internalID: -631499567370820109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_14
+      rect:
+        serializedVersion: 2
+        x: 1697
+        y: 49
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c833bca512a3d4700800000000000000
+      internalID: 526140646403814284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_15
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 10
+        width: 47
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da863d3f2a59dfdd0800000000000000
+      internalID: -2450638095111722835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_16
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 6
+        width: 54
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea9baff1a5740c340800000000000000
+      internalID: 4881980448478771630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_17
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 3
+        width: 64
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e93e57345fe8c8970800000000000000
+      internalID: 8758532559378703262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_18
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 2
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6b75b529e9fcc140800000000000000
+      internalID: 4741439287469636462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_19
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 1
+        width: 81
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c5619d6989ea1460800000000000000
+      internalID: 7213334529645307335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_20
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 28
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d06baf118f0087b0800000000000000
+      internalID: -5224158520493252400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_21
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 11
+        width: 67
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f07da1d3e4b3ef620800000000000000
+      internalID: 2809748424744425231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_22
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 11
+        width: 67
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18261fb63f357a0e0800000000000000
+      internalID: -2258744383149874559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_23
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 12
+        width: 84
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff8516fbd96e2a430800000000000000
+      internalID: 3792847401394460927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_24
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 29
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e286a783df514d2c0800000000000000
+      internalID: -4407873957970417618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_25
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 21
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97382edf2472ec9b0800000000000000
+      internalID: -5058062162809683079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_26
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 19
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 862064975aac1e790800000000000000
+      internalID: -7502492692169489816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_27
+      rect:
+        serializedVersion: 2
+        x: 1614
+        y: 27
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 879ee2128a63b7bf0800000000000000
+      internalID: -325606452315100808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_28
+      rect:
+        serializedVersion: 2
+        x: 1622
+        y: 32
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 308fd6721d7a2f490800000000000000
+      internalID: -7713918694980716541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_29
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 39
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df9082c0e2c1645e0800000000000000
+      internalID: -1925820806556284419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_30
+      rect:
+        serializedVersion: 2
+        x: 1706
+        y: 27
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed86e491b12f6930800000000000000
+      internalID: 4138563629167840736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_31
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 17
+        width: 6
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ecfd1b10fa583d50800000000000000
+      internalID: 6717218831516695776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_32
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 9
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f527cf0330dd6afd0800000000000000
+      internalID: -2330932751341161889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_33
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 27
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56f0f97abce16d530800000000000000
+      internalID: 3879321989065674597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_34
+      rect:
+        serializedVersion: 2
+        x: 1278
+        y: 18
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47625dbe8b2cf1d10800000000000000
+      internalID: 2098610050864326260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_35
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 17
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1d90240d5ff40b10800000000000000
+      internalID: 1946961713897184540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_36
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 17
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b0b49f3ef00703e0800000000000000
+      internalID: -2087698810274533196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_37
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 27
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be0a09432a97ec5e0800000000000000
+      internalID: -1887437456248102677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_38
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 17
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a424482572be2240800000000000000
+      internalID: 4768945271688406180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_39
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 24
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5fc5c0b1622e9d40800000000000000
+      internalID: 5592945590213660511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_40
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 21
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a36331612686a1dc0800000000000000
+      internalID: -3667504176053406150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_41
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 18
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a00ce257f460b670800000000000000
+      internalID: 8552446705787469993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_42
+      rect:
+        serializedVersion: 2
+        x: 1694
+        y: 19
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6ceaa093a969ea60800000000000000
+      internalID: 7703804788821650543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_43
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 9
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a00905b65893d040800000000000000
+      internalID: 4671244736685211811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_44
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 4
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c5ff792ecbad9d50800000000000000
+      internalID: 6745736718818735560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_45
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 11
+        width: 19
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd2014520a0d1e350800000000000000
+      internalID: 6044341561146278619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_46
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 11
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c95e5f93b5b2aa280800000000000000
+      internalID: -9031358431923673700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_47
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 11
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7349c6c11abd767f0800000000000000
+      internalID: -619284938727058377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_48
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 11
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 447b8fd833b7542f0800000000000000
+      internalID: -989249081782519996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_49
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 0
+        width: 29
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1888e1ac952310180800000000000000
+      internalID: -9150977606615660415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_Death_50
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 0
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6d310453c40522d0800000000000000
+      internalID: -3304229514631889556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Grasshopper_Death_0: 7267183689673280544
+      Grasshopper_Death_1: -1290919998619709156
+      Grasshopper_Death_10: 1746446319083700612
+      Grasshopper_Death_11: 5893296817456903071
+      Grasshopper_Death_12: 1432993201584384650
+      Grasshopper_Death_13: -631499567370820109
+      Grasshopper_Death_14: 526140646403814284
+      Grasshopper_Death_15: -2450638095111722835
+      Grasshopper_Death_16: 4881980448478771630
+      Grasshopper_Death_17: 8758532559378703262
+      Grasshopper_Death_18: 4741439287469636462
+      Grasshopper_Death_19: 7213334529645307335
+      Grasshopper_Death_2: 6510147450919842819
+      Grasshopper_Death_20: -5224158520493252400
+      Grasshopper_Death_21: 2809748424744425231
+      Grasshopper_Death_22: -2258744383149874559
+      Grasshopper_Death_23: 3792847401394460927
+      Grasshopper_Death_24: -4407873957970417618
+      Grasshopper_Death_25: -5058062162809683079
+      Grasshopper_Death_26: -7502492692169489816
+      Grasshopper_Death_27: -325606452315100808
+      Grasshopper_Death_28: -7713918694980716541
+      Grasshopper_Death_29: -1925820806556284419
+      Grasshopper_Death_3: -4266836956451291567
+      Grasshopper_Death_30: 4138563629167840736
+      Grasshopper_Death_31: 6717218831516695776
+      Grasshopper_Death_32: -2330932751341161889
+      Grasshopper_Death_33: 3879321989065674597
+      Grasshopper_Death_34: 2098610050864326260
+      Grasshopper_Death_35: 1946961713897184540
+      Grasshopper_Death_36: -2087698810274533196
+      Grasshopper_Death_37: -1887437456248102677
+      Grasshopper_Death_38: 4768945271688406180
+      Grasshopper_Death_39: 5592945590213660511
+      Grasshopper_Death_4: -3070694832287317643
+      Grasshopper_Death_40: -3667504176053406150
+      Grasshopper_Death_41: 8552446705787469993
+      Grasshopper_Death_42: 7703804788821650543
+      Grasshopper_Death_43: 4671244736685211811
+      Grasshopper_Death_44: 6745736718818735560
+      Grasshopper_Death_45: 6044341561146278619
+      Grasshopper_Death_46: -9031358431923673700
+      Grasshopper_Death_47: -619284938727058377
+      Grasshopper_Death_48: -989249081782519996
+      Grasshopper_Death_49: -9150977606615660415
+      Grasshopper_Death_5: -2359510843988374250
+      Grasshopper_Death_50: -3304229514631889556
+      Grasshopper_Death_6: -3335771973240004142
+      Grasshopper_Death_7: 6570991079561318802
+      Grasshopper_Death_8: -8556868960189529843
+      Grasshopper_Death_9: 3885243265302749635
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
