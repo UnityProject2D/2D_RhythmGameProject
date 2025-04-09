@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Core_PerfectRecovery
   m_EditorClassIdentifier: 
+  itemID: 0
   itemName: "\uCF54\uC5B4: \uD37C\uD399\uD2B8 \uB9AC\uCEE4\uBC84\uB9AC"
-  icon: {fileID: 0}
+  icon: {fileID: 8045541602131082757, guid: 9a768982dd1c8e74a9494b7b9d53060f, type: 3}
   description: "Perfect \uD310\uC815 \uC2DC \uC77C\uC815 \uD655\uB960\uB85C \uCCB4\uB825\uC744
     \uD68C\uBCF5\uD558\uB294 \uC790\uAE30 \uD68C\uBCF5 \uD504\uB85C\uD1A0\uCF5C \uCF54\uC5B4.
     \n\uC0DD\uCCB4 \uD68C\uB85C\uC640 \uC735\uD569\uB418\uC5B4 \uC2E4\uC2DC\uAC04
     \uBCF5\uAD6C\uB97C \uC2DC\uB3C4\uD55C\uB2E4."
+  EffectDescription: "Perfect \uD310\uC815 \uC2DC 20% \uD655\uB960\uB85C \uCCB4\uB825
+    \uD68C\uBCF5"
   category: {fileID: 11400000, guid: 54a0efa29be0696489bd78ffa950df6d, type: 2}
-  effects: []
+  isConsumable: 0
+  EffectValue: 0
+  EffectDuration: 0
+  EffectCooldown: 0
