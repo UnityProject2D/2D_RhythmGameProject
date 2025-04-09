@@ -40,15 +40,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "UseItem",
-                    "type": "Button",
-                    "id": "18b25a33-009a-4d50-bf03-d92096a28d58",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -93,17 +84,6 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "RhythmAction_D",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7501e1ae-9386-43c7-98d5-50c16340d952",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "UseItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

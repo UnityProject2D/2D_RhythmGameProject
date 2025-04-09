@@ -1,37 +1,12 @@
 using UnityEngine.Events;
 using UnityEngine;
 
-public enum ItemID
-{
-    PerfectRecoveryCore,
-    EmergencyResponseCore,
-    AccessLevelCore,
-    RecoveryAlgorithmCore,
-
-    CalibrationChipset,
-    ForcedEvasion,
-    CombatRhythmCatcher,
-    PreciseCalibrationUnit,
-    DataCacheModule,
-    HyperScoreKernal,
-    AutoComboSystem,
-
-    EmergencyEvasion,
-    OverDrive,
-    ProbabilityAmplifier,
-    ComboProtector,
-    HackingTool,
-    PatternStabilizer,
-
-}
-
 /// <summary>
 /// 상점에서 구매할 수 있는 아이템을 나타내는 스크립터블 오브젝트입니다.
 /// </summary>
 [CreateAssetMenu(menuName = "Item/Item Entity")]
 public class ItemSO : ScriptableObject
 {
-    public ItemID itemID;
     /// <summary>
     /// 상점 아이템의 이름입니다.
     /// </summary>
@@ -47,18 +22,47 @@ public class ItemSO : ScriptableObject
     /// </summary>
     public string description;
 
-    public string EffectDescription;
-
     /// <summary>
     /// 이 아이템이 상점에서 속하는 카테고리입니다.
     /// </summary>
     public ItemCategorySO category;
 
-    public bool isConsumable = false;
+    /// <summary>
+    /// 아이템의 적용할 수 있는 효과를 나타냅니다.
+    /// </summary>
+    [System.Serializable]
+    public struct ItemEffect
+    {
+        /// <summary>
+        /// 아이템에 의해 적용될 수 있는 효과 유형입니다.
+        /// </summary>
+        public enum EffectType
+        {
+            /// <summary>체력을 증가시킵니다.</summary>
+            Health,
+            /// <summary>최대 체력을 증가시킵니다.</summary>
+            MaxHealth,
+            /// <summary>방어 성공 시 체력을 회복합니다.</summary>
+            HealthOnBlock,
+            /// <summary>리듬 입력 판정 범위를 증가시킵니다.</summary>
+            RhythmInputRange,
+            /// <summary>적 공격 속도를 감소시킵니다.</summary>
+            EnemyAttackSpeed,
+        }
 
-    public float EffectValue;
+        /// <summary>
+        /// 이 아이템이 적용하는 효과 유형입니다.
+        /// </summary>
+        public EffectType effectType;
 
-    public float EffectDuration;
+        /// <summary>
+        /// 효과의 크기입니다.
+        /// </summary>
+        public float value;
+    }
 
-    public float EffectCooldown;
+    /// <summary>
+    /// 이 아이템이 구매될 때 적용되는 효과 배열입니다.
+    /// </summary>
+    public ItemEffect[] effects;
 }

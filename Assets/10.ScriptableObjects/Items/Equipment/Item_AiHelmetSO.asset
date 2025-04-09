@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
-  m_Name: Item_Chipset_AutoComboSystem
+  m_Name: Item_AiHelmetSO
   m_EditorClassIdentifier: 
-  itemName: "\uCE69\uC14B: \uC790\uB3D9 \uCF64\uBCF4 \uC2DC\uC2A4\uD15C"
-  icon: {fileID: -754878222315163978, guid: 53c6137a80db5844f90266713da5ae48, type: 3}
-  description: "Perfect \uD310\uC815 3\uD68C\uB9C8\uB2E4 \uCD94\uAC00 \uCF64\uBCF4\uB97C
-    \uB204\uC801\uD558\uB294 \uBCF4\uC870 \uCE69\uC14B. \n\uACE0\uC815\uBC00 \uBD84\uC11D\uC73C\uB85C
-    \uCF64\uBCF4 \uACC4\uCE21\uC744 \uC790\uB3D9\uD654\uD568."
+  itemName: "AI \uD5EC\uBA67"
+  icon: {fileID: -4646211311651353469, guid: 545cbd8ce1c36f54085c5f8669e96422, type: 3}
+  description: "\uD5EC\uBA67\uC774\uB2E4"
   category: {fileID: 11400000, guid: 1800b112f2b16884c8dd374b5b274634, type: 2}
   effects: []
