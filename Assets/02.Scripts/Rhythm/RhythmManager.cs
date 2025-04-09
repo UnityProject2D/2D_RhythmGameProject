@@ -50,21 +50,20 @@ public class RhythmManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        if (Instance == null) Instance = this;
         else Destroy(gameObject);
     }
 
     private void Start()
     {
+
+
+
         if (IsTest)
         {
             Play();
         }
-    }
+}
 
     void Update()
     {
@@ -77,7 +76,7 @@ public class RhythmManager : MonoBehaviour
             }
         }
         float currentTime = GetCurrentMusicTime();
-
+            
         for (int i = 0; i < stageNotes[_stageMusicIndex].notes.Count; i++)
         {
             var note = stageNotes[_stageMusicIndex].notes[i];
@@ -91,7 +90,7 @@ public class RhythmManager : MonoBehaviour
                     {
                         _noteStates[i] = NoteTriggerState.Previewed;
                         InvokeOnNotePreview(note);
-                        //Debug.Log($"[미리보기] 키: {note.expectedKey}, 비트: {note.beat}");
+                        Debug.Log($"[미리보기] 키: {note.expectedKey}, 비트: {note.beat}");
                     }
                     break;
 
@@ -100,7 +99,7 @@ public class RhythmManager : MonoBehaviour
                     {
                         _noteStates[i] = NoteTriggerState.Triggered;
                         InvokeOnNote(note);
-                        //Debug.Log($"[노트 발동] 키: {note.expectedKey}, 비트: {note.beat}");
+                        Debug.Log($"[노트 발동] 키: {note.expectedKey}, 비트: {note.beat}");
                     }
                     break;
             }

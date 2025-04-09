@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     private const int PoolSizePerDirection = 8;
     private List<GameObject>[] shadowPools = new List<GameObject>[4];
 
-    private Transform _playerTransform;
+    public Transform playerTransform;
 
     private void Awake()
     {
@@ -36,8 +36,6 @@ public class EnemyController : MonoBehaviour
                 shadowPools[dir].Add(shadow);
             }
         }
-
-        _playerTransform = PlayerHealth.Instance.GetComponent<Transform>();
     }
 
     private void OnEnable()
@@ -80,7 +78,7 @@ public class EnemyController : MonoBehaviour
         sr.DOFade(1f, 0f);
 
         // Y방향 축소로 사라지게
-        shadow.transform.DOScaleY(0f, 0.5f).SetEase(Ease.InQuad).OnComplete(() =>
+        shadow.transform.DOScaleY(0f, 1f).SetEase(Ease.InQuad).OnComplete(() =>
         {
             shadow.SetActive(false);
         });
@@ -88,16 +86,16 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 GetTargetPositionFromKey(int dir)
     {
-        if (_playerTransform == null)
+        if (playerTransform == null)
             return gunPoint.position;
 
         return dir switch
         {
-            0 => _playerTransform.position + Vector3.down * 0.25f,     // W - 머리
-            1 => _playerTransform.position + Vector3.up * 2f,   // S - 다리
+            0 => playerTransform.position + Vector3.down * 0.25f,     // W - 머리
+            1 => playerTransform.position + Vector3.up * 2f,   // S - 다리
             2 => gunPoint.position+Vector3.left * 1f,   // A - 왼쪽 몸통
             3 => gunPoint.position + Vector3.left * 1f,  // D - 오른쪽 몸통
-            _ => _playerTransform.position
+            _ => playerTransform.position
         };
     }
 
