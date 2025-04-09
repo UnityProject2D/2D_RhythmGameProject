@@ -38,7 +38,9 @@ public class EnemyAttackController : MonoBehaviour
             bullet.SetActive(false);
             EnemyBulletPool.Add(bullet);
         }
-    }
+
+        _playerTransform = PlayerHealth.Instance.GetComponent<Transform>();
+}
 
     private void OnEnable()
     {
@@ -124,11 +126,6 @@ public class EnemyAttackController : MonoBehaviour
     {
         RuntimeManager.PlayOneShot("event:/SFX/AttackSound");
     }
-    //private IEnumerator ResetAnimation()
-    //{
-    //    yield return new WaitForSeconds(0.5f);
-    //    _animator.SetInteger("Direction", 0);
-    //}
 
 
     ///////// 적이 죽으면!! -> ScoreManager StageCleared 코드 완성된 후 점검 후 수정할것!
