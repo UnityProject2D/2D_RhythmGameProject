@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 8059388612957720793}
   - component: {fileID: 5814837351325708074}
   m_Layer: 0
-  m_Name: BossMap
+  m_Name: SubBossMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
