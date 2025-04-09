@@ -1,0 +1,702 @@
+fileFormatVersion: 2
+guid: bf5e26834e9d73945bdc69685dd18a98
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4807623863582321478
+    second: BlueprintTilesetWarm_0
+  - first:
+      213: -2699046826965550286
+    second: BlueprintTilesetWarm_1
+  - first:
+      213: 5750018577783212733
+    second: BlueprintTilesetWarm_2
+  - first:
+      213: -7663002686465745746
+    second: BlueprintTilesetWarm_3
+  - first:
+      213: 5409673736458028044
+    second: BlueprintTilesetWarm_4
+  - first:
+      213: 3452501156588036706
+    second: BlueprintTilesetWarm_5
+  - first:
+      213: -283372190462981098
+    second: BlueprintTilesetWarm_6
+  - first:
+      213: -4996762368983393336
+    second: BlueprintTilesetWarm_7
+  - first:
+      213: 8487095169195807385
+    second: BlueprintTilesetWarm_8
+  - first:
+      213: 5531149159846196921
+    second: BlueprintTilesetWarm_9
+  - first:
+      213: -3343552005361056026
+    second: BlueprintTilesetWarm_10
+  - first:
+      213: 5250543900376410544
+    second: BlueprintTilesetWarm_11
+  - first:
+      213: 4209057909805097019
+    second: BlueprintTilesetWarm_12
+  - first:
+      213: 7893925358676637384
+    second: BlueprintTilesetWarm_13
+  - first:
+      213: 8237894964834954676
+    second: BlueprintTilesetWarm_14
+  - first:
+      213: 7182728670103690789
+    second: BlueprintTilesetWarm_15
+  - first:
+      213: 5810432108277014581
+    second: BlueprintTilesetWarm_16
+  - first:
+      213: -8612921336658604561
+    second: BlueprintTilesetWarm_17
+  - first:
+      213: -7925397877291436528
+    second: BlueprintTilesetWarm_18
+  - first:
+      213: -4889578181157093039
+    second: BlueprintTilesetWarm_19
+  - first:
+      213: -4094295667444929391
+    second: BlueprintTilesetWarm_20
+  - first:
+      213: -6816308169357197574
+    second: BlueprintTilesetWarm_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 303
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64be38a9e6c18b240800000000000000
+      internalID: 4807623863582321478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 303
+        width: 18
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23bb296063f0b8ad0800000000000000
+      internalID: -2699046826965550286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 319
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dba4aac7e6b2ccf40800000000000000
+      internalID: 5750018577783212733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 303
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eac585038ab87a590800000000000000
+      internalID: -7663002686465745746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_4
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 303
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0447540a95031b40800000000000000
+      internalID: 5409673736458028044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_5
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 303
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2622e01828fb9ef20800000000000000
+      internalID: 3452501156588036706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 271
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61cca308e72411cf0800000000000000
+      internalID: -283372190462981098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_7
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 271
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb94b1791fe7aab0800000000000000
+      internalID: -4996762368983393336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_8
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 239
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99299def61838c570800000000000000
+      internalID: 8487095169195807385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_9
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 223
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b635580bd692cc40800000000000000
+      internalID: 5531149159846196921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_10
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 145
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e6c8608a215991d0800000000000000
+      internalID: -3343552005361056026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_11
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 143
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b9a78bdbddadd840800000000000000
+      internalID: 5250543900376410544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_12
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 159
+        width: 62
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b302bf05ed3996a30800000000000000
+      internalID: 4209057909805097019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_13
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 95
+        width: 98
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c67e573a4bdc8d60800000000000000
+      internalID: 7893925358676637384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_14
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 65
+        width: 34
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bd67f303d1e25270800000000000000
+      internalID: 8237894964834954676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 79
+        width: 62
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52e5b837bad2ea360800000000000000
+      internalID: 7182728670103690789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_16
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 63
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 530206da73dc2a050800000000000000
+      internalID: 5810432108277014581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_17
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fedc4127da1c87880800000000000000
+      internalID: -8612921336658604561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_18
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 17
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 016b8640f94530290800000000000000
+      internalID: -7925397877291436528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_19
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 15
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15181a2ec8ab42cb0800000000000000
+      internalID: -4889578181157093039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_20
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 15
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19c268078c32e27c0800000000000000
+      internalID: -4094295667444929391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueprintTilesetWarm_21
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 15
+        width: 130
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afefed595db9761a0800000000000000
+      internalID: -6816308169357197574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BlueprintTilesetWarm_0: 4807623863582321478
+      BlueprintTilesetWarm_1: -2699046826965550286
+      BlueprintTilesetWarm_10: -3343552005361056026
+      BlueprintTilesetWarm_11: 5250543900376410544
+      BlueprintTilesetWarm_12: 4209057909805097019
+      BlueprintTilesetWarm_13: 7893925358676637384
+      BlueprintTilesetWarm_14: 8237894964834954676
+      BlueprintTilesetWarm_15: 7182728670103690789
+      BlueprintTilesetWarm_16: 5810432108277014581
+      BlueprintTilesetWarm_17: -8612921336658604561
+      BlueprintTilesetWarm_18: -7925397877291436528
+      BlueprintTilesetWarm_19: -4889578181157093039
+      BlueprintTilesetWarm_2: 5750018577783212733
+      BlueprintTilesetWarm_20: -4094295667444929391
+      BlueprintTilesetWarm_21: -6816308169357197574
+      BlueprintTilesetWarm_3: -7663002686465745746
+      BlueprintTilesetWarm_4: 5409673736458028044
+      BlueprintTilesetWarm_5: 3452501156588036706
+      BlueprintTilesetWarm_6: -283372190462981098
+      BlueprintTilesetWarm_7: -4996762368983393336
+      BlueprintTilesetWarm_8: 8487095169195807385
+      BlueprintTilesetWarm_9: 5531149159846196921
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

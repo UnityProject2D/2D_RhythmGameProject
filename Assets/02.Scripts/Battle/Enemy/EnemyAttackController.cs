@@ -18,7 +18,7 @@ public class EnemyAttackController : MonoBehaviour
 
     public GameObject EnemyBulletPrefab;
     private List<GameObject> EnemyBulletPool = new();
-    private Transform _playerTransform;
+    public Transform PlayerTransform;
     public Transform GunPosition;
 
     private int poolSize = 10;
@@ -86,16 +86,16 @@ public class EnemyAttackController : MonoBehaviour
 
         bullet.transform.position = GunPosition.position;
         Vector2 direction;
-        if (_playerTransform == null)
+        if (PlayerTransform == null)
             direction = GunPosition.position;
 
         switch (directionIndex)
         {
-            case 0: direction = (_playerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
-            case 1: direction = (_playerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
+            case 0: direction = (PlayerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
+            case 1: direction = (PlayerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
             case 2: direction = Vector3.left; break;   // A - 왼쪽 몸통
             case 3: direction = Vector3.left; break;  // D - 오른쪽 몸통
-            default: direction = _playerTransform.position; break;
+            default: direction = PlayerTransform.position; break;
         }
 
         direction = direction.normalized;
