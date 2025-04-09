@@ -112,6 +112,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1595945279524992690}
     m_Modifications:
+    - target: {fileID: -8527940473535385511, guid: caa493000a5c8ce40a248fa4f88f1649, type: 3}
+      propertyPath: action
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2102014767608399445, guid: caa493000a5c8ce40a248fa4f88f1649, type: 3}
       propertyPath: m_Name
       value: QuitButton
