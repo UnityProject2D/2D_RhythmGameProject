@@ -50,7 +50,7 @@ public class PetController : MonoBehaviour
         if (petBullet == null) return; // 비활성화된 총알이 없으면 리턴
         petBullet.transform.position = PetBulletSpawnPoint.position;
         petBullet.transform.rotation = Quaternion.identity; // 총알 회전 각도 설정 (Z축 회전)
-        petBullet.GetComponent<PetBullet>().direction = new Vector2(5f, -1f).normalized; // 총알 방향 설정
+        petBullet.GetComponent<PetBullet>().direction = new Vector2(7f, -1f).normalized; // 총알 방향 설정
         petBullet.SetActive(true);
     }
 

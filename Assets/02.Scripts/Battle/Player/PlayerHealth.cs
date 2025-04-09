@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     private float _playerCurrentHealth;
 
     public event Action<float> OnPlayerHealthChanged;
+    public MMF_Player OnMissFeedback;
 
     public static PlayerHealth Instance { get; private set; }
 
@@ -19,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -56,7 +59,10 @@ public class PlayerHealth : MonoBehaviour
                 break;
         }
 
-        finalDamage = ApplyEmergencyResponseCore(finalDamage); // 추후 추가할 아이템 관련 코드
+        if (PlayerState.Instance.EmergencyResponseCoreEnabled)
+        {
+            finalDamage = ApplyEmergencyResponseCore(finalDamage);
+        }
 
         ApplyDamage(finalDamage);
     }
@@ -96,6 +102,7 @@ public class PlayerHealth : MonoBehaviour
 #if UNITY_EDITOR
             Debug.Log("오버드라이브: bad 일때 데미지");
 #endif
+            OnMissFeedback?.PlayFeedbacks();
             return Damage;
         }
         return 0;
@@ -117,14 +124,19 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (PlayerState.Instance.CalibrationChipsetEnabled)
         {
+            if (!PlayerState.Instance.ItemEffectHandler.ApplyEffect(ItemID.CalibrationChipset, 0))
+            {
+                OnMissFeedback?.PlayFeedbacks(); // 쿨타임 중이면 데미지
+                return Damage;
+            }
 #if UNITY_EDITOR
             Debug.Log("자동 교정 유닛");
 #endif
-            PlayerState.Instance.CalibrationChipsetEnabled = false;
             //TODO: 이펙트 추가
         }
         else
         {
+            OnMissFeedback?.PlayFeedbacks();
             return Damage;
         }
         return 0;

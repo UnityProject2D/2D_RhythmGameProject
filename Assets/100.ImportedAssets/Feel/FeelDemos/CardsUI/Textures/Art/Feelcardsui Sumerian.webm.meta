@@ -5,8 +5,7 @@ AssetOrigin:
   productId: 183370
   packageName: Feel
   packageVersion: 5.4
-  assetPath: Assets/100.ImportedAssets/Feel/FeelDemos/CardsUI/Textures/Art/Feelcardsui
-    Sumerian.webm
+  assetPath: Assets/Feel/FeelDemos/CardsUI/Textures/Art/Feelcardsui Sumerian.webm
   uploadId: 729165
 VideoClipImporter:
   externalObjects: {}
