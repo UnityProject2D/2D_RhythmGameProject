@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: TileDataSO_Lamp2
   m_EditorClassIdentifier: 
   Id: 2
-  Sprite: {fileID: 853707604, guid: 0bdbf9fd3d142194d9491352ec7bc53b, type: 3}
+  Sprite: {fileID: -8396932447471809355, guid: 0f5075e9c80e64549bbfcdc7d12e3179, type: 3}
   constraints:
   - Direction: 0
     AllowNeighbours: 00000000010000000200000003000000040000000500000006000000
   - Direction: 1
     AllowNeighbours: 00000000010000000200000003000000040000000500000006000000
   - Direction: 2
-    AllowNeighbours: 00000000010000000200000003000000040000000500000006000000
+    AllowNeighbours: 
   - Direction: 3
-    AllowNeighbours: 00000000010000000200000003000000040000000500000006000000
+    AllowNeighbours: 
   UseYConstraint: 1
   MinY: 5
   MaxY: 5

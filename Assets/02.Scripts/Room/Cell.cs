@@ -9,9 +9,10 @@ using UnityEngine.UIElements;
 //const float TILE_SCALE_ADJ = 0.9f;
 public class Cell
 {
+    public int GridSize;
     public Vector2Int Coords {  get; private set; }
     public List<int> PossibleTiles { get; private set; }
-    public bool IsCollapsed => PossibleTiles.Count <= 1;
+    public bool IsCollapsed => PossibleTiles.Count == 1;
 
     public event Action<Cell> OnCollapsed; // collapse 알림
     public Cell(Vector2Int coords, int totalTileCount)
@@ -27,17 +28,17 @@ public class Cell
             OnCollapsed?.Invoke(this);
     }
 
-    public void Collapse(int selectedIndex = -1, int yPosition = -1, int xPosition = -1)
+    public bool Collapse(int selectedIndex, int yPosition, int xPosition, List<TileData> TileData)
     {
         if (IsCollapsed)
-            return;
+            return true;
         // -1일 경우 랜덤
-        if(-1 == selectedIndex)
+        if (-1 == selectedIndex)
         {
             // x 제한
             var validTiles = PossibleTiles.Where(id =>
             {
-                var tile = WaveFunction.Instance.TileData[id];
+                var tile = TileData[id];
                 if (!tile.UseXConstraint) return true;
                 return xPosition >= tile.MinX && xPosition <= tile.MaxX;
             }).ToList();
@@ -45,7 +46,7 @@ public class Cell
             // y 제한
             validTiles = validTiles.Where(id =>
             {
-                var tile = WaveFunction.Instance.TileData[id];
+                var tile = TileData[id];
                 if (!tile.UseYConstraint) return true;
                 return yPosition >= tile.MinY && yPosition <= tile.MaxY;
             }).ToList();
@@ -53,13 +54,12 @@ public class Cell
             if (validTiles.Count == 0)
             {
                 PossibleTiles.Clear();
-                Debug.LogWarning($"[Collapse] 유효한 후보가 없습니다. y: {yPosition}");
-                return; // 또는 리셋 처리
+                return false; // 또는 리셋 처리
             }
 
             int randomIndex = UnityEngine.Random.Range(0, validTiles.Count);
-            Collapse(validTiles[randomIndex], yPosition);
-            return;
+            Collapse(validTiles[randomIndex], yPosition, xPosition, TileData);
+            return true;
             //if (PossibleTiles.Count <= 0)
             //{
             //    return;
@@ -72,10 +72,12 @@ public class Cell
         }
 
         // 후보에 없을 경우
-        if (!PossibleTiles.Contains(selectedIndex)) return;
+        if (!PossibleTiles.Contains(selectedIndex)) return true;
 
         PossibleTiles = new List<int> { selectedIndex };
         OnCollapsed?.Invoke(this);
+
+        return true;
     }
 }
 
