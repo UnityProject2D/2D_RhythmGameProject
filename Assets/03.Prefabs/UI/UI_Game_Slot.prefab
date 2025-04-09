@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1678124611158687980}
+  - component: {fileID: 2539261215647454179}
   - component: {fileID: 7399070844348305003}
   - component: {fileID: 8750077762710493628}
   - component: {fileID: 1397458888928147109}
+  - component: {fileID: 5539615104282144150}
   m_Layer: 5
   m_Name: UI_Game_Slot
   m_TagString: Untagged
@@ -39,6 +41,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2539261215647454179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577772940240224365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed0a7fac9f93284b9ea8eae4d99619e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots: []
+  itemEffectHandler: {fileID: 5539615104282144150}
 --- !u!223 &7399070844348305003
 Canvas:
   m_ObjectHideFlags: 0
@@ -102,6 +118,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5539615104282144150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577772940240224365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b968557c782b17343ae7c617ada9fa9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1985820585637973305
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +287,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2177730986381840202}
     m_Modifications:
+    - target: {fileID: -5097068053646441025, guid: 0c6890f0c5ab28d41bcfb164c34c380c, type: 3}
+      propertyPath: _isEquipmentSlot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 447807521320865398, guid: 0c6890f0c5ab28d41bcfb164c34c380c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -341,7 +373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7571025682886218253, guid: 0c6890f0c5ab28d41bcfb164c34c380c, type: 3}
       propertyPath: m_Name
-      value: UI_ItemSlot (1)
+      value: UI_Equipment_Slot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -443,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7571025682886218253, guid: 0c6890f0c5ab28d41bcfb164c34c380c, type: 3}
       propertyPath: m_Name
-      value: UI_ItemSlot
+      value: UI_Consumable_Slot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -126,7 +126,7 @@ public class RhythmJudge : MonoBehaviour
         else if (abs <= beatDuration * goodRange * (1 + PermenantEffect * PermenantStack) * (1 + TemporaryEffect * TemporaryStack))
         {
             VFXManager.Instance.PlayOnNoteFeedback();
-            return JudgementResult.Good;
+            return JudgementResult.Perfect;
         }
         else if (abs <= beatDuration * badRange * (1 + PermenantEffect * PermenantStack) * (1 + TemporaryEffect * TemporaryStack))
             return JudgementResult.Bad;

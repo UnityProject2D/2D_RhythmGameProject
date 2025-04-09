@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class ItemEffectHandler : MonoBehaviour
 {

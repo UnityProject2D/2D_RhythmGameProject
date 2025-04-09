@@ -73,15 +73,8 @@ public class PlayerController : MonoBehaviour
         int index = (int)dir - 1;
         if (index < 0 || index >= vfxPrefabs.Length) return;
 
-        GameObject vfx = Instantiate(vfxPrefabs[index], vfxSpawnPoint.position, Quaternion.identity);
-        Destroy(vfx, 1f); // 1초 후 자동 삭제
     }
 
-    //private IEnumerator ResetAnimation()
-    //{
-    //    yield return new WaitForSeconds(0.5f); // 애니메이션 재생 시간
-    //    _animator.SetInteger("Direction", 0); //(int)RhythmAction.None
-    //}
 
     private void OnInputJudg(JudgedContext result)
     {

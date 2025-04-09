@@ -10,9 +10,13 @@ public class UI_ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [SerializeField] private TMP_Text _nameText;
     [SerializeField] private TMP_Text _priceText;
     [SerializeField] private Button _useButton;
-    [SerializeField] private ItemCategorySO equip;
     [SerializeField] private int _shortCutIndex;
+    private ItemEffectHandler _itemEffectHandler;
 
+    public void Init(ItemEffectHandler handler)
+    {
+        _itemEffectHandler = handler;
+    }
     public GameObject[] OrbitEffects;
 
     [SerializeField] private bool _isEquipmentSlot;
@@ -25,7 +29,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         currentItem = item;
 
         _icon.sprite = item.icon;
-        var isEquipment = item.category == equip;
+        _isEquipmentSlot = item.category.categoryName == "장비 아이템" ? true : false;
 
         if (_isEquipmentSlot || !item.isConsumable)
         {
@@ -52,7 +56,26 @@ public class UI_ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void UseItem()
     {
+        if (_itemEffectHandler == null || currentItem == null || _isEquipmentSlot || !currentItem.isConsumable)
+        {
+            Debug.LogWarning($"[UI_ItemSlot]: {_itemEffectHandler == null} || {currentItem == null}|| {_isEquipmentSlot} || {!currentItem.isConsumable}");
+            return;
+        }
+        var id = currentItem.itemID;
+        float value = currentItem.EffectValue;
+        float duration = currentItem.EffectDuration;
 
+        bool success = _itemEffectHandler.ApplyEffect(id, value, duration);
+
+        // 쿨타임 상태나 성공 여부에 따라 처리
+        if (success)
+        {
+            Debug.Log($"{id} 아이템 효과 적용됨");
+        }
+        else
+        {
+            Debug.Log($"{id} 아이템 효과 적용 실패 또는 쿨타임");
+        }
     }
     
 

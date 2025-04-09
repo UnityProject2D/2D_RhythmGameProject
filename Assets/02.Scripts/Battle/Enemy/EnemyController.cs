@@ -78,7 +78,7 @@ public class EnemyController : MonoBehaviour
         sr.DOFade(1f, 0f);
 
         // Y방향 축소로 사라지게
-        shadow.transform.DOScaleY(0f, 1f).SetEase(Ease.InQuad).OnComplete(() =>
+        shadow.transform.DOScaleY(0f, 0.5f).SetEase(Ease.InQuad).OnComplete(() =>
         {
             shadow.SetActive(false);
         });

@@ -3,6 +3,7 @@ using UnityEngine;
 public class UI_GameSlots : MonoBehaviour
 {
     public UI_ItemSlot[] slots;
+    public ItemEffectHandler itemEffectHandler;
 
     public static UI_GameSlots Instance { get; private set; }
 
@@ -16,7 +17,13 @@ public class UI_GameSlots : MonoBehaviour
     {
         if(itemSO.category.categoryName == "장비 아이템")
         {
-
+            slots[0].Init(itemEffectHandler);
+            slots[0].Setup(itemSO);
+        }
+        else
+        {
+            slots[1].Init(itemEffectHandler);
+            slots[1].Setup(itemSO);
         }
     }
 }
