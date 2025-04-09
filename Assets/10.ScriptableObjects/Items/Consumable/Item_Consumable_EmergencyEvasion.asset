@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
+  m_Name: Item_Consumable_EmergencyEvasion
+  m_EditorClassIdentifier: 
+  itemID: 0
+  itemName: "\uAE34\uAE09 \uD68C\uD53C \uD504\uB85C\uD1A0\uCF5C"
+  icon: {fileID: 852628137, guid: b8b9894dffe76c9478e7c8bb81e731cf, type: 3}
+  description: "\uC0AC\uC6A9\uC790\uAC00 \uCE58\uBA85\uC801\uC778 \uC190\uC0C1\uC744
+    \uC785\uC5C8\uC744 \uACBD\uC6B0,\n\uC790\uB3D9\uC73C\uB85C \uBC29\uC5B4 \uB9E4\uCEE4\uB2C8\uC998\uC774
+    \uD65C\uC131\uD654\uB418\uC5B4\n\uC0DD\uCCB4 \uC2E0\uD638\uB97C \uC77C\uC2DC\uC801\uC73C\uB85C
+    \uC720\uC9C0\uD569\uB2C8\uB2E4.\n\n\uBCF8 \uC7A5\uCE58\uB294 \uACFC\uAC70 \uD3D0\uAE30\uB41C
+    \n\uCC28\uC138\uB300 \uC0DD\uC874 \uC11C\uBE0C\uB8E8\uD2F4\uC5D0\uC11C \uD30C\uC0DD\uB41C
+    \uAE30\uC220\uB85C,\n\uC624\uC9C1 1\uD68C\uB9CC \uC791\uB3D9\uD569\uB2C8\uB2E4."
+  EffectDescription: "\uCCB4\uB825 0 \uB3C4\uB2EC \uC2DC,\n\uC0AC\uC6A9\uC790\uB294
+    \uC989\uC2DC \uC804\uD22C \uBD88\uB2A5 \uC0C1\uD0DC\uB97C \uD68C\uD53C\uD558\uACE0\n\uC9C0\uC815\uB41C
+    \uC218\uCE58\uB9CC\uD07C \uCCB4\uB825\uC774 \uD68C\uBCF5\uB429\uB2C8\uB2E4."
+  category: {fileID: 11400000, guid: dbacc609a7692aa4bbb3487a966d718b, type: 2}
+  isConsumable: 0
+  EffectValue: 0
+  EffectDuration: 0
+  value: 0
+  EffectCooldown: 0

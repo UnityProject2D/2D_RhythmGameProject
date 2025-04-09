@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: d9ab541e0d5efe042a8448e91771c491
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2671196862065377068
+    second: Grasshopper_TurnAround_0
+  - first:
+      213: -1546327129728877375
+    second: Grasshopper_TurnAround_1
+  - first:
+      213: 307936878686571773
+    second: Grasshopper_TurnAround_2
+  - first:
+      213: -6593195325263018399
+    second: Grasshopper_TurnAround_3
+  - first:
+      213: 8747200510883039336
+    second: Grasshopper_TurnAround_4
+  - first:
+      213: 1228826418552847828
+    second: Grasshopper_TurnAround_5
+  - first:
+      213: 3116318368803274199
+    second: Grasshopper_TurnAround_6
+  - first:
+      213: -5607489280266604149
+    second: Grasshopper_TurnAround_7
+  - first:
+      213: -2556253808392184457
+    second: Grasshopper_TurnAround_8
+  - first:
+      213: -2216284536105507627
+    second: Grasshopper_TurnAround_9
+  - first:
+      213: 2145599421851584746
+    second: Grasshopper_TurnAround_10
+  - first:
+      213: 5098450534915581545
+    second: Grasshopper_TurnAround_11
+  - first:
+      213: 851400202186883206
+    second: Grasshopper_TurnAround_12
+  - first:
+      213: -5117596771232168359
+    second: Grasshopper_TurnAround_13
+  - first:
+      213: 3265193713625289979
+    second: Grasshopper_TurnAround_14
+  - first:
+      213: -8488042599019666634
+    second: Grasshopper_TurnAround_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 40
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2f7b88b46ff11520800000000000000
+      internalID: 2671196862065377068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 40
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ccf5f51ba75a8ae0800000000000000
+      internalID: -1546327129728877375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 0
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc0b5ba5f2064400800000000000000
+      internalID: 307936878686571773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1668eeea8c34084a0800000000000000
+      internalID: -6593195325263018399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_4
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 0
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8688c4e158c446970800000000000000
+      internalID: 8747200510883039336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_5
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 0
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dd3578fd1bad0110800000000000000
+      internalID: 1228826418552847828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dd3b83ab036f3b20800000000000000
+      internalID: 3116318368803274199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_7
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 0
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b81f5e795323e22b0800000000000000
+      internalID: -5607489280266604149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_8
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 0
+        width: 38
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d5b0374bc568cd0800000000000000
+      internalID: -2556253808392184457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_9
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 0
+        width: 39
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d46d30f4fc2e31e0800000000000000
+      internalID: -2216284536105507627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_10
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 0
+        width: 40
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae84fb96e43b6cd10800000000000000
+      internalID: 2145599421851584746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_11
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 0
+        width: 38
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9662b8eafb551c640800000000000000
+      internalID: 5098450534915581545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_12
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 0
+        width: 38
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6808b0519f7c0db00800000000000000
+      internalID: 851400202186883206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_13
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 0
+        width: 38
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 956450bc9d4aaf8b0800000000000000
+      internalID: -5117596771232168359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_14
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 0
+        width: 38
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf4597ff16c405d20800000000000000
+      internalID: 3265193713625289979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grasshopper_TurnAround_15
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 0
+        width: 40
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 633ac0f4a3a643a80800000000000000
+      internalID: -8488042599019666634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Grasshopper_TurnAround_0: 2671196862065377068
+      Grasshopper_TurnAround_1: -1546327129728877375
+      Grasshopper_TurnAround_10: 2145599421851584746
+      Grasshopper_TurnAround_11: 5098450534915581545
+      Grasshopper_TurnAround_12: 851400202186883206
+      Grasshopper_TurnAround_13: -5117596771232168359
+      Grasshopper_TurnAround_14: 3265193713625289979
+      Grasshopper_TurnAround_15: -8488042599019666634
+      Grasshopper_TurnAround_2: 307936878686571773
+      Grasshopper_TurnAround_3: -6593195325263018399
+      Grasshopper_TurnAround_4: 8747200510883039336
+      Grasshopper_TurnAround_5: 1228826418552847828
+      Grasshopper_TurnAround_6: 3116318368803274199
+      Grasshopper_TurnAround_7: -5607489280266604149
+      Grasshopper_TurnAround_8: -2556253808392184457
+      Grasshopper_TurnAround_9: -2216284536105507627
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

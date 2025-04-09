@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: 60ddc611f057d2f448dcf942780426fa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7766545925505252971
+    second: EyeBot_Attack1_0
+  - first:
+      213: -547929236065011935
+    second: EyeBot_Attack1_1
+  - first:
+      213: -263256157929208409
+    second: EyeBot_Attack1_2
+  - first:
+      213: 8265754799048192614
+    second: EyeBot_Attack1_3
+  - first:
+      213: 4684623015823844631
+    second: EyeBot_Attack1_4
+  - first:
+      213: -4182261108726049599
+    second: EyeBot_Attack1_5
+  - first:
+      213: 8330759641843206008
+    second: EyeBot_Attack1_6
+  - first:
+      213: 3876905791959393388
+    second: EyeBot_Attack1_7
+  - first:
+      213: -3405702360829575906
+    second: EyeBot_Attack1_8
+  - first:
+      213: -8348212860374776256
+    second: EyeBot_Attack1_9
+  - first:
+      213: -6201719503671094830
+    second: EyeBot_Attack1_10
+  - first:
+      213: -7172317432935247277
+    second: EyeBot_Attack1_11
+  - first:
+      213: -7126568091843713152
+    second: EyeBot_Attack1_12
+  - first:
+      213: 707535597702330596
+    second: EyeBot_Attack1_13
+  - first:
+      213: 1056443033801520730
+    second: EyeBot_Attack1_14
+  - first:
+      213: 3987499379911668955
+    second: EyeBot_Attack1_15
+  - first:
+      213: -8666797695729391187
+    second: EyeBot_Attack1_16
+  - first:
+      213: -8728113681344856039
+    second: EyeBot_Attack1_17
+  - first:
+      213: -3761224516917217643
+    second: EyeBot_Attack1_18
+  - first:
+      213: 7329011612843455326
+    second: EyeBot_Attack1_19
+  - first:
+      213: 393502648532230277
+    second: EyeBot_Attack1_20
+  - first:
+      213: -4469339880567776558
+    second: EyeBot_Attack1_21
+  - first:
+      213: 216515203517148914
+    second: EyeBot_Attack1_22
+  - first:
+      213: -556467446825116443
+    second: EyeBot_Attack1_23
+  - first:
+      213: -8656940874944229158
+    second: EyeBot_Attack1_24
+  - first:
+      213: -8406611177489489096
+    second: EyeBot_Attack1_25
+  - first:
+      213: -857422750828250192
+    second: EyeBot_Attack1_26
+  - first:
+      213: 797933829324140986
+    second: EyeBot_Attack1_27
+  - first:
+      213: 1833603629779672999
+    second: EyeBot_Attack1_28
+  - first:
+      213: -786130740302581231
+    second: EyeBot_Attack1_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EyeBot_Attack1_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 16
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 591808231afa73490800000000000000
+      internalID: -7766545925505252971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1273b4a434d5568f0800000000000000
+      internalID: -547929236065011935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_2
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 16
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a502bd4be9b85cf0800000000000000
+      internalID: -263256157929208409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_3
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 0
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6627fb5223cd5b270800000000000000
+      internalID: 8265754799048192614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_4
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 15
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 715accc00df130140800000000000000
+      internalID: 4684623015823844631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_5
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 0
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c4d3702eaf95f5c0800000000000000
+      internalID: -4182261108726049599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_6
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 15
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 877893981cdcc9370800000000000000
+      internalID: 8330759641843206008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_7
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 1
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c64e46de6498dc530800000000000000
+      internalID: 3876905791959393388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_8
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 15
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d3b0c3fb38cb0d0800000000000000
+      internalID: -3405702360829575906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_9
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 1
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 046830c52a0352c80800000000000000
+      internalID: -8348212860374776256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_10
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 16
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d1921338f01fe9a0800000000000000
+      internalID: -6201719503671094830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_11
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 1
+        width: 30
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3529d899b4fc67c90800000000000000
+      internalID: -7172317432935247277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_12
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 17
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 087a5022418591d90800000000000000
+      internalID: -7126568091843713152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_13
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 0
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e8bdfe90eba1d900800000000000000
+      internalID: 707535597702330596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_14
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 17
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a56fc2b875d39ae00800000000000000
+      internalID: 1056443033801520730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_15
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 1
+        width: 25
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd4b9b13f81765730800000000000000
+      internalID: 3987499379911668955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_16
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 16
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da920e51a6959b780800000000000000
+      internalID: -8666797695729391187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_17
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9108630b9d28fd680800000000000000
+      internalID: -8728113681344856039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_18
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 2
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 596b8acca327dcbc0800000000000000
+      internalID: -3761224516917217643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_19
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 4
+        width: 28
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e533f3a2b31e5b560800000000000000
+      internalID: 7329011612843455326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_20
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 2
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58060ffe290067500800000000000000
+      internalID: 393502648532230277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_21
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 6
+        width: 22
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2da5546ee07b9f1c0800000000000000
+      internalID: -4469339880567776558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_22
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 3
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fe6c123e67310300800000000000000
+      internalID: 216515203517148914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_23
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 6
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ec9bee2ec70748f0800000000000000
+      internalID: -556467446825116443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_24
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 3
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad0d363042e5cd780800000000000000
+      internalID: -8656940874944229158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_25
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 6
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83329e89ca7b55b80800000000000000
+      internalID: -8406611177489489096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_26
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 3
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bb3b8a0d82d914f0800000000000000
+      internalID: -857422750828250192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_27
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 3
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab1f1231794d21b00800000000000000
+      internalID: 797933829324140986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_28
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 3
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7af52e359c4427910800000000000000
+      internalID: 1833603629779672999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Attack1_29
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 2
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 112ff3db14a1715f0800000000000000
+      internalID: -786130740302581231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      EyeBot_Attack1_0: -7766545925505252971
+      EyeBot_Attack1_1: -547929236065011935
+      EyeBot_Attack1_10: -6201719503671094830
+      EyeBot_Attack1_11: -7172317432935247277
+      EyeBot_Attack1_12: -7126568091843713152
+      EyeBot_Attack1_13: 707535597702330596
+      EyeBot_Attack1_14: 1056443033801520730
+      EyeBot_Attack1_15: 3987499379911668955
+      EyeBot_Attack1_16: -8666797695729391187
+      EyeBot_Attack1_17: -8728113681344856039
+      EyeBot_Attack1_18: -3761224516917217643
+      EyeBot_Attack1_19: 7329011612843455326
+      EyeBot_Attack1_2: -263256157929208409
+      EyeBot_Attack1_20: 393502648532230277
+      EyeBot_Attack1_21: -4469339880567776558
+      EyeBot_Attack1_22: 216515203517148914
+      EyeBot_Attack1_23: -556467446825116443
+      EyeBot_Attack1_24: -8656940874944229158
+      EyeBot_Attack1_25: -8406611177489489096
+      EyeBot_Attack1_26: -857422750828250192
+      EyeBot_Attack1_27: 797933829324140986
+      EyeBot_Attack1_28: 1833603629779672999
+      EyeBot_Attack1_29: -786130740302581231
+      EyeBot_Attack1_3: 8265754799048192614
+      EyeBot_Attack1_4: 4684623015823844631
+      EyeBot_Attack1_5: -4182261108726049599
+      EyeBot_Attack1_6: 8330759641843206008
+      EyeBot_Attack1_7: 3876905791959393388
+      EyeBot_Attack1_8: -3405702360829575906
+      EyeBot_Attack1_9: -8348212860374776256
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

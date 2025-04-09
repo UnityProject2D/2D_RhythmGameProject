@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91c5b6bccda59e148bdd522df7f48345, type: 3}
+  m_Script: {fileID: 11500000, guid: 464c1b81e0d0775438614308bf782e2f, type: 3}
   m_Name: Consumable
   m_EditorClassIdentifier: 
-  categoryName: Equipment
-  description: This is Equipment
+  categoryName: "\uC18C\uBAA8 \uC544\uC774\uD15C"
+  description: "\uC77C\uD68C\uC131\uC73C\uB85C \uC0AC\uC6A9\uB418\uBA70, \uC804\uB7B5\uC801\uC778
+    \uD65C\uC6A9\uC774 \uC694\uAD6C\uB429\uB2C8\uB2E4."

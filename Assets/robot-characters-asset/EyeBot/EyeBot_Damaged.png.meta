@@ -1,0 +1,728 @@
+fileFormatVersion: 2
+guid: fd9c20fe795a95143a63bd30ee6083b8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6113828787628253099
+    second: EyeBot_Damaged_0
+  - first:
+      213: 8636175733654801861
+    second: EyeBot_Damaged_1
+  - first:
+      213: 8183663518560996491
+    second: EyeBot_Damaged_2
+  - first:
+      213: 7981456472735154686
+    second: EyeBot_Damaged_3
+  - first:
+      213: 5935555026251253303
+    second: EyeBot_Damaged_4
+  - first:
+      213: 1108374879258809142
+    second: EyeBot_Damaged_5
+  - first:
+      213: 8130607784797510773
+    second: EyeBot_Damaged_6
+  - first:
+      213: 5434309592523422822
+    second: EyeBot_Damaged_7
+  - first:
+      213: 2235565150111343065
+    second: EyeBot_Damaged_8
+  - first:
+      213: -5049187005169273072
+    second: EyeBot_Damaged_9
+  - first:
+      213: 6867027713425012744
+    second: EyeBot_Damaged_10
+  - first:
+      213: 6870231325992624671
+    second: EyeBot_Damaged_11
+  - first:
+      213: -851875804199065046
+    second: EyeBot_Damaged_12
+  - first:
+      213: 7616719414888493073
+    second: EyeBot_Damaged_13
+  - first:
+      213: -1722177156496462503
+    second: EyeBot_Damaged_14
+  - first:
+      213: -2134944626444420045
+    second: EyeBot_Damaged_15
+  - first:
+      213: 2081972628373890228
+    second: EyeBot_Damaged_16
+  - first:
+      213: 8455611906264752189
+    second: EyeBot_Damaged_17
+  - first:
+      213: 3522894806209771670
+    second: EyeBot_Damaged_18
+  - first:
+      213: 1658136560388409984
+    second: EyeBot_Damaged_19
+  - first:
+      213: 5079472556939328885
+    second: EyeBot_Damaged_20
+  - first:
+      213: 7993125356559476903
+    second: EyeBot_Damaged_21
+  - first:
+      213: 5957557758494122755
+    second: EyeBot_Damaged_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EyeBot_Damaged_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baf9320d3eea8d450800000000000000
+      internalID: 6113828787628253099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 0
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cdc756c21cd9d770800000000000000
+      internalID: 8636175733654801861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_2
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 3
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8cc6297c96329170800000000000000
+      internalID: 8183663518560996491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_3
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 4
+        width: 21
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef10f97df54d3ce60800000000000000
+      internalID: 7981456472735154686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_4
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 0
+        width: 18
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7368d7439d35f5250800000000000000
+      internalID: 5935555026251253303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_5
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 21
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 633103c841db16f00800000000000000
+      internalID: 1108374879258809142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_6
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 1
+        width: 19
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57c91e4d3b8b5d070800000000000000
+      internalID: 8130607784797510773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_7
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 21
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66c3bdd38cb8a6b40800000000000000
+      internalID: 5434309592523422822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_8
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 2
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d121a4d8a2560f10800000000000000
+      internalID: 2235565150111343065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_9
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 2
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 017fd58ab2fade9b0800000000000000
+      internalID: -5049187005169273072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_10
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 2
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 808f57182559c4f50800000000000000
+      internalID: 6867027713425012744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_11
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 2
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f122d8eadf6f75f50800000000000000
+      internalID: 6870231325992624671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_12
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 14
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2ae6f138778d24f0800000000000000
+      internalID: -851875804199065046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_13
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 0
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 110ff36e3f504b960800000000000000
+      internalID: 7616719414888493073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_14
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 15
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95d6cba20099918e0800000000000000
+      internalID: -1722177156496462503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_15
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 0
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33cb6a57c272f52e0800000000000000
+      internalID: -2134944626444420045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_16
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 0
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b4ef422317a4ec10800000000000000
+      internalID: 2081972628373890228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_17
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 0
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30697f9a3e585570800000000000000
+      internalID: 8455611906264752189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_18
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 698b3314926d3e030800000000000000
+      internalID: 3522894806209771670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_19
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 0
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08a0a0f9a62e20710800000000000000
+      internalID: 1658136560388409984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_20
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57db6bad069ed7640800000000000000
+      internalID: 5079472556939328885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_21
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 1
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a825e299294dee60800000000000000
+      internalID: 7993125356559476903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeBot_Damaged_22
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 1
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3032ae3873f7da250800000000000000
+      internalID: 5957557758494122755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      EyeBot_Damaged_0: 6113828787628253099
+      EyeBot_Damaged_1: 8636175733654801861
+      EyeBot_Damaged_10: 6867027713425012744
+      EyeBot_Damaged_11: 6870231325992624671
+      EyeBot_Damaged_12: -851875804199065046
+      EyeBot_Damaged_13: 7616719414888493073
+      EyeBot_Damaged_14: -1722177156496462503
+      EyeBot_Damaged_15: -2134944626444420045
+      EyeBot_Damaged_16: 2081972628373890228
+      EyeBot_Damaged_17: 8455611906264752189
+      EyeBot_Damaged_18: 3522894806209771670
+      EyeBot_Damaged_19: 1658136560388409984
+      EyeBot_Damaged_2: 8183663518560996491
+      EyeBot_Damaged_20: 5079472556939328885
+      EyeBot_Damaged_21: 7993125356559476903
+      EyeBot_Damaged_22: 5957557758494122755
+      EyeBot_Damaged_3: 7981456472735154686
+      EyeBot_Damaged_4: 5935555026251253303
+      EyeBot_Damaged_5: 1108374879258809142
+      EyeBot_Damaged_6: 8130607784797510773
+      EyeBot_Damaged_7: 5434309592523422822
+      EyeBot_Damaged_8: 2235565150111343065
+      EyeBot_Damaged_9: -5049187005169273072
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

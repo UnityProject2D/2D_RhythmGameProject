@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
+  m_Name: Item_Consumable_OverDrive
+  m_EditorClassIdentifier: 
+  itemID: 0
+  itemName: "\uC624\uBC84 \uB4DC\uB77C\uC774\uBE0C"
+  icon: {fileID: -172222918, guid: b8b9894dffe76c9478e7c8bb81e731cf, type: 3}
+  description: "\uBC18\uC751 \uC18D\uB3C4\uB97C \uADF9\uD55C\uC73C\uB85C \uB04C\uC5B4\uC62C\uB9AC\uB294\n\uCC28\uC138\uB300
+    \uC2E0\uACBD \uAC15\uD654\uC81C.\n\n\uC815\uD655\uD55C \uD0C0\uC774\uBC0D \uC785\uB825\uC5D0
+    \uC131\uACF5\uD558\uBA74\n\uC131\uACFC\uB294 \uBC30\uAC00\uB418\uC9C0\uB9CC,\n\uC2E4\uD328
+    \uC2DC \uC0DD\uBA85 \uC720\uC9C0 \uC2DC\uC2A4\uD15C\uC5D0\n\uC2EC\uAC01\uD55C
+    \uBD80\uD558\uAC00 \uBC1C\uC0DD\uD569\uB2C8\uB2E4.\n\n\u203B \uC2E4\uC804 \uD22C\uC785
+    \uC2DC \uACE0\uC704\uD5D8 \uACBD\uACE0 \uD504\uB85C\uD1A0\uCF5C \uBC1C\uB3D9"
+  EffectDescription: "\uC0AC\uC6A9 \uD6C4 30\uCD08\uAC04\nPerfect \uD310\uC815 \uC2DC
+    \uC810\uC218 2\uBC30,\nBad \uD310\uC815 \uC2DC \uD53C\uD574 \uC785\uC74C"
+  category: {fileID: 11400000, guid: dbacc609a7692aa4bbb3487a966d718b, type: 2}
+  isConsumable: 0
+  EffectValue: 0
+  EffectDuration: 0
+  value: 0
+  EffectCooldown: 30
