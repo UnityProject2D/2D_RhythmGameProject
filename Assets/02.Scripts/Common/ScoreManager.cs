@@ -30,6 +30,7 @@ public class ScoreManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -61,12 +62,20 @@ public class ScoreManager : MonoBehaviour
                     _perfectStreak = 0;
                 }
                 break;
+            case JudgementResult.Good:
+                _combo++;
+                _perfectStreak = 0;
+                break;
 
             case JudgementResult.Bad:
                 _perfectStreak = 0;
                 if (PlayerState.Instance.PreciseCalibrationUnitEnabled)
                 {
                     _combo++;
+                }
+                else if (PlayerState.Instance.ComboProtectorUsed)
+                {
+                    PlayerState.Instance.ComboProtectorUsed = false;
                 }
                 else
                 {
@@ -83,7 +92,6 @@ public class ScoreManager : MonoBehaviour
                 }
                 else if (PlayerState.Instance.ComboProtectorUsed)
                 {
-                    _combo++;
                     PlayerState.Instance.ComboProtectorUsed = false;
                 }
                 else
@@ -101,12 +109,12 @@ public class ScoreManager : MonoBehaviour
 
         _score +=
             (PlayerState.Instance.OverDriveUsed ? 2 : 1) *// 오버드라이브 2배
-            _baseScore *
+            _baseScore *// 기본 점수
             ((int)JudgementResult.Count - (int)judgementResult.Result) *// 판정 보정
             (PlayerState.Instance.PreciseCalibrationUnitEnabled ? 0.8f : 1f) *// 보정칩 핸디캡
-            comboMultiplier *
-            perfectBonus *
-            (judgementResult.Result == JudgementResult.Miss?0:1);
+            comboMultiplier *// 콤보 계수
+            perfectBonus * // 하이퍼 스코어 커널 계수
+            (judgementResult.Result == JudgementResult.Miss ? 0 : 1); // Miss 면 곱하기 0
 
         OnComboChanged?.Invoke(_combo);
         Debug.Log($"SCORE = {(int)_score}");

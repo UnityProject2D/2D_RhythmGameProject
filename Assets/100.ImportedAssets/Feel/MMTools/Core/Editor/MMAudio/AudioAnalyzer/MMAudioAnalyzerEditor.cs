@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -6,7 +6,7 @@ using UnityEngine;
 namespace MoreMountains.Tools
 {
 	#if UNITY_EDITOR
-	[CustomEditor(typeof(MMAudioAnalyzer), true)]
+	[CustomEditor(typeof(CustomMMAudioAnalyzer), true)]
 	[CanEditMultipleObjects]
 	public class MMAudioAnalyzerEditor : Editor
 	{
@@ -231,12 +231,12 @@ namespace MoreMountains.Tools
 
 		protected virtual void DrawBeats()
 		{
-			if ((Beats == null) || (target as MMAudioAnalyzer).Beats == null)
+			if ((Beats == null) || (target as CustomMMAudioAnalyzer).Beats == null)
 			{
 				return;
 			}
 
-			float length = (target as MMAudioAnalyzer).Beats.Length;
+			float length = (target as CustomMMAudioAnalyzer).Beats.Length;
 			if (length <= 0)
 			{
 				return;
@@ -281,8 +281,8 @@ namespace MoreMountains.Tools
 				if (Active)
 				{
 					// draw front bar 
-					_beatColor = (target as MMAudioAnalyzer).Beats[i].BeatColor;
-					_beatColor.a = (target as MMAudioAnalyzer).Beats[i].CurrentValue;
+					_beatColor = (target as CustomMMAudioAnalyzer).Beats[i].BeatColor;
+					_beatColor.a = (target as CustomMMAudioAnalyzer).Beats[i].CurrentValue;
 					_rect.x = boxX;
 					_rect.y = boxY;
 					_rect.width = beatsBoxSquareSize;
@@ -636,7 +636,7 @@ namespace MoreMountains.Tools
 
 		protected virtual void PreProcessingButtons()
 		{
-			if ((target as MMAudioAnalyzer).Mode != MMAudioAnalyzer.Modes.AudioSource)
+			if ((target as CustomMMAudioAnalyzer).Mode != CustomMMAudioAnalyzer.Modes.AudioSource)
 			{
 				return;
 			}
@@ -652,7 +652,7 @@ namespace MoreMountains.Tools
 					                        "then the Find Peaks button below. Then, exit play, and press the 'Paste Peaks' button.", MessageType.Warning);
 					if (GUILayout.Button("Find Peaks"))
 					{
-						(target as MMAudioAnalyzer).FindPeaks();
+						(target as CustomMMAudioAnalyzer).FindPeaks();
 					}
 				}
 				else
@@ -662,14 +662,14 @@ namespace MoreMountains.Tools
 					{
 						if (GUILayout.Button("Paste Peaks"))
 						{
-							(target as MMAudioAnalyzer).PastePeaks();
+							(target as CustomMMAudioAnalyzer).PastePeaks();
 						}
 					}                    
 				}
 			}            
 			if (GUILayout.Button("Clear Peaks"))
 			{
-				(target as MMAudioAnalyzer).ClearPeaks();
+				(target as CustomMMAudioAnalyzer).ClearPeaks();
 			}        
 		}
 	}

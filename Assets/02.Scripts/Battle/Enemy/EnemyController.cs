@@ -1,7 +1,7 @@
-using UnityEngine;
-using System.Collections.Generic;
-using FMODUnity;
 using DG.Tweening;
+using FMODUnity;
+using System.Collections.Generic;
+using UnityEngine;
 using static RhythmEvents;
 
 public class EnemyController : MonoBehaviour
@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     private const int PoolSizePerDirection = 8;
     private List<GameObject>[] shadowPools = new List<GameObject>[4];
 
-    public Transform playerTransform;
+    private Transform _playerTransform;
 
     private void Awake()
     {
@@ -27,6 +27,8 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        _playerTransform = PlayerHealth.Instance.GetComponent<Transform>();
+        ScoreManager.Instance.OnScoreChanged += EnemyDieJdg;
         for (int dir = 0; dir < 4; dir++)
         {
             for (int i = 0; i < PoolSizePerDirection; i++)
@@ -46,6 +48,7 @@ public class EnemyController : MonoBehaviour
     private void OnDisable()
     {
         OnNotePreview -= OnNotePreviewReceived;
+        ScoreManager.Instance.OnScoreChanged -= EnemyDieJdg;
     }
 
     private void OnNotePreviewReceived(NoteData beatNote)
@@ -86,16 +89,16 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 GetTargetPositionFromKey(int dir)
     {
-        if (playerTransform == null)
+        if (_playerTransform == null)
             return gunPoint.position;
 
         return dir switch
         {
-            0 => playerTransform.position + Vector3.down * 0.25f,     // W - 머리
-            1 => playerTransform.position + Vector3.up * 2f,   // S - 다리
-            2 => gunPoint.position+Vector3.left * 1f,   // A - 왼쪽 몸통
+            0 => _playerTransform.position + Vector3.down * 0.25f,     // W - 머리
+            1 => _playerTransform.position + Vector3.up * 2f,   // S - 다리
+            2 => gunPoint.position + Vector3.left * 1f,   // A - 왼쪽 몸통
             3 => gunPoint.position + Vector3.left * 1f,  // D - 오른쪽 몸통
-            _ => playerTransform.position
+            _ => _playerTransform.position
         };
     }
 
@@ -146,11 +149,21 @@ public class EnemyController : MonoBehaviour
     {
         return dir switch
         {
-            0 => new Color(1f, 0f, 0f, 0.3f),                         // W - 기본
-            1 => new Color(1f, 0f, 0f, 0.3f),                          // S - 머리
-            2 => new Color(0f, 1f, 1f, 0.3f),                        // A - 노란 몸통
+            0 => new Color(1f, 0f, 0f, 0.3f),
+            1 => new Color(1f, 0f, 0f, 0.3f),
+            2 => new Color(0f, 1f, 1f, 0.3f),
             3 => new Color(0.5f, 0f, 1f, 0.3f),
             _ => Color.white
         };
+    }
+
+    ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
+    private void EnemyDieJdg(int score)
+    {
+        if (score >= 10000)
+        {
+            Debug.Log("적 잔상 죽이기");
+            gameObject.SetActive(false);
+        }
     }
 }

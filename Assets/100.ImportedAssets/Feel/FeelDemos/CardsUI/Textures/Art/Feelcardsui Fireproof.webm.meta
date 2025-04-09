@@ -5,8 +5,7 @@ AssetOrigin:
   productId: 183370
   packageName: Feel
   packageVersion: 5.4
-  assetPath: Assets/100.ImportedAssets/Feel/FeelDemos/CardsUI/Textures/Art/Feelcardsui
-    Fireproof.webm
+  assetPath: Assets/Feel/FeelDemos/CardsUI/Textures/Art/Feelcardsui Fireproof.webm
   uploadId: 729165
 VideoClipImporter:
   externalObjects: {}
