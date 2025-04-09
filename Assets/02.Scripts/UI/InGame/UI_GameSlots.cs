@@ -4,15 +4,8 @@ public class UI_GameSlots : MonoBehaviour
 {
     public UI_ItemSlot[] slots;
     public ItemEffectHandler itemEffectHandler;
-
-    public static UI_GameSlots Instance { get; private set; }
-
-    private void Awake()
-    {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-    }
-
+    public ItemSO[] itemSOs;
+    
     public void SetSlot(ItemSO itemSO)
     {
         if(itemSO.category.categoryName == "장비 아이템")
@@ -25,5 +18,11 @@ public class UI_GameSlots : MonoBehaviour
             slots[1].Init(itemEffectHandler);
             slots[1].Setup(itemSO);
         }
+    }
+
+    private void Start()
+    {
+        SetSlot(itemSOs[0]);
+        SetSlot(itemSOs[1]);
     }
 }

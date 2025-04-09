@@ -10,14 +10,27 @@ public class ItemEffectHandler : MonoBehaviour
     {
         { ItemID.CalibrationChipset, 20f }
     };
+    public static ItemEffectHandler Instance { get; private set; }
+
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
     public bool ApplyEffect(ItemID id, float value, float duration = 0f)
     {
         switch (id)
         {
             case ItemID.OverDrive:
-                if (_activeEffects.ContainsKey(id)) StopCoroutine(_activeEffects[id]);
-                _activeEffects[id] = StartCoroutine(ApplyOverdrive(value, duration));
-                break;
+                if (_activeEffects.ContainsKey(id))
+                {
+                    StopCoroutine(_activeEffects[id]);
+                }
+                _activeEffects[id] = StartCoroutine(ApplyDurationItem(id, value, duration));
+                return true;
 
             case ItemID.CalibrationChipset:
                 if (_cooldownStates.TryGetValue(id, out var isCooling) && isCooling)
@@ -28,9 +41,10 @@ public class ItemEffectHandler : MonoBehaviour
                 if (_activeEffects.ContainsKey(id))
                 {
                     StopCoroutine(_activeEffects[id]);
+                    break;
                 }
-                _activeEffects[id] = StartCoroutine(ApplyComboProtector(value, duration));
-                break;
+                _activeEffects[id] = StartCoroutine(ApplyDurationItem(id, value, duration));
+                return true;
             default:
                 Debug.LogWarning($"[PlayerState] 알 수 없는 ItemID: {id}");
                 break;
@@ -43,17 +57,11 @@ public class ItemEffectHandler : MonoBehaviour
         PlayerState.Instance.SetItemEnabled(id, flag);
     }
 
-    private IEnumerator ApplyOverdrive(float multiplier, float duration)
+    private IEnumerator ApplyDurationItem(ItemID id,float multiplier, float duration)
     {
-        PlayerState.Instance.OverDriveUsed = true;
+        PlayerState.Instance.SetItemEnabled(id, true);
         yield return new WaitForSeconds(duration);
-        PlayerState.Instance.OverDriveUsed = false;
-    }
-    private IEnumerator ApplyComboProtector(float multiplier, float duration)
-    {
-        PlayerState.Instance.ComboProtectorUsed = true;
-        yield return new WaitForSeconds(duration);
-        PlayerState.Instance.ComboProtectorUsed = false;
+        PlayerState.Instance.SetItemEnabled(id, false);
     }
 
     private IEnumerator CooldownRoutine(ItemID id, float cooldown)

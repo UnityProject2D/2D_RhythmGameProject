@@ -1,5 +1,6 @@
 using MoreMountains.Feedbacks;
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -21,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -58,6 +60,7 @@ public class PlayerHealth : MonoBehaviour
                 break;
         }
 
+        if(PlayerState.Instance.EmergencyResponseCoreEnabled)
         finalDamage = ApplyEmergencyResponseCore(finalDamage); // 추후 추가할 아이템 관련 코드
 
         ApplyDamage(finalDamage);
@@ -120,11 +123,16 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (PlayerState.Instance.CalibrationChipsetEnabled)
         {
+
+            if (!PlayerState.Instance.ItemEffectHandler.ApplyEffect(ItemID.CalibrationChipset, 0))
+            {
+                OnMissFeedback?.PlayFeedbacks(); // 쿨타임 중이면 데미지
+                return Damage;
+            }
+
 #if UNITY_EDITOR
             Debug.Log("자동 교정 유닛");
 #endif
-            PlayerState.Instance.CalibrationChipsetEnabled = false;
-            //TODO: 이펙트 추가
         }
         else
         {

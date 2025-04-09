@@ -26,6 +26,8 @@ public class RhythmJudge : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()

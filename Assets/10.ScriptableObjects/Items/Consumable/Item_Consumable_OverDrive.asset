@@ -25,5 +25,5 @@ MonoBehaviour:
   category: {fileID: 11400000, guid: dbacc609a7692aa4bbb3487a966d718b, type: 2}
   isConsumable: 1
   EffectValue: 0
-  EffectDuration: 0
+  EffectDuration: 30
   EffectCooldown: 0

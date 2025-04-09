@@ -24,4 +24,4 @@ MonoBehaviour:
   isConsumable: 0
   EffectValue: 0
   EffectDuration: 0
-  EffectCooldown: 0
+  EffectCooldown: 2

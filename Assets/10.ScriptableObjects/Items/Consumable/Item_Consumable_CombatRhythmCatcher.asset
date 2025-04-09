@@ -23,7 +23,7 @@ MonoBehaviour:
   EffectDescription: "\uC0AC\uC6A9\uC2DC \uC77C\uC815 \uC2DC\uAC04\uB3D9\uC548 Miss
     1\uD68C \uC790\uB3D9 \uBC29\uC5B4"
   category: {fileID: 11400000, guid: dbacc609a7692aa4bbb3487a966d718b, type: 2}
-  isConsumable: 0
+  isConsumable: 1
   EffectValue: 0
-  EffectDuration: 0
+  EffectDuration: 30
   EffectCooldown: 0

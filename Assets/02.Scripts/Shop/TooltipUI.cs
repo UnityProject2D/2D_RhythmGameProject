@@ -25,6 +25,7 @@ public class TooltipUI : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
+        DontDestroyOnLoad(gameObject);
         _tooltipRoot.SetActive(false);
     }
     void Update()
@@ -51,7 +52,7 @@ public class TooltipUI : MonoBehaviour
     public void Show(ItemSO item)
     {
         _nameText.text = item.itemName;
-        _descriptionText.text = item.description;
+        _descriptionText.text = item.EffectDescription;
         _categoryText.text = item.category != null ? item.category.categoryName : "";
         _priceText.text = "";
         _currencyIcon.sprite = null;

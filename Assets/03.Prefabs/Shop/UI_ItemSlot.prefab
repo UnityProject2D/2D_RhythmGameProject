@@ -600,7 +600,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.5424528, g: 0.5424528, b: 0.5424528, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.58431375}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.58431375}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -949,13 +949,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db05364bb66a11e4fa2c1a29185b59b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _icon: {fileID: 0}
-  _nameText: {fileID: 0}
+  _icon: {fileID: 636187162712042462}
+  _nameText: {fileID: 8298460939509187551}
   _priceText: {fileID: 0}
-  _useButton: {fileID: 0}
-  equip: {fileID: 11400000, guid: 1800b112f2b16884c8dd374b5b274634, type: 2}
+  _useButton: {fileID: 4720471490933976383}
   _shortCutIndex: 1
-  OrbitEffects: []
+  OrbitEffects:
+  - {fileID: 1917352595438852581}
+  - {fileID: 8692607331073460479}
+  - {fileID: 4807025236137083894}
+  - {fileID: 1118347645828784101}
   _isEquipmentSlot: 0
 --- !u!1 &8692607331073460479
 GameObject:
