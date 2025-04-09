@@ -124,6 +124,7 @@ public class PlayerState : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
