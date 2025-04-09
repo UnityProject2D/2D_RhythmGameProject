@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-
+        Debug.Log(_animator);
         for (int i = 0; i < 4; i++)
             shadowPools[i] = new List<GameObject>();
     }
@@ -58,8 +58,14 @@ public class EnemyController : MonoBehaviour
         int dir = GetIndexFromKey(beatNote.expectedKey);
         if (dir < 0 || dir >= 4) return;
 
-        if (test)
-            _animator.SetTrigger("Attack");
+        // 애니메이터가 null인지 확인
+        if (_animator == null)
+        {
+            Debug.LogError("Animator is not assigned or missing!");
+        }
+
+        // 애니메이션 트리거 설정
+        _animator.SetTrigger("Attack");
 
         GameObject shadow = GetInactiveShadow(dir);
         if (shadow == null) return;
@@ -126,6 +132,7 @@ public class EnemyController : MonoBehaviour
             if (!shadow.activeInHierarchy)
                 return shadow;
         }
+
         return null;
     }
 
