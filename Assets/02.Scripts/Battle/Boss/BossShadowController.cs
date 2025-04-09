@@ -41,18 +41,6 @@ public class BossShadowController : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            FadeOutBoss();
-        }
-        else if (Input.GetKeyDown(KeyCode.G))
-        {
-            FadeInBoss();
-        }
-    }
-
     private void OnEnable()
     {
         OnNotePreview += OnNotePreviewReceived;
@@ -71,6 +59,8 @@ public class BossShadowController : MonoBehaviour
     {
         if (_isDead) return; /////////////// 적이 죽었으면 리턴
         PlayAttackSound();
+        if (_spriteRenderer.color.a == 1f) return;
+        _spriteRenderer.color = new Color(1f, 0f, 0f, 0.9f); // 투명도 초기화
         FadeInBoss();
 
         int dir = GetIndexFromKey(beatNote.expectedKey);
@@ -107,6 +97,7 @@ public class BossShadowController : MonoBehaviour
 
     private void OnNoteReceived(NoteData beatTime)
     {
+        if (_spriteRenderer.color.a == 0f) return;
         FadeOutBoss();
     }
 
@@ -193,14 +184,16 @@ public class BossShadowController : MonoBehaviour
         }
     }
 
-    private void FadeInBoss(float duration = 0.5f)
+    private void FadeInBoss(float duration = 1f)
     {
+        _spriteRenderer.DOKill();
         //불투명한 빨간스프라이트로 변경
-        _spriteRenderer.color = new Color(1f, 0f, 0f, 0f); // 투명도 초기화
-        _spriteRenderer.DOFade(0.5f, duration).SetEase(Ease.OutQuad); //.SetEase(Ease.OutQuad)
+        if (_spriteRenderer.color.a >= 0.49f) return;
+        _spriteRenderer.DOFade(0.5f, duration).SetEase(Ease.InOutQuad); //.SetEase(Ease.OutQuad)
     }
     private void FadeOutBoss(float duration = 0.5f)
     {
+        _spriteRenderer.DOKill();
         _spriteRenderer.DOFade(0f, duration).SetEase(Ease.OutQuad); //.SetEase(Ease.OutQuad)
     }
 

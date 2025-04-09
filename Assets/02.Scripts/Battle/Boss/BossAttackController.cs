@@ -1,4 +1,5 @@
 using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static RhythmEvents;
@@ -27,6 +28,7 @@ public class BossAttackController : MonoBehaviour
 
     private int poolSize = 10;
     private bool _isDead = false; //////////// 적 사망 여부
+    private bool isFlyingLooping = false; //////////// 비행 애니메이션 루프 여부
 
     private void Awake()
     {
@@ -43,6 +45,11 @@ public class BossAttackController : MonoBehaviour
             bullet.SetActive(false);
             BossBulletPool.Add(bullet);
         }
+    }
+
+    private void Update()
+    {
+        Test();
     }
 
     private void OnEnable()
@@ -136,6 +143,57 @@ public class BossAttackController : MonoBehaviour
         {
             _isDead = true;
             _animator.SetTrigger("Die");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Pet"))
+        {
+            _animator.SetTrigger("Hurt");
+        }
+    }
+
+    private void Test()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            _animator.SetTrigger("FlyUp");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            _animator.SetTrigger("Special");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            _animator.SetTrigger("FlyDown");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            _animator.SetTrigger("Walk");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            _animator.SetTrigger("WalkAttack");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            isFlyingLooping = !isFlyingLooping;
+            if (isFlyingLooping)
+            {
+                StartCoroutine(FlyingLoopRoutine());
+            }
+        }
+    }
+
+    private IEnumerator FlyingLoopRoutine()
+    {
+        while (isFlyingLooping)
+        {
+            _animator.SetTrigger("FlyUp");
+            yield return new WaitForSeconds(1f);
+            _animator.SetTrigger("FlyDown");
+            yield return new WaitForSeconds(1f);
         }
     }
 }

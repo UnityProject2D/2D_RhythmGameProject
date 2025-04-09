@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5607145700911545144}
   m_Layer: 0
   m_Name: PetBullet2
-  m_TagString: Untagged
+  m_TagString: Pet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,5 +166,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: -1, y: 0}
-  speed: 10
-  lifetime: 7
+  speed: 40
+  lifetime: 4
