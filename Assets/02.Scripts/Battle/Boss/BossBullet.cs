@@ -3,8 +3,8 @@ using UnityEngine;
 public class BossBullet : MonoBehaviour
 {
     public Vector2 direction;
-    public float speed = 20f;
-    public float lifetime = 3f;
+    public float speed = 30f;
+    public float lifetime = 4f;
 
     private void OnEnable()
     {
