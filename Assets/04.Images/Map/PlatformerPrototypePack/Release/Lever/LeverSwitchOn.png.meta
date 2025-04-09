@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LeverSwitchOn_0: 1012714507264993130
+      LeverSwitchOn_1: -8800912496096546744
+      LeverSwitchOn_2: -6832111050062924501
+      LeverSwitchOn_3: -9176961646147584954
+      LeverSwitchOn_4: 8574468510017547114
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CircularSawSpin_0: -5960180944250805212
+      CircularSawSpin_1: -2651570957689934836
+      CircularSawSpin_2: 4344190578128062077
+      CircularSawSpin_3: -6648179138634177010
+      CircularSawSpin_4: -4442686424136585962
+      CircularSawSpin_5: -7418702976658097677
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

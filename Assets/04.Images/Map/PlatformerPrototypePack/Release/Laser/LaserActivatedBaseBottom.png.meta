@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LaserActivatedBaseBottom_0: -4932284395111923954
+      LaserActivatedBaseBottom_1: -4911909055022292767
+      LaserActivatedBaseBottom_2: -8561829419776378769
+      LaserActivatedBaseBottom_3: -5161892979324393715
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

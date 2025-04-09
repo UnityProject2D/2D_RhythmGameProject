@@ -722,7 +722,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueprintTilesetLeftAngleWarm_0: 4089618167883856515
+      BlueprintTilesetLeftAngleWarm_1: 3126007833755892252
+      BlueprintTilesetLeftAngleWarm_10: -872074127526050221
+      BlueprintTilesetLeftAngleWarm_11: -4539411088440134122
+      BlueprintTilesetLeftAngleWarm_12: -3954095332349010564
+      BlueprintTilesetLeftAngleWarm_13: -3326182679629326610
+      BlueprintTilesetLeftAngleWarm_14: 6940309334323315575
+      BlueprintTilesetLeftAngleWarm_15: -7670680689464370019
+      BlueprintTilesetLeftAngleWarm_16: -3491928109380575085
+      BlueprintTilesetLeftAngleWarm_17: 3573087431674930628
+      BlueprintTilesetLeftAngleWarm_18: 7224805707801757355
+      BlueprintTilesetLeftAngleWarm_19: 6010025777088075263
+      BlueprintTilesetLeftAngleWarm_2: -8900123721303820201
+      BlueprintTilesetLeftAngleWarm_20: -6861696006424594597
+      BlueprintTilesetLeftAngleWarm_21: 4747144914120913963
+      BlueprintTilesetLeftAngleWarm_22: 6924279995140483062
+      BlueprintTilesetLeftAngleWarm_23: 2537756383476848411
+      BlueprintTilesetLeftAngleWarm_3: 6842268374623835867
+      BlueprintTilesetLeftAngleWarm_4: -8410087814171404107
+      BlueprintTilesetLeftAngleWarm_5: -9074089884937323624
+      BlueprintTilesetLeftAngleWarm_6: 7275481132182330710
+      BlueprintTilesetLeftAngleWarm_7: 6777399037182992413
+      BlueprintTilesetLeftAngleWarm_8: 8740309587249616634
+      BlueprintTilesetLeftAngleWarm_9: 3782345271503902704
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

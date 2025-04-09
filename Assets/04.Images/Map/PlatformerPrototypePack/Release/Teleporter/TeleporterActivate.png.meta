@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TeleporterActivate_0: 4513720983401947062
+      TeleporterActivate_1: -7132135367866521540
+      TeleporterActivate_2: 2091376677929971418
+      TeleporterActivate_3: 5493877339887959099
+      TeleporterActivate_4: -4128145798087048142
+      TeleporterActivate_5: -1811855756405133543
+      TeleporterActivate_6: 5199665317354161285
+      TeleporterActivate_7: -1338233936754559287
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

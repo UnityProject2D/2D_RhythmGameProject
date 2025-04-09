@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SpringDownTrigger_0: -8864307954680372159
+      SpringDownTrigger_1: 4610979812622495394
+      SpringDownTrigger_2: 3364712471330108543
+      SpringDownTrigger_3: -5579205105616454077
+      SpringDownTrigger_4: -1354062405979205108
+      SpringDownTrigger_5: -3706585481790380598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

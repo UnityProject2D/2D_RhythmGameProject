@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SpringUpTrigger_0: 8242499295806557015
+      SpringUpTrigger_1: 8134459757435189446
+      SpringUpTrigger_2: -1127808035872250177
+      SpringUpTrigger_3: 4705706220014257277
+      SpringUpTrigger_4: -3096866803667153108
+      SpringUpTrigger_5: -2862883537645876804
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -947,7 +947,40 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MechanicalDoorOpen_0: -244041722732964546
+      MechanicalDoorOpen_1: 1439648564999892516
+      MechanicalDoorOpen_10: 5455261755729067039
+      MechanicalDoorOpen_11: -6890336410940947892
+      MechanicalDoorOpen_12: 5096546614241293922
+      MechanicalDoorOpen_13: 653215538116272547
+      MechanicalDoorOpen_14: 2718582123071192473
+      MechanicalDoorOpen_15: 2353431648789412398
+      MechanicalDoorOpen_16: -8487460014665442416
+      MechanicalDoorOpen_17: -7121915395855432343
+      MechanicalDoorOpen_18: 8442363276657496900
+      MechanicalDoorOpen_19: 7020902633272963174
+      MechanicalDoorOpen_2: -6873389139345957485
+      MechanicalDoorOpen_20: -4012720088495598811
+      MechanicalDoorOpen_21: -7975042344384473824
+      MechanicalDoorOpen_22: -3141704989746217359
+      MechanicalDoorOpen_23: 7204165640319643109
+      MechanicalDoorOpen_24: -7374958848831257335
+      MechanicalDoorOpen_25: -7480487520469656107
+      MechanicalDoorOpen_26: 7730725094521200250
+      MechanicalDoorOpen_27: -2844797251207878417
+      MechanicalDoorOpen_28: -7113111697784809500
+      MechanicalDoorOpen_29: -6622347404224172080
+      MechanicalDoorOpen_3: 6790923051195793965
+      MechanicalDoorOpen_30: -3705129005491139188
+      MechanicalDoorOpen_31: -3650203235081784047
+      MechanicalDoorOpen_32: -8323978640518107335
+      MechanicalDoorOpen_4: 9194216563878811160
+      MechanicalDoorOpen_5: -7944965344959121151
+      MechanicalDoorOpen_6: -5080482682221829497
+      MechanicalDoorOpen_7: 1756818256214021581
+      MechanicalDoorOpen_8: 3820956163310267160
+      MechanicalDoorOpen_9: -7439431829938548252
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

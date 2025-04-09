@@ -722,7 +722,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueprintTilesetLeftAngleDark_0: 3307376804275527261
+      BlueprintTilesetLeftAngleDark_1: -5253105087969526570
+      BlueprintTilesetLeftAngleDark_10: 1839549016704616015
+      BlueprintTilesetLeftAngleDark_11: 7784152225677683614
+      BlueprintTilesetLeftAngleDark_12: -1326963432563018770
+      BlueprintTilesetLeftAngleDark_13: -6183478249143946842
+      BlueprintTilesetLeftAngleDark_14: -313369556467806993
+      BlueprintTilesetLeftAngleDark_15: 6588719618432647437
+      BlueprintTilesetLeftAngleDark_16: -7764332424585075104
+      BlueprintTilesetLeftAngleDark_17: -4175550367575955127
+      BlueprintTilesetLeftAngleDark_18: 4754413999478771119
+      BlueprintTilesetLeftAngleDark_19: 8819567778746906544
+      BlueprintTilesetLeftAngleDark_2: -3727544748841857706
+      BlueprintTilesetLeftAngleDark_20: -4887922865148107334
+      BlueprintTilesetLeftAngleDark_21: -2991911348118362866
+      BlueprintTilesetLeftAngleDark_22: 6703126515891459328
+      BlueprintTilesetLeftAngleDark_23: 4734403900816906691
+      BlueprintTilesetLeftAngleDark_3: 6564710441941104299
+      BlueprintTilesetLeftAngleDark_4: 972144726408476662
+      BlueprintTilesetLeftAngleDark_5: -6466835516657849326
+      BlueprintTilesetLeftAngleDark_6: -4925903859106210142
+      BlueprintTilesetLeftAngleDark_7: -5174910657195585688
+      BlueprintTilesetLeftAngleDark_8: -1181703972937288683
+      BlueprintTilesetLeftAngleDark_9: -1612962241009575988
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

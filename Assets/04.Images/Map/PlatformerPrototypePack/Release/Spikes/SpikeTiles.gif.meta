@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SpikeTiles_0: 3149526212212424323
+      SpikeTiles_1: 7402552986726804978
+      SpikeTiles_2: -529605257383477412
+      SpikeTiles_3: -801925933634744635
+      SpikeTiles_4: 5897020739054978876
+      SpikeTiles_5: -1394515268891054269
+      SpikeTiles_6: -4912187986511399913
+      SpikeTiles_7: 338879583448299889
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

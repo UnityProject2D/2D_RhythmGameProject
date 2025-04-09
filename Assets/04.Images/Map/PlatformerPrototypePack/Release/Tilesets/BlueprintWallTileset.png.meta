@@ -647,7 +647,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueprintWallTileset_0: 3723203051895310362
+      BlueprintWallTileset_1: 3779100034261071101
+      BlueprintWallTileset_10: 5409038803692735370
+      BlueprintWallTileset_11: -9092165789579542475
+      BlueprintWallTileset_12: 3893698878584860724
+      BlueprintWallTileset_13: 2130340331683896833
+      BlueprintWallTileset_14: 4976816258686417403
+      BlueprintWallTileset_15: 7973589616030127581
+      BlueprintWallTileset_16: -6830182452843460843
+      BlueprintWallTileset_17: 4362589276787071549
+      BlueprintWallTileset_18: 7554394720157391497
+      BlueprintWallTileset_19: -6721976120914011076
+      BlueprintWallTileset_2: -2104310771105022087
+      BlueprintWallTileset_20: -2917214970299968015
+      BlueprintWallTileset_3: -7740850258025609295
+      BlueprintWallTileset_4: 3033597333091697818
+      BlueprintWallTileset_5: -3361505325516327647
+      BlueprintWallTileset_6: 7399622140525881912
+      BlueprintWallTileset_7: 3459100380599004899
+      BlueprintWallTileset_8: 225689813687728812
+      BlueprintWallTileset_9: 2007838175287917284
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

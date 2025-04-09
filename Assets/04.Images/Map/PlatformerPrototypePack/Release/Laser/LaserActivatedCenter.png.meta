@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LaserActivatedCenter_0: 1871416126748668673
+      LaserActivatedCenter_1: 21927232161544781
+      LaserActivatedCenter_2: 3269751089588711876
+      LaserActivatedCenter_3: 8400964985354602088
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

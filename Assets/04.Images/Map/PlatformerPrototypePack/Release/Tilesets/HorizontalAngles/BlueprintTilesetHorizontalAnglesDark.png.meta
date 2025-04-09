@@ -672,7 +672,29 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueprintTilesetHorizontalAnglesDark_0: 1922657216417317315
+      BlueprintTilesetHorizontalAnglesDark_1: 3938153461747479627
+      BlueprintTilesetHorizontalAnglesDark_10: 8058016035585954179
+      BlueprintTilesetHorizontalAnglesDark_11: 8906908468666832039
+      BlueprintTilesetHorizontalAnglesDark_12: -4988038298821703910
+      BlueprintTilesetHorizontalAnglesDark_13: -6401952005177663795
+      BlueprintTilesetHorizontalAnglesDark_14: 1582600331001818192
+      BlueprintTilesetHorizontalAnglesDark_15: 1710259066793093830
+      BlueprintTilesetHorizontalAnglesDark_16: -4186925419090624150
+      BlueprintTilesetHorizontalAnglesDark_17: -8974952829218139708
+      BlueprintTilesetHorizontalAnglesDark_18: -3204913028456724220
+      BlueprintTilesetHorizontalAnglesDark_19: 759846355400125032
+      BlueprintTilesetHorizontalAnglesDark_2: -758066487891450894
+      BlueprintTilesetHorizontalAnglesDark_20: 5105701800247697688
+      BlueprintTilesetHorizontalAnglesDark_21: -6326076865945790668
+      BlueprintTilesetHorizontalAnglesDark_3: -3370072440011976330
+      BlueprintTilesetHorizontalAnglesDark_4: 4695068633718894291
+      BlueprintTilesetHorizontalAnglesDark_5: 440641633717450615
+      BlueprintTilesetHorizontalAnglesDark_6: -1617610391312719678
+      BlueprintTilesetHorizontalAnglesDark_7: -489487777836343215
+      BlueprintTilesetHorizontalAnglesDark_8: -1497366221335030631
+      BlueprintTilesetHorizontalAnglesDark_9: -3623616649664886859
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

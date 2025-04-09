@@ -672,7 +672,29 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueprintTilesetHorizontalAnglesWhite_0: -4674639508712299932
+      BlueprintTilesetHorizontalAnglesWhite_1: 976128850745878443
+      BlueprintTilesetHorizontalAnglesWhite_10: 5249613334596751791
+      BlueprintTilesetHorizontalAnglesWhite_11: -6009859607971899706
+      BlueprintTilesetHorizontalAnglesWhite_12: 3465843388094623484
+      BlueprintTilesetHorizontalAnglesWhite_13: -4676222421028422930
+      BlueprintTilesetHorizontalAnglesWhite_14: 3162427135313719165
+      BlueprintTilesetHorizontalAnglesWhite_15: 1101129690526491267
+      BlueprintTilesetHorizontalAnglesWhite_16: -4182823253269095800
+      BlueprintTilesetHorizontalAnglesWhite_17: 6896502737638906790
+      BlueprintTilesetHorizontalAnglesWhite_18: 2080154051777549366
+      BlueprintTilesetHorizontalAnglesWhite_19: -2518234691248745915
+      BlueprintTilesetHorizontalAnglesWhite_2: 1564871910403889764
+      BlueprintTilesetHorizontalAnglesWhite_20: -3500410754740528505
+      BlueprintTilesetHorizontalAnglesWhite_21: 1351444327397430626
+      BlueprintTilesetHorizontalAnglesWhite_3: -59764916133843719
+      BlueprintTilesetHorizontalAnglesWhite_4: 5380364407643070349
+      BlueprintTilesetHorizontalAnglesWhite_5: 7433521864927109022
+      BlueprintTilesetHorizontalAnglesWhite_6: -7148453887934948041
+      BlueprintTilesetHorizontalAnglesWhite_7: 2933309367998084764
+      BlueprintTilesetHorizontalAnglesWhite_8: 4920739907935789887
+      BlueprintTilesetHorizontalAnglesWhite_9: -9157318439811464522
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

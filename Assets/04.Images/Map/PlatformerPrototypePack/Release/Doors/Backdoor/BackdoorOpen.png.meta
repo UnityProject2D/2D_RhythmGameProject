@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BackdoorOpen_0: 8932948497640693865
+      BackdoorOpen_1: -3113352056877039865
+      BackdoorOpen_2: 1673036490150519267
+      BackdoorOpen_3: -2514838093381025828
+      BackdoorOpen_4: 4456919682283407618
+      BackdoorOpen_5: 4125383438986147548
+      BackdoorOpen_6: -4925196358269817743
+      BackdoorOpen_7: -3398228708955319259
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

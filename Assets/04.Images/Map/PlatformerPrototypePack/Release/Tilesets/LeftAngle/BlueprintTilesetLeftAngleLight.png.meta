@@ -722,7 +722,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueprintTilesetLeftAngleLight_0: 2082538776546060552
+      BlueprintTilesetLeftAngleLight_1: -3314799667573163066
+      BlueprintTilesetLeftAngleLight_10: 8846325414754410135
+      BlueprintTilesetLeftAngleLight_11: 4680992607822650705
+      BlueprintTilesetLeftAngleLight_12: 3559435225300198357
+      BlueprintTilesetLeftAngleLight_13: -6072051051306931234
+      BlueprintTilesetLeftAngleLight_14: -1307975957364965089
+      BlueprintTilesetLeftAngleLight_15: -4809896029028312084
+      BlueprintTilesetLeftAngleLight_16: -112908919347556917
+      BlueprintTilesetLeftAngleLight_17: 7796822561764244659
+      BlueprintTilesetLeftAngleLight_18: -4592814605682620285
+      BlueprintTilesetLeftAngleLight_19: 8081987946311880093
+      BlueprintTilesetLeftAngleLight_2: 6254659554687270708
+      BlueprintTilesetLeftAngleLight_20: -8889634483754288877
+      BlueprintTilesetLeftAngleLight_21: -603037247273443888
+      BlueprintTilesetLeftAngleLight_22: -5840692531574243435
+      BlueprintTilesetLeftAngleLight_23: -1155519733781212858
+      BlueprintTilesetLeftAngleLight_3: 3727391110011161138
+      BlueprintTilesetLeftAngleLight_4: -7146046696775390405
+      BlueprintTilesetLeftAngleLight_5: -5664518210585569433
+      BlueprintTilesetLeftAngleLight_6: 7505816035283007526
+      BlueprintTilesetLeftAngleLight_7: -426655835236014856
+      BlueprintTilesetLeftAngleLight_8: -7967702178105466857
+      BlueprintTilesetLeftAngleLight_9: 1561546953483289265
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -672,7 +672,29 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueprintTilesetHorizontalAnglesCold_0: 7461504391168709913
+      BlueprintTilesetHorizontalAnglesCold_1: 4710685993607492186
+      BlueprintTilesetHorizontalAnglesCold_10: -7741525656127815798
+      BlueprintTilesetHorizontalAnglesCold_11: -1004073793145592850
+      BlueprintTilesetHorizontalAnglesCold_12: 7664290954404520058
+      BlueprintTilesetHorizontalAnglesCold_13: -4718413133425088800
+      BlueprintTilesetHorizontalAnglesCold_14: 3885288662950402028
+      BlueprintTilesetHorizontalAnglesCold_15: -983296126546627728
+      BlueprintTilesetHorizontalAnglesCold_16: -8423346033223067567
+      BlueprintTilesetHorizontalAnglesCold_17: -7607005338093073636
+      BlueprintTilesetHorizontalAnglesCold_18: -4156870317257432400
+      BlueprintTilesetHorizontalAnglesCold_19: 4123039806759735769
+      BlueprintTilesetHorizontalAnglesCold_2: 370768020801136990
+      BlueprintTilesetHorizontalAnglesCold_20: -2659252548152640148
+      BlueprintTilesetHorizontalAnglesCold_21: 8595428036504696881
+      BlueprintTilesetHorizontalAnglesCold_3: 7901336962747325773
+      BlueprintTilesetHorizontalAnglesCold_4: -261803034115874998
+      BlueprintTilesetHorizontalAnglesCold_5: 9031563925366557629
+      BlueprintTilesetHorizontalAnglesCold_6: -1529818126977617350
+      BlueprintTilesetHorizontalAnglesCold_7: 3790704470918835200
+      BlueprintTilesetHorizontalAnglesCold_8: 8332267472060054157
+      BlueprintTilesetHorizontalAnglesCold_9: 4266011038886997658
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
