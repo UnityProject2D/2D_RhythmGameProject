@@ -31,6 +31,7 @@ public class EnemyAttackController : MonoBehaviour
 
     private void Start()
     {
+        _playerTransform = PlayerHealth.Instance.GetComponent<Transform>();
         // 총알 오브젝트 풀 생성
         for (int i = 0; i < poolSize; i++)
         {
