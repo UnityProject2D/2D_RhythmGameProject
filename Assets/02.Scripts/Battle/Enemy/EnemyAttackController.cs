@@ -18,11 +18,10 @@ public class EnemyAttackController : MonoBehaviour
 
     public GameObject EnemyBulletPrefab;
     private List<GameObject> EnemyBulletPool = new();
-    public Transform PlayerTransform;
+    private Transform _playerTransform;
     public Transform GunPosition;
 
     private int poolSize = 10;
-    private bool _isDead = false; //////////// 적 사망 여부
 
     private void Awake()
     {
@@ -31,7 +30,7 @@ public class EnemyAttackController : MonoBehaviour
 
     private void Start()
     {
-        ScoreManager.Instance.OnScoreChanged += EnemyDieJdg;
+        OnMusicStopped += EnemyDieJdg;
         // 총알 오브젝트 풀 생성
         for (int i = 0; i < poolSize; i++)
         {
@@ -49,12 +48,11 @@ public class EnemyAttackController : MonoBehaviour
     private void OnDisable()
     {
         OnNote -= OnNoteReceived;
-        ScoreManager.Instance.OnScoreChanged -= EnemyDieJdg;
+        OnMusicStopped -= EnemyDieJdg;
     }
 
     private void OnNoteReceived(NoteData beatTime)
     {
-        if (_isDead) return; /////////////// 적이 죽었으면 리턴
         PlayAttackSound();
         int index = GetIndexFromKey(beatTime.expectedKey); // 입력 키(WASD) → 인덱스로 변환 (0~3)
         if (index < 0 || index >= EnemyBulletPool.Count) return;
@@ -88,16 +86,16 @@ public class EnemyAttackController : MonoBehaviour
 
         bullet.transform.position = GunPosition.position;
         Vector2 direction;
-        if (PlayerTransform == null)
+        if (_playerTransform == null)
             direction = GunPosition.position;
 
         switch (directionIndex)
         {
-            case 0: direction = (PlayerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
-            case 1: direction = (PlayerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
+            case 0: direction = (_playerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
+            case 1: direction = (_playerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
             case 2: direction = Vector3.left; break;   // A - 왼쪽 몸통
             case 3: direction = Vector3.left; break;  // D - 오른쪽 몸통
-            default: direction = PlayerTransform.position; break;
+            default: direction = _playerTransform.position; break;
         }
 
         direction = direction.normalized;
@@ -135,12 +133,11 @@ public class EnemyAttackController : MonoBehaviour
 
     ///////// 적이 죽으면!! -> ScoreManager StageCleared 코드 완성된 후 점검 후 수정할것!
     ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
-    private void EnemyDieJdg(int score)
+    private void EnemyDieJdg()
     {
-        if (_isDead) return;
-        if (score >= 5000)
+        if (ScoreManager.Instance.Score >= 10000)
         {
-            _isDead = true;
+            RuntimeManager.PlayOneShot("event:/SFX/EnemyDie");
             _animator.SetTrigger("Die");
         }
     }
