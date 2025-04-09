@@ -1,5 +1,6 @@
 using MoreMountains.Feedbacks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VFXManager : MonoBehaviour
 {
@@ -9,7 +10,25 @@ public class VFXManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += DestroyOnRestart;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= DestroyOnRestart;
+    }
+
+    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene.name == "GameTitle")
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
     [Header("MMF 피드백")]
     public MMF_Player[] OnNoteFeedback;

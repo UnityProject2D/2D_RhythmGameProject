@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -37,11 +38,25 @@ public class ScoreManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void Start()
+    private void OnEnable()
     {
         RhythmEvents.OnInputJudged += OnJudged;
         RhythmEvents.OnMusicStopped += OnStageCleared;
+        SceneManager.sceneLoaded += DestroyOnRestart;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= DestroyOnRestart;
+        RhythmEvents.OnInputJudged -= OnJudged;
+        RhythmEvents.OnMusicStopped -= OnStageCleared;
+    }
+
+    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene.name == "GameTitle")
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnJudged(JudgedContext judgementResult)

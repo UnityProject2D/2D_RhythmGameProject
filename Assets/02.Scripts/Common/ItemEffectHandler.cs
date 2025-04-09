@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemEffectHandler : MonoBehaviour
 {
@@ -18,7 +19,24 @@ public class ItemEffectHandler : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject); 
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += DestroyOnRestart;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= DestroyOnRestart;
+    }
+
+    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene.name == "GameTitle")
+        {
+            Destroy(gameObject);
+        }
     }
     public bool ApplyEffect(ItemID id, float value, float duration = 0f)
     {
