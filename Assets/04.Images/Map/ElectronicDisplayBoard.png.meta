@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cd1a77d3de3c8ed45b9ff91f4dd73f82
+guid: a16325769b24b3946b63278de1bcc2f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3811515909812632964
-    second: BossMapImage_0
+      213: 8991738747211769582
+    second: ElectronicDisplayBoard_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BossMapImage_0
+      name: ElectronicDisplayBoard_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1066
-        height: 869
+        width: 576
+        height: 205
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c724edb6976ca1bc0800000000000000
-      internalID: -3811515909812632964
+      spriteID: ee66ca410c219cc70800000000000000
+      internalID: 8991738747211769582
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BossMapImage_0: -3811515909812632964
+      ElectronicDisplayBoard_0: 8991738747211769582
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
