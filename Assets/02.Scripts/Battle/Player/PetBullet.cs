@@ -6,6 +6,7 @@ public class PetBullet : MonoBehaviour
     public float speed = 10f;
     public float lifetime = 7f;
 
+
     private void OnEnable()
     {
         Invoke(nameof(Disable), lifetime);

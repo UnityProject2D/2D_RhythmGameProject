@@ -132,18 +132,18 @@ public class UI_ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (success)
         {
             Debug.Log($"{id} 아이템 효과 적용됨");
-            
+
         }
         else
         {
             Debug.Log($"{id} 아이템 효과 적용 실패 또는 쿨타임");
         }
     }
-    
+
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(currentItem!=null)
+        if (currentItem != null)
             TooltipUI.Instance.Show(currentItem);
     }
     public void OnPointerExit(PointerEventData eventData)

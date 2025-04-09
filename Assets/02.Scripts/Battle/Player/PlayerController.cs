@@ -1,5 +1,5 @@
 using UnityEngine;
-using static RhythmInputHandler;
+using static RhythmInputHandler; // 플레이어 입력 처리
 
 public enum RhythmAction
 {
@@ -15,7 +15,6 @@ public enum RhythmAction
 public class PlayerController : MonoBehaviour
 {
     private Animator _animator;
-    public Transform vfxSpawnPoint;
 
     public bool IsDead;
     public bool IsAlive = true;
@@ -55,17 +54,16 @@ public class PlayerController : MonoBehaviour
 
         _animator.SetInteger("Direction", (int)direction);
         _animator.SetTrigger("Actioned");
+
     }
 
+    
 
     private void OnInputJudg(JudgedContext result)
     {
-        if (result.Result == JudgementResult.Miss)
+        if (result.Result == JudgementResult.Miss && !IsDead)
         {
-            if (!IsDead)
-            {
-                _animator.SetTrigger("Hit");
-            }
+            _animator.SetTrigger("Hit");
         }
     }
 }

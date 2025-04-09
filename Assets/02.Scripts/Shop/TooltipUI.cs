@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class TooltipUI : MonoBehaviour
 {
@@ -22,10 +23,13 @@ public class TooltipUI : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else Destroy(gameObject);
 
-        DontDestroyOnLoad(gameObject);
         _tooltipRoot.SetActive(false);
     }
     void Update()
@@ -48,7 +52,6 @@ public class TooltipUI : MonoBehaviour
         _tooltipRoot.SetActive(true);
         _isVisible = true;
     }
-
     public void Show(ItemSO item)
     {
         _nameText.text = item.itemName;

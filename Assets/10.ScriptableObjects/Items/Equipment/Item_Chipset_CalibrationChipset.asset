@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Chipset_CalibrationChipset
   m_EditorClassIdentifier: 
-  itemID: 4
+  itemID: 0
   itemName: "\uCE69\uC14B: \uC790\uB3D9 \uAD50\uC815 \uC720\uB2DB"
   icon: {fileID: -4746165608197179889, guid: bb5def8d9ffbba44da206f633afde860, type: 3}
-  description: "\uCE58\uBA85\uC801\uC778 \uD53C\uD574\uB97C 1\uD68C \uBB34\uD6A8\uD654\uD558\uB294
-    \uC790\uAE30 \uBCF4\uC815 \uC720\uB2DB. \n\uB9AC\uB4EC \uC624\uB958\uB97C \uAC10\uC9C0\uD574
-    \uC989\uC2DC \uBCF4\uC644 \uD504\uB85C\uC138\uC2A4\uB97C \uC2E4\uD589\uD568."
-  EffectDescription: "\uD53C\uD574\uB97C \uC785\uC744 \uB54C \uD574\uB2F9 \uD53C\uD574
-    \uBB34\uC2DC\n\uC7AC\uC0AC\uC6A9 \uB300\uAE30\uC2DC\uAC04: 20\uCD08"
+  description: "\uCE58\uBA85\uC801 \uC190\uC0C1\uC744 1\uD68C \uBB34\uD6A8\uD654\uD558\uB294\n\uC790\uAE30
+    \uAD50\uC815\uD615 \uBCF4\uC870 \uC720\uB2DB.\n\n\uB9AC\uB4EC \uC624\uB958 \uAC10\uC9C0
+    \uC989\uC2DC\n\uBCF4\uC644 \uD504\uB85C\uC138\uC2A4\uB97C \uC790\uB3D9 \uC2E4\uD589\uD558\uC5EC\n\uC2DC\uC2A4\uD15C\uC744
+    \uC548\uC815\uD654\uC2DC\uD0A8\uB2E4."
+  EffectDescription: "\uD53C\uD574 \uBC1C\uC0DD \uC2DC \uD574\uB2F9 \uD53C\uD574
+    \uBB34\uC2DC\n\uCFE8\uD0C0\uC784: 20\uCD08"
   category: {fileID: 11400000, guid: 1800b112f2b16884c8dd374b5b274634, type: 2}
   isConsumable: 0
   EffectValue: 0
   EffectDuration: 0
-  EffectCooldown: 2
+  value: 0
+  EffectCooldown: 20

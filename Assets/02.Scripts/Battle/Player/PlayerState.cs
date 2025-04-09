@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System;
 using UnityEngine;
 public struct ItemUseStatus
@@ -14,6 +13,9 @@ public struct ItemUseStatus
 public class PlayerState : MonoBehaviour
 {
     public static PlayerState Instance { get; private set; }
+    public ItemEffectHandler ItemEffectHandler;
+    public event Action<ItemUseStatus> OnItemUsed;
+
     [Header("아이템 관련")]
     [Space(10)]
     [Header("영구 아이템")]
@@ -32,19 +34,11 @@ public class PlayerState : MonoBehaviour
     [Header("회복 알고리즘: n스테이지마다 체력 회복")]
     public bool RecoveryAlgorithmCoreEnabled;
 
-    public ItemEffectHandler ItemEffectHandler;
-
-    
-    public event Action<ItemUseStatus> OnItemUsed;
-
-
     [Space(10)]
     [Header("장비 아이템")]
     [Space(5)]
     [Header("자동 교정 유닛: 체력 깎이는거 한번 방어")]
     public bool CalibrationChipsetEnabled;
-    
-
     [Header("강제 회피 프로토콜: 미스해도 일정확률로 Good 판정")]
     public bool ForcedEvasionEnabled;
     [Header("자동 콤보 시스템: Perfect 3회마다 추가 콤보 누적")]
@@ -71,7 +65,6 @@ public class PlayerState : MonoBehaviour
     public bool ComboProtectorUsed;
     [Header("해킹 툴: 상점 아이템 랜덤 1개 무료")]
     public bool HackingToolUsed;
-
     public void SetItemEnabled(ItemID id, bool flag)
     {
         switch (id)

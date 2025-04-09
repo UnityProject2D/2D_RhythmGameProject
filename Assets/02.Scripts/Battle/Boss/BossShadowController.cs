@@ -1,0 +1,200 @@
+using DG.Tweening;
+using FMODUnity;
+using System.Collections.Generic;
+using UnityEngine;
+using static RhythmEvents;
+
+public class BossShadowController : MonoBehaviour
+{
+    public bool test;
+    private Animator _animator;
+
+    public Transform gunPoint; // 총구 위치 기준 Transform (필수!)
+
+    public Sprite[] directionSprites = new Sprite[4]; // W, S, A, D 순서
+    private const int PoolSizePerDirection = 8;
+    private List<GameObject>[] shadowPools = new List<GameObject>[4];
+
+    public Transform playerTransform;
+    private bool _isDead = false; ////////////// 적 사망 여부
+    private SpriteRenderer _spriteRenderer; // 적 본체 페이드인&아웃용
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>(); // 적 본체 페이드인&아웃용
+        for (int i = 0; i < 4; i++)
+            shadowPools[i] = new List<GameObject>();
+    }
+
+    private void Start()
+    {
+        ScoreManager.Instance.OnScoreChanged += BossDieJdg;
+        for (int dir = 0; dir < 4; dir++)
+        {
+            for (int i = 0; i < PoolSizePerDirection; i++)
+            {
+                GameObject shadow = CreateShadowObject(dir);
+                shadow.SetActive(false);
+                shadowPools[dir].Add(shadow);
+            }
+        }
+    }
+
+    private void OnEnable()
+    {
+        OnNotePreview += OnNotePreviewReceived;
+        OnNote += OnNoteReceived;
+        _spriteRenderer.color = new Color(1f, 1f, 1f, 0f); // 투명도 초기화
+    }
+
+    private void OnDisable()
+    {
+        OnNotePreview -= OnNotePreviewReceived;
+        OnNote -= OnNoteReceived;
+        ScoreManager.Instance.OnScoreChanged -= BossDieJdg;
+    }
+
+    private void OnNotePreviewReceived(NoteData beatNote)
+    {
+        if (_isDead) return; /////////////// 적이 죽었으면 리턴
+        PlayAttackSound();
+        if (_spriteRenderer.color.a == 1f) return;
+        _spriteRenderer.color = new Color(1f, 0f, 0f, 0.9f); // 투명도 초기화
+        FadeInBoss();
+
+        int dir = GetIndexFromKey(beatNote.expectedKey);
+        if (dir < 0 || dir >= 4) return;
+
+        if (test)
+            _animator.SetTrigger("Attack");
+
+        GameObject shadow = GetInactiveShadow(dir);
+        if (shadow == null) return;
+
+        // 총구 위치 기준 생성
+        shadow.transform.position = gunPoint.position;
+
+        // 방향 계산: 총구 → 플레이어
+        Vector3 dirToPlayer = (GetTargetPositionFromKey(dir) - gunPoint.position).normalized;
+        float angle = Mathf.Atan2(dirToPlayer.y, dirToPlayer.x) * Mathf.Rad2Deg;
+        shadow.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        // 초기 스케일 설정
+        shadow.transform.localScale = new Vector3(0.1f, 0.04f, 0.1f); // 
+        shadow.SetActive(true);
+
+        // 투명도 초기화
+        var sr = shadow.GetComponent<SpriteRenderer>();
+        sr.DOFade(1f, 0f);
+
+        // Y방향 축소로 사라지게
+        shadow.transform.DOScaleY(0f, 1f).SetEase(Ease.InQuad).OnComplete(() =>
+        {
+            shadow.SetActive(false);
+        });
+    }
+
+    private void OnNoteReceived(NoteData beatTime)
+    {
+        if (_spriteRenderer.color.a == 0f) return;
+        FadeOutBoss();
+    }
+
+    private Vector3 GetTargetPositionFromKey(int dir)
+    {
+        if (playerTransform == null)
+            return gunPoint.position;
+
+        return dir switch
+        {
+            0 => playerTransform.position + Vector3.down * 0.25f,     // W - 머리
+            1 => playerTransform.position + Vector3.up * 2f,   // S - 다리
+            2 => gunPoint.position + Vector3.left * 1f,   // A - 왼쪽 몸통
+            3 => gunPoint.position + Vector3.left * 1f,  // D - 오른쪽 몸통
+            _ => playerTransform.position
+        };
+    }
+
+    public void PlayAttackSound()
+    {
+        RuntimeManager.PlayOneShot("event:/SFX/PreviewSound");
+    }
+
+    private int GetIndexFromKey(string key)
+    {
+        return key switch
+        {
+            "W" => 0,
+            "S" => 1,
+            "A" => 2,
+            "D" => 3,
+            _ => -1
+        };
+    }
+
+    private GameObject GetInactiveShadow(int dir)
+    {
+        foreach (var shadow in shadowPools[dir])
+        {
+            if (!shadow.activeInHierarchy)
+                return shadow;
+        }
+        return null;
+    }
+
+    private GameObject CreateShadowObject(int dir)
+    {
+        GameObject obj = new GameObject($"Shadow_{dir}");
+        obj.transform.SetParent(transform);
+
+        SpriteRenderer sr = obj.AddComponent<SpriteRenderer>();
+        sr.sprite = directionSprites[dir];
+        sr.sortingLayerName = "Enemy";
+        sr.sortingOrder = 11;
+        sr.color = GetColor(dir);
+        sr.material = new Material(Shader.Find("Sprites/Default"));
+        sr.DOFade(0f, 0f); // DOTween용 초기 투명도 설정
+
+        return obj;
+    }
+
+    private Color GetColor(int dir)
+    {
+        return dir switch
+        {
+            0 => new Color(1f, 0f, 0f, 0.1f),                         // W - 기본
+            1 => new Color(1f, 0f, 0f, 0.1f),                          // S - 머리
+            2 => new Color(0f, 1f, 1f, 0.1f),                        // A - 노란 몸통
+            3 => new Color(0.5f, 0f, 1f, 0.3f),
+            _ => Color.white
+        };
+    }
+
+    ///////// 적이 죽으면!! -> ScoreManager StageCleared 코드 완성된 후 점검 후 수정할것!
+    ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
+    private void BossDieJdg(int score)
+    {
+        if (_isDead) return; /////////////// 적이 죽었으면 리턴
+        if (score >= 5000)
+        {
+            _isDead = true;
+            FadeOutBoss(); // 페이드아웃
+            DOVirtual.DelayedCall(0.5f, () => gameObject.SetActive(false)); // 0.5초 후 비활성화
+        }
+    }
+
+    private void FadeInBoss(float duration = 1f)
+    {
+        _spriteRenderer.DOKill();
+        //불투명한 빨간스프라이트로 변경
+        if (_spriteRenderer.color.a >= 0.49f) return;
+        _spriteRenderer.DOFade(0.5f, duration).SetEase(Ease.InOutQuad); //.SetEase(Ease.OutQuad)
+    }
+    private void FadeOutBoss(float duration = 0.5f)
+    {
+        _spriteRenderer.DOKill();
+        _spriteRenderer.DOFade(0f, duration).SetEase(Ease.OutQuad); //.SetEase(Ease.OutQuad)
+    }
+
+}

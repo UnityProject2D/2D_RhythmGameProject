@@ -24,10 +24,12 @@ public class RhythmJudge : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
@@ -121,20 +123,12 @@ public class RhythmJudge : MonoBehaviour
         float abs = Mathf.Abs(delta);
 
         if (abs <= beatDuration * perfectRange * (1+PermenantEffect * PermenantStack) * (1+TemporaryEffect * TemporaryStack))
-        {
-            VFXManager.Instance.PlayOnPerfectFeedback();
             return JudgementResult.Perfect;
-        }
         else if (abs <= beatDuration * goodRange * (1 + PermenantEffect * PermenantStack) * (1 + TemporaryEffect * TemporaryStack))
-        {
-            VFXManager.Instance.PlayOnNoteFeedback();
-            return JudgementResult.Perfect;
-        }
+            return JudgementResult.Good;
         else if (abs <= beatDuration * badRange * (1 + PermenantEffect * PermenantStack) * (1 + TemporaryEffect * TemporaryStack))
             return JudgementResult.Bad;
         else
-        {
             return JudgementResult.Miss;
-        }
     }
 }

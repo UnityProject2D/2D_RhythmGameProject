@@ -3,7 +3,7 @@ using UnityEngine;
 public class SquareOrbitEffect : MonoBehaviour
 {
     public RectTransform targetIcon; // 중심 아이콘
-    public RectTransform rect;
+    private RectTransform rect;
     public float tSize; // 아이콘의 외곽 경로 크기
     public float speed; // 움직이는 속도 (픽셀/초)
 
