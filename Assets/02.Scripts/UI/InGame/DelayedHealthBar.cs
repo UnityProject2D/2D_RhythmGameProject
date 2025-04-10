@@ -82,10 +82,11 @@ public class DelayedHealthBar : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerHealth.Instance != null)
+        if (GameManager.Instance.Player != null)
         {
-            _maxHealth = PlayerHealth.Instance.PlayerMaxHealth;
-            PlayerHealth.Instance.OnPlayerHealthChanged += HandleHealthChanged; // 플레이어 체력 변경 이벤트 구독
+            var playerHealth = GameManager.Instance.Player.Health;
+            _maxHealth = playerHealth.PlayerMaxHealth;
+            playerHealth.OnPlayerHealthChanged += HandleHealthChanged; // 플레이어 체력 변경 이벤트 구독
         } // 플레이어가 죽은 경우 이벤트 구독하지 않음
 
 
@@ -173,8 +174,8 @@ public class DelayedHealthBar : MonoBehaviour
         {
             _backSliderTween.Kill();
         }
-        if (PlayerHealth.Instance != null) // 플레이어가 죽은 경우 이벤트 구독하지 않음
-            PlayerHealth.Instance.OnPlayerHealthChanged -= HandleHealthChanged; // 플레이어 체력 변경 이벤트 구독 해제
+        if (GameManager.Instance.Player != null) // 플레이어가 죽은 경우 이벤트 구독하지 않음
+            GameManager.Instance.Player.Health.OnPlayerHealthChanged -= HandleHealthChanged; // 플레이어 체력 변경 이벤트 구독 해제
     }
 
     private void HandleHealthChanged(float currentHealth)

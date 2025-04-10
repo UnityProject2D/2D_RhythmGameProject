@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        _playerTransform = PlayerHealth.Instance.GetComponent<Transform>();
+        _playerTransform = GameManager.Instance.Player.Transform;
         OnMusicStopped += EnemyDieJdg;
         for (int dir = 0; dir < 4; dir++)
         {

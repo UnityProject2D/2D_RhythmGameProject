@@ -43,7 +43,7 @@ public class EnemyAttackController : MonoBehaviour
             EnemyBulletPool.Add(bullet);
         }
 
-        _playerTransform = PlayerHealth.Instance.GetComponent<Transform>();
+        _playerTransform = GameManager.Instance.Player.Transform;
 }
 
     private void OnEnable()
