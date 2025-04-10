@@ -6,6 +6,7 @@ using static RhythmEvents;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using MoreMountains.Tools;
+using UnityEngine.SceneManagement;
 
 enum NoteTriggerState
 {
@@ -65,7 +66,24 @@ public class RhythmManager : MonoBehaviour
         {
             Play();
         }
-}
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += DestroyOnRestart;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= DestroyOnRestart;
+    }
+
+    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene.name == "GameTitle")
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Update()
     {

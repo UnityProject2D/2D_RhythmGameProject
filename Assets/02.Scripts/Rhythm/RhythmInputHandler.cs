@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using UnityEngine.SceneManagement;
 
 public class RhythmInputHandler : MonoBehaviour
 {
     private @PlayerInputAction inputActions;
-    public static RhythmInputHandler Instance;
+    public static RhythmInputHandler Instance { get; private set; }
 
     public event Action<string> OnInputPerformed; // 입력 이벤트 (리듬 키)
 
@@ -24,6 +25,8 @@ public class RhythmInputHandler : MonoBehaviour
         inputActions.Player.RhythmAction_A.performed += OnAPressed;
         inputActions.Player.RhythmAction_S.performed += OnSPressed;
         inputActions.Player.RhythmAction_D.performed += OnDPressed;
+
+        SceneManager.sceneLoaded += DestroyOnRestart;
     }
 
     private void OnDisable()
@@ -34,6 +37,14 @@ public class RhythmInputHandler : MonoBehaviour
         inputActions.Player.RhythmAction_A.performed -= OnAPressed;
         inputActions.Player.RhythmAction_S.performed -= OnSPressed;
         inputActions.Player.RhythmAction_D.performed -= OnDPressed;
+        SceneManager.sceneLoaded -= DestroyOnRestart;
+    }
+    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene.name == "GameTitle")
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnWPressed(InputAction.CallbackContext ctx) => OnInputPerformed?.Invoke("W");

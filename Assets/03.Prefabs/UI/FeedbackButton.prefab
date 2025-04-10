@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1588852879521414489}
   - component: {fileID: 152592760127698566}
   - component: {fileID: 2917596863029516167}
+  - component: {fileID: -8527940473535385511}
   m_Layer: 5
   m_Name: FeedbackButton
   m_TagString: Untagged
@@ -124,7 +125,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8698485541242291377}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -8527940473535385511}
+        m_TargetAssemblyTypeName: UIButtonHandler, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2625496500901757144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,6 +887,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &-8527940473535385511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102014767608399445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934f19cf1ae4df24dbbf1a8404328f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: ComatScene
+  action: 0
 --- !u!1 &5014049091561009791
 GameObject:
   m_ObjectHideFlags: 0

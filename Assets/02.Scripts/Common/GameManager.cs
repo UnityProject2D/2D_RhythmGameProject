@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,8 +26,21 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         RhythmEvents.OnMusicStopped -= OnMusicStopped;
+        SceneManager.sceneLoaded -= DestroyOnRestart;
     }
 
+    private void Start()
+    {
+        SceneManager.sceneLoaded += DestroyOnRestart;
+    }
+
+    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if(scene.name == "GameTitle")
+        {
+            Destroy(gameObject);
+        }
+    }
     private void OnMusicStopped()
     {
         Debug.Log("음악 끝. 3초 뒤 결과 출력");

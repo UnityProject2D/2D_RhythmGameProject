@@ -1,6 +1,7 @@
 using MoreMountains.Feedbacks;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -30,10 +31,27 @@ public class PlayerHealth : MonoBehaviour
         _playerCurrentHealth = PlayerMaxHealth;
         _animator = GetComponent<Animator>();
     }
+    private void OnEnable()
+    {
 
+        RhythmEvents.OnInputJudged += HandleJudge;
+        SceneManager.sceneLoaded += DestroyOnRestart;
+    }
+    private void OnDisable()
+    {
+        RhythmEvents.OnInputJudged -= HandleJudge;
+        SceneManager.sceneLoaded -= DestroyOnRestart;
+    }
+
+    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene.name == "GameTitle")
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
-        RhythmEvents.OnInputJudged += HandleJudge;
         //TODO: 아이템 효과 구독해서 회복
         //RecoveryAlgorithmCore
         //체력회복아이템
