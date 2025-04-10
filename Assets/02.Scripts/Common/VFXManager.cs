@@ -35,6 +35,7 @@ public class VFXManager : MonoBehaviour
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= DestroyOnRestart;
+        _artifactsSettings.SetActive(false);
     }
 
     private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
