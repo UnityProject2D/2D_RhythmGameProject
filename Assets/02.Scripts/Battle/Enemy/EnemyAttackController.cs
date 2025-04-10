@@ -1,4 +1,6 @@
+using Cysharp.Threading.Tasks;
 using FMODUnity;
+using MoreMountains.Feedbacks;
 using System.Collections.Generic;
 using UnityEngine;
 using static RhythmEvents;
@@ -20,6 +22,8 @@ public class EnemyAttackController : MonoBehaviour
     private List<GameObject> EnemyBulletPool = new();
     public Transform _playerTransform;
     public Transform GunPosition;
+    public MMF_Player CoinEffect;
+    public GameObject QuantumKey;
 
     private int poolSize = 10;
 
@@ -136,6 +140,15 @@ public class EnemyAttackController : MonoBehaviour
         {
             RuntimeManager.PlayOneShot("event:/SFX/EnemyDie");
             _animator.SetTrigger("Die");
+            DropKey().Forget();
+
+            async UniTaskVoid DropKey()
+            {
+                Instantiate(QuantumKey, transform.position, Quaternion.identity);
+                CoinEffect?.PlayFeedbacks();
+                await UniTask.Delay(1000);
+                Destroy(gameObject);
+            }
         }
     }
 }
