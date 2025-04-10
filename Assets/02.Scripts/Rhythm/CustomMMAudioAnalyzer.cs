@@ -130,7 +130,8 @@ namespace MoreMountains.Tools
 		public FFTWindow Window = FFTWindow.Rectangular;
 		[Range(1, 64)]
 		[MMReadOnlyWhenPlaying]
-		public int NumberOfBands = 8;
+        [MMInformation("Bands 수 만큼 Light를 설정할 수 있습ㄴㅣㄷㅏ", MoreMountains.Tools.MMInformationAttribute.InformationType.Info, false)]
+        public int NumberOfBands = 8;
 		public float BufferSpeed = 2f;
 
 		[Header("Beat Events")]
