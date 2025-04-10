@@ -3,8 +3,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
+using FronkonGames.Glitches.Artifacts;
+
 public class VFXManager : MonoBehaviour
 {
+
+    private Artifacts _artifactsSettings;
     public static VFXManager Instance { get; private set; }
 
     private void Awake()
@@ -14,6 +18,15 @@ public class VFXManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         LightMMFPlayers = new List<MMF_Player>();
         RhythmEvents.OnBeat += PlayOnBeatFeedback;
+
+        if(_artifactsSettings == null)
+        {
+            _artifactsSettings = Artifacts.Instance;
+            if (_artifactsSettings == null)
+            {
+                Debug.LogError("Settings not found in VFXManager.");
+            }
+        }
     }
     private void OnEnable()
     {
@@ -57,5 +70,15 @@ public class VFXManager : MonoBehaviour
     public void PlayOnGoodFeedback() => OnGoodFeedback?.PlayFeedbacks();
     public void PlayExplosionFeedback() => ExplosionFeedback?.PlayFeedbacks();
     public void PlayhitFlashFeedback() => hitFlashFeedback?.PlayFeedbacks();
+
+    public void SetArtifacts(bool flag)
+    {
+        if (_artifactsSettings == null)
+        {
+            Debug.LogError("Settings not found in VFXManager.");
+            return;
+        }
+        _artifactsSettings.SetActive(flag);
+    }
 
 }

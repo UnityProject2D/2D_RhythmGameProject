@@ -33,14 +33,7 @@ public class OverDriveEffect : MonoBehaviour
         StartCoroutine(ShowSystemLogs());
 
         // 3. 글리치 효과 키기
-        if(glitchVolume != null)
-        {
-            glitchVolume.weight = 1f;
-        }
-        else
-        {
-            Debug.LogError("Glitch volume not assigned in OverDriveEffect.");
-        }
+        VFXManager.Instance.SetArtifacts(true);
 
             // 4. 30초 대기
         yield return new WaitForSeconds(duration);
@@ -56,14 +49,7 @@ public class OverDriveEffect : MonoBehaviour
         yield return AnimateBox(false);
 
         // 7. 글리치 꺼짐
-        if (glitchVolume != null)
-        {
-            glitchVolume.weight = 0f;
-        }
-        else
-        {
-            Debug.LogError("Glitch volume not assigned in OverDriveEffect.");
-        }
+        VFXManager.Instance.SetArtifacts(false);
         Destroy(gameObject);
     }
 
