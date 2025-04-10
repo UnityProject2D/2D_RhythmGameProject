@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameTitleController : MonoBehaviour
 {
+    [Header("BGM")]
+    [SerializeField] private TitleMusicPlayer _titleMusicPlayer;
     [SerializeField] private float _bgmDelay = 1.5f;
 
     private void Start()
@@ -14,11 +16,6 @@ public class GameTitleController : MonoBehaviour
     IEnumerator PlayBGMWithDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        PlayBGM();
-    }
-
-    public void PlayBGM()
-    {
-        RuntimeManager.PlayOneShot("event:/Title");
+        _titleMusicPlayer.Play();
     }
 }
