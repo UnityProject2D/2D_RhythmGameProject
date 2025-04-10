@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 public enum JudgementResult
 {
@@ -75,7 +74,7 @@ public static class RhythmEvents
     public static void InvokeOnSubBeat() => OnSubBeat?.Invoke();
     public static void InvokeOnInputJudged(JudgementResult result)
     {
-        
+
         OnInputJudged?.Invoke(new JudgedContext
         {
             RandomValue = UnityEngine.Random.value,

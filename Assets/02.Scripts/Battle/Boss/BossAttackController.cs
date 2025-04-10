@@ -24,7 +24,7 @@ public class BossAttackController : MonoBehaviour
     public GameObject BossBulletPrefab;
     private List<GameObject> BossBulletPool = new();
     public Transform PlayerTransform;
-    public Transform GunPosition;
+    public Transform[] GunPosition;
 
     private int poolSize = 10;
     private bool _isDead = false; //////////// 적 사망 여부
@@ -41,7 +41,8 @@ public class BossAttackController : MonoBehaviour
         // 총알 오브젝트 풀 생성
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject bullet = Instantiate(BossBulletPrefab, GunPosition.position, Quaternion.identity);
+            int r = Random.Range(0, GunPosition.Length);
+            GameObject bullet = Instantiate(BossBulletPrefab, GunPosition[r].position, Quaternion.identity);
             bullet.SetActive(false);
             BossBulletPool.Add(bullet);
         }
@@ -92,15 +93,16 @@ public class BossAttackController : MonoBehaviour
         GameObject bullet = GetBulletFromPool();
         if (bullet == null) return;
 
-        bullet.transform.position = GunPosition.position;
+        int r = Random.Range(0, GunPosition.Length);
+        bullet.transform.position = GunPosition[r].position;
         Vector2 direction;
         if (PlayerTransform == null)
-            direction = GunPosition.position;
+            direction = GunPosition[r].position;
 
         switch (directionIndex)
         {
-            case 0: direction = (PlayerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
-            case 1: direction = (PlayerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
+            case 0: direction = (PlayerTransform.position + Vector3.down * 0.25f) - GunPosition[r].position; break;     // W - 머리
+            case 1: direction = (PlayerTransform.position + Vector3.up * 2f) - GunPosition[r].position; break;   // S - 다리
             case 2: direction = Vector3.left; break;   // A - 왼쪽 몸통
             case 3: direction = Vector3.left; break;  // D - 오른쪽 몸통
             default: direction = PlayerTransform.position; break;
@@ -116,13 +118,14 @@ public class BossAttackController : MonoBehaviour
 
     private GameObject GetBulletFromPool()
     {
+        int r = Random.Range(0, GunPosition.Length);
         foreach (var bullet in BossBulletPool)
         {
             if (!bullet.activeInHierarchy)
                 return bullet;
         }
 
-        var newBullet = Instantiate(BossBulletPrefab, GunPosition.position, Quaternion.identity);
+        var newBullet = Instantiate(BossBulletPrefab, GunPosition[r].position, Quaternion.identity);
 
         newBullet.SetActive(false);
         BossBulletPool.Add(newBullet);

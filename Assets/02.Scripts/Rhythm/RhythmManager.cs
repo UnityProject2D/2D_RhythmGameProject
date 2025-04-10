@@ -1,12 +1,12 @@
 using FMOD.Studio;
 using FMODUnity;
+using MoreMountains.Tools;
 using System;
-using UnityEngine;
-using static RhythmEvents;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using MoreMountains.Tools;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using static RhythmEvents;
 
 enum NoteTriggerState
 {
@@ -38,7 +38,7 @@ public class RhythmManager : MonoBehaviour
 
     private EventInstance _musicInstance;
     private GCHandle _timelineHandle;
-    private int _stageMusicIndex;
+    private int _stageMusicIndex = 2;
     private List<NoteTriggerState> _noteStates;
 
     private Queue<Action> _eventQueue = new Queue<Action>();
@@ -97,7 +97,7 @@ public class RhythmManager : MonoBehaviour
         }
 
         float currentTime = GetCurrentMusicTime();
-            
+
         for (int i = 0; i < stageNotes[_stageMusicIndex].notes.Count; i++)
         {
             var note = stageNotes[_stageMusicIndex].notes[i];
