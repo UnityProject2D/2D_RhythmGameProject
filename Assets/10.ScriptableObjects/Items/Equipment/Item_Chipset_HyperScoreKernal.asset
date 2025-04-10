@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Chipset_HyperScoreKernal
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 9
   itemName: "\uCE69\uC14B: \uD558\uC774\uD37C \uC2A4\uCF54\uC5B4 \uCEE4\uB110"
   icon: {fileID: 304628644, guid: 91b331d5ee652114f9e552833b6b2952, type: 3}
   description: "Perfect \uD310\uC815 \uC2DC,  \r\n\uCD9C\uB825 \uB370\uC774\uD130\uB97C

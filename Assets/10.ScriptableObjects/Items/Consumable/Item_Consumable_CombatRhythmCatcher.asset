@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Consumable_CombatRhythmCatcher
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 6
   itemName: "\uC804\uD22C \uB9AC\uB4EC \uCE90\uCCD0"
   icon: {fileID: -383251889, guid: 91b331d5ee652114f9e552833b6b2952, type: 3}
   description: "\uB9AC\uB4EC \uCDA9\uACA9 \uBC29\uC9C0 \uC7A5\uCE58\n\uC77C\uC815

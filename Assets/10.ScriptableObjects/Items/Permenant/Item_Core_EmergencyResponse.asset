@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Core_EmergencyResponse
   m_EditorClassIdentifier: 
+  itemID: 1
   itemName: "\uCF54\uC5B4: \uC704\uAE30 \uB300\uC751"
   icon: {fileID: 0}
   description: "HP\uAC00 \uC77C\uC815 \uC774\uD558\uC77C \uACBD\uC6B0 \uBC29\uC5B4\uB825\uC774
     \uC99D\uAC00\uD558\uB294 \uBE44\uC0C1 \uBC29\uC5B4 \uCF54\uC5B4. \n\uC2EC\uBC15\uC218\uB97C
     \uAE30\uBC18\uC73C\uB85C \uC791\uB3D9\uD558\uBA70, \uC704\uAE30 \uC0C1\uD669\uC5D0\uC11C
     \uC790\uB3D9\uC73C\uB85C \uAC1C\uC785\uD55C\uB2E4."
+  EffectDescription: 
   category: {fileID: 11400000, guid: 54a0efa29be0696489bd78ffa950df6d, type: 2}
-  effects: []
+  isConsumable: 0
+  EffectValue: 0
+  EffectDuration: 0
+  value: 0
+  EffectCooldown: 0
