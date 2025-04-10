@@ -1591,6 +1591,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_ReviewBackground
       objectReference: {fileID: 0}
+    - target: {fileID: 1672664579541627731, guid: c38eb65141e8c3a4f8a0dbbd65cb4828, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5585056105345118267, guid: c38eb65141e8c3a4f8a0dbbd65cb4828, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
