@@ -18,7 +18,7 @@ public class EnemyAttackController : MonoBehaviour
 
     public GameObject EnemyBulletPrefab;
     private List<GameObject> EnemyBulletPool = new();
-    public Transform PlayerTransform;
+    public Transform _playerTransform;
     public Transform GunPosition;
 
     private int poolSize = 10;
@@ -38,7 +38,9 @@ public class EnemyAttackController : MonoBehaviour
             bullet.SetActive(false);
             EnemyBulletPool.Add(bullet);
         }
-    }
+
+        _playerTransform = PlayerHealth.Instance.GetComponent<Transform>();
+}
 
     private void OnEnable()
     {
@@ -86,16 +88,16 @@ public class EnemyAttackController : MonoBehaviour
 
         bullet.transform.position = GunPosition.position;
         Vector2 direction;
-        if (PlayerTransform == null)
+        if (_playerTransform == null)
             direction = GunPosition.position;
 
         switch (directionIndex)
         {
-            case 0: direction = (PlayerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
-            case 1: direction = (PlayerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
+            case 0: direction = (_playerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
+            case 1: direction = (_playerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
             case 2: direction = Vector3.left; break;   // A - 왼쪽 몸통
             case 3: direction = Vector3.left; break;  // D - 오른쪽 몸통
-            default: direction = PlayerTransform.position; break;
+            default: direction = _playerTransform.position; break;
         }
 
         direction = direction.normalized;
@@ -124,11 +126,6 @@ public class EnemyAttackController : MonoBehaviour
     {
         RuntimeManager.PlayOneShot("event:/SFX/AttackSound");
     }
-    //private IEnumerator ResetAnimation()
-    //{
-    //    yield return new WaitForSeconds(0.5f);
-    //    _animator.SetInteger("Direction", 0);
-    //}
 
 
     ///////// 적이 죽으면!! -> ScoreManager StageCleared 코드 완성된 후 점검 후 수정할것!

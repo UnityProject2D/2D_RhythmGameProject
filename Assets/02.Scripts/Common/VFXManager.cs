@@ -11,6 +11,7 @@ public class VFXManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
+        LightMMFPlayers = new List<MMF_Player>();
     }
     private void OnEnable()
     {
@@ -36,13 +37,14 @@ public class VFXManager : MonoBehaviour
     public MMF_Player OnPerfectFeedback;
     public MMF_Player ExplosionFeedback;
     public MMF_Player hitFlashFeedback;
+    public List<MMF_Player> LightMMFPlayers;
    
-
     public void PlayOnNoteFeedback()
     {
-        foreach(var feedback in OnNoteFeedback)
+        Debug.Log("PlayOnNoteFeedback");
+        foreach (var mmfPlayer in LightMMFPlayers)
         {
-            feedback?.PlayFeedbacks();
+            mmfPlayer?.PlayFeedbacks();
         }
     }
     public void PlayOnPerfectFeedback() => OnPerfectFeedback?.PlayFeedbacks();
