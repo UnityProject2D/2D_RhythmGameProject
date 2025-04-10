@@ -6,10 +6,12 @@ public class QuantumKey : MonoBehaviour
 {
     public MMF_Player DropFeedback;
     public MMF_Player PickUpFeedback;
+
+    private PlayerContext _player;
     void Start()
     {
         MoveTowardPlayer().Forget();
-
+        _player = GameManager.Instance.Player;
         async UniTaskVoid MoveTowardPlayer()
         {
             DropFeedback?.PlayFeedbacks();
@@ -27,7 +29,7 @@ public class QuantumKey : MonoBehaviour
         while(t < 1)
         {
             t += Time.deltaTime;
-            transform.position = Vector3.Lerp(transform.position, transform.position + Vector3.left * 0.6f, t / 4);
+            transform.position = Vector3.Lerp(transform.position, _player.Transform.position, t / 4);
             await UniTask.Yield();
         }
 
