@@ -196,7 +196,7 @@ namespace MoreMountains.Tools
 
 
 				GUILayout.BeginHorizontal();
-				GUILayout.Label("Band", EditorStyles.boldLabel, GUILayout.Width(w1));
+                GUILayout.Label("Band", EditorStyles.boldLabel, GUILayout.Width(w1));
 				GUILayout.Label("Value", EditorStyles.boldLabel, GUILayout.Width(w2));
 				GUILayout.Label("Peak", EditorStyles.boldLabel, GUILayout.Width(w3));
 				GUILayout.Label("Normalized", EditorStyles.boldLabel, GUILayout.Width(w4));
