@@ -17,16 +17,6 @@ public class TitleMusicPlayer : MonoBehaviour
     private FMOD.DSP _fftDSP;
     private float[] _fmodSpectrum;
     const int FFT_WINDOW_SIZE = 1024;
-    private void Start()
-    {
-        Play();
-        //DelayAndPlay().Forget();
-        //async UniTaskVoid DelayAndPlay()
-        //{
-        //    await UniTask.Delay(2200);
-        //    Play();
-        //}
-    }
     private void Update()
     {
         if (!_isPlaying) return;
