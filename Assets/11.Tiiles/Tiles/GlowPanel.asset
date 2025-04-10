@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: BlueDesk_0
+  m_Name: GlowPanel
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -6950838842488195261, guid: 6e53b446a6c9666408cc815330426307, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85f3d8932b9f709458453fd8339c24be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
