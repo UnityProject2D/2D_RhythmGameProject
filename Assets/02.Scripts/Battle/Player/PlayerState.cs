@@ -138,7 +138,7 @@ public class PlayerState : MonoBehaviour
 
     private void OnEnable()
     {
-        SceneManager.sceneLoaded += DestroyOnRestart;
+        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
     }
     private void OnDisable()
     {
