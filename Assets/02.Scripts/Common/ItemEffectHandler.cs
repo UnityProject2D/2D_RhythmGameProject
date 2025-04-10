@@ -12,7 +12,7 @@ public class ItemEffectHandler : MonoBehaviour
         { ItemID.CalibrationChipset, 20f }
     };
     public static ItemEffectHandler Instance { get; private set; }
-
+    [SerializeField] private GameObject overDriveEffectPrefab;
 
     private void Awake()
     {
@@ -47,6 +47,7 @@ public class ItemEffectHandler : MonoBehaviour
                 {
                     StopCoroutine(_activeEffects[id]);
                 }
+                Instantiate(overDriveEffectPrefab);
                 _activeEffects[id] = StartCoroutine(ApplyDurationItem(id, value, duration));
                 return true;
 
