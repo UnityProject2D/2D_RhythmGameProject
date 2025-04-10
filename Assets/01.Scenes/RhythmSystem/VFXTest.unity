@@ -255,7 +255,7 @@ MonoBehaviour:
       data:
         Active: 1
         UniqueID: -802124385
-        Label: Particles Instantiation
+        Label: Perfect Effect Particle
         OriginalLabel: Particles Instantiation
         ChannelMode: 0
         Channel: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
           ButtonText: 
         Owner: {fileID: 86218199}
         DebugActive: 0
-        Mode: 1
+        Mode: 2
         ObjectPoolSize: 8
         MutualizePools: 0
         ParentTransform: {fileID: 0}
@@ -333,10 +333,10 @@ MonoBehaviour:
         RandomParticlePrefabs:
         - {fileID: 4427155850148435184, guid: 59a721b959035a249a9fd886747b6d94, type: 3}
         - {fileID: 544943089424923058, guid: fce212fad03fc4542bd7116c56315d6c, type: 3}
-        ForceSetActiveOnPlay: 1
+        ForceSetActiveOnPlay: 0
         StopOnReset: 0
         DeclaredDuration: 0
-        PositionMode: 2
+        PositionMode: 0
         InstantiateParticlesPosition: {fileID: 0}
         TargetWorldPosition: {x: 0, y: 0, z: 0}
         Offset: {x: 0, y: 0, z: 0}
@@ -580,12 +580,23 @@ Transform:
   m_GameObject: {fileID: 86218198}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.65, y: -1.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 569206981}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &103292312 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5539615104282144150, guid: 162ab79458cc4ad41b8dece0a96a9759, type: 3}
+  m_PrefabInstance: {fileID: 1918047026}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b968557c782b17343ae7c617ada9fa9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &170926402 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7758962007254119012, guid: 64bc217ad4f318242ab4c646b6354ee3, type: 3}
@@ -1851,10 +1862,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2801001924272541160, guid: ab00b526ce3d34841a4b8bdddea03397, type: 3}
-      propertyPath: managedReferences[8534994404696916044].ParticlesPrefab
+    - target: {fileID: 4827783793568988666, guid: ab00b526ce3d34841a4b8bdddea03397, type: 3}
+      propertyPath: ItemEffectHandler
       value: 
-      objectReference: {fileID: 9107990278705404070, guid: ce83152719ec20043816f7ee455eaa48, type: 3}
+      objectReference: {fileID: 103292312}
     - target: {fileID: 5755071351828303816, guid: ab00b526ce3d34841a4b8bdddea03397, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.05
@@ -2273,6 +2284,18 @@ PrefabInstance:
     - target: {fileID: 5274054811790108557, guid: ecf319838993077448ababddcfd182a3, type: 3}
       propertyPath: m_Name
       value: BattleMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050753864293306728, guid: ecf319838993077448ababddcfd182a3, type: 3}
+      propertyPath: CoinEffect
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8050753864293306728, guid: ecf319838993077448ababddcfd182a3, type: 3}
+      propertyPath: QuantumKey
+      value: 
+      objectReference: {fileID: 5461627186972663391, guid: 587dbc8c9a6f5c749b774ef901065391, type: 3}
+    - target: {fileID: 8193179090352941823, guid: ecf319838993077448ababddcfd182a3, type: 3}
+      propertyPath: managedReferences[8534994430160535635].Mode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
