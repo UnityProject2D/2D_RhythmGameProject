@@ -1,8 +1,21 @@
+using System;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+public struct ItemUseStatus
+{
+    public ItemUseStatus(ItemID id, bool p)
+    {
+        itemID = id;
+        flag = p;
+    }
+    public ItemID itemID;
+    public bool flag;
+}
 public class PlayerState : MonoBehaviour
 {
     public static PlayerState Instance { get; private set; }
+    public ItemEffectHandler ItemEffectHandler;
+    public event Action<ItemUseStatus> OnItemUsed;
 
     [Header("아이템 관련")]
     [Space(10)]
@@ -53,14 +66,85 @@ public class PlayerState : MonoBehaviour
     public bool ComboProtectorUsed;
     [Header("해킹 툴: 상점 아이템 랜덤 1개 무료")]
     public bool HackingToolUsed;
+    public void SetItemEnabled(ItemID id, bool flag)
+    {
+        switch (id)
+        {
+            case ItemID.PerfectRecoveryCore:
+                RecoveryCoreEnabled = flag;
+                break;
+            case ItemID.EmergencyResponseCore:
+                EmergencyResponseCoreEnabled = flag;
+                break;
+            case ItemID.AccessLevelCore:
+                AccessLevelCoreEnabled = flag;
+                break;
+            case ItemID.RecoveryAlgorithmCore:
+                RecoveryAlgorithmCoreEnabled = flag;
+                break;
+            case ItemID.CalibrationChipset:
+                CalibrationChipsetEnabled = flag;
+                break;
+            case ItemID.ForcedEvasion:
+                ForcedEvasionEnabled = flag;
+                break;
+            case ItemID.AutoComboSystem:
+                AutoComboSystemEnabled = flag;
+                break;
+            case ItemID.PreciseCalibrationUnit:
+                PreciseCalibrationUnitEnabled = flag;
+                break;
+            case ItemID.DataCacheModule:
+                BonusChipEnabled = flag;
+                break;
+            case ItemID.EmergencyEvasion:
+                EmergencyEvasionEnabled = flag;
+                break;
+            case ItemID.OverDrive:
+                OverDriveUsed = flag;
+                break;
+            case ItemID.ProbabilityAmplifier:
+                ProbabilityAmplifierUsed = flag;
+                break;
+            case ItemID.ComboProtector:
+                ComboProtectorUsed = flag;
+                break;
+            case ItemID.HackingTool:
+                HackingToolUsed = flag;
+                break;
+            default:
+                Debug.LogWarning($"[PlayerState] 알 수 없는 ItemID: {id}");
+                return;
+        }
+        var itemStatus = new ItemUseStatus(id, flag);
+        OnItemUsed?.Invoke(itemStatus);
 
+    }
     private void Awake()
     {
         if(Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += DestroyOnRestart;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= DestroyOnRestart;
+    }
+
+    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene.name == "GameTitle")
         {
             Destroy(gameObject);
         }

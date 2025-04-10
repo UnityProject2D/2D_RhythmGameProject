@@ -12,12 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Consumable_PatternStabilizer
   m_EditorClassIdentifier: 
+  itemID: 0
   itemName: "\uD328\uD134 \uCCB4\uACC4\uD654"
   icon: {fileID: -754878222315163978, guid: 53c6137a80db5844f90266713da5ae48, type: 3}
-  description: "\uBD88\uC548\uC815\uD55C \uB9AC\uB4EC \uD328\uD134\uC744 \uC790\uB3D9
-    \uC815\uB82C\uD558\uC5EC, \uC801\uC758 \uACF5\uACA9 \uD15C\uD3EC\uB97C \uB354
-    \uC608\uCE21 \uAC00\uB2A5\uD558\uAC8C \uC870\uC815\uD55C\uB2E4. \n\uD5D8\uC6A9
-    \uC778\uACF5\uC9C0\uB2A5\uC774 \uB0A8\uAE34 \uB9AC\uB4EC \uCE98\uB9AC\uBE0C\uB808\uC774\uC158
-    \uCF54\uB4DC\uAC00 \uD575\uC2EC\uC774\uB2E4."
+  description: "\uBD88\uC548\uC815\uD55C \uB9AC\uB4EC \uD328\uD134\uC744\n\uC790\uC728
+    \uBD84\uC11D \uBC0F \uC7AC\uC815\uB82C\uD558\uC5EC\n\uC801\uC758 \uACF5\uACA9
+    \uD0C0\uC774\uBC0D\uC744\n\uB354 \uC815\uBC00\uD558\uAC8C \uC608\uCE21\uD560
+    \uC218 \uC788\uB3C4\uB85D \uBCF4\uC815\uD55C\uB2E4.\n\n\uC2E4\uC2DC\uAC04 \uD559\uC2B5
+    \uAE30\uBC18\uC758\n\uACE0\uC131\uB2A5 \uC778\uACF5\uC9C0\uB2A5 \uB9AC\uB4EC
+    \uCE98\uB9AC\uBE0C\uB808\uC774\uC158 \uCF54\uB4DC\uAC00 \uD575\uC2EC."
+  EffectDescription: "[\uC989\uC2DC \uC0AC\uC6A9]\n\uB2E4\uC74C \uB77C\uC6B4\uB4DC\uC758
+    \uD328\uD134\uC774\n\uB2E8\uC21C \uAD6C\uC870\uB85C \uCD5C\uC801\uD654\uB429\uB2C8\uB2E4."
   category: {fileID: 11400000, guid: dbacc609a7692aa4bbb3487a966d718b, type: 2}
-  effects: []
+  isConsumable: 0
+  EffectValue: 0
+  EffectDuration: 0
+  value: 0
+  EffectCooldown: 0

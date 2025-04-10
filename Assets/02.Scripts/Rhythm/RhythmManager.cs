@@ -1,11 +1,12 @@
 using FMOD.Studio;
 using FMODUnity;
-using MoreMountains.Tools;
 using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 using static RhythmEvents;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using MoreMountains.Tools;
+using UnityEngine.SceneManagement;
 
 enum NoteTriggerState
 {
@@ -52,7 +53,10 @@ public class RhythmManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
         else Destroy(gameObject);
     }
 
@@ -61,6 +65,23 @@ public class RhythmManager : MonoBehaviour
         if (IsTest)
         {
             Play();
+        }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += DestroyOnRestart;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= DestroyOnRestart;
+    }
+
+    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene.name == "GameTitle")
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -76,7 +97,7 @@ public class RhythmManager : MonoBehaviour
         }
 
         float currentTime = GetCurrentMusicTime();
-
+            
         for (int i = 0; i < stageNotes[_stageMusicIndex].notes.Count; i++)
         {
             var note = stageNotes[_stageMusicIndex].notes[i];

@@ -22,7 +22,6 @@ public class EnemyAttackController : MonoBehaviour
     public Transform GunPosition;
 
     private int poolSize = 10;
-    private bool _isDead = false; //////////// 적 사망 여부
 
     private void Awake()
     {
@@ -31,7 +30,7 @@ public class EnemyAttackController : MonoBehaviour
 
     private void Start()
     {
-        ScoreManager.Instance.OnScoreChanged += EnemyDieJdg;
+        OnMusicStopped += EnemyDieJdg;
         // 총알 오브젝트 풀 생성
         for (int i = 0; i < poolSize; i++)
         {
@@ -49,12 +48,11 @@ public class EnemyAttackController : MonoBehaviour
     private void OnDisable()
     {
         OnNote -= OnNoteReceived;
-        ScoreManager.Instance.OnScoreChanged -= EnemyDieJdg;
+        OnMusicStopped -= EnemyDieJdg;
     }
 
     private void OnNoteReceived(NoteData beatTime)
     {
-        if (_isDead) return; /////////////// 적이 죽었으면 리턴
         PlayAttackSound();
         int index = GetIndexFromKey(beatTime.expectedKey); // 입력 키(WASD) → 인덱스로 변환 (0~3)
         if (index < 0 || index >= EnemyBulletPool.Count) return;
@@ -135,12 +133,11 @@ public class EnemyAttackController : MonoBehaviour
 
     ///////// 적이 죽으면!! -> ScoreManager StageCleared 코드 완성된 후 점검 후 수정할것!
     ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
-    private void EnemyDieJdg(int score)
+    private void EnemyDieJdg()
     {
-        if (_isDead) return;
-        if (score >= 5000)
+        if (ScoreManager.Instance.Score >= 10000)
         {
-            _isDead = true;
+            RuntimeManager.PlayOneShot("event:/SFX/EnemyDie");
             _animator.SetTrigger("Die");
         }
     }

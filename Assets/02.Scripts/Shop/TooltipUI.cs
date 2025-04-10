@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class TooltipUI : MonoBehaviour
 {
@@ -22,10 +24,30 @@ public class TooltipUI : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else Destroy(gameObject);
 
         _tooltipRoot.SetActive(false);
+    }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += DestroyOnRestart;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= DestroyOnRestart;
+    }
+
+    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene.name == "GameTitle")
+        {
+            Destroy(gameObject);
+        }
     }
     void Update()
     {
@@ -43,6 +65,18 @@ public class TooltipUI : MonoBehaviour
         _priceText.text = item.price.ToString();
         _currencyIcon.sprite = sprites[(int)item.currencyType];
         _iconImage.sprite = item.itemSO.icon;
+
+        _tooltipRoot.SetActive(true);
+        _isVisible = true;
+    }
+    public void Show(ItemSO item)
+    {
+        _nameText.text = item.itemName;
+        _descriptionText.text = item.EffectDescription;
+        _categoryText.text = item.category != null ? item.category.categoryName : "";
+        _priceText.text = "";
+        _currencyIcon.sprite = null;
+        _iconImage.sprite = item.icon;
 
         _tooltipRoot.SetActive(true);
         _isVisible = true;

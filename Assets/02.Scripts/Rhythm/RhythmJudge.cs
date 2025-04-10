@@ -1,5 +1,5 @@
-using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RhythmJudge : MonoBehaviour
 {
@@ -25,10 +25,40 @@ public class RhythmJudge : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else Destroy(gameObject);
     }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += DestroyOnRestart;
 
+        RhythmEvents.OnBeat += OnBeatReceived;
+        RhythmEvents.OnMusicStart += OnMusicStartReceived;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= DestroyOnRestart; 
+        RhythmEvents.OnBeat -= OnBeatReceived;
+        RhythmEvents.OnMusicStart -= OnMusicStartReceived;
+
+        if (RhythmInputHandler.Instance != null)
+        {
+            RhythmInputHandler.Instance.OnInputPerformed -= EvaluateInput;
+        }
+    }
+
+    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene.name == "GameTitle")
+        {
+            Destroy(gameObject);
+        }
+    }
     void Update()
     {
         if (!RhythmManager.Instance.IsPlaying) return;
@@ -48,27 +78,12 @@ public class RhythmJudge : MonoBehaviour
             else break;
         }
     }
-    private void OnEnable()
-    {
-        RhythmEvents.OnBeat += OnBeatReceived;
-        RhythmEvents.OnMusicStart += OnMusicStartReceived;
-    }
 
     private void Start()
     {
         if (RhythmInputHandler.Instance != null)
         {
             RhythmInputHandler.Instance.OnInputPerformed += EvaluateInput;
-        }
-    }
-    private void OnDisable()
-    {
-        RhythmEvents.OnBeat -= OnBeatReceived;
-        RhythmEvents.OnMusicStart -= OnMusicStartReceived;
-
-        if (RhythmInputHandler.Instance != null)
-        {
-            RhythmInputHandler.Instance.OnInputPerformed -= EvaluateInput;
         }
     }
 
