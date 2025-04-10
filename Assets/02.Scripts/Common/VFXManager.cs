@@ -13,6 +13,7 @@ public class VFXManager : MonoBehaviour
         else Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
         LightMMFPlayers = new List<MMF_Player>();
+        RhythmEvents.OnBeat += PlayOnBeatFeedback;
     }
     private void OnEnable()
     {
@@ -40,13 +41,17 @@ public class VFXManager : MonoBehaviour
     public MMF_Player hitFlashFeedback;
     public List<MMF_Player> LightMMFPlayers;
    
-    public void PlayOnNoteFeedback()
+    public void PlayOnBeatFeedback(float t)
     {
-        Debug.Log("PlayOnNoteFeedback");
+        Debug.Log("PlayOnBeatFeedback");
         foreach (var mmfPlayer in LightMMFPlayers)
         {
             mmfPlayer?.PlayFeedbacks();
         }
+    }
+    public void PlayOnNoteFeedback()
+    {
+        Debug.Log("PlayOnNoteFeedback");
     }
     public void PlayOnPerfectFeedback() => OnPerfectFeedback?.PlayFeedbacks();
     public void PlayOnGoodFeedback() => OnGoodFeedback?.PlayFeedbacks();
