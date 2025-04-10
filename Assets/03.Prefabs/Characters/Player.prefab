@@ -814,10 +814,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemEffectHandler: {fileID: 0}
   RecoveryCoreEnabled: 0
-  RecoveryCoreAmount: 0
+  RecoveryCoreAmount: 1
   EmergencyResponseCoreEnabled: 0
-  EmergencyResponseCoreThreshold: 0
-  EmergencyResponseCoreReduce: 0
+  EmergencyResponseCoreThreshold: 50
+  EmergencyResponseCoreReduce: 50
   AccessLevelCoreEnabled: 0
   RecoveryAlgorithmCoreEnabled: 0
   CalibrationChipsetEnabled: 0
@@ -883,6 +883,7 @@ MonoBehaviour:
   PlayerMaxHealth: 30
   Damage: 1
   OnMissFeedback: {fileID: 2801001924272541160}
+  OnHealFeedback: {fileID: 8175791013653147150}
 --- !u!1 &8684649824416020412
 GameObject:
   m_ObjectHideFlags: 0

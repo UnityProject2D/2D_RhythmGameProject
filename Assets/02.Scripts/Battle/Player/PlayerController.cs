@@ -19,25 +19,22 @@ public class PlayerController : MonoBehaviour
     public bool IsDead;
     public bool IsAlive = true;
 
+    private float _prevHealth = 0;
     private void Awake()
     {
         _animator = GetComponent<Animator>();
     }
-
-    private void OnEnable()
-    {
-        RhythmEvents.OnInputJudged += OnInputJudg; // 리듬 입력 판정 이벤트 구독
-    }
-
     private void Start()
     {
         Instance.OnInputPerformed += OnInputPerf;
+        PlayerHealth.Instance.OnPlayerHealthChanged += OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독
+        _prevHealth = PlayerHealth.Instance.PlayerCurrentHealth;
     }
 
     private void OnDisable()
     {
         Instance.OnInputPerformed -= OnInputPerf;
-        RhythmEvents.OnInputJudged -= OnInputJudg; // 리듬 입력 판정 이벤트 구독 해제
+        PlayerHealth.Instance.OnPlayerHealthChanged -= OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독
     }
 
     private void OnInputPerf(string key)
@@ -57,12 +54,12 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    
 
-    private void OnInputJudg(JudgedContext result)
+    private void OnPlayerHealthChanged(float changed)
     {
-        if (result.Result == JudgementResult.Miss && !IsDead)
+        if(changed < _prevHealth)
         {
+            _prevHealth = changed;
             _animator.SetTrigger("Hit");
         }
     }

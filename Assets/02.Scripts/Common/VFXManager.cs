@@ -38,6 +38,23 @@ public class VFXManager : MonoBehaviour
         _artifactsSettings.SetActive(false);
     }
 
+    private void Start()
+    {
+        PlayerState.Instance.OnItemUsed += HandleItemEffect;
+    }
+
+    void HandleItemEffect(ItemUseStatus item)
+    {
+        switch(item.itemID)
+        {
+            case ItemID.EmergencyEvasion:
+                
+                break;
+            default:
+                break;
+        }
+    }
+
     private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
     {
         if (scene.name == "GameTitle")

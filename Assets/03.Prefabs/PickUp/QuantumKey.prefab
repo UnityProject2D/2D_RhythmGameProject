@@ -1008,8 +1008,24 @@ PrefabInstance:
       value: 215107369
       objectReference: {fileID: 0}
     - target: {fileID: 2500507098972656683, guid: 08d0fdeb6a316b2448ec595850e77694, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500507098972656683, guid: 08d0fdeb6a316b2448ec595850e77694, type: 3}
+      propertyPath: lengthInSec
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500507098972656683, guid: 08d0fdeb6a316b2448ec595850e77694, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500507098972656683, guid: 08d0fdeb6a316b2448ec595850e77694, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500507098972656683, guid: 08d0fdeb6a316b2448ec595850e77694, type: 3}
+      propertyPath: InitialModule.gravitySource
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6584060925938006370, guid: 08d0fdeb6a316b2448ec595850e77694, type: 3}
       propertyPath: m_Name

@@ -10,10 +10,11 @@ public class PlayerHealth : MonoBehaviour
 
     private Animator _animator;
     private float _playerCurrentHealth;
+    public float PlayerCurrentHealth => _playerCurrentHealth;
 
     public event Action<float> OnPlayerHealthChanged;
     public MMF_Player OnMissFeedback;
-
+    public MMF_Player OnHealFeedback;
     public static PlayerHealth Instance { get; private set; }
 
 
@@ -214,6 +215,7 @@ public class PlayerHealth : MonoBehaviour
     private void RecoveryHealth(float amount)
     {
         _playerCurrentHealth = Mathf.Min(PlayerMaxHealth, _playerCurrentHealth + amount);
+        OnHealFeedback?.PlayFeedbacks();
     }
 
     #endregion

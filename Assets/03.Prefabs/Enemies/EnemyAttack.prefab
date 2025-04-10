@@ -157,6 +157,8 @@ MonoBehaviour:
   EnemyBulletPrefab: {fileID: 934546058935820782, guid: fafbbf23d55b59740bb4c8a0aa3cb564, type: 3}
   _playerTransform: {fileID: 0}
   GunPosition: {fileID: 616096345890653023}
+  CoinEffect: {fileID: 4040833862665671511}
+  QuantumKey: {fileID: 5461627186972663391, guid: 587dbc8c9a6f5c749b774ef901065391, type: 3}
 --- !u!60 &6144153594597651286
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -471,7 +473,7 @@ MonoBehaviour:
           ButtonText: 
         Owner: {fileID: 4040833862665671511}
         DebugActive: 0
-        Mode: 2
+        Mode: 1
         ObjectPoolSize: 2
         MutualizePools: 0
         ParentTransform: {fileID: 0}

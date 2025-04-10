@@ -122,7 +122,6 @@ public class PlayerState : MonoBehaviour
         }
         var itemStatus = new ItemUseStatus(id, flag);
         OnItemUsed?.Invoke(itemStatus);
-
     }
     private void Awake()
     {
