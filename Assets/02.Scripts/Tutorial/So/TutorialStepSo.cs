@@ -15,4 +15,6 @@ public class TutorialStepSo : ScriptableObject
     public TriggerKeyType TriggerKeyType;
 
     public TextNextConditionType TextNextConditionType;
+
+    public MusicState MusicState;
 }

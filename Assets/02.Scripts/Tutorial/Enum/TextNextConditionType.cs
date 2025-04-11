@@ -6,8 +6,6 @@ public enum TextNextConditionType
     OnTimeElapsedOrInput,
     [InspectorName("이벤트 발생 시 전환")]
     OnEvent,
-
-    TextNextConditionType_End
 }
 
 public enum TriggerKeyType
@@ -17,5 +15,11 @@ public enum TriggerKeyType
     A,
     S,
     D,
-    TriggerKeyType_END
+}
+
+public enum MusicState
+{
+    NonPlay,
+    Play,
+    Stop,
 }

@@ -9,12 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c92f81c38a3aa24f9293bb002e8f7a5, type: 3}
-  m_Name: TutorialStepSo_11
+  m_Script: {fileID: 11500000, guid: 84ca63dec1e6d6745b9b64a9faf96794, type: 3}
+  m_Name: TestRhythmPattern 5
   m_EditorClassIdentifier: 
-  Text: "\uBC29\uC5B4 \uC131\uACF5."
-  Duration: 0.5
-  DelayTime: 0.5
-  TriggerKeyType: 0
-  TextNextConditionType: 0
-  MusicState: 2
+  bpm: 97
+  notes:
+  - beat: 25.624168
+    expectedKey: W
+  - beat: 26.5
+    expectedKey: A
+  - beat: 27.5
+    expectedKey: S
+  - beat: 28.5
+    expectedKey: D

@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Tutorial_N",
+                    "type": "Button",
+                    "id": "fe461cfe-0f04-44b1-9217-8922c5899780",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -84,6 +93,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "RhythmAction_D",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "acf67f5e-12c3-4061-acff-2d930fcba7ab",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Tutorial_N",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -600,6 +620,34 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Tutorial",
+            "id": "ffa34ec2-5fd3-48c2-9cf7-9df8c89317f5",
+            "actions": [
+                {
+                    "name": "Dialog",
+                    "type": "Button",
+                    "id": "acd5e906-da26-42b2-8981-664a4495dea7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3839626b-4cf1-4c92-ab19-56c6629c235c",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Dialog",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

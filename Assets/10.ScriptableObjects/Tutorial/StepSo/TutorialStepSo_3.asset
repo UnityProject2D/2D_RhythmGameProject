@@ -17,6 +17,8 @@ MonoBehaviour:
     \uD0C0\uC774\uBC0D\uC740 ,\uB2F9\uC2E0\uACFC \uC800\uC758 \uC0DD\uC874\uC744
     \uACB0\uC815\uD569\uB2C8\uB2E4.\n\uC5F0\uC2B5 \uC2DC\uBBAC\uB808\uC774\uC158\uC744
     \uC2DC\uC791\uD569\uB2C8\uB2E4.....\n\uC900\uBE44\uB418\uC168\uB098\uC694?"
-  Duration: 4
+  Duration: 0.5
   DelayTime: 0.5
+  TriggerKeyType: 0
   TextNextConditionType: 0
+  MusicState: 0

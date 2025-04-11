@@ -1,12 +1,12 @@
+using DG.Tweening;
+using FMOD.Studio;
+using FMODUnity;
 using MoreMountains.Feedbacks;
-using MoreMountains.Tools;
 using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
-using System.Linq;
-using System;
-using UnityEngine.InputSystem;
-using Unity.VisualScripting;
+using static RhythmEvents;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -16,15 +16,21 @@ public class TutorialManager : MonoBehaviour
     private MMF_TMPTextReveal _textReveal;
     public TextMeshProUGUI Text;
 
-    private int curStep = -1;
+    public TextMeshProUGUI PressKey;
+
+    private bool _isPaused = false;
+    private int curStep = 5;//-1;
     private TutorialStepSo _curTutorialStepSo;
 
+    private Bus masterBus;
     public static TutorialManager Instance { get; private set; }
     private void Awake(){
         if (Instance == null) {
             Instance = this;
         }
         else Destroy(gameObject);
+
+        masterBus = RuntimeManager.GetBus("bus:/");
     }
     private void Start()
     {
@@ -35,10 +41,23 @@ public class TutorialManager : MonoBehaviour
     }
     private void OnEnable(){
         TutorialEventSystem.OnTutorialTextEvent += HandleEvent;
+        RhythmEvents.OnInputJudged += OnJudged; // 판정 이벤트 구독
+        OnNotePreview += OnNotePreviewReceived;
+        OnNote += OnNoteReceived;
+
     }
 
     private void OnDisable(){
         TutorialEventSystem.OnTutorialTextEvent -= HandleEvent;
+        RhythmEvents.OnInputJudged -= OnJudged; // 판정 이벤트 구독
+        OnNotePreview -= OnNotePreviewReceived;
+    }
+
+    private void SetPause(bool isPaused){
+        if (_isPaused == isPaused) // 같을 경우 제외
+            return;
+        _isPaused = isPaused;
+        masterBus.setPaused(_isPaused);
     }
 
 
@@ -57,17 +76,21 @@ public class TutorialManager : MonoBehaviour
                     TriggerNextStep();
                 }
                 break;
-            case TextNextConditionType.TextNextConditionType_End:
-                break;
         }
     }
 
     public void TriggerNextStep(){
-        if(NextStepSo()) StartNextStepAfterDelay();
+        if (NextStepSo()){
+            StartNextStepAfterDelay();
+        }
+        //RhythmManager.Instance.Play();
     }
 
-    public bool NextStepSo(){
-        if (++curStep >= TutorialSequenceSO.Steps.Count) return false;
+    public bool NextStepSo()
+    {
+        if (++curStep >= TutorialSequenceSO.Steps.Count){
+            return false;
+        }
         _curTutorialStepSo = TutorialSequenceSO.Steps[curStep];
         return true;
     }
@@ -78,6 +101,15 @@ public class TutorialManager : MonoBehaviour
 
     private IEnumerator PlayAfterDelay(float delay = 0.0f){
         yield return new WaitForSeconds(delay);
+
+        // 음악 셋팅
+        if(_curTutorialStepSo.MusicState == MusicState.Play){
+            SetPause(false);
+        }
+        else{
+            SetPause(true);
+        }
+
         Text.text = _curTutorialStepSo.Text;
         MMFeedback.ResetFeedbacks();
         MMFeedback.PlayFeedbacks();
@@ -91,4 +123,21 @@ public class TutorialManager : MonoBehaviour
     public void TextEndEvent(){ // 현재 텍스트 렌더링 끝
         TutorialEventSystem.OnTextEvents();
     }
+
+    private void OnJudged(JudgedContext judgementResult)
+    {
+        SetPause(true);
+        Time.timeScale = 0.0f;
+    }
+
+    private void OnNotePreviewReceived(NoteData beatNote)
+    {
+        PressKey.gameObject.SetActive(true);
+    }
+
+    private void OnNoteReceived(NoteData nodeData)
+    {
+
+    }
+
 }

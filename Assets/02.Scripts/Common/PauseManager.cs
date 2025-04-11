@@ -66,7 +66,7 @@ public class PauseManager : MonoBehaviour
             ResumeGame();
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0f;
         pauseUI.SetActive(true);
@@ -75,7 +75,7 @@ public class PauseManager : MonoBehaviour
         GameManager.Instance.Player.Controller.SetInputEnabled(false);
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         Time.timeScale = 1f;
         pauseUI.SetActive(false);
