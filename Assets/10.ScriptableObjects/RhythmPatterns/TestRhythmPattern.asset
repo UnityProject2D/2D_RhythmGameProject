@@ -12,41 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ca63dec1e6d6745b9b64a9faf96794, type: 3}
   m_Name: TestRhythmPattern
   m_EditorClassIdentifier: 
-  bpm: 97
+  bpm: 66
   notes:
-  - beat: 0.08781667
+  - beat: 14.8071
     expectedKey: W
-  - beat: 0.104166664
+  - beat: 15.488
     expectedKey: W
-  - beat: 0.12123334
+  - beat: 16.1216
     expectedKey: W
-  - beat: 0.13688333
+  - beat: 16.7783
     expectedKey: W
-  - beat: 0.15395
+  - beat: 20.0871
     expectedKey: W
-  - beat: 0.17101666
+  - beat: 20.7207
     expectedKey: W
-  - beat: 0.18773334
+  - beat: 21.3543
     expectedKey: W
-  - beat: 0.20336667
+  - beat: 22.035198
     expectedKey: W
-  - beat: 0.22043332
+  - beat: 25.4606
     expectedKey: W
-  - beat: 0.2375
+  - beat: 26.0942
     expectedKey: W
-  - beat: 0.25386667
+  - beat: 26.751999
     expectedKey: W
-  - beat: 0.27093333
+  - beat: 27.3614
     expectedKey: W
-  - beat: 0.28835002
+  - beat: 30.740599
     expectedKey: W
-  - beat: 0.30435
+  - beat: 31.3984
     expectedKey: W
-  - beat: 0.32106668
+  - beat: 32.0551
     expectedKey: W
-  - beat: 0.33776668
-    expectedKey: W
-  - beat: 0.3541333
-    expectedKey: W
-  - beat: 0.3712
+  - beat: 32.7118
     expectedKey: W

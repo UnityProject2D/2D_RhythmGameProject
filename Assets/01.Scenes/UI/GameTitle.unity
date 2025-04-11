@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39835c0fbbe647e4f9d0a61568017934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delay: 5.5
+  _delay: 0
 --- !u!1 &1186581995
 GameObject:
   m_ObjectHideFlags: 0
@@ -3228,6 +3228,10 @@ PrefabInstance:
     - target: {fileID: 7684766080169339895, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
       propertyPath: m_Name
       value: MenuPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959039568916188763, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
+      propertyPath: sceneToLoad
+      value: TutorialScene
       objectReference: {fileID: 0}
     - target: {fileID: 8340532590370343200, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
       propertyPath: managedReferences[5021678716850536535].Timing.InitialDelay

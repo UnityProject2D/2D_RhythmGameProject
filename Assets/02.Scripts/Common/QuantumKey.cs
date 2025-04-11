@@ -29,7 +29,7 @@ public class QuantumKey : MonoBehaviour
         while(t < 1)
         {
             t += Time.deltaTime;
-            transform.position = Vector3.Lerp(transform.position, _player.Transform.position, t / 4);
+            transform.position = Vector3.Lerp(transform.position, new Vector3(-5.06f,-1.9f), t / 4); //_player.Transform.position, t / 4);
             await UniTask.Yield();
         }
 

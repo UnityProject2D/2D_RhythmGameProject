@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7731105048ca0a641801e8b69ff9a3a4, type: 3}
   m_Name: BossSceneData
   m_EditorClassIdentifier: 
-  StageName: BossScene
+  StageName: BattleModeTwo
   Sprite: {fileID: 4875519115236521228, guid: 94a5790050614604e8d8678634e44982, type: 3}
   MonsterPrefab: {fileID: 0}
