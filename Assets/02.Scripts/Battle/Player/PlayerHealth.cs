@@ -5,37 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float PlayerMaxHealth;
+    public float PlayerMaxHealth { get; private set; }
     public float Damage;
-
-    private Animator _animator;
     private float _playerCurrentHealth;
 
-    public event Action<float> OnPlayerHealthChanged;
-    public MMF_Player OnMissFeedback;
+    public float PlayerCurrentHealth => _playerCurrentHealth;
 
-    public static PlayerHealth Instance { get; private set; }
+    public event Action<float> OnPlayerHealthChanged;
+    public event Action OnPlayerDied;
+
+    public MMF_Player OnMissFeedback;
+    public MMF_Player OnHealFeedback;
 
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        PlayerMaxHealth = 100;
         _playerCurrentHealth = PlayerMaxHealth;
-        _animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
 
         RhythmEvents.OnInputJudged += HandleJudge;
-        SceneManager.sceneLoaded += DestroyOnRestart;
+        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
     }
     private void OnDisable()
     {
@@ -49,12 +41,6 @@ public class PlayerHealth : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    private void Start()
-    {
-        //TODO: 아이템 효과 구독해서 회복
-        //RecoveryAlgorithmCore
-        //체력회복아이템
     }
 
     /// <summary>
@@ -181,14 +167,13 @@ public class PlayerHealth : MonoBehaviour
     private void ApplyDamage(float finalDamage)
     {
         Debug.Log($"[HP] ApplyDamage: {finalDamage}");
-        if (GetComponent<PlayerController>().IsDead) return;
         _playerCurrentHealth = Mathf.Max(0, _playerCurrentHealth - finalDamage);
 
 #if UNITY_EDITOR
         Debug.Log($"[HP] {_playerCurrentHealth}/{PlayerMaxHealth} (-{finalDamage})");
 #endif
 
-        OnPlayerHealthChanged?.Invoke(_playerCurrentHealth);//UI용
+        OnPlayerHealthChanged?.Invoke(_playerCurrentHealth);
 
         if (_playerCurrentHealth == 0)
         {
@@ -202,9 +187,10 @@ public class PlayerHealth : MonoBehaviour
             }
             else
             {
-                Die();
+                OnPlayerDied?.Invoke();
             }
         }
+        
     }
 
     /// <summary>
@@ -214,15 +200,10 @@ public class PlayerHealth : MonoBehaviour
     private void RecoveryHealth(float amount)
     {
         _playerCurrentHealth = Mathf.Min(PlayerMaxHealth, _playerCurrentHealth + amount);
+        OnHealFeedback?.PlayFeedbacks();
     }
 
     #endregion
 
 
-    private void Die()
-    {
-        Debug.Log("플레이어 사망");
-        GetComponent<PlayerController>().IsDead = true;
-        _animator.SetTrigger("Die");
-    }
 }

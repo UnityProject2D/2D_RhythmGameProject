@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using MoreMountains.Tools;
 
 public enum CurrencyType { QuantumKey, Credit }
 
@@ -19,8 +20,9 @@ public class CurrencyManager : MonoBehaviour
 
         foreach (CurrencyType type in System.Enum.GetValues(typeof(CurrencyType)))
         {
-            currencies[type] = 99;
+            currencies[type] = 9999999;
         }
+        DontDestroyOnLoad(gameObject);
     }
 
     public int Get(CurrencyType type) => currencies[type];

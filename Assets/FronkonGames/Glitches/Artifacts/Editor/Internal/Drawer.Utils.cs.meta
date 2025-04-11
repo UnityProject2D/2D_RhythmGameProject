@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ba911ef2887279848b771d9c3c50a67a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 288952
+  packageName: 'Glitches: Artifacts'
+  packageVersion: 2.1.0
+  assetPath: Assets/FronkonGames/Glitches/Artifacts/Editor/Internal/Drawer.Utils.cs
+  uploadId: 740106

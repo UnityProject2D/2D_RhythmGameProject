@@ -67,8 +67,6 @@ public static class RhythmEvents
 
     public static void InvokeOnBeat(float beat)
     {
-
-        VFXManager.Instance.PlayOnNoteFeedback();
         OnBeat?.Invoke(beat);
     }
     public static void InvokeOnSubBeat() => OnSubBeat?.Invoke();

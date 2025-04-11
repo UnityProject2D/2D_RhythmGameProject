@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: aa3ab43982d1772448c0c6140fde02e0
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 288952
+  packageName: 'Glitches: Artifacts'
+  packageVersion: 2.1.0
+  assetPath: Assets/FronkonGames/Glitches/Artifacts/Runtime/FronkonGames.Glitches.Artifacts.asmdef
+  uploadId: 740106

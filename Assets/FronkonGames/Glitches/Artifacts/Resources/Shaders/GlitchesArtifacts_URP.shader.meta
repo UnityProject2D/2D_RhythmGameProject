@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: f35d0f227cbb27049b8cd76324bf89d2
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 288952
+  packageName: 'Glitches: Artifacts'
+  packageVersion: 2.1.0
+  assetPath: Assets/FronkonGames/Glitches/Artifacts/Resources/Shaders/GlitchesArtifacts_URP.shader
+  uploadId: 740106

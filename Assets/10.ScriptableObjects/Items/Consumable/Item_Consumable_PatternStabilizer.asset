@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Consumable_PatternStabilizer
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 16
   itemName: "\uD328\uD134 \uCCB4\uACC4\uD654"
   icon: {fileID: -754878222315163978, guid: 53c6137a80db5844f90266713da5ae48, type: 3}
   description: "\uBD88\uC548\uC815\uD55C \uB9AC\uB4EC \uD328\uD134\uC744\n\uC790\uC728

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using FMODUnity;
 using System.Collections.Generic;
@@ -15,20 +16,37 @@ public class EnemyController : MonoBehaviour
     private const int PoolSizePerDirection = 8;
     private List<GameObject>[] shadowPools = new List<GameObject>[4];
 
-    private Transform _playerTransform;
+    public Transform _playerTransform;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-
+        Debug.Log(_animator);
         for (int i = 0; i < 4; i++)
             shadowPools[i] = new List<GameObject>();
     }
 
+    private void Instance_PlayerRegistered()
+    {
+        Debug.LogWarning("EnemyController: PlayerRegistered");
+        _playerTransform = GameManager.Instance.Player.Transform;
+    }
+
     private void Start()
     {
-        _playerTransform = PlayerHealth.Instance.GetComponent<Transform>();
-        ScoreManager.Instance.OnScoreChanged += EnemyDieJdg;
+        //if(GameManager.Instance.Player.Controller != null)
+        //{
+        //    Debug.LogWarning("EnemyController: 플레이어 있네요");
+        //    Instance_PlayerRegistered();
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("EnemyController: 플레이어 없네요 - 구독");
+        //    GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
+        //}
+
+        //SetPlayer().Forget();
+        OnMusicStopped += EnemyDieJdg;
         for (int dir = 0; dir < 4; dir++)
         {
             for (int i = 0; i < PoolSizePerDirection; i++)
@@ -39,7 +57,15 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+    //private async UniTaskVoid SetPlayer()
+    //{
+    //    while(GameManager.Instance.Player.Transform == null)
+    //    {
+    //        await UniTask.Yield();
+    //    }
 
+    //    _playerTransform = GameManager.Instance.Player.Transform;
+    //}
     private void OnEnable()
     {
         OnNotePreview += OnNotePreviewReceived;
@@ -48,7 +74,7 @@ public class EnemyController : MonoBehaviour
     private void OnDisable()
     {
         OnNotePreview -= OnNotePreviewReceived;
-        ScoreManager.Instance.OnScoreChanged -= EnemyDieJdg;
+        OnMusicStopped -= EnemyDieJdg;
     }
 
     private void OnNotePreviewReceived(NoteData beatNote)
@@ -58,8 +84,14 @@ public class EnemyController : MonoBehaviour
         int dir = GetIndexFromKey(beatNote.expectedKey);
         if (dir < 0 || dir >= 4) return;
 
-        if (test)
-            _animator.SetTrigger("Attack");
+        // 애니메이터가 null인지 확인
+        if (_animator == null)
+        {
+            Debug.LogError("Animator is not assigned or missing!");
+        }
+
+        // 애니메이션 트리거 설정
+        _animator.SetTrigger("Attack");
 
         GameObject shadow = GetInactiveShadow(dir);
         if (shadow == null) return;
@@ -126,6 +158,7 @@ public class EnemyController : MonoBehaviour
             if (!shadow.activeInHierarchy)
                 return shadow;
         }
+
         return null;
     }
 
@@ -158,9 +191,9 @@ public class EnemyController : MonoBehaviour
     }
 
     ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
-    private void EnemyDieJdg(int score)
+    private void EnemyDieJdg()
     {
-        if (score >= 10000)
+        if (ScoreManager.Instance.Score >= 10000)
         {
             Debug.Log("적 잔상 죽이기");
             gameObject.SetActive(false);

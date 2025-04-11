@@ -1,14 +1,32 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System;
+public class PlayerContext
+{
+    public PlayerController Controller =null;
+    public PlayerHealth Health = null;
+    public Transform Transform = null;
+}
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameObject Player;
     public GameObject Target;
+    public PlayerContext Player = new PlayerContext();
+    public event Action PlayerRegistered;
 
-    [SerializeField] private double winScoreThreshold = 10000; // 승리 기준 점수
+    public void RegisterPlayer(PlayerController controller)
+    {
+        Player.Controller = controller;
+        Player.Health = controller.GetComponent<PlayerHealth>();
+        Player.Transform = controller.transform;
+
+        Debug.LogWarning($"GameManager: {Player.Controller.gameObject.name} {Player.Health} {Player.Transform.position}");
+
+        PlayerRegistered?.Invoke();
+    }
+
 
     private void Awake()
     {
@@ -18,9 +36,15 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
+    //추후 GameResultHandler로 분리 예정
+    #region GameResult
+    [SerializeField] private double winScoreThreshold = 10000; // 승리 기준 점수
     private void OnEnable()
     {
         RhythmEvents.OnMusicStopped += OnMusicStopped;
+
+        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정 // 추후 SceneCleanupHandler로 분리 예정
     }
 
     private void OnDisable()
@@ -29,14 +53,11 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= DestroyOnRestart;
     }
 
-    private void Start()
-    {
-        SceneManager.sceneLoaded += DestroyOnRestart;
-    }
-
     private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
     {
-        if(scene.name == "GameTitle")
+        Player = new PlayerContext();
+        Debug.Log($"PlayerContext 초기화: {Player.Transform} {Player.Health} {Player.Controller}");
+        if (scene.name == "GameTitle")
         {
             Destroy(gameObject);
         }
@@ -62,4 +83,5 @@ public class GameManager : MonoBehaviour
             Debug.Log($"패배 총 점수: {totalScore}");
         }
     }
+    #endregion
 }

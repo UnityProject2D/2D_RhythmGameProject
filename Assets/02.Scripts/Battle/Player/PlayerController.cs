@@ -14,35 +14,41 @@ public enum RhythmAction
 
 public class PlayerController : MonoBehaviour
 {
-    private Animator _animator;
+    public PlayerHealth PlayerHealth;
 
-    public bool IsDead;
-    public bool IsAlive = true;
+    private Animator _animator;
+    private bool _isDead;
+    private float _prevHealth = 0;
 
     private void Awake()
     {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.RegisterPlayer(this);
+        }
         _animator = GetComponent<Animator>();
     }
-
-    private void OnEnable()
-    {
-        RhythmEvents.OnInputJudged += OnInputJudg; // 리듬 입력 판정 이벤트 구독
-    }
-
     private void Start()
     {
         Instance.OnInputPerformed += OnInputPerf;
-    }
+        PlayerHealth.OnPlayerHealthChanged += OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독
+        PlayerHealth.OnPlayerDied += HandleDie;
+        _prevHealth = PlayerHealth.PlayerCurrentHealth;
 
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.RegisterPlayer(this);
+        }
+    }
     private void OnDisable()
     {
         Instance.OnInputPerformed -= OnInputPerf;
-        RhythmEvents.OnInputJudged -= OnInputJudg; // 리듬 입력 판정 이벤트 구독 해제
+        PlayerHealth.OnPlayerHealthChanged -= OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독 해제
     }
 
     private void OnInputPerf(string key)
     {
-        if (IsDead) return;
+        if (_isDead) return;
         RhythmAction direction = RhythmAction.None;
         switch (key)
         {
@@ -57,13 +63,22 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    
 
-    private void OnInputJudg(JudgedContext result)
+    private void OnPlayerHealthChanged(float changed)
     {
-        if (result.Result == JudgementResult.Miss && !IsDead)
+        if(changed < _prevHealth)
         {
+            _prevHealth = changed;
             _animator.SetTrigger("Hit");
+        }
+    }
+
+    private void HandleDie()
+    {
+        if (!_isDead)
+        {
+            _isDead = true;
+            _animator.SetTrigger("Die");
         }
     }
 }

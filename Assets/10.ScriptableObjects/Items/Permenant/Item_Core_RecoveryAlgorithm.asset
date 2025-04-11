@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Core_RecoveryAlgorithm
   m_EditorClassIdentifier: 
+  itemID: 3
   itemName: "\uCF54\uC5B4: \uD68C\uBCF5 \uC54C\uACE0\uB9AC\uC998"
   icon: {fileID: 0}
   description: "\uC2A4\uD14C\uC774\uC9C0 n \uB2E8\uC704\uB9C8\uB2E4 \uCCB4\uB825\uC744
     \uD68C\uBCF5\uD558\uB294 \uC2DC\uC2A4\uD15C \uB0B4 \uD68C\uBCF5 \uB8E8\uD2F4.
     \n\uC2E4\uD589 \uC8FC\uAE30\uAC00 \uC9C0\uC815\uB41C \uC0DD\uBA85 \uC720\uC9C0
     \uC54C\uACE0\uB9AC\uC998."
+  EffectDescription: 
   category: {fileID: 11400000, guid: 54a0efa29be0696489bd78ffa950df6d, type: 2}
-  effects: []
+  isConsumable: 0
+  EffectValue: 0
+  EffectDuration: 0
+  value: 0
+  EffectCooldown: 0

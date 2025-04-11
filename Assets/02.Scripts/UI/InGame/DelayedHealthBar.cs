@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,6 +37,8 @@ public class DelayedHealthBar : MonoBehaviour
 
     // 트윈 참조를 저장하기 위한 변수
     private Tween _backSliderTween;
+
+    public PlayerHealth playerHealth;
 
     public float MaxHealth
     {
@@ -82,13 +85,41 @@ public class DelayedHealthBar : MonoBehaviour
 
     private void Start()
     {
-        // MaxHealth 프로퍼티를 통해 초기화
+        _maxHealth = playerHealth.PlayerMaxHealth;
+        playerHealth.OnPlayerHealthChanged += HandleHealthChanged;
+        //if (GameManager.Instance.Player.Health != null)
+        //{
+        //    OnPlayerRegistered();
+        //}
+        //else
+        //{
+        //    GameManager.Instance.PlayerRegistered += OnPlayerRegistered; // 플레이어 등록 이벤트 구독
+        //}// MaxHealth 프로퍼티를 통해 초기화
         MaxHealth = _maxHealth;
-
+        //SetPlayer().Forget();
         // 슬라이더 색상 설정
         SetColors();
     }
 
+
+    //private async UniTaskVoid SetPlayer()
+    //{
+    //    while (GameManager.Instance.Player.Health == null)
+    //    {
+    //        await UniTask.Yield();
+    //    }
+    //    var playerHealth = GameManager.Instance.Player.Health;
+    //    _maxHealth = playerHealth.PlayerMaxHealth;
+    //    playerHealth.OnPlayerHealthChanged += HandleHealthChanged;
+    //    GameManager.Instance.PlayerRegistered -= OnPlayerRegistered;
+    //}
+    //private void OnPlayerRegistered()
+    //{
+    //    var playerHealth = GameManager.Instance.Player.Health;
+    //    _maxHealth = playerHealth.PlayerMaxHealth;
+    //    playerHealth.OnPlayerHealthChanged += HandleHealthChanged;
+    //    GameManager.Instance.PlayerRegistered -= OnPlayerRegistered; // 플레이어 등록 이벤트 구독 해제
+    //}
     private void Update()
     {
         if (_isInitialized && _currentHealth != _frontSlider.value)
@@ -166,5 +197,14 @@ public class DelayedHealthBar : MonoBehaviour
         {
             _backSliderTween.Kill();
         }
+        if (GameManager.Instance.Player != null) // 플레이어가 죽은 경우 이벤트 구독하지 않음
+            GameManager.Instance.Player.Health.OnPlayerHealthChanged -= HandleHealthChanged; // 플레이어 체력 변경 이벤트 구독 해제
+    }
+
+    private void HandleHealthChanged(float currentHealth)
+    {
+        _currentHealth = currentHealth;
+
+
     }
 }

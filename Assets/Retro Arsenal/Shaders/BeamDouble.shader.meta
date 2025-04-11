@@ -7,3 +7,10 @@ ShaderImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 286454
+  packageName: Retro Arsenal
+  packageVersion: 1.0.2
+  assetPath: Assets/Retro Arsenal/Shaders/BeamDouble.shader
+  uploadId: 680784

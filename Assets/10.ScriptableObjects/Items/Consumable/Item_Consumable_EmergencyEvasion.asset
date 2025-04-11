@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Consumable_EmergencyEvasion
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 11
   itemName: "\uAE34\uAE09 \uD68C\uD53C \uD504\uB85C\uD1A0\uCF5C"
   icon: {fileID: 852628137, guid: b8b9894dffe76c9478e7c8bb81e731cf, type: 3}
   description: "\uC0AC\uC6A9\uC790\uAC00 \uCE58\uBA85\uC801\uC778 \uC190\uC0C1\uC744
