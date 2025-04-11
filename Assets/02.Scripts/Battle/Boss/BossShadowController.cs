@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using FMODUnity;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ public class BossShadowController : MonoBehaviour
 
     private void Start()
     {
-        ScoreManager.Instance.OnScoreChanged += BossDieJdg;
+        OnMusicStopped += BossDieJdg;
         for (int dir = 0; dir < 4; dir++)
         {
             for (int i = 0; i < PoolSizePerDirection; i++)
@@ -52,7 +53,7 @@ public class BossShadowController : MonoBehaviour
     {
         OnNotePreview -= OnNotePreviewReceived;
         OnNote -= OnNoteReceived;
-        ScoreManager.Instance.OnScoreChanged -= BossDieJdg;
+        RhythmEvents.OnMusicStopped -= BossDieJdg;
     }
 
     private void OnNotePreviewReceived(NoteData beatNote)
@@ -173,12 +174,11 @@ public class BossShadowController : MonoBehaviour
 
     ///////// 적이 죽으면!! -> ScoreManager StageCleared 코드 완성된 후 점검 후 수정할것!
     ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
-    private void BossDieJdg(int score)
+    private void BossDieJdg()
     {
-        if (_isDead) return; /////////////// 적이 죽었으면 리턴
-        if (score >= 5000)
+
+        if (ScoreManager.Instance.Score >= 10000)
         {
-            _isDead = true;
             FadeOutBoss(); // 페이드아웃
             DOVirtual.DelayedCall(0.5f, () => gameObject.SetActive(false)); // 0.5초 후 비활성화
         }

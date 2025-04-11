@@ -20,8 +20,9 @@ public class CurrencyManager : MonoBehaviour
 
         foreach (CurrencyType type in System.Enum.GetValues(typeof(CurrencyType)))
         {
-            currencies[type] = 0;
+            currencies[type] = 9999999;
         }
+        DontDestroyOnLoad(gameObject);
     }
 
     public int Get(CurrencyType type) => currencies[type];

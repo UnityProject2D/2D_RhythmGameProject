@@ -43,8 +43,31 @@ public class EnemyAttackController : MonoBehaviour
             EnemyBulletPool.Add(bullet);
         }
 
-        _playerTransform = GameManager.Instance.Player.Transform;
-}
+        //if (GameManager.Instance.Player.Controller != null)
+        //{
+        //    Debug.LogWarning("EnemyAttackController: 플레이어 있네요");
+        //    Instance_PlayerRegistered();
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("EnemyAttackController: 플레이어 없네요 - 구독");
+        //    GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
+        //}
+
+        //SetPlayer().Forget();
+    }
+
+    //private async UniTaskVoid SetPlayer()
+    //{
+    //    while (GameManager.Instance.Player.Transform == null)
+    //    {
+    //        Debug.Log($"{GameManager.Instance.Player.Transform}");
+    //        await UniTask.Yield();
+    //    }
+
+    //    _playerTransform = GameManager.Instance.Player.Transform;
+    //}
+
 
     private void OnEnable()
     {
@@ -94,16 +117,17 @@ public class EnemyAttackController : MonoBehaviour
         Vector2 direction;
         if (_playerTransform == null)
             direction = GunPosition.position;
-
-        switch (directionIndex)
+        else
         {
-            case 0: direction = (_playerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
-            case 1: direction = (_playerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
-            case 2: direction = Vector3.left; break;   // A - 왼쪽 몸통
-            case 3: direction = Vector3.left; break;  // D - 오른쪽 몸통
-            default: direction = _playerTransform.position; break;
+            switch (directionIndex)
+            {
+                case 0: direction = (_playerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
+                case 1: direction = (_playerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
+                case 2: direction = Vector3.left; break;   // A - 왼쪽 몸통
+                case 3: direction = Vector3.left; break;  // D - 오른쪽 몸통
+                default: direction = _playerTransform.position; break;
+            }
         }
-
         direction = direction.normalized;
 
         // 회전 방향 기준으로 이동 방향 설정

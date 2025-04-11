@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.RegisterPlayer(this);
+        }
         _animator = GetComponent<Animator>();
     }
     private void Start()

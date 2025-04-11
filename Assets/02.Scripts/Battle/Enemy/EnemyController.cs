@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using FMODUnity;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ public class EnemyController : MonoBehaviour
     private const int PoolSizePerDirection = 8;
     private List<GameObject>[] shadowPools = new List<GameObject>[4];
 
-    private Transform _playerTransform;
+    public Transform _playerTransform;
 
     private void Awake()
     {
@@ -25,9 +26,26 @@ public class EnemyController : MonoBehaviour
             shadowPools[i] = new List<GameObject>();
     }
 
+    private void Instance_PlayerRegistered()
+    {
+        Debug.LogWarning("EnemyController: PlayerRegistered");
+        _playerTransform = GameManager.Instance.Player.Transform;
+    }
+
     private void Start()
     {
-        _playerTransform = GameManager.Instance.Player.Transform;
+        //if(GameManager.Instance.Player.Controller != null)
+        //{
+        //    Debug.LogWarning("EnemyController: 플레이어 있네요");
+        //    Instance_PlayerRegistered();
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("EnemyController: 플레이어 없네요 - 구독");
+        //    GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
+        //}
+
+        //SetPlayer().Forget();
         OnMusicStopped += EnemyDieJdg;
         for (int dir = 0; dir < 4; dir++)
         {
@@ -39,7 +57,15 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+    //private async UniTaskVoid SetPlayer()
+    //{
+    //    while(GameManager.Instance.Player.Transform == null)
+    //    {
+    //        await UniTask.Yield();
+    //    }
 
+    //    _playerTransform = GameManager.Instance.Player.Transform;
+    //}
     private void OnEnable()
     {
         OnNotePreview += OnNotePreviewReceived;

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ public class BossAttackController : MonoBehaviour
 
     private void Start()
     {
-        ScoreManager.Instance.OnScoreChanged += BossDieJdg;
+        OnMusicStopped += BossDieJdg;
         // 총알 오브젝트 풀 생성
         for (int i = 0; i < poolSize; i++)
         {
@@ -61,7 +62,7 @@ public class BossAttackController : MonoBehaviour
     private void OnDisable()
     {
         OnNote -= OnNoteReceived;
-        ScoreManager.Instance.OnScoreChanged -= BossDieJdg;
+        OnMusicStopped -= BossDieJdg;
     }
 
     private void OnNoteReceived(NoteData beatTime)
@@ -139,12 +140,11 @@ public class BossAttackController : MonoBehaviour
 
     ///////// 적이 죽으면!! -> ScoreManager StageCleared 코드 완성된 후 점검 후 수정할것!
     ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
-    private void BossDieJdg(int score)
+    private void BossDieJdg()
     {
-        if (_isDead) return;
-        if (score >= 5000)
+        if (ScoreManager.Instance.Score >= 10000)
         {
-            _isDead = true;
+            RuntimeManager.PlayOneShot("event:/SFX/EnemyDie");
             _animator.SetTrigger("Die");
         }
     }

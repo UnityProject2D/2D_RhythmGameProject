@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System;
 public class PlayerContext
 {
-    public PlayerController Controller;
-    public PlayerHealth Health;
-    public Transform Transform;
+    public PlayerController Controller =null;
+    public PlayerHealth Health = null;
+    public Transform Transform = null;
 }
 
 public class GameManager : MonoBehaviour
@@ -13,15 +14,17 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public GameObject Target;
     public PlayerContext Player = new PlayerContext();
+    public event Action PlayerRegistered;
 
     public void RegisterPlayer(PlayerController controller)
     {
-        if (Player == null)
-        {
-            Player.Controller = controller;
-            Player.Health = controller.GetComponent<PlayerHealth>();
-            Player.Transform = controller.transform;
-        }
+        Player.Controller = controller;
+        Player.Health = controller.GetComponent<PlayerHealth>();
+        Player.Transform = controller.transform;
+
+        Debug.LogWarning($"GameManager: {Player.Controller.gameObject.name} {Player.Health} {Player.Transform.position}");
+
+        PlayerRegistered?.Invoke();
     }
 
 
@@ -52,7 +55,9 @@ public class GameManager : MonoBehaviour
 
     private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
     {
-        if(scene.name == "GameTitle")
+        Player = new PlayerContext();
+        Debug.Log($"PlayerContext 초기화: {Player.Transform} {Player.Health} {Player.Controller}");
+        if (scene.name == "GameTitle")
         {
             Destroy(gameObject);
         }

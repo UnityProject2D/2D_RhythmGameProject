@@ -880,7 +880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 934f19cf1ae4df24dbbf1a8404328f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: ComatScene
+  sceneToLoad: GameTitle
   action: 0
 --- !u!1 &5014049091561009791
 GameObject:

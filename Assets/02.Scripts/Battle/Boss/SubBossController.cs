@@ -22,11 +22,13 @@ public class SubBossController : MonoBehaviour
 
     private void OnEnable()
     {
-        ScoreManager.Instance.OnComboChanged += OnComboChanged;
         OnNote += OnNoteReceived;
         FadeInSubBoss(0.25f); // 서브보스 페이드인
     }
-
+    private void Start()
+    {
+        ScoreManager.Instance.OnComboChanged += OnComboChanged;
+    }
     private void OnDisable()
     {
         ScoreManager.Instance.OnComboChanged -= OnComboChanged;
