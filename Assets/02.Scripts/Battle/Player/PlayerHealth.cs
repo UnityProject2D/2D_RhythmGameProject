@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
-        PlayerMaxHealth = 100;
+        PlayerMaxHealth = 10;
         _playerCurrentHealth = PlayerMaxHealth;
     }
     private void OnEnable()
