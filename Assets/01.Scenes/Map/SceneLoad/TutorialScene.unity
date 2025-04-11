@@ -24133,7 +24133,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1449262245}
           m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
-          m_MethodName: StartNextStepAfterDelay
+          m_MethodName: TextEndEvent
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

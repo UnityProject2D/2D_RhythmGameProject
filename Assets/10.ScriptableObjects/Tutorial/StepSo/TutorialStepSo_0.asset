@@ -16,4 +16,5 @@ MonoBehaviour:
     \uC2DC\uBBAC\uB808\uC774\uC158 \uACF5\uAC04\uC785\uB2C8\uB2E4.\n\uC801\uC758
     \uACF5\uACA9\uC740 \uB9AC\uB4EC\uC5D0 \uB9DE\uCDB0 \uB2E4\uAC00\uC635\uB2C8\uB2E4."
   Duration: 4
-  DelayTime: 1.5
+  DelayTime: 0.5
+  TextNextConditionType: 0

@@ -11,4 +11,8 @@ public class TutorialStepSo : ScriptableObject
     [TextArea] public string Text;
     public float Duration;
     public float DelayTime;
+
+    public TriggerKeyType TriggerKeyType;
+
+    public TextNextConditionType TextNextConditionType;
 }

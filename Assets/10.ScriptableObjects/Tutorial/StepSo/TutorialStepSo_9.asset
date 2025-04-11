@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: "\uD558\uB2E8 \uBC29\uC5B4 \uC131\uACF5."
   Duration: 4
-  DelayTime: 1.5
+  DelayTime: 0.5
+  TriggerKeyType: 0
+  TextNextConditionType: 0
