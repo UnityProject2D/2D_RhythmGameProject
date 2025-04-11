@@ -7,7 +7,7 @@ using FMOD.Studio;
 public class GameOverManager : MonoBehaviour
 {
     public static GameOverManager Instance { get; private set; }
-    public int WaitTime = 4; // 대기 시간 (초)
+    public int WaitTime = 3; // 대기 시간 (초)
     public int WaitTime2 = 1; // 대기 시간 (초)
 
     public float startPitch = 1f;
@@ -23,11 +23,8 @@ public class GameOverManager : MonoBehaviour
     }
     private void Start()
     {
-        GameManager.Instance.PlayerRegistered += () =>
-        {
-            Debug.Log("[RhythmManager] PlayerRegistered");
-            GameManager.Instance.Player.Health.OnPlayerDied += OnPlayerDied;
-        };
+
+        PlayerState.Instance.GetComponent<PlayerHealth>().OnPlayerDied += OnPlayerDied;
     }
 
     public void OnPlayerDied()

@@ -67,11 +67,13 @@ public class RhythmManager : MonoBehaviour
         {
             Play();
         }
-        GameManager.Instance.PlayerRegistered += () =>
-        {
-            Debug.Log("[RhythmManager] PlayerRegistered");
-            GameManager.Instance.Player.Health.OnPlayerDied += OnPlayerDie;
-        };
+
+        PlayerState.Instance.GetComponent<PlayerHealth>().OnPlayerDied += OnPlayerDie;
+        //GameManager.Instance.PlayerRegistered += () =>
+        //{
+        //    Debug.Log("[RhythmManager] PlayerRegistered");
+        //    GameManager.Instance.Player.Health.OnPlayerDied += OnPlayerDie;
+        //};
     }
 
 
