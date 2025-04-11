@@ -37,9 +37,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/TeMP_StageSound/Track02
+  m_Name: event:/TEMP_StageSound/Track02
   m_EditorClassIdentifier: 
-  Path: event:/TeMP_StageSound/Track02
+  Path: event:/TEMP_StageSound/Track02
   Guid:
     Data1: 852848855
     Data2: 1079758966
@@ -68,10 +68,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Title
   Guid:
-    Data1: 1054051972
-    Data2: 1267384874
-    Data3: 710025125
-    Data4: 2058505865
+    Data1: -304018025
+    Data2: 1118338946
+    Data3: -1140572742
+    Data4: 1996132002
   Banks:
   - {fileID: 2325183216582169763}
   IsStream: 1
@@ -80,7 +80,34 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 167376
+  Length: 158125
+--- !u!114 &-2798955980169538259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TEMP_StageSound/Track05
+  m_EditorClassIdentifier: 
+  Path: event:/TEMP_StageSound/Track05
+  Guid:
+    Data1: -2134234781
+    Data2: 1167399620
+    Data3: -178931041
+    Data4: 1520768316
+  Banks:
+  - {fileID: 2325183216582169763}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 226436
 --- !u!114 &-2596667840957986642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,38 +123,11 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638799788414910891
+  lastModified: 638799829059688989
   FileSizes:
   - Name: Desktop
-    Value: 1398
+    Value: 1532
   Exists: 1
---- !u!114 &-1948226796453373854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: 
-  Guid:
-    Data1: -304018025
-    Data2: 1118338946
-    Data3: -1140572742
-    Data4: 1996132002
-  Banks:
-  - {fileID: 2325183216582169763}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 158125
 --- !u!114 &-1483674036965872788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,13 +213,16 @@ MonoBehaviour:
   - {fileID: 7350767493011601478}
   - {fileID: -7769661378763955534}
   - {fileID: 3035481260661885179}
-  - {fileID: -1948226796453373854}
+  - {fileID: 6001361326524862247}
+  - {fileID: -2798955980169538259}
+  - {fileID: 7786708785426307124}
+  - {fileID: 2873620758376609369}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2325183216582169763}
   StringsBanks:
   - {fileID: -2596667840957986642}
-  cacheTime: 638799788414910891
+  cacheTime: 638799829059688989
   cacheVersion: 131623
 --- !u!114 &386619556000339076
 MonoBehaviour:
@@ -290,7 +293,7 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master Bank.bank
   Name: Master Bank
   StudioPath: bank:/Master Bank
-  lastModified: 638797454488419307
+  lastModified: 638796390710148197
   FileSizes:
   - Name: Desktop
     Value: 7517248
@@ -310,10 +313,10 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638799788414905868
+  lastModified: 638799829059688989
   FileSizes:
   - Name: Desktop
-    Value: 14745248
+    Value: 25300544
   Exists: 1
 --- !u!114 &2585479893305146147
 MonoBehaviour:
@@ -342,6 +345,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &2873620758376609369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TEMP_StageSound/Track06
+  m_EditorClassIdentifier: 
+  Path: event:/TEMP_StageSound/Track06
+  Guid:
+    Data1: -792984858
+    Data2: 1075953317
+    Data3: -827126081
+    Data4: -1925508062
+  Banks:
+  - {fileID: 2325183216582169763}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 110016
 --- !u!114 &3035481260661885179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,13 +392,13 @@ MonoBehaviour:
     Data4: 95393419
   Banks:
   - {fileID: 2325183216582169763}
-  IsStream: 0
+  IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 240048
 --- !u!114 &5041779617968266673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,9 +409,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/TeMP_StageSound/Track01
+  m_Name: event:/TEMP_StageSound/Track01
   m_EditorClassIdentifier: 
-  Path: event:/TeMP_StageSound/Track01
+  Path: event:/TEMP_StageSound/Track01
   Guid:
     Data1: -14626127
     Data2: 1127277754
@@ -396,6 +426,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 58500
+--- !u!114 &6001361326524862247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TEMP_StageSound/Track04
+  m_EditorClassIdentifier: 
+  Path: event:/TEMP_StageSound/Track04
+  Guid:
+    Data1: -1313312205
+    Data2: 1157794592
+    Data3: -749524577
+    Data4: 725581069
+  Banks:
+  - {fileID: 2325183216582169763}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 163704
 --- !u!114 &6559489985047708647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,6 +507,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &7786708785426307124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial
+  Guid:
+    Data1: -73106582
+    Data2: 1223902688
+    Data3: -1026297981
+    Data4: -1764527479
+  Banks:
+  - {fileID: 2325183216582169763}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 171336
 --- !u!114 &8037341091926086625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,9 +571,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/TeMP_StageSound/Track03
+  m_Name: event:/TEMP_StageSound/Track03
   m_EditorClassIdentifier: 
-  Path: event:/TeMP_StageSound/Track03
+  Path: event:/TEMP_StageSound/Track03
   Guid:
     Data1: -1744773704
     Data2: 1147564557
