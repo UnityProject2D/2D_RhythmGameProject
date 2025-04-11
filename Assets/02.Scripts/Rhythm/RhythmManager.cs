@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using MoreMountains.Tools;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 enum NoteTriggerState
 {
@@ -66,7 +67,15 @@ public class RhythmManager : MonoBehaviour
         {
             Play();
         }
+
+        PlayerState.Instance.GetComponent<PlayerHealth>().OnPlayerDied += OnPlayerDie;
+        //GameManager.Instance.PlayerRegistered += () =>
+        //{
+        //    Debug.Log("[RhythmManager] PlayerRegistered");
+        //    GameManager.Instance.Player.Health.OnPlayerDied += OnPlayerDie;
+        //};
     }
+
 
     private void OnEnable()
     {
@@ -272,6 +281,31 @@ public class RhythmManager : MonoBehaviour
         if (_timelineHandle.IsAllocated)
             _timelineHandle.Free();
     }
+    public void OnPlayerDie()
+    {
+        Debug.Log("[RhythmManager] HandleDie() 호출");
+        StartCoroutine(FadeOutPitch(_musicInstance,1f));
+    }
+    public IEnumerator FadeOutPitch(EventInstance musicInstance, float duration)
+    {
+        float time = 0f;
+        float startPitch = 1f;
+        float endPitch = 0.2f;
+        while (time < duration)
+        {
+            time += Time.unscaledDeltaTime;
+            float t = time / duration;
+            float pitch = Mathf.Lerp(startPitch, endPitch, t);
+            musicInstance.setPitch(pitch);
+            yield return null;
+        }
+
+        musicInstance.setPitch(endPitch);
+
+        yield return new WaitForSecondsRealtime(3f);
+        musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
+
 
     // 콜백용 구조체
     class TimelineInfo
