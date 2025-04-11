@@ -3225,6 +3225,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5761144494509899810, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761144494509899810, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761144494509899810, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7684766080169339895, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
       propertyPath: m_Name
       value: MenuPanel
