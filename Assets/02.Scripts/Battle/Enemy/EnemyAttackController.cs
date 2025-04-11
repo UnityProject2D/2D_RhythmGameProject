@@ -170,7 +170,7 @@ public class EnemyAttackController : MonoBehaviour
             {
                 Instantiate(QuantumKey, transform.position, Quaternion.identity);
                 CoinEffect?.PlayFeedbacks();
-                await UniTask.Delay(1000);
+                await UniTask.Delay(1000,false);
                 Destroy(gameObject);
             }
         }

@@ -19,7 +19,12 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private bool _isDead;
     private float _prevHealth = 0;
+    private bool _inputEnabled = true;
 
+    public void SetInputEnabled(bool enabled)
+    {
+        _inputEnabled = enabled;
+    }
     private void Awake()
     {
         if (GameManager.Instance != null)
@@ -40,7 +45,7 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.RegisterPlayer(this);
         }
     }
-    private void OnDisable()
+    private void OnDestroy()
     {
         Instance.OnInputPerformed -= OnInputPerf;
         PlayerHealth.OnPlayerHealthChanged -= OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독 해제
@@ -48,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnInputPerf(string key)
     {
-        if (_isDead) return;
+        if (!_inputEnabled || _isDead) return;
         RhythmAction direction = RhythmAction.None;
         switch (key)
         {
