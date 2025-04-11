@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/01.Scenes/UI/GameTitle.unity
     guid: 435f90bc2c9fff4478db17a3fbea0a67
   - enabled: 1
+    path: Assets/01.Scenes/Common/LoadingScene.unity
+    guid: 17343fdd0282fd64ca67971c8ece6e31
+  - enabled: 1
     path: Assets/01.Scenes/Map/SceneLoad/TitleScene.unity
     guid: f2a07922c1170954cb075fb40788e781
+  - enabled: 1
+    path: Assets/01.Scenes/Map/SceneLoad/TutorialScene.unity
+    guid: 4b1fa110f5d44444fa0a4a7a5adf5ee2
   - enabled: 1
     path: Assets/01.Scenes/Map/SceneLoad/ComatScene.unity
     guid: a265f17cec0d1d9408158d5a51fccde3
