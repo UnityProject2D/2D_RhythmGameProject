@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: 70b9c9438ee5bb542af151d113a129c0
+guid: a6451eff6a87beb408a95c74b1606d8e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4723107735738678597
-    second: Idle_0
+      213: -8585279802568998439
+    second: BossBulletSpecial_0
   - first:
-      213: -7385789195546760866
-    second: Idle_1
+      213: -8853654727275608828
+    second: BossBulletSpecial_1
   - first:
-      213: 3234629978573100161
-    second: Idle_2
-  - first:
-      213: 6373048116405451881
-    second: Idle_3
+      213: 5281833107706807418
+    second: BossBulletSpecial_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,111 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_0
+      name: BossBulletSpecial_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 74
-        height: 78
+        x: 15
+        y: 178
+        width: 135
+        height: 164
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54d7a982679db8140800000000000000
-      internalID: 4723107735738678597
+      spriteID: 9d10a8e9185fad880800000000000000
+      internalID: -8585279802568998439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_1
+      name: BossBulletSpecial_1
       rect:
         serializedVersion: 2
-        x: 98
-        y: 0
-        width: 77
-        height: 80
+        x: 178
+        y: 173
+        width: 146
+        height: 160
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e596485bbd7608990800000000000000
-      internalID: -7385789195546760866
+      spriteID: 40587c82fef712580800000000000000
+      internalID: -8853654727275608828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_2
+      name: BossBulletSpecial_2
       rect:
         serializedVersion: 2
-        x: 194
-        y: 0
-        width: 74
-        height: 81
+        x: 346
+        y: 178
+        width: 135
+        height: 169
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 184dda4e3d6b3ec20800000000000000
-      internalID: 3234629978573100161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_3
-      rect:
-        serializedVersion: 2
-        x: 291
-        y: 0
-        width: 72
-        height: 79
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 96cb1dafe7d917850800000000000000
-      internalID: 6373048116405451881
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 384
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5247b13c68411e04eb63c61aeb3bb1d3
-      internalID: -1472109313
+      spriteID: a7403c32a37dc4940800000000000000
+      internalID: 5281833107706807418
       vertices: []
       indices: 
       edges: []
@@ -235,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 34f4027b103daff45bf75b83060319cc
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -245,11 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Idle_0: 4723107735738678597
-      Idle_1: -7385789195546760866
-      Idle_2: 3234629978573100161
-      Idle_3: 6373048116405451881
-      Idle_4: -1472109313
+      BossBulletSpecial_0: -8585279802568998439
+      BossBulletSpecial_1: -8853654727275608828
+      BossBulletSpecial_2: 5281833107706807418
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

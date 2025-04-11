@@ -28,10 +28,10 @@ public class ComboUI : MonoBehaviour
 
     private void OnComboChg(int combo)
     {
-        if (combo > 0)
+        if (combo >= 1)
         {
             _animator.SetTrigger("Combo"); // 애니메이션 트리거 설정
-                                           //comboText.text = $"Combo: {combo}"; // 콤보 UI 업데이트
+            comboText.text = $"Combo: {combo}"; // 콤보 UI 업데이트
 
             if (combo >= 10)
             {
