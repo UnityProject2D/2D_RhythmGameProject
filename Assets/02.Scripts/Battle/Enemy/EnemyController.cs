@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     private const int PoolSizePerDirection = 12;
     private List<GameObject>[] shadowPools = new List<GameObject>[4];
 
-    public Transform _playerTransform;
+    private Transform _playerTransform;
 
     private void Awake()
     {
@@ -28,22 +28,22 @@ public class EnemyController : MonoBehaviour
 
     private void Instance_PlayerRegistered()
     {
-        Debug.LogWarning("EnemyController: PlayerRegistered");
         _playerTransform = GameManager.Instance.Player.Transform;
+
+        Debug.Log($"EnemyController: PlayerRegistered - {_playerTransform}");
     }
 
     private void Start()
     {
-        //if(GameManager.Instance.Player.Controller != null)
-        //{
-        //    Debug.LogWarning("EnemyController: 플레이어 있네요");
-        //    Instance_PlayerRegistered();
-        //}
-        //else
-        //{
-        //    Debug.LogWarning("EnemyController: 플레이어 없네요 - 구독");
-        //    GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
-        //}
+        if (GameManager.Instance.Player.Controller != null)
+        {
+            Instance_PlayerRegistered();
+        }
+        else
+        {
+            Debug.LogWarning("EnemyController: 플레이어 없네요 - 구독");
+            GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
+        }
 
         //SetPlayer().Forget();
         OnMusicStopped += EnemyDieJdg;
