@@ -831,10 +831,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleMusic:
     Guid:
-      Data1: -304018025
-      Data2: 1118338946
-      Data3: -1140572742
-      Data4: 1996132002
+      Data1: 1054051972
+      Data2: 1267384874
+      Data3: 710025125
+      Data4: 2058505865
     Path: event:/Title
   mmaudioAnalyzer: {fileID: 1815980577697091070}
 --- !u!1 &8221097511479233866
