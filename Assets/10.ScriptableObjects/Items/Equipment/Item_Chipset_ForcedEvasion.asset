@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Chipset_ForcedEvasion
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 5
   itemName: "\uCE69\uC14B: \uAC15\uC81C \uD68C\uD53C \uD504\uB85C\uD1A0\uCF5C"
   icon: {fileID: -7377708058814999374, guid: 1b59644603ef90643bed922fb0827772, type: 3}
   description: "\uB9AC\uB4EC \uB370\uC774\uD130\uAC00 \uC758\uB3C4\uCE58 \uC54A\uAC8C

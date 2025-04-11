@@ -82,9 +82,17 @@ public class DelayedHealthBar : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.Instance.Player != null)
+        {
+            var playerHealth = GameManager.Instance.Player.Health;
+            _maxHealth = playerHealth.PlayerMaxHealth;
+            playerHealth.OnPlayerHealthChanged += HandleHealthChanged; // 플레이어 체력 변경 이벤트 구독
+        } // 플레이어가 죽은 경우 이벤트 구독하지 않음
+
+
         // MaxHealth 프로퍼티를 통해 초기화
         MaxHealth = _maxHealth;
-
+        
         // 슬라이더 색상 설정
         SetColors();
     }
@@ -166,5 +174,14 @@ public class DelayedHealthBar : MonoBehaviour
         {
             _backSliderTween.Kill();
         }
+        if (GameManager.Instance.Player != null) // 플레이어가 죽은 경우 이벤트 구독하지 않음
+            GameManager.Instance.Player.Health.OnPlayerHealthChanged -= HandleHealthChanged; // 플레이어 체력 변경 이벤트 구독 해제
+    }
+
+    private void HandleHealthChanged(float currentHealth)
+    {
+        _currentHealth = currentHealth;
+
+
     }
 }

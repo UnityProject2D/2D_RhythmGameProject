@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Chipset_CalibrationChipset
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 4
   itemName: "\uCE69\uC14B: \uC790\uB3D9 \uAD50\uC815 \uC720\uB2DB"
   icon: {fileID: -4746165608197179889, guid: bb5def8d9ffbba44da206f633afde860, type: 3}
   description: "\uCE58\uBA85\uC801 \uC190\uC0C1\uC744 1\uD68C \uBB34\uD6A8\uD654\uD558\uB294\n\uC790\uAE30

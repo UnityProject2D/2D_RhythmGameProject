@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 316df92a9f410944a8fec182645c09e0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 288952
+  packageName: 'Glitches: Artifacts'
+  packageVersion: 2.1.0
+  assetPath: Assets/FronkonGames/Glitches/Artifacts/Editor/Internal/SupportWindow.cs
+  uploadId: 740106

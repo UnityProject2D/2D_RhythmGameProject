@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0893eddc7ade94eaf9d50be4e2798e, type: 3}
   m_Name: Item_Consumable_ProbabilityAmplifier
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 13
   itemName: "\uD655\uB960 \uC99D\uD3ED\uC81C"
   icon: {fileID: -1610875556, guid: b8b9894dffe76c9478e7c8bb81e731cf, type: 3}
   description: "\uC2E0\uD638 \uAD50\uB780 \uC99D\uD3ED \uC7A5\uCE58\uB97C \uD1B5\uD574\n\uBCF4\uC0C1
@@ -23,7 +23,7 @@ MonoBehaviour:
   EffectDescription: "[\uC0AC\uC6A9 \uC2DC]\n\uB2E4\uC74C \uBCF4\uC0C1 \uD68D\uB4DD
     \uD655\uB960\uC774\n2\uBC30\uB85C \uC0C1\uC2B9\uD569\uB2C8\uB2E4."
   category: {fileID: 11400000, guid: dbacc609a7692aa4bbb3487a966d718b, type: 2}
-  isConsumable: 0
+  isConsumable: 1
   EffectValue: 0
   EffectDuration: 0
   value: 0

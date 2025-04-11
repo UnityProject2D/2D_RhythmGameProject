@@ -46,9 +46,10 @@ public class PlayerState : MonoBehaviour
     public bool AutoComboSystemEnabled;
     [Header("정밀 보정 칩셋: Bad도 콤보 유지, 기본 점수 획득량 감소")]
     public bool PreciseCalibrationUnitEnabled;
-    [Header("보너스 칩: Perfect시 20% 증가된 점수 획득")]
-    public bool BonusChipEnabled;
+    [Header("하이퍼 스코어 커널: Perfect시 20% 증가된 점수 획득")]
+    public bool HyperScoreKernalEnabled;
     [Header("골드 획득기?: 스테이지 클리어시 돈 추가 획득")]
+    public bool DataCacheModuleEnabled;
 
     [Space(10)]
     [Header("소비 아이템")]
@@ -95,7 +96,7 @@ public class PlayerState : MonoBehaviour
                 PreciseCalibrationUnitEnabled = flag;
                 break;
             case ItemID.DataCacheModule:
-                BonusChipEnabled = flag;
+                DataCacheModuleEnabled = flag;
                 break;
             case ItemID.EmergencyEvasion:
                 EmergencyEvasionEnabled = flag;
@@ -112,13 +113,15 @@ public class PlayerState : MonoBehaviour
             case ItemID.HackingTool:
                 HackingToolUsed = flag;
                 break;
+            case ItemID.HyperScoreKernal:
+                HyperScoreKernalEnabled = flag;
+                break;
             default:
                 Debug.LogWarning($"[PlayerState] 알 수 없는 ItemID: {id}");
                 return;
         }
         var itemStatus = new ItemUseStatus(id, flag);
         OnItemUsed?.Invoke(itemStatus);
-
     }
     private void Awake()
     {
@@ -135,7 +138,7 @@ public class PlayerState : MonoBehaviour
 
     private void OnEnable()
     {
-        SceneManager.sceneLoaded += DestroyOnRestart;
+        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
     }
     private void OnDisable()
     {

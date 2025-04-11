@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a099ba18be3e1234180c4a6d3c6858fc
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 288952
+  packageName: 'Glitches: Artifacts'
+  packageVersion: 2.1.0
+  assetPath: Assets/FronkonGames/Glitches/Artifacts/Resources/Shaders/Glitches.hlsl
+  uploadId: 740106

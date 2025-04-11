@@ -20,15 +20,15 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-
+        Debug.Log(_animator);
         for (int i = 0; i < 4; i++)
             shadowPools[i] = new List<GameObject>();
     }
 
     private void Start()
     {
-        _playerTransform = PlayerHealth.Instance.GetComponent<Transform>();
-        ScoreManager.Instance.OnScoreChanged += EnemyDieJdg;
+        _playerTransform = GameManager.Instance.Player.Transform;
+        OnMusicStopped += EnemyDieJdg;
         for (int dir = 0; dir < 4; dir++)
         {
             for (int i = 0; i < PoolSizePerDirection; i++)
@@ -48,7 +48,7 @@ public class EnemyController : MonoBehaviour
     private void OnDisable()
     {
         OnNotePreview -= OnNotePreviewReceived;
-        ScoreManager.Instance.OnScoreChanged -= EnemyDieJdg;
+        OnMusicStopped -= EnemyDieJdg;
     }
 
     private void OnNotePreviewReceived(NoteData beatNote)
@@ -58,8 +58,14 @@ public class EnemyController : MonoBehaviour
         int dir = GetIndexFromKey(beatNote.expectedKey);
         if (dir < 0 || dir >= 4) return;
 
-        if (test)
-            _animator.SetTrigger("Attack");
+        // 애니메이터가 null인지 확인
+        if (_animator == null)
+        {
+            Debug.LogError("Animator is not assigned or missing!");
+        }
+
+        // 애니메이션 트리거 설정
+        _animator.SetTrigger("Attack");
 
         GameObject shadow = GetInactiveShadow(dir);
         if (shadow == null) return;
@@ -126,6 +132,7 @@ public class EnemyController : MonoBehaviour
             if (!shadow.activeInHierarchy)
                 return shadow;
         }
+
         return null;
     }
 
@@ -158,9 +165,9 @@ public class EnemyController : MonoBehaviour
     }
 
     ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
-    private void EnemyDieJdg(int score)
+    private void EnemyDieJdg()
     {
-        if (score >= 10000)
+        if (ScoreManager.Instance.Score >= 10000)
         {
             Debug.Log("적 잔상 죽이기");
             gameObject.SetActive(false);

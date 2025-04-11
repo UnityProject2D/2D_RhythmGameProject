@@ -70,7 +70,7 @@ public class RhythmManager : MonoBehaviour
 
     private void OnEnable()
     {
-        SceneManager.sceneLoaded += DestroyOnRestart;
+        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
     }
     private void OnDisable()
     {
@@ -120,7 +120,7 @@ public class RhythmManager : MonoBehaviour
                     {
                         _noteStates[i] = NoteTriggerState.Triggered;
                         InvokeOnNote(note);
-                        Debug.Log($"[노트 발동] 키: {note.expectedKey}, 비트: {note.beat}");
+                        //Debug.Log($"[노트 발동] 키: {note.expectedKey}, 비트: {note.beat}");
                     }
                     break;
             }
@@ -132,7 +132,7 @@ public class RhythmManager : MonoBehaviour
             IntPtr dataPtr;
             uint length;
             var result = _fftDSP.getParameterData((int)FMOD.DSP_FFT.SPECTRUMDATA, out dataPtr, out length);
-            Debug.Log($"[FMOD] getParameterData result: {result}, hasHandle: {_fftDSP.hasHandle()}");
+            //Debug.Log($"[FMOD] getParameterData result: {result}, hasHandle: {_fftDSP.hasHandle()}");
             if (result == FMOD.RESULT.OK)
             {
                 FMOD.DSP_PARAMETER_FFT fftData = (FMOD.DSP_PARAMETER_FFT)Marshal.PtrToStructure(dataPtr, typeof(FMOD.DSP_PARAMETER_FFT));
