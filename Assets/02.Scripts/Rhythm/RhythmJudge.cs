@@ -34,7 +34,7 @@ public class RhythmJudge : MonoBehaviour
     }
     private void OnEnable()
     {
-        SceneManager.sceneLoaded += DestroyOnRestart;
+        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
 
         RhythmEvents.OnBeat += OnBeatReceived;
         RhythmEvents.OnMusicStart += OnMusicStartReceived;

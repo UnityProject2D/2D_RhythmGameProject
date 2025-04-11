@@ -26,7 +26,7 @@ public class RhythmInputHandler : MonoBehaviour
         inputActions.Player.RhythmAction_S.performed += OnSPressed;
         inputActions.Player.RhythmAction_D.performed += OnDPressed;
 
-        SceneManager.sceneLoaded += DestroyOnRestart;
+        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
     }
 
     private void OnDisable()

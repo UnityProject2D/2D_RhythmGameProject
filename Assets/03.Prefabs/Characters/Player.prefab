@@ -844,8 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb36e2f2fe428f45aa6bb734a719b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDead: 0
-  IsAlive: 1
+  PlayerHealth: {fileID: 5411219080845212225}
 --- !u!95 &2405023539016588252
 Animator:
   serializedVersion: 7
@@ -880,7 +879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6632272b7ea345446b3e7a62f61f58a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerMaxHealth: 30
   Damage: 1
   OnMissFeedback: {fileID: 2801001924272541160}
   OnHealFeedback: {fileID: 8175791013653147150}

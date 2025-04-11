@@ -42,7 +42,7 @@ public class ScoreManager : MonoBehaviour
     {
         RhythmEvents.OnInputJudged += OnJudged;
         RhythmEvents.OnMusicStopped += OnStageCleared;
-        SceneManager.sceneLoaded += DestroyOnRestart;
+        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
     }
     private void OnDisable()
     {

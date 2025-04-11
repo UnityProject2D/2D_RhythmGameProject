@@ -14,12 +14,12 @@ public enum RhythmAction
 
 public class PlayerController : MonoBehaviour
 {
+    public PlayerHealth PlayerHealth;
+
     private Animator _animator;
-
-    public bool IsDead;
-    public bool IsAlive = true;
-
+    private bool _isDead;
     private float _prevHealth = 0;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -27,19 +27,24 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Instance.OnInputPerformed += OnInputPerf;
-        PlayerHealth.Instance.OnPlayerHealthChanged += OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독
-        _prevHealth = PlayerHealth.Instance.PlayerCurrentHealth;
-    }
+        PlayerHealth.OnPlayerHealthChanged += OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독
+        PlayerHealth.OnPlayerDied += HandleDie;
+        _prevHealth = PlayerHealth.PlayerCurrentHealth;
 
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.RegisterPlayer(this);
+        }
+    }
     private void OnDisable()
     {
         Instance.OnInputPerformed -= OnInputPerf;
-        PlayerHealth.Instance.OnPlayerHealthChanged -= OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독
+        PlayerHealth.OnPlayerHealthChanged -= OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독 해제
     }
 
     private void OnInputPerf(string key)
     {
-        if (IsDead) return;
+        if (_isDead) return;
         RhythmAction direction = RhythmAction.None;
         switch (key)
         {
@@ -61,6 +66,15 @@ public class PlayerController : MonoBehaviour
         {
             _prevHealth = changed;
             _animator.SetTrigger("Hit");
+        }
+    }
+
+    private void HandleDie()
+    {
+        if (!_isDead)
+        {
+            _isDead = true;
+            _animator.SetTrigger("Die");
         }
     }
 }

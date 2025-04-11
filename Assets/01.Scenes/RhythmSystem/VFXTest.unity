@@ -1944,7 +1944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0dec06ffedb58e469026bb9f993fdcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   Target: {fileID: 0}
   winScoreThreshold: 10000
 --- !u!4 &1895119536

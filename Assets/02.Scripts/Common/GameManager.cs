@@ -1,14 +1,29 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+public class PlayerContext
+{
+    public PlayerController Controller;
+    public PlayerHealth Health;
+    public Transform Transform;
+}
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameObject Player;
     public GameObject Target;
+    public PlayerContext Player = new PlayerContext();
 
-    [SerializeField] private double winScoreThreshold = 10000; // 승리 기준 점수
+    public void RegisterPlayer(PlayerController controller)
+    {
+        if (Player == null)
+        {
+            Player.Controller = controller;
+            Player.Health = controller.GetComponent<PlayerHealth>();
+            Player.Transform = controller.transform;
+        }
+    }
+
 
     private void Awake()
     {
@@ -18,20 +33,21 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
+    //추후 GameResultHandler로 분리 예정
+    #region GameResult
+    [SerializeField] private double winScoreThreshold = 10000; // 승리 기준 점수
     private void OnEnable()
     {
         RhythmEvents.OnMusicStopped += OnMusicStopped;
+
+        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정 // 추후 SceneCleanupHandler로 분리 예정
     }
 
     private void OnDisable()
     {
         RhythmEvents.OnMusicStopped -= OnMusicStopped;
         SceneManager.sceneLoaded -= DestroyOnRestart;
-    }
-
-    private void Start()
-    {
-        SceneManager.sceneLoaded += DestroyOnRestart;
     }
 
     private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
@@ -62,4 +78,5 @@ public class GameManager : MonoBehaviour
             Debug.Log($"패배 총 점수: {totalScore}");
         }
     }
+    #endregion
 }
