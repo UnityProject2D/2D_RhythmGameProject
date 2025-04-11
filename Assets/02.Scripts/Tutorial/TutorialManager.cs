@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using System.Linq;
 using System;
+using UnityEngine.InputSystem;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class TutorialManager : MonoBehaviour
 
     private int curStep = -1;
     private TutorialStepSo _curTutorialStepSo;
+
+    private Action _nextStep;
     public static TutorialManager Instance { get; private set; }
     private void Awake()
     {
@@ -24,9 +27,12 @@ public class TutorialManager : MonoBehaviour
         }
         else Destroy(gameObject);
 
+        RhythmInputHandler.Instance.OnInputPerformed += HandleInput;
         textReveal = MMFeedback.FeedbacksList.OfType<MMF_TMPTextReveal>().FirstOrDefault();
-        StartNextStepAfterDelay();
+        _nextStep += StartNextStepAfterDelay;
+        _nextStep.Invoke();
     }
+
 
     public void FeedbackSetting(TutorialStepSo tutorialStepSo)
     {
@@ -49,11 +55,27 @@ public class TutorialManager : MonoBehaviour
         StartCoroutine(PlayAfterDelay(_curTutorialStepSo.DelayTime));
     }
 
-    private IEnumerator PlayAfterDelay(float delay)
+    public void StartNextStep()
+    {
+        NextStep();
+        FeedbackSetting(_curTutorialStepSo);
+        StartCoroutine(PlayAfterDelay());
+    }
+
+    private IEnumerator PlayAfterDelay(float delay = 0.0f)
     {
         yield return new WaitForSeconds(delay);
 
         Text.text = _curTutorialStepSo.Text;
+        MMFeedback.ResetFeedbacks();
         MMFeedback.PlayFeedbacks();
     }
+
+    private void HandleInput(string key)
+    {
+        if(key == "W")
+            StartNextStep();
+    }
 }
+
+
