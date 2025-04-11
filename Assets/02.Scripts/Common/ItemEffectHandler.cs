@@ -64,6 +64,22 @@ public class ItemEffectHandler : MonoBehaviour
                 }
                 _activeEffects[id] = StartCoroutine(ApplyDurationItem(id, value, duration));
                 return true;
+            case ItemID.CombatRhythmCatcher:
+                if (_activeEffects.ContainsKey(id))
+                {
+                    StopCoroutine(_activeEffects[id]);
+                    break;
+                }
+                _activeEffects[id] = StartCoroutine(ApplyDurationItem(id, value, duration));
+                return true;
+            case ItemID.ProbabilityAmplifier:
+                if (PlayerState.Instance.ProbabilityAmplifierUsed)
+                {
+                    Debug.LogWarning($"[ItemEffectHandler] {id} 효과가 이미 적용되었습니다.");
+                    return false;
+                }
+                PlayerState.Instance.SetItemEnabled(id, true);
+                return true;
             default:
                 Debug.LogWarning($"[PlayerState] 알 수 없는 ItemID: {id}");
                 break;

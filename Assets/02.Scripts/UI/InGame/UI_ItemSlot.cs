@@ -22,6 +22,11 @@ public class UI_ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void Init(ItemEffectHandler handler)
     {
         _itemEffectHandler = handler;
+        if(PlayerState.Instance == null)
+        {
+            Debug.LogError("PlayerState Instance is null");
+            return;
+        }
         PlayerState.Instance.OnItemUsed += OnStatusChanged;
     }
     public GameObject[] OrbitEffects;
@@ -149,5 +154,10 @@ public class UI_ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerExit(PointerEventData eventData)
     {
         TooltipUI.Instance.Hide();
+    }
+
+    public bool HasItem()
+    {
+        return currentItem != null;
     }
 }

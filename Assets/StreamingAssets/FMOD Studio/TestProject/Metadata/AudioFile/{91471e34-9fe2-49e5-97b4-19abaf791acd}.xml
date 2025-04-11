@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{91471e34-9fe2-49e5-97b4-19abaf791acd}">
+		<property name="assetPath">
+			<value>scifi_game_ui_confirm_upgrade_11.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.6000000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{eb12cf5c-e765-4a9b-b0c8-dfcd7b291678}</destination>
+		</relationship>
+	</object>
+</objects>
