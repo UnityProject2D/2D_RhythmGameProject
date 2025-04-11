@@ -34,7 +34,7 @@ public class PauseManager : MonoBehaviour
 
     private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
     {
-        if (scene.name == "GameTitle")
+        if (scene.name == "GameTitle" || scene.name == "UI_GameOver")
         {
             Destroy(gameObject);
         }
