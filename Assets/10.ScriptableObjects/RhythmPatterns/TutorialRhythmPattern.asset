@@ -22,3 +22,35 @@ MonoBehaviour:
     expectedKey: S
   - beat: 23
     expectedKey: D
+  - beat: 24
+    expectedKey: W
+  - beat: 25
+    expectedKey: A
+  - beat: 26
+    expectedKey: S
+  - beat: 27
+    expectedKey: D
+  - beat: 28
+    expectedKey: W
+  - beat: 29
+    expectedKey: A
+  - beat: 30
+    expectedKey: S
+  - beat: 31
+    expectedKey: D
+  - beat: 32
+    expectedKey: W
+  - beat: 33
+    expectedKey: A
+  - beat: 34
+    expectedKey: S
+  - beat: 35
+    expectedKey: D
+  - beat: 36
+    expectedKey: W
+  - beat: 37
+    expectedKey: A
+  - beat: 38
+    expectedKey: S
+  - beat: 39
+    expectedKey: D

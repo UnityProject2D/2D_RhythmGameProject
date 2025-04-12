@@ -6,6 +6,8 @@ public enum TextNextConditionType
     OnTimeElapsedOrInput,
     [InspectorName("이벤트 발생 시 전환")]
     OnEvent,
+    [InspectorName("버튼 클릭 시 전환")]
+    OnButtonClick,
 }
 
 public enum TriggerKeyType

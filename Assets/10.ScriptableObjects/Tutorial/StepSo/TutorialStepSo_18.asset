@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c92f81c38a3aa24f9293bb002e8f7a5, type: 3}
-  m_Name: TutorialStepSo_14
+  m_Name: TutorialStepSo_18
   m_EditorClassIdentifier: 
-  Text: "\uBC29\uC5B4 \uC2DC\uBBAC\uB808\uC774\uC158\uC774 \uC885\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\uCCAB
-    \uD6C8\uB828, \uC218\uACE0 \uB9CE\uC73C\uC168\uC2B5\uB2C8\uB2E4."
+  Text: "\uC9C0\uAE08\uBD80\uD130\uB294 \uC2AC\uB77C\uC774\uB354\uB97C \uC0AC\uC6A9\uD574
+    \uC2F1\uD06C\uB97C \uC9C1\uC811 \uC870\uC815\uD574\uBCF4\uC138\uC694.\n\uB178\uD2B8\uAC00
+    \uC74C\uC545\uBCF4\uB2E4 \uBE68\uB9AC \uB3C4\uCC29\uD558\uBA74 \u2192 \uC624\uB978\uCABD\uC73C\uB85C
+    \uC774\uB3D9\n\uB178\uD2B8\uAC00 \uC74C\uC545\uBCF4\uB2E4 \uB2A6\uAC8C \uB3C4\uCC29\uD558\uBA74
+    \u2190 \uC67C\uCABD\uC73C\uB85C \uC774\uB3D9"
   Duration: 0.5
   DelayTime: 0.5
   TriggerKeyType: 0
