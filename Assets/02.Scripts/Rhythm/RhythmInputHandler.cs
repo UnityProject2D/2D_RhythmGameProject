@@ -15,6 +15,7 @@ public class RhythmInputHandler : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
         inputActions = new @PlayerInputAction();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()

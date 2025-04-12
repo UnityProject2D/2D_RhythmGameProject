@@ -24,7 +24,9 @@ public class RhythmPreviewer : MonoBehaviour
 
     public void OnClickStartButton()
     {
-        RhythmManager.Instance.OnLoadedStage(dropdown.value);
+        var tmp = new StageData();
+        tmp.StageIndex = dropdown.value;
+        RhythmManager.Instance.OnLoadedStage(tmp);
     }
 
     void ShowNoteUI(NoteData note)

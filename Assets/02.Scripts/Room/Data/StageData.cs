@@ -6,7 +6,6 @@ using UnityEngine;
 public class StageData : ScriptableObject
 {
     public string StageName;
-    public Sprite Sprite;
 
-    public GameObject MonsterPrefab;
+    public int StageIndex;
 }

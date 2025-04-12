@@ -63,7 +63,10 @@ public static class RhythmEvents
 
     // ===== Invoke =====
     public static void InvokeOnMusicStart() => OnMusicStart?.Invoke();
-    public static void InvokeOnMusicStopped() => OnMusicStopped?.Invoke();
+    public static void InvokeOnMusicStopped()
+    {
+        if (!RhythmManager.Instance.IsRestart) OnMusicStopped?.Invoke();
+    }
 
     public static void InvokeOnBeat(float beat)
     {

@@ -89,7 +89,7 @@ public class RhythmJudge : MonoBehaviour
 
     private void OnMusicStartReceived()
     {
-        currentNoteIndex = 0;
+        currentNoteIndex = RhythmManager.Instance.StageMusicIndex;
     }
 
     private void OnBeatReceived(float beatTime)

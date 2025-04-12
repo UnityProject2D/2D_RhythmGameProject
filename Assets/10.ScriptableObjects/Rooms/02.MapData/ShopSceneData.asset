@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: ShopSceneData
   m_EditorClassIdentifier: 
   StageName: ShopScene
-  Sprite: {fileID: 2198175354363066229, guid: 90cd1ebfc10a15f41b72dc46f6b387a5, type: 3}
-  MonsterPrefab: {fileID: 0}
+  StageIndex: -1

@@ -14,7 +14,10 @@ public class RhythmRecorderRuntime : MonoBehaviour
     public void StartRecording()
     {
         beatDuration = 60f / bpm;
-        RhythmManager.Instance.OnLoadedStage(dropdown.value);
+        var tmp = new StageData();
+        tmp.StageIndex =dropdown.value;
+
+        RhythmManager.Instance.OnLoadedStage(tmp);
         StartCoroutine(WaitUntil());
     }
 
