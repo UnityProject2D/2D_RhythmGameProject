@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: "\uBC29\uC5B4 \uC131\uACF5."
   Duration: 0.5
-  DelayTime: 0.5
+  DelayTime: 0
   TriggerKeyType: 0
   TextNextConditionType: 0
   MusicState: 2

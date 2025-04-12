@@ -16,7 +16,7 @@ public class TutorialManager : MonoBehaviour
     private MMF_TMPTextReveal _textReveal;
     public TextMeshProUGUI Text;
 
-    public TextMeshProUGUI PressKey;
+    public TextMeshProUGUI[] PressKey;
 
     private bool _isPaused = false;
     private int curStep = 5;//-1;
@@ -51,6 +51,7 @@ public class TutorialManager : MonoBehaviour
         TutorialEventSystem.OnTutorialTextEvent -= HandleEvent;
         RhythmEvents.OnInputJudged -= OnJudged; // 판정 이벤트 구독
         OnNotePreview -= OnNotePreviewReceived;
+        OnNote -= OnNoteReceived;
     }
 
     private void SetPause(bool isPaused){
@@ -72,7 +73,13 @@ public class TutorialManager : MonoBehaviour
                 TriggerNextStep();
                 break;
             case TextNextConditionType.OnEvent: // 트리거랑 같을 때
+
                 if(_curTutorialStepSo.TriggerKeyType.ToString() == Trigger){
+                    foreach (TextMeshProUGUI pressKey in PressKey){
+                        pressKey.gameObject.SetActive(false);
+                    }
+                    SetPause(false);
+                    Time.timeScale = 1.0f;
                     TriggerNextStep();
                 }
                 break;
@@ -103,16 +110,22 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         // 음악 셋팅
-        if(_curTutorialStepSo.MusicState == MusicState.Play){
-            SetPause(false);
-        }
-        else{
-            SetPause(true);
-        }
+        MusicSetting();
 
         Text.text = _curTutorialStepSo.Text;
         MMFeedback.ResetFeedbacks();
         MMFeedback.PlayFeedbacks();
+    }
+
+    public void MusicSetting()
+    {
+        if (_curTutorialStepSo.MusicState == MusicState.Stop ||
+            _curTutorialStepSo.MusicState == MusicState.NonPlay) { 
+            SetPause(true);
+        }
+        else{
+            SetPause(false);
+        }
     }
 
     // 키 입력 들어옴.
@@ -124,20 +137,21 @@ public class TutorialManager : MonoBehaviour
         TutorialEventSystem.OnTextEvents();
     }
 
-    private void OnJudged(JudgedContext judgementResult)
-    {
+    private void OnJudged(JudgedContext judgementResult){
+        //SetPause(true);
+        //Time.timeScale = 0.0f;
         SetPause(true);
         Time.timeScale = 0.0f;
     }
 
-    private void OnNotePreviewReceived(NoteData beatNote)
-    {
-        PressKey.gameObject.SetActive(true);
+    private void OnNotePreviewReceived(NoteData beatNote){
+        
     }
 
-    private void OnNoteReceived(NoteData nodeData)
-    {
-
+    private void OnNoteReceived(NoteData beatNote){
+        foreach (TextMeshProUGUI pressKey in PressKey){
+            pressKey.gameObject.SetActive(true);
+        }
     }
-
+    
 }
