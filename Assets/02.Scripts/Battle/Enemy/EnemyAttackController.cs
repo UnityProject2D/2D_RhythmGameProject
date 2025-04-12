@@ -35,6 +35,8 @@ public class EnemyAttackController : MonoBehaviour
     private void Start()
     {
         OnMusicStopped += EnemyDieJdg;
+
+        OnMarkerHit += JudgeEnd;
         // 총알 오브젝트 풀 생성
         for (int i = 0; i < poolSize; i++)
         {
@@ -60,7 +62,7 @@ public class EnemyAttackController : MonoBehaviour
     {
         _playerTransform = GameManager.Instance.Player.Transform;
 
-        Debug.Log($"EnemyAttackController: PlayerRegistered - {_playerTransform}");
+        Debug.Log($"{gameObject.name} EnemyAttackController: PlayerRegistered - {_playerTransform}");
     }
 
     //private async UniTaskVoid SetPlayer()
@@ -84,6 +86,8 @@ public class EnemyAttackController : MonoBehaviour
     {
         OnNote -= OnNoteReceived;
         OnMusicStopped -= EnemyDieJdg;
+
+        OnMarkerHit -= JudgeEnd;
     }
 
     private void OnNoteReceived(NoteData beatTime)
@@ -161,7 +165,13 @@ public class EnemyAttackController : MonoBehaviour
         RuntimeManager.PlayOneShot("event:/SFX/AttackSound");
     }
 
-
+    private void JudgeEnd(string marker)
+    {
+        if (marker == "End")
+        {
+            EnemyDieJdg();
+        }
+    }
     ///////// 적이 죽으면!! -> ScoreManager StageCleared 코드 완성된 후 점검 후 수정할것!
     ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
     private void EnemyDieJdg()

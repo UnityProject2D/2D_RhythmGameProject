@@ -46,6 +46,7 @@ public class EnemyController : MonoBehaviour
         }
 
         //SetPlayer().Forget();
+        OnMarkerHit += JudgeEnd;
         OnMusicStopped += EnemyDieJdg;
         for (int dir = 0; dir < 4; dir++)
         {
@@ -75,6 +76,7 @@ public class EnemyController : MonoBehaviour
     {
         OnNotePreview -= OnNotePreviewReceived;
         OnMusicStopped -= EnemyDieJdg;
+        OnMarkerHit -= JudgeEnd;
     }
 
     private void OnNotePreviewReceived(NoteData beatNote)
@@ -190,6 +192,13 @@ public class EnemyController : MonoBehaviour
         };
     }
 
+    private void JudgeEnd(string marker)
+    {
+        if (marker == "End")
+        {
+            EnemyDieJdg();
+        }
+    }
     ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
     private void EnemyDieJdg()
     {
