@@ -1,26 +1,26 @@
-using System.Collections;
-using TMPro;
 using UnityEngine;
 
 public class UI_Game : MonoBehaviour
 {
-    // 화면에 전체 시간 표시
-    public TextMeshProUGUI TotalTimer;
-
-    private int seconds = 0;
-
+    public UIResultPanel resultPanel;
     private void Start()
     {
-        StartCoroutine(ShowTimer());
+        //ShowResultPanel();
     }
 
-    private IEnumerator ShowTimer()
+    private void OnEnable()
     {
-        while (true)
-        {
-            seconds++;
-            TotalTimer.text = $"Timer: {seconds}";
-            yield return new WaitForSeconds(1f);
-        }
+        RhythmEvents.OnMusicStopped += ShowResultPanel;
+
+    }
+    private void OnDisable()
+    {
+        RhythmEvents.OnMusicStopped -= ShowResultPanel;
+    }
+
+    private void ShowResultPanel()
+    {
+        resultPanel.gameObject.SetActive(true);
+        resultPanel.PlayOpenEffect();
     }
 }

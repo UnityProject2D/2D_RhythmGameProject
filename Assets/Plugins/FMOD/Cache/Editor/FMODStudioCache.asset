@@ -27,6 +27,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-5300760222487428111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: 
+  Guid:
+    Data1: -304018025
+    Data2: 1118338946
+    Data3: -1140572742
+    Data4: 1996132002
+  Banks:
+  - {fileID: 2325183216582169763}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 158125
 --- !u!114 &-4066195341452072739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +123,7 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638799606998409812
+  lastModified: 638799788012534129
   FileSizes:
   - Name: Desktop
     Value: 1398
@@ -186,13 +213,13 @@ MonoBehaviour:
   - {fileID: 7350767493011601478}
   - {fileID: -7769661378763955534}
   - {fileID: 3035481260661885179}
-  - {fileID: 2731410845110848661}
+  - {fileID: -5300760222487428111}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2325183216582169763}
   StringsBanks:
   - {fileID: -2596667840957986642}
-  cacheTime: 638799606998409812
+  cacheTime: 638799788012534129
   cacheVersion: 131623
 --- !u!114 &386619556000339076
 MonoBehaviour:
@@ -263,7 +290,7 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master Bank.bank
   Name: Master Bank
   StudioPath: bank:/Master Bank
-  lastModified: 638796390710148197
+  lastModified: 638793929338822684
   FileSizes:
   - Name: Desktop
     Value: 7517248
@@ -283,7 +310,7 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638799606998389834
+  lastModified: 638799788012514141
   FileSizes:
   - Name: Desktop
     Value: 14745248
@@ -315,33 +342,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &2731410845110848661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: 
-  Guid:
-    Data1: -304018025
-    Data2: 1118338946
-    Data3: -1140572742
-    Data4: 1996132002
-  Banks:
-  - {fileID: 2325183216582169763}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 158125
 --- !u!114 &3035481260661885179
 MonoBehaviour:
   m_ObjectHideFlags: 0
