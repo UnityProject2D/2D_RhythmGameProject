@@ -25,6 +25,10 @@ public class GameSceneManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+
+
+        SyncSettings.InputOffsetMs = PlayerPrefs.GetFloat("AudioSync",0);
+        SyncSettings.VideoOffsetMs = PlayerPrefs.GetFloat("VideoSync",0);
     }
 
     public void LoadStageData(StageData stageData)

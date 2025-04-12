@@ -24,7 +24,7 @@ public class EnemyAttackController : MonoBehaviour
     public Transform GunPosition;
     public MMF_Player CoinEffect;
     public GameObject QuantumKey;
-
+    public bool IsDead;
     private int poolSize = 10;
 
     private void Awake()
@@ -87,6 +87,7 @@ public class EnemyAttackController : MonoBehaviour
         OnNote -= OnNoteReceived;
         OnMusicStopped -= EnemyDieJdg;
 
+        GameManager.Instance.PlayerRegistered -= Instance_PlayerRegistered;
         OnMarkerHit -= JudgeEnd;
     }
 
@@ -176,6 +177,8 @@ public class EnemyAttackController : MonoBehaviour
     ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
     private void EnemyDieJdg()
     {
+        if (IsDead) return;
+        IsDead = true;
         if (ScoreManager.Instance.Score >= 10000)
         {
             RuntimeManager.PlayOneShot("event:/SFX/EnemyDie");
