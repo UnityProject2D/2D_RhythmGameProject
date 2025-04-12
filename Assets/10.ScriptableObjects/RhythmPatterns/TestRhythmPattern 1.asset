@@ -14,75 +14,85 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 97
   notes:
-  - beat: 25.624168
+  - beat: 20.5
     expectedKey: W
-  - beat: 26.5
+  - beat: 21.5
     expectedKey: D
-  - beat: 27.5
-    expectedKey: S
+  - beat: 22.5
+    expectedKey: W
+  - beat: 23.5
+    expectedKey: D
   - beat: 28.5
     expectedKey: A
-  - beat: 33.5
-    expectedKey: W
-  - beat: 34.5
+  - beat: 29.5
+    expectedKey: S
+  - beat: 30.5
     expectedKey: D
-  - beat: 35.5
-    expectedKey: D
+  - beat: 31.5
+    expectedKey: S
   - beat: 36.5
-    expectedKey: S
-  - beat: 41.5
     expectedKey: W
-  - beat: 42.5
+  - beat: 37.5
+    expectedKey: S
+  - beat: 38.5
+    expectedKey: W
+  - beat: 39.5
+    expectedKey: W
+  - beat: 44.4
+    expectedKey: S
+  - beat: 45.4
+    expectedKey: S
+  - beat: 46.4
+    expectedKey: S
+  - beat: 47.4
+    expectedKey: W
+  - beat: 52.4
     expectedKey: D
-  - beat: 43.5
+  - beat: 53.4
+    expectedKey: D
+  - beat: 54.4
+    expectedKey: D
+  - beat: 55.4
+    expectedKey: D
+  - beat: 60.4
     expectedKey: A
-  - beat: 44.5
-    expectedKey: D
-  - beat: 49.5
+  - beat: 61.4
     expectedKey: W
-  - beat: 50.5
-    expectedKey: D
-  - beat: 51.5
-    expectedKey: W
-  - beat: 52.5
-    expectedKey: D
-  - beat: 57.5
-    expectedKey: W
-  - beat: 58.5
-    expectedKey: D
-  - beat: 59.5
-    expectedKey: W
-  - beat: 60.5
-    expectedKey: D
-  - beat: 65.5
-    expectedKey: A
-  - beat: 66.5
+  - beat: 62.4
     expectedKey: S
-  - beat: 67.5
-    expectedKey: A
-  - beat: 68.5
-    expectedKey: S
-  - beat: 73.5
-    expectedKey: A
-  - beat: 74.5
-    expectedKey: D
-  - beat: 75.5
-    expectedKey: A
-  - beat: 76.5
-    expectedKey: D
-  - beat: 81
+  - beat: 63.4
     expectedKey: W
-  - beat: 81.5
-    expectedKey: S
-  - beat: 82
+  - beat: 68.3
     expectedKey: W
-  - beat: 82.5
-    expectedKey: S
-  - beat: 83
+  - beat: 68.8
     expectedKey: W
-  - beat: 83.5
+  - beat: 69.3
     expectedKey: S
-  - beat: 84
+  - beat: 69.8
+    expectedKey: S
+  - beat: 70.3
+    expectedKey: S
+  - beat: 70.8
     expectedKey: W
-  - beat: 84.5
+  - beat: 71.3
     expectedKey: S
+  - beat: 71.8
+    expectedKey: W
+  - beat: 76.3
+    expectedKey: W
+  - beat: 76.8
+    expectedKey: S
+  - beat: 77.3
+    expectedKey: W
+  - beat: 77.8
+    expectedKey: S
+  - beat: 78.3
+    expectedKey: W
+  - beat: 78.8
+    expectedKey: S
+  - beat: 79.3
+    expectedKey: W
+  - beat: 79.8
+    expectedKey: S
+  - beat: 87
+    expectedKey: W

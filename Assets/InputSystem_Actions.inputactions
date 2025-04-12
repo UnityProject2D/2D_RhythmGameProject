@@ -40,15 +40,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Tutorial_N",
-                    "type": "Button",
-                    "id": "fe461cfe-0f04-44b1-9217-8922c5899780",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -93,17 +84,6 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "RhythmAction_D",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "acf67f5e-12c3-4061-acff-2d930fcba7ab",
-                    "path": "<Keyboard>/n",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Tutorial_N",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -626,13 +606,31 @@
             ]
         },
         {
-            "name": "Tutorial",
-            "id": "ffa34ec2-5fd3-48c2-9cf7-9df8c89317f5",
+            "name": "Shop_Player",
+            "id": "070d2a01-bc95-4e42-8e7f-a472a6009d9c",
             "actions": [
                 {
-                    "name": "Dialog",
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "b4fb112a-59f8-413c-9a44-e7b6bba2ecae",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
                     "type": "Button",
-                    "id": "acd5e906-da26-42b2-8981-664a4495dea7",
+                    "id": "a0a8a10c-9772-48ab-961f-e82e7a304e54",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UseShop",
+                    "type": "Button",
+                    "id": "26bce986-7481-4ebf-b43d-c272c1f514af",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -641,13 +639,68 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "3839626b-4cf1-4c92-ab19-56c6629c235c",
-                    "path": "<Keyboard>/space",
+                    "name": "2D Vector",
+                    "id": "df554e6a-b5f3-4d84-98bd-dc9bfdfbcc66",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "down",
+                    "id": "c541417a-10d0-4e41-8150-0c1dc1cfeb14",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "88c11811-5d8b-49ff-a596-a5a79d39a103",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "aaf97f0f-c5c0-41f6-b225-269fa8e57b6e",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Dialog",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "60c3cd1d-104a-49e0-8458-2c9f823f19a9",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "adb2509e-1a5b-4fe8-a91b-8821747696f7",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "UseShop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

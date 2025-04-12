@@ -342,8 +342,8 @@ MonoBehaviour:
   _iconImage: {fileID: 5320058751775520035}
   _priceTextWrapper: {fileID: 7371827039574152136}
   sprites:
-  - {fileID: 6215512951420971312, guid: 41cee71a110969647bc856dbf1257160, type: 3}
   - {fileID: -6534872594929070457, guid: 0fb5cc4811ed5824ab2f918fb5b95071, type: 3}
+  - {fileID: 7675826601332790545, guid: 2f0c04447db64ba4f860637ec5527624, type: 3}
 --- !u!1 &1799292200155475519
 GameObject:
   m_ObjectHideFlags: 0

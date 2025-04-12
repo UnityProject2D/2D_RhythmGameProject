@@ -29,12 +29,12 @@ public class ShopSystem : MonoBehaviour
     private List<ShopItemSO> _currentConsumableItems = new();
 
 
-    private void OnEnable()
+    private void Start()
     {
         GenerateShopItems();
         UpdateCurrency();
     }
-    private void OnDisable()
+    private void OnDestroy()
     {
         foreach (Transform child in _equipSlotParent)
         {

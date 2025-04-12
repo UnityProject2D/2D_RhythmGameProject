@@ -1,0 +1,74 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+[RequireComponent(typeof(Rigidbody2D))]
+public class ShopPlayerController : MonoBehaviour
+{
+    public float moveSpeed = 2f;
+    public float jumpForce = 10f;
+    public Transform groundCheck;
+    public LayerMask groundLayer;
+    public Animator anim;
+    private Rigidbody2D rb;
+    private @PlayerInputAction inputActions;
+    private Vector2 moveInput;
+    private bool isJumpPressed;
+    private bool isGrounded;
+    private bool ShopActive = false;
+    public GameObject ShopUI;
+    private void Awake()
+    {
+
+        inputActions = new @PlayerInputAction();
+        rb = GetComponent<Rigidbody2D>();
+        inputActions.Shop_Player.Enable();
+
+        // Move 입력
+        inputActions.Shop_Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        inputActions.Shop_Player.Move.canceled += ctx => moveInput = Vector2.zero;
+
+        // Jump 입력
+        inputActions.Shop_Player.Jump.performed += ctx => isJumpPressed = true;
+
+        inputActions.Shop_Player.UseShop.performed += ctx =>
+        {
+            ShopActive = !ShopActive;
+            ShopUI.SetActive(ShopActive);
+            if (ShopActive == false)
+            {
+                TooltipUI.Instance.Hide();
+            }
+        };
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Shop_Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Shop_Player.Disable();
+    }
+
+    private void Update()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.05f, groundLayer);
+
+        if (isJumpPressed && isGrounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            isJumpPressed = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+        anim.SetBool("Moving", Mathf.Abs(moveInput.x) > 0.01f);
+        anim.SetBool("Jump", !isGrounded);
+        // 캐릭터 좌우 반전
+        if (moveInput.x != 0)
+            transform.localScale = new Vector3(Mathf.Sign(moveInput.x) * 0.5f, transform.localScale.y, transform.localScale.z);
+    }
+}

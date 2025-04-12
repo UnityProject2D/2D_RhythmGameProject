@@ -2755,9 +2755,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542903918651298043, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/TEMP_StageSound/Track01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542903918651298043, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -14626127
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542903918651298043, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1127277754
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542903918651298043, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -138262356
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542903918651298043, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 930445000
+      objectReference: {fileID: 0}
     - target: {fileID: 3594441550570531111, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
       propertyPath: m_Name
       value: RhythmManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: IsTest
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9034453706349065766, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
       propertyPath: m_LocalPosition.x

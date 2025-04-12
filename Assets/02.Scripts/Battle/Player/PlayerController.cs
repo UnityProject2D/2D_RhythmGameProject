@@ -35,7 +35,10 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        Instance.OnInputPerformed += OnInputPerf;
+        if (Instance != null)
+        {
+            Instance.OnInputPerformed += OnInputPerf;
+        }
         PlayerHealth.OnPlayerHealthChanged += OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독
         PlayerHealth.OnPlayerDied += HandleDie;
         _prevHealth = PlayerHealth.PlayerCurrentHealth;
@@ -47,7 +50,10 @@ public class PlayerController : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Instance.OnInputPerformed -= OnInputPerf;
+        if (Instance != null)
+        {
+            Instance.OnInputPerformed -= OnInputPerf;
+        }
         PlayerHealth.OnPlayerHealthChanged -= OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독 해제
     }
 

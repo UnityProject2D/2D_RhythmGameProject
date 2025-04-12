@@ -126,15 +126,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Tutorial_N"",
-                    ""type"": ""Button"",
-                    ""id"": ""fe461cfe-0f04-44b1-9217-8922c5899780"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -179,17 +170,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""RhythmAction_D"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""acf67f5e-12c3-4061-acff-2d930fcba7ab"",
-                    ""path"": ""<Keyboard>/n"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Tutorial_N"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -712,13 +692,31 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Tutorial"",
-            ""id"": ""ffa34ec2-5fd3-48c2-9cf7-9df8c89317f5"",
+            ""name"": ""Shop_Player"",
+            ""id"": ""070d2a01-bc95-4e42-8e7f-a472a6009d9c"",
             ""actions"": [
                 {
-                    ""name"": ""Dialog"",
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""b4fb112a-59f8-413c-9a44-e7b6bba2ecae"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
                     ""type"": ""Button"",
-                    ""id"": ""acd5e906-da26-42b2-8981-664a4495dea7"",
+                    ""id"": ""a0a8a10c-9772-48ab-961f-e82e7a304e54"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseShop"",
+                    ""type"": ""Button"",
+                    ""id"": ""26bce986-7481-4ebf-b43d-c272c1f514af"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -727,13 +725,68 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""3839626b-4cf1-4c92-ab19-56c6629c235c"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""df554e6a-b5f3-4d84-98bd-dc9bfdfbcc66"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""c541417a-10d0-4e41-8150-0c1dc1cfeb14"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""88c11811-5d8b-49ff-a596-a5a79d39a103"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""aaf97f0f-c5c0-41f6-b225-269fa8e57b6e"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Dialog"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60c3cd1d-104a-49e0-8458-2c9f823f19a9"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""adb2509e-1a5b-4fe8-a91b-8821747696f7"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""UseShop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -809,7 +862,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Player_RhythmAction_A = m_Player.FindAction("RhythmAction_A", throwIfNotFound: true);
         m_Player_RhythmAction_S = m_Player.FindAction("RhythmAction_S", throwIfNotFound: true);
         m_Player_RhythmAction_D = m_Player.FindAction("RhythmAction_D", throwIfNotFound: true);
-        m_Player_Tutorial_N = m_Player.FindAction("Tutorial_N", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -822,16 +874,18 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
-        // Tutorial
-        m_Tutorial = asset.FindActionMap("Tutorial", throwIfNotFound: true);
-        m_Tutorial_Dialog = m_Tutorial.FindAction("Dialog", throwIfNotFound: true);
+        // Shop_Player
+        m_Shop_Player = asset.FindActionMap("Shop_Player", throwIfNotFound: true);
+        m_Shop_Player_Move = m_Shop_Player.FindAction("Move", throwIfNotFound: true);
+        m_Shop_Player_Jump = m_Shop_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Shop_Player_UseShop = m_Shop_Player.FindAction("UseShop", throwIfNotFound: true);
     }
 
     ~@PlayerInputAction()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, PlayerInputAction.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, PlayerInputAction.UI.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_Tutorial.enabled, "This will cause a leak and performance issues, PlayerInputAction.Tutorial.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Shop_Player.enabled, "This will cause a leak and performance issues, PlayerInputAction.Shop_Player.Disable() has not been called.");
     }
 
     /// <summary>
@@ -911,7 +965,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_RhythmAction_A;
     private readonly InputAction m_Player_RhythmAction_S;
     private readonly InputAction m_Player_RhythmAction_D;
-    private readonly InputAction m_Player_Tutorial_N;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -939,10 +992,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/RhythmAction_D".
         /// </summary>
         public InputAction @RhythmAction_D => m_Wrapper.m_Player_RhythmAction_D;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Tutorial_N".
-        /// </summary>
-        public InputAction @Tutorial_N => m_Wrapper.m_Player_Tutorial_N;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -981,9 +1030,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @RhythmAction_D.started += instance.OnRhythmAction_D;
             @RhythmAction_D.performed += instance.OnRhythmAction_D;
             @RhythmAction_D.canceled += instance.OnRhythmAction_D;
-            @Tutorial_N.started += instance.OnTutorial_N;
-            @Tutorial_N.performed += instance.OnTutorial_N;
-            @Tutorial_N.canceled += instance.OnTutorial_N;
         }
 
         /// <summary>
@@ -1007,9 +1053,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @RhythmAction_D.started -= instance.OnRhythmAction_D;
             @RhythmAction_D.performed -= instance.OnRhythmAction_D;
             @RhythmAction_D.canceled -= instance.OnRhythmAction_D;
-            @Tutorial_N.started -= instance.OnTutorial_N;
-            @Tutorial_N.performed -= instance.OnTutorial_N;
-            @Tutorial_N.canceled -= instance.OnTutorial_N;
         }
 
         /// <summary>
@@ -1239,29 +1282,39 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     /// </summary>
     public UIActions @UI => new UIActions(this);
 
-    // Tutorial
-    private readonly InputActionMap m_Tutorial;
-    private List<ITutorialActions> m_TutorialActionsCallbackInterfaces = new List<ITutorialActions>();
-    private readonly InputAction m_Tutorial_Dialog;
+    // Shop_Player
+    private readonly InputActionMap m_Shop_Player;
+    private List<IShop_PlayerActions> m_Shop_PlayerActionsCallbackInterfaces = new List<IShop_PlayerActions>();
+    private readonly InputAction m_Shop_Player_Move;
+    private readonly InputAction m_Shop_Player_Jump;
+    private readonly InputAction m_Shop_Player_UseShop;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Tutorial".
+    /// Provides access to input actions defined in input action map "Shop_Player".
     /// </summary>
-    public struct TutorialActions
+    public struct Shop_PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public TutorialActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
+        public Shop_PlayerActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Tutorial/Dialog".
+        /// Provides access to the underlying input action "Shop_Player/Move".
         /// </summary>
-        public InputAction @Dialog => m_Wrapper.m_Tutorial_Dialog;
+        public InputAction @Move => m_Wrapper.m_Shop_Player_Move;
+        /// <summary>
+        /// Provides access to the underlying input action "Shop_Player/Jump".
+        /// </summary>
+        public InputAction @Jump => m_Wrapper.m_Shop_Player_Jump;
+        /// <summary>
+        /// Provides access to the underlying input action "Shop_Player/UseShop".
+        /// </summary>
+        public InputAction @UseShop => m_Wrapper.m_Shop_Player_UseShop;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Tutorial; }
+        public InputActionMap Get() { return m_Wrapper.m_Shop_Player; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -1269,9 +1322,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="TutorialActions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="Shop_PlayerActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(TutorialActions set) { return set.Get(); }
+        public static implicit operator InputActionMap(Shop_PlayerActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -1279,14 +1332,20 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="TutorialActions" />
-        public void AddCallbacks(ITutorialActions instance)
+        /// <seealso cref="Shop_PlayerActions" />
+        public void AddCallbacks(IShop_PlayerActions instance)
         {
-            if (instance == null || m_Wrapper.m_TutorialActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_TutorialActionsCallbackInterfaces.Add(instance);
-            @Dialog.started += instance.OnDialog;
-            @Dialog.performed += instance.OnDialog;
-            @Dialog.canceled += instance.OnDialog;
+            if (instance == null || m_Wrapper.m_Shop_PlayerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Shop_PlayerActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
+            @UseShop.started += instance.OnUseShop;
+            @UseShop.performed += instance.OnUseShop;
+            @UseShop.canceled += instance.OnUseShop;
         }
 
         /// <summary>
@@ -1295,21 +1354,27 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="TutorialActions" />
-        private void UnregisterCallbacks(ITutorialActions instance)
+        /// <seealso cref="Shop_PlayerActions" />
+        private void UnregisterCallbacks(IShop_PlayerActions instance)
         {
-            @Dialog.started -= instance.OnDialog;
-            @Dialog.performed -= instance.OnDialog;
-            @Dialog.canceled -= instance.OnDialog;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
+            @UseShop.started -= instance.OnUseShop;
+            @UseShop.performed -= instance.OnUseShop;
+            @UseShop.canceled -= instance.OnUseShop;
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="TutorialActions.UnregisterCallbacks(ITutorialActions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="Shop_PlayerActions.UnregisterCallbacks(IShop_PlayerActions)" />.
         /// </summary>
-        /// <seealso cref="TutorialActions.UnregisterCallbacks(ITutorialActions)" />
-        public void RemoveCallbacks(ITutorialActions instance)
+        /// <seealso cref="Shop_PlayerActions.UnregisterCallbacks(IShop_PlayerActions)" />
+        public void RemoveCallbacks(IShop_PlayerActions instance)
         {
-            if (m_Wrapper.m_TutorialActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_Shop_PlayerActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -1319,21 +1384,21 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="TutorialActions.AddCallbacks(ITutorialActions)" />
-        /// <seealso cref="TutorialActions.RemoveCallbacks(ITutorialActions)" />
-        /// <seealso cref="TutorialActions.UnregisterCallbacks(ITutorialActions)" />
-        public void SetCallbacks(ITutorialActions instance)
+        /// <seealso cref="Shop_PlayerActions.AddCallbacks(IShop_PlayerActions)" />
+        /// <seealso cref="Shop_PlayerActions.RemoveCallbacks(IShop_PlayerActions)" />
+        /// <seealso cref="Shop_PlayerActions.UnregisterCallbacks(IShop_PlayerActions)" />
+        public void SetCallbacks(IShop_PlayerActions instance)
         {
-            foreach (var item in m_Wrapper.m_TutorialActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_Shop_PlayerActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_TutorialActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_Shop_PlayerActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="TutorialActions" /> instance referencing this action map.
+    /// Provides a new <see cref="Shop_PlayerActions" /> instance referencing this action map.
     /// </summary>
-    public TutorialActions @Tutorial => new TutorialActions(this);
+    public Shop_PlayerActions @Shop_Player => new Shop_PlayerActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1434,13 +1499,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnRhythmAction_D(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Tutorial_N" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnTutorial_N(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
@@ -1521,18 +1579,32 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Tutorial" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Shop_Player" which allows adding and removing callbacks.
     /// </summary>
-    /// <seealso cref="TutorialActions.AddCallbacks(ITutorialActions)" />
-    /// <seealso cref="TutorialActions.RemoveCallbacks(ITutorialActions)" />
-    public interface ITutorialActions
+    /// <seealso cref="Shop_PlayerActions.AddCallbacks(IShop_PlayerActions)" />
+    /// <seealso cref="Shop_PlayerActions.RemoveCallbacks(IShop_PlayerActions)" />
+    public interface IShop_PlayerActions
     {
         /// <summary>
-        /// Method invoked when associated input action "Dialog" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnDialog(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnJump(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "UseShop" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUseShop(InputAction.CallbackContext context);
     }
 }

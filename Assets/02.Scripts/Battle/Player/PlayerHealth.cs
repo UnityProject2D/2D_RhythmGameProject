@@ -25,23 +25,20 @@ public class PlayerHealth : MonoBehaviour
     }
     private void OnEnable()
     {
-
         RhythmEvents.OnInputJudged += HandleJudge;
-        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
+    }
+
+    private void Start()
+    {
+        _playerCurrentHealth = GameManager.Instance.PlayerHealth;
+        OnPlayerHealthChanged?.Invoke(_playerCurrentHealth);
     }
     private void OnDisable()
     {
         RhythmEvents.OnInputJudged -= HandleJudge;
-        SceneManager.sceneLoaded -= DestroyOnRestart;
+        GameManager.Instance.PlayerHealth = _playerCurrentHealth;
     }
 
-    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
-    {
-        if (scene.name == "GameTitle")
-        {
-            Destroy(gameObject);
-        }
-    }
 
     /// <summary>
     /// 판정에 따라 처리
