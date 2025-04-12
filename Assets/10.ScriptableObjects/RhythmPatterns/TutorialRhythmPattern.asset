@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84ca63dec1e6d6745b9b64a9faf96794, type: 3}
-  m_Name: TestRhythmPattern 5
+  m_Name: TutorialRhythmPattern
   m_EditorClassIdentifier: 
   bpm: 97
   notes:
-  - beat: 25.624168
+  - beat: 20
     expectedKey: W
-  - beat: 26.5
+  - beat: 21
     expectedKey: A
-  - beat: 27.5
+  - beat: 22
     expectedKey: S
-  - beat: 28.5
+  - beat: 23
     expectedKey: D

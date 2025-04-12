@@ -41,7 +41,7 @@ public class TutorialManager : MonoBehaviour
     }
     private void OnEnable(){
         TutorialEventSystem.OnTutorialTextEvent += HandleEvent;
-        RhythmEvents.OnInputJudged += OnJudged; // 판정 이벤트 구독
+        // RhythmEvents.OnInputJudged += OnJudged; // 판정 이벤트 구독
         OnNotePreview += OnNotePreviewReceived;
         OnNote += OnNoteReceived;
 
@@ -49,7 +49,7 @@ public class TutorialManager : MonoBehaviour
 
     private void OnDisable(){
         TutorialEventSystem.OnTutorialTextEvent -= HandleEvent;
-        RhythmEvents.OnInputJudged -= OnJudged; // 판정 이벤트 구독
+        // RhythmEvents.OnInputJudged -= OnJudged; // 판정 이벤트 구독
         OnNotePreview -= OnNotePreviewReceived;
         OnNote -= OnNoteReceived;
     }
@@ -74,7 +74,8 @@ public class TutorialManager : MonoBehaviour
                 break;
             case TextNextConditionType.OnEvent: // 트리거랑 같을 때
 
-                if(_curTutorialStepSo.TriggerKeyType.ToString() == Trigger){
+                if(_curTutorialStepSo.TriggerKeyType.ToString() == Trigger && _isPaused)
+                {
                     foreach (TextMeshProUGUI pressKey in PressKey){
                         pressKey.gameObject.SetActive(false);
                     }
@@ -90,7 +91,6 @@ public class TutorialManager : MonoBehaviour
         if (NextStepSo()){
             StartNextStepAfterDelay();
         }
-        //RhythmManager.Instance.Play();
     }
 
     public bool NextStepSo()
@@ -138,20 +138,18 @@ public class TutorialManager : MonoBehaviour
     }
 
     private void OnJudged(JudgedContext judgementResult){
-        //SetPause(true);
-        //Time.timeScale = 0.0f;
-        SetPause(true);
-        Time.timeScale = 0.0f;
+
     }
 
     private void OnNotePreviewReceived(NoteData beatNote){
-        
     }
 
     private void OnNoteReceived(NoteData beatNote){
         foreach (TextMeshProUGUI pressKey in PressKey){
             pressKey.gameObject.SetActive(true);
         }
+        SetPause(true);
+        Time.timeScale = 0.0f;
     }
     
 }

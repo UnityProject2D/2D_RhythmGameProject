@@ -3511,6 +3511,34 @@ PrefabInstance:
       propertyPath: IsTest
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: stageNotes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: 'stageNotes.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: cbefed385117e9c44b6dcefeb728459a, type: 2}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[0].Path
+      value: event:/Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[0].Guid.Data1
+      value: -73106582
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[0].Guid.Data2
+      value: 1223902688
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[0].Guid.Data3
+      value: -1026297981
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.data[0].Guid.Data4
+      value: -1764527479
+      objectReference: {fileID: 0}
     - target: {fileID: 9034453706349065766, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
