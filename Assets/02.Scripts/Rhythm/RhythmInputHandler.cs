@@ -26,8 +26,7 @@ public class RhythmInputHandler : MonoBehaviour
         inputActions.Player.RhythmAction_S.performed += OnSPressed;
         inputActions.Player.RhythmAction_D.performed += OnDPressed;
 
-        inputActions.Player.Tutorial_N.performed += OnNPressed;
-
+        
         SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
     }
 
@@ -39,7 +38,6 @@ public class RhythmInputHandler : MonoBehaviour
         inputActions.Player.RhythmAction_A.performed -= OnAPressed;
         inputActions.Player.RhythmAction_S.performed -= OnSPressed;
         inputActions.Player.RhythmAction_D.performed -= OnDPressed;
-        inputActions.Player.Tutorial_N.performed -= OnNPressed;
         SceneManager.sceneLoaded -= DestroyOnRestart;
     }
     private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
