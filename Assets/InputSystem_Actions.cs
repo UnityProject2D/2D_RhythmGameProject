@@ -791,6 +791,34 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Setting"",
+            ""id"": ""5882e4b6-fe07-4752-9eba-df13b697eab6"",
+            ""actions"": [
+                {
+                    ""name"": ""Space"",
+                    ""type"": ""Button"",
+                    ""id"": ""2c6d2176-496f-4b42-bcd1-aa18f257f31f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ddeb1236-bcc0-4b6b-8976-389a200ff400"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Space"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -879,6 +907,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_Shop_Player_Move = m_Shop_Player.FindAction("Move", throwIfNotFound: true);
         m_Shop_Player_Jump = m_Shop_Player.FindAction("Jump", throwIfNotFound: true);
         m_Shop_Player_UseShop = m_Shop_Player.FindAction("UseShop", throwIfNotFound: true);
+        // Setting
+        m_Setting = asset.FindActionMap("Setting", throwIfNotFound: true);
+        m_Setting_Space = m_Setting.FindAction("Space", throwIfNotFound: true);
     }
 
     ~@PlayerInputAction()
@@ -886,6 +917,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, PlayerInputAction.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, PlayerInputAction.UI.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Shop_Player.enabled, "This will cause a leak and performance issues, PlayerInputAction.Shop_Player.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Setting.enabled, "This will cause a leak and performance issues, PlayerInputAction.Setting.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1399,6 +1431,102 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="Shop_PlayerActions" /> instance referencing this action map.
     /// </summary>
     public Shop_PlayerActions @Shop_Player => new Shop_PlayerActions(this);
+
+    // Setting
+    private readonly InputActionMap m_Setting;
+    private List<ISettingActions> m_SettingActionsCallbackInterfaces = new List<ISettingActions>();
+    private readonly InputAction m_Setting_Space;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Setting".
+    /// </summary>
+    public struct SettingActions
+    {
+        private @PlayerInputAction m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public SettingActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Setting/Space".
+        /// </summary>
+        public InputAction @Space => m_Wrapper.m_Setting_Space;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Setting; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="SettingActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(SettingActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="SettingActions" />
+        public void AddCallbacks(ISettingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_SettingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_SettingActionsCallbackInterfaces.Add(instance);
+            @Space.started += instance.OnSpace;
+            @Space.performed += instance.OnSpace;
+            @Space.canceled += instance.OnSpace;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="SettingActions" />
+        private void UnregisterCallbacks(ISettingActions instance)
+        {
+            @Space.started -= instance.OnSpace;
+            @Space.performed -= instance.OnSpace;
+            @Space.canceled -= instance.OnSpace;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="SettingActions.UnregisterCallbacks(ISettingActions)" />.
+        /// </summary>
+        /// <seealso cref="SettingActions.UnregisterCallbacks(ISettingActions)" />
+        public void RemoveCallbacks(ISettingActions instance)
+        {
+            if (m_Wrapper.m_SettingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="SettingActions.AddCallbacks(ISettingActions)" />
+        /// <seealso cref="SettingActions.RemoveCallbacks(ISettingActions)" />
+        /// <seealso cref="SettingActions.UnregisterCallbacks(ISettingActions)" />
+        public void SetCallbacks(ISettingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_SettingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_SettingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="SettingActions" /> instance referencing this action map.
+    /// </summary>
+    public SettingActions @Setting => new SettingActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1606,5 +1734,20 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnUseShop(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Setting" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="SettingActions.AddCallbacks(ISettingActions)" />
+    /// <seealso cref="SettingActions.RemoveCallbacks(ISettingActions)" />
+    public interface ISettingActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Space" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSpace(InputAction.CallbackContext context);
     }
 }

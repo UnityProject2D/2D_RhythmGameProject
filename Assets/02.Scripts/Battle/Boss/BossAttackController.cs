@@ -51,7 +51,6 @@ public class BossAttackController : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("BossAttackController: 플레이어 없네요 - 구독");
             GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
         }
     }

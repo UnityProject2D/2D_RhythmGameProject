@@ -118,8 +118,9 @@ public class RhythmManager : MonoBehaviour
             action?.Invoke();
         }
 
-        float currentTime = GetCurrentMusicTime();
-            
+        float offset = SyncSettings.InputOffsetMs / 1000f;
+        float currentTime = GetCurrentMusicTime() - offset;
+
         for (int i = 0; i < stageNotes[_stageMusicIndex].notes.Count; i++)
         {
             var note = stageNotes[_stageMusicIndex].notes[i];

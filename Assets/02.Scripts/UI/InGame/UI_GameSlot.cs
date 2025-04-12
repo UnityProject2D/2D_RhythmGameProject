@@ -6,8 +6,9 @@ public class UI_GameSlots : MonoBehaviour
 {
     public UI_ItemSlot[] slots;
     public ItemEffectHandler itemEffectHandler;
-    public ItemSO[] TestitemSos;
+    public ItemSO[] CurrentItemSO;
     public static UI_GameSlots Instance { get; private set; }
+    public int SlotCount = 0;
 
     private void Awake()
     {
@@ -17,7 +18,9 @@ public class UI_GameSlots : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+
+        CurrentItemSO = new ItemSO[slots.Length];
+        SlotCount = slots.Length;
     }
     private void OnEnable()
     {
@@ -38,17 +41,35 @@ public class UI_GameSlots : MonoBehaviour
         {
             slots[0].Init(itemEffectHandler);
             slots[0].Setup(itemSO);
+
+            CurrentItemSO[0] = itemSO;
         }
         else
         {
             slots[1].Init(itemEffectHandler);
             slots[1].Setup(itemSO);
+            CurrentItemSO[1] = itemSO;
         }
     }
 
     private void Start()
     {
-        //SetSlot(TestitemSos[0]);
-        //SetSlot(TestitemSos[1]);
+        for(int i=0; i<slots.Length; i++)
+        {
+            CurrentItemSO[i] = GameManager.Instance.SavedItems[i];
+            if (CurrentItemSO[i] != null)
+            {
+                slots[i].Init(itemEffectHandler);
+                slots[i].Setup(CurrentItemSO[i]);
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            GameManager.Instance.SavedItems[i] = CurrentItemSO[i];
+        }
     }
 }

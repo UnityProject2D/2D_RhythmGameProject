@@ -54,10 +54,11 @@ public class RhythmJudge : MonoBehaviour
     {
         if (!RhythmManager.Instance.IsPlaying) return;
 
-        float now = RhythmManager.Instance.GetCurrentMusicTime();
-        
+        float now = RhythmManager.Instance.GetCurrentMusicTime() + (SyncSettings.InputOffsetMs / 1000f);
+
         while (currentNoteIndex < pattern[_currentNotes].notes.Count)
         {
+            Debug.Log(pattern[_currentNotes].notes.Count);
             float noteTime = pattern[_currentNotes].notes[currentNoteIndex].beat * beatDuration;
 
             if (now - noteTime > beatDuration * badRange * (1 + PermenantEffect * PermenantStack) * (1 + TemporaryEffect * TemporaryStack))
@@ -98,7 +99,7 @@ public class RhythmJudge : MonoBehaviour
         }
 
         var note = pattern[_currentNotes].notes[currentNoteIndex];
-        float currentTime = RhythmManager.Instance.GetCurrentMusicTime();
+        float currentTime = RhythmManager.Instance.GetCurrentMusicTime() + (SyncSettings.InputOffsetMs / 1000f);
         float noteTime = note.beat * beatDuration;
         float delta = currentTime - noteTime;
         float abs = Mathf.Abs(delta);

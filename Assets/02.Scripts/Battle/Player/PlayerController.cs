@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.RegisterPlayer(this);
+            Debug.Log(this);
         }
         _animator = GetComponent<Animator>();
     }
@@ -46,6 +47,8 @@ public class PlayerController : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.RegisterPlayer(this);
+
+            Debug.Log(this);
         }
     }
     private void OnDestroy()
@@ -79,9 +82,10 @@ public class PlayerController : MonoBehaviour
     {
         if(changed < _prevHealth)
         {
-            _prevHealth = changed;
             _animator.SetTrigger("Hit");
         }
+
+        _prevHealth = changed;
     }
 
     private void HandleDie()
