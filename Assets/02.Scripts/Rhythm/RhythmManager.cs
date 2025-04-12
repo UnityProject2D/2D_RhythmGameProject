@@ -85,9 +85,15 @@ public class RhythmManager : MonoBehaviour
     {
         Debug.Log($"[RhythmManager] OnLoadedStage 호출됨, {stageData.StageName}, {stageData.StageIndex}");
         _stageMusicIndex = stageData.StageIndex;
-        if (_stageMusicIndex >= 0)
+        
+        if (_stageMusicIndex >= 0 && IsPlaying == false)
         {
+            IsPlaying = true;
             Play();
+        }
+        else
+        {
+            IsPlaying = false;
         }
     }
     private void OnDisable()
@@ -99,6 +105,7 @@ public class RhythmManager : MonoBehaviour
     {
         if (scene.name == "GameTitle")
         {
+            Debug.Log("[RhythmManager] DestroyOnRestart 호출됨");
             Destroy(gameObject);
         }
     }
@@ -190,6 +197,8 @@ public class RhythmManager : MonoBehaviour
         {
             _timelineHandle.Free();
         }
+
+        MusicStartTime = -1f;
     }
     public void Play()
     {
@@ -228,7 +237,7 @@ public class RhythmManager : MonoBehaviour
         {
             _noteStates.Add(NoteTriggerState.None);
         }
-
+        IsPlaying = false;
         //음악을 재생한다
         if (!IsPlaying)
         {
@@ -309,7 +318,6 @@ public class RhythmManager : MonoBehaviour
     }
     public void OnPlayerDie()
     {
-
         IsRestart = false;
         Debug.Log("[RhythmManager] HandleDie() 호출");
         StartCoroutine(FadeOutPitch(_musicInstance,1f));

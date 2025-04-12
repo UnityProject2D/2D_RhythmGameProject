@@ -45,10 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pattern:
+  - {fileID: 11400000, guid: cbefed385117e9c44b6dcefeb728459a, type: 2}
   - {fileID: 11400000, guid: 51d18a65aa3e22f4a9127d1bb060f352, type: 2}
-  - {fileID: 11400000, guid: ce8944c85efc3134fa199b8d11dcd3a1, type: 2}
   - {fileID: 11400000, guid: 08593ce86076a3f4d88f315e530fe56a, type: 2}
-  - {fileID: 11400000, guid: 341040bfd6695ba49862f232834bddce, type: 2}
   perfectRange: 0.15
   goodRange: 0.3
   badRange: 0.45
+  PermenantEffect: 0.05
+  PermenantStack: 0
+  TemporaryEffect: 0.05
+  TemporaryStack: 0

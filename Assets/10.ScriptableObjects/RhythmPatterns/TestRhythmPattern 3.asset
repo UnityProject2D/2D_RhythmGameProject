@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 104
   notes:
-  - beat: 36.20067
+  - beat: 6
     expectedKey: A
-  - beat: 37.235466
+  - beat: 7
     expectedKey: D
-  - beat: 38.122932
+  - beat: 8
     expectedKey: S
-  - beat: 39.121334
+  - beat: 9
     expectedKey: D
   - beat: 44.0024
     expectedKey: W

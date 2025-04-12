@@ -45,6 +45,7 @@ public class GameSceneManager : MonoBehaviour
         if(RhythmManager.Instance != null)
         {
             RhythmManager.Instance.StopMusic();
+            RhythmManager.Instance.IsPlaying = false;
         }
         LoadingUI.SetActive(true);
         // 1. 로딩 씬 먼저 로드
