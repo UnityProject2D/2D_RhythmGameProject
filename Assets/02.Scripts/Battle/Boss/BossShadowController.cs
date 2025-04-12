@@ -48,8 +48,8 @@ public class BossShadowController : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("BossShadowController: 플레이어 없네요 - 구독");
             GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
+            Debug.LogWarning("BossShadowController: 플레이어 없네요 - 구독");
         }
     }
     private void Instance_PlayerRegistered()

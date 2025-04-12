@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  SavedItemFlags: 2048
+  SavedItemFlags: 0
   PlayerHealth: 10000
+  SavedItems: []
   winScoreThreshold: 10000
