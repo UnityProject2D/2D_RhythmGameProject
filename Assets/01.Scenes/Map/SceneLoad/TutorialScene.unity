@@ -2099,11 +2099,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1114416595
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: -166434043
+  m_SortingLayer: 9
+  m_SortingOrder: 4
   m_Sprite: {fileID: -2499462199596305543, guid: 4246c441088e2474fac0193d48be9994, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.74509805, b: 0.99636716, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2122,7 +2122,7 @@ Transform:
   m_GameObject: {fileID: 723202059}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.96, z: 0}
+  m_LocalPosition: {x: 1, y: -3.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2502,7 +2502,7 @@ MonoBehaviour:
   m_Intensity: 1.39768
   m_LightVolumeIntensity: 1.5743719
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000af4747e8d3a56c423fc4e1b9657f8855df593edc
+  m_ApplyToSortingLayers: 00000000af4747e8d3a56c423fc4e1b9657f8855df593edc056b14f6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -3516,6 +3516,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: musicTracks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
       propertyPath: 'stageNotes.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: cbefed385117e9c44b6dcefeb728459a, type: 2}
@@ -3619,7 +3623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 465, y: 170}
+  m_AnchoredPosition: {x: -216.7, y: -503.1}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1110331799
@@ -23548,7 +23552,7 @@ MonoBehaviour:
   m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000af4747e8d3a56c423fc4e1b9657f8855df593edc
+  m_ApplyToSortingLayers: 00000000af4747e8d3a56c423fc4e1b9657f8855df593edc056b14f6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -24297,7 +24301,7 @@ MonoBehaviour:
   m_Intensity: 0.3
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000af4747e8d3a56c423fc4e1b9657f8855df593edc
+  m_ApplyToSortingLayers: 00000000af4747e8d3a56c423fc4e1b9657f8855df593edc056b14f6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -24996,7 +25000,7 @@ MonoBehaviour:
   m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000af4747e8d3a56c423fc4e1b9657f8855df593edc
+  m_ApplyToSortingLayers: 00000000af4747e8d3a56c423fc4e1b9657f8855df593edc056b14f6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -25482,7 +25486,7 @@ MonoBehaviour:
   m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000af4747e8d3a56c423fc4e1b9657f8855df593edc
+  m_ApplyToSortingLayers: 00000000af4747e8d3a56c423fc4e1b9657f8855df593edc056b14f6
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -26425,10 +26429,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1066614896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: 390}
-  m_SizeDelta: {x: 900, y: 50}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 15, y: 150}
+  m_SizeDelta: {x: 899, y: 230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2111345675
 GameObject:
@@ -26465,7 +26469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: 170}
+  m_AnchoredPosition: {x: 550, y: -470}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2111345677
