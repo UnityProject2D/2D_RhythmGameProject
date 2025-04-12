@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShopItem_Consumable_CombatRhythmCatcher
   m_EditorClassIdentifier: 
   itemSO: {fileID: 11400000, guid: e778dac5667e0504ca3a5ed63a8ed7df, type: 2}
-  price: 1
+  price: 5
   currencyType: 1
   OnPurchase:
     m_PersistentCalls:

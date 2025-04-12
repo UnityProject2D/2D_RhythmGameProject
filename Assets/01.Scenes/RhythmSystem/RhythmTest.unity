@@ -622,17 +622,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 368089036}
   m_CullTransparentMesh: 1
---- !u!114 &419518517 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-  m_PrefabInstance: {fileID: 7807927328696084621}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39732803da286674885fcedcc8e2adf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &510312797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,14 +1769,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 419518517}
-        m_TargetAssemblyTypeName: RhythmManager, Assembly-CSharp
-        m_MethodName: OnLoadedStage
-        m_Mode: 3
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RhythmPreviewer, Assembly-CSharp
+        m_MethodName: OnClickStartButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2297,9 +2286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2729f0c13c28634c862666452823159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPattern: {fileID: 11400000, guid: 806a9e805715cd549825769e326245ac, type: 2}
+  targetPattern: {fileID: 11400000, guid: 51d18a65aa3e22f4a9127d1bb060f352, type: 2}
   dropdown: {fileID: 701302336}
-  bpm: 66
+  bpm: 97
 --- !u!114 &1704735461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2312,7 +2301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c3ab15495330b4ea32b2af5798c180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pattern: {fileID: 11400000, guid: 806a9e805715cd549825769e326245ac, type: 2}
+  pattern: {fileID: 11400000, guid: 51d18a65aa3e22f4a9127d1bb060f352, type: 2}
   noteUIPrefab: {fileID: 783586115796944255, guid: ac5b1c39ee5fae7419fb86c2c3e8e107, type: 3}
   uiSpawnParent: {fileID: 1351124039}
   dropdown: {fileID: 701302336}
@@ -2709,10 +2698,6 @@ PrefabInstance:
       propertyPath: PermenantEffect
       value: 0.05
       objectReference: {fileID: 0}
-    - target: {fileID: 523014295954557603, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
-      propertyPath: 'pattern.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 806a9e805715cd549825769e326245ac, type: 2}
     - target: {fileID: 952654727111627479, guid: 99f2e62b5da5da5468afac19a40394b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2770,6 +2755,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2542903918651298043, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/TEMP_StageSound/Track01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542903918651298043, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -14626127
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542903918651298043, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1127277754
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542903918651298043, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -138262356
+      objectReference: {fileID: 0}
+    - target: {fileID: 2542903918651298043, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 930445000
+      objectReference: {fileID: 0}
     - target: {fileID: 3594441550570531111, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
       propertyPath: m_Name
       value: RhythmManager
@@ -2778,10 +2783,6 @@ PrefabInstance:
       propertyPath: IsTest
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
-      propertyPath: 'stageNotes.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 806a9e805715cd549825769e326245ac, type: 2}
     - target: {fileID: 9034453706349065766, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

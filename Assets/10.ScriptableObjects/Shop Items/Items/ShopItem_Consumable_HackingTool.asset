@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShopItem_Consumable_HackingTool
   m_EditorClassIdentifier: 
   itemSO: {fileID: 11400000, guid: 8bcb0be8c531ade4bbf0c084ac7f7ac5, type: 2}
-  price: 4
+  price: 7
   currencyType: 1
   OnPurchase:
     m_PersistentCalls:

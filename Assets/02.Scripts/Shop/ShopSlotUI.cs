@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 using System;
+using FMODUnity;
 public class ShopSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("UI 요소")]
@@ -34,23 +35,44 @@ public class ShopSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private void BuyItem()
     {
-        var price = currentItem.price;
-        var type = currentItem.currencyType;
+        // 슬롯 확인
+        bool isEquip = currentItem.itemSO.category.categoryName == "장비 아이템";
+        bool isConsumable = currentItem.itemSO.isConsumable;
 
-        if (!CurrencyManager.Instance.TrySpend(type, price))
+        if (isEquip && UI_GameSlots.Instance.slots[0].HasItem())
         {
-            Debug.Log("구매 실패: 재화 부족");
+            Debug.Log("장비 슬롯이 이미 사용 중입니다.");
+
+            RuntimeManager.PlayOneShot("event:/SFX/Failed");
             return;
         }
-        Debug.Log($"{currentItem.itemSO.itemName} 구매");
+        else if (isConsumable && UI_GameSlots.Instance.slots[1].HasItem())
+        {
+            Debug.Log("소비 슬롯이 이미 사용 중입니다.");
+            RuntimeManager.PlayOneShot("event:/SFX/Failed");
+            return;
+        }
 
+        // 구매 처리
+        if (!CurrencyManager.Instance.TrySpend(currentItem.currencyType, currentItem.price))
+        {
+            Debug.Log("구매 실패: 재화 부족");
+            RuntimeManager.PlayOneShot("event:/SFX/Failed");    
+            return;
+        }
+
+        RuntimeManager.PlayOneShot("event:/SFX/Upgrade");
+        Debug.Log($"{currentItem.itemSO.itemName} 구매 완료");
         currentItem.OnPurchase?.Invoke();
         OnPurchaseSuccess?.Invoke();
-
         _buyButton.interactable = false;
+
+        // 슬롯에 추가
+        UI_GameSlots.Instance.SetSlot(currentItem.itemSO);
 
         TooltipUI.Instance.Hide();
     }
+
 
     public void OnPointerEnter(PointerEventData eventData)
     {

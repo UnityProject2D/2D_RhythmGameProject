@@ -20,7 +20,7 @@ public class EnemyAttackController : MonoBehaviour
 
     public GameObject EnemyBulletPrefab;
     private List<GameObject> EnemyBulletPool = new();
-    public Transform _playerTransform;
+    private Transform _playerTransform;
     public Transform GunPosition;
     public MMF_Player CoinEffect;
     public GameObject QuantumKey;
@@ -43,18 +43,24 @@ public class EnemyAttackController : MonoBehaviour
             EnemyBulletPool.Add(bullet);
         }
 
-        //if (GameManager.Instance.Player.Controller != null)
-        //{
-        //    Debug.LogWarning("EnemyAttackController: 플레이어 있네요");
-        //    Instance_PlayerRegistered();
-        //}
-        //else
-        //{
-        //    Debug.LogWarning("EnemyAttackController: 플레이어 없네요 - 구독");
-        //    GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
-        //}
+        if (GameManager.Instance.Player.Controller != null)
+        {
+            Instance_PlayerRegistered();
+        }
+        else
+        {
+            Debug.LogWarning("EnemyAttackController: 플레이어 없네요 - 구독");
+            GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
+        }
 
         //SetPlayer().Forget();
+    }
+
+    private void Instance_PlayerRegistered()
+    {
+        _playerTransform = GameManager.Instance.Player.Transform;
+
+        Debug.Log($"EnemyAttackController: PlayerRegistered - {_playerTransform}");
     }
 
     //private async UniTaskVoid SetPlayer()
@@ -170,7 +176,7 @@ public class EnemyAttackController : MonoBehaviour
             {
                 Instantiate(QuantumKey, transform.position, Quaternion.identity);
                 CoinEffect?.PlayFeedbacks();
-                await UniTask.Delay(1000);
+                await UniTask.Delay(1000,false);
                 Destroy(gameObject);
             }
         }

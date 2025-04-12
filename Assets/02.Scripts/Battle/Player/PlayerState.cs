@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 public struct ItemUseStatus
 {
     public ItemUseStatus(ItemID id, bool p)
@@ -11,6 +10,31 @@ public struct ItemUseStatus
     public ItemID itemID;
     public bool flag;
 }
+
+[Flags]
+public enum ItemFlag
+{
+    None = 0,
+    // 영구 및 장비 아이템
+    PerfectRecoveryCore = 1 << 0,
+    EmergencyResponseCore = 1 << 1,
+    AccessLevelCore = 1 << 2,
+    RecoveryAlgorithmCore = 1 << 3,
+    CalibrationChipset = 1 << 4,
+    ForcedEvasion = 1 << 5,
+    AutoComboSystem = 1 << 6,
+    PreciseCalibrationUnit = 1 << 7,
+    HyperScoreKernal = 1 << 8,
+    DataCacheModule = 1 << 9,
+
+    // 소비 아이템
+    EmergencyEvasion = 1 << 10,
+    OverDrive = 1 << 11,
+    ProbabilityAmplifier = 1 << 12,
+    ComboProtector = 1 << 13,
+    HackingTool = 1 << 14,
+}
+
 public class PlayerState : MonoBehaviour
 {
     public static PlayerState Instance { get; private set; }
@@ -128,7 +152,6 @@ public class PlayerState : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -136,20 +159,57 @@ public class PlayerState : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
-    }
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= DestroyOnRestart;
+        RestoreItemFlags(GameManager.Instance.SavedItemFlags);
     }
 
-    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
+    private void RestoreItemFlags(ItemFlag flags)
     {
-        if (scene.name == "GameTitle")
-        {
-            Destroy(gameObject);
-        }
+        RecoveryCoreEnabled = flags.HasFlag(ItemFlag.PerfectRecoveryCore);
+        EmergencyResponseCoreEnabled = flags.HasFlag(ItemFlag.EmergencyResponseCore);
+        AccessLevelCoreEnabled = flags.HasFlag(ItemFlag.AccessLevelCore);
+        RecoveryAlgorithmCoreEnabled = flags.HasFlag(ItemFlag.RecoveryAlgorithmCore);
+        CalibrationChipsetEnabled = flags.HasFlag(ItemFlag.CalibrationChipset);
+        ForcedEvasionEnabled = flags.HasFlag(ItemFlag.ForcedEvasion);
+        AutoComboSystemEnabled = flags.HasFlag(ItemFlag.AutoComboSystem);
+        PreciseCalibrationUnitEnabled = flags.HasFlag(ItemFlag.PreciseCalibrationUnit);
+        HyperScoreKernalEnabled = flags.HasFlag(ItemFlag.HyperScoreKernal);
+        DataCacheModuleEnabled = flags.HasFlag(ItemFlag.DataCacheModule);
+
+        EmergencyEvasionEnabled = flags.HasFlag(ItemFlag.EmergencyEvasion);
+        OverDriveUsed = flags.HasFlag(ItemFlag.OverDrive);
+        ProbabilityAmplifierUsed = flags.HasFlag(ItemFlag.ProbabilityAmplifier);
+        ComboProtectorUsed = flags.HasFlag(ItemFlag.ComboProtector);
+        HackingToolUsed = flags.HasFlag(ItemFlag.HackingTool);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.SavedItemFlags = CollectCurrentFlags();
+    }
+
+    private ItemFlag CollectCurrentFlags()
+    {
+        ItemFlag result = ItemFlag.None;
+
+        if (RecoveryCoreEnabled) result |= ItemFlag.PerfectRecoveryCore;
+        if (EmergencyResponseCoreEnabled) result |= ItemFlag.EmergencyResponseCore;
+        if (AccessLevelCoreEnabled) result |= ItemFlag.AccessLevelCore;
+        if (RecoveryAlgorithmCoreEnabled) result |= ItemFlag.RecoveryAlgorithmCore;
+        if (CalibrationChipsetEnabled) result |= ItemFlag.CalibrationChipset;
+        if (ForcedEvasionEnabled) result |= ItemFlag.ForcedEvasion;
+        if (AutoComboSystemEnabled) result |= ItemFlag.AutoComboSystem;
+        if (PreciseCalibrationUnitEnabled) result |= ItemFlag.PreciseCalibrationUnit;
+        if (HyperScoreKernalEnabled) result |= ItemFlag.HyperScoreKernal;
+        if (DataCacheModuleEnabled) result |= ItemFlag.DataCacheModule;
+
+        if (EmergencyEvasionEnabled) result |= ItemFlag.EmergencyEvasion;
+        if (OverDriveUsed) result |= ItemFlag.OverDrive;
+        if (ProbabilityAmplifierUsed) result |= ItemFlag.ProbabilityAmplifier;
+        if (ComboProtectorUsed) result |= ItemFlag.ComboProtector;
+        if (HackingToolUsed) result |= ItemFlag.HackingTool;
+
+        return result;
     }
 }

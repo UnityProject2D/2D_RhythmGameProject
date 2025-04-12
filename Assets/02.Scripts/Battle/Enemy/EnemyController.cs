@@ -13,10 +13,10 @@ public class EnemyController : MonoBehaviour
     public Transform gunPoint; // 총구 위치 기준 Transform (필수!)
 
     public Sprite[] directionSprites = new Sprite[4]; // W, S, A, D 순서
-    private const int PoolSizePerDirection = 8;
+    private const int PoolSizePerDirection = 12;
     private List<GameObject>[] shadowPools = new List<GameObject>[4];
 
-    public Transform _playerTransform;
+    private Transform _playerTransform;
 
     private void Awake()
     {
@@ -28,22 +28,22 @@ public class EnemyController : MonoBehaviour
 
     private void Instance_PlayerRegistered()
     {
-        Debug.LogWarning("EnemyController: PlayerRegistered");
         _playerTransform = GameManager.Instance.Player.Transform;
+
+        Debug.Log($"EnemyController: PlayerRegistered - {_playerTransform}");
     }
 
     private void Start()
     {
-        //if(GameManager.Instance.Player.Controller != null)
-        //{
-        //    Debug.LogWarning("EnemyController: 플레이어 있네요");
-        //    Instance_PlayerRegistered();
-        //}
-        //else
-        //{
-        //    Debug.LogWarning("EnemyController: 플레이어 없네요 - 구독");
-        //    GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
-        //}
+        if (GameManager.Instance.Player.Controller != null)
+        {
+            Instance_PlayerRegistered();
+        }
+        else
+        {
+            Debug.LogWarning("EnemyController: 플레이어 없네요 - 구독");
+            GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
+        }
 
         //SetPlayer().Forget();
         OnMusicStopped += EnemyDieJdg;
@@ -113,7 +113,7 @@ public class EnemyController : MonoBehaviour
         sr.DOFade(1f, 0f);
 
         // Y방향 축소로 사라지게
-        shadow.transform.DOScaleY(0f, 1f).SetEase(Ease.InQuad).OnComplete(() =>
+        shadow.transform.DOScaleY(0f, 0.4f).SetEase(Ease.InQuad).OnComplete(() =>
         {
             shadow.SetActive(false);
         });
