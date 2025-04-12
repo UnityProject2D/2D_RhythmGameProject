@@ -22,6 +22,9 @@ public class TutorialManager : MonoBehaviour
     private int curStep = 5;//-1;
     private TutorialStepSo _curTutorialStepSo;
 
+    public ParticleSystem[] CompleteParticles;
+    public SFXSound SFXSound;
+
     private Bus masterBus;
     public static TutorialManager Instance { get; private set; }
     private void Awake(){
@@ -42,7 +45,7 @@ public class TutorialManager : MonoBehaviour
     private void OnEnable(){
         TutorialEventSystem.OnTutorialTextEvent += HandleEvent;
         // RhythmEvents.OnInputJudged += OnJudged; // 판정 이벤트 구독
-        OnNotePreview += OnNotePreviewReceived;
+        // OnNotePreview += OnNotePreviewReceived;
         OnNote += OnNoteReceived;
 
     }
@@ -50,7 +53,7 @@ public class TutorialManager : MonoBehaviour
     private void OnDisable(){
         TutorialEventSystem.OnTutorialTextEvent -= HandleEvent;
         // RhythmEvents.OnInputJudged -= OnJudged; // 판정 이벤트 구독
-        OnNotePreview -= OnNotePreviewReceived;
+        // OnNotePreview -= OnNotePreviewReceived;
         OnNote -= OnNoteReceived;
     }
 
@@ -65,6 +68,7 @@ public class TutorialManager : MonoBehaviour
     public void FeedbackSetting(TutorialStepSo tutorialStepSo){
         if (_textReveal == null) return;
         _textReveal.RevealDuration = tutorialStepSo.Duration;
+        PressKey[0].text = tutorialStepSo.TriggerKeyType.ToString();
     }
 
     public void HandleEvent(string Trigger = ""){
@@ -74,14 +78,22 @@ public class TutorialManager : MonoBehaviour
                 break;
             case TextNextConditionType.OnEvent: // 트리거랑 같을 때
 
+                // 해당 트리거 이벤트 성공 여부
                 if(_curTutorialStepSo.TriggerKeyType.ToString() == Trigger && _isPaused)
                 {
                     foreach (TextMeshProUGUI pressKey in PressKey){
                         pressKey.gameObject.SetActive(false);
                     }
+
                     SetPause(false);
+                    SFXSound.Play();
+                    // RuntimeManager.PlayOneShot("event:/SFX/Upgrade");
                     Time.timeScale = 1.0f;
                     TriggerNextStep();
+                    foreach (ParticleSystem particle in CompleteParticles){
+                        particle.Play();
+                    }
+
                 }
                 break;
         }
@@ -135,13 +147,6 @@ public class TutorialManager : MonoBehaviour
 
     public void TextEndEvent(){ // 현재 텍스트 렌더링 끝
         TutorialEventSystem.OnTextEvents();
-    }
-
-    private void OnJudged(JudgedContext judgementResult){
-
-    }
-
-    private void OnNotePreviewReceived(NoteData beatNote){
     }
 
     private void OnNoteReceived(NoteData beatNote){
