@@ -44,19 +44,30 @@ public class BossBulletSpecialSpawner : MonoBehaviour
 
     private void OnInputJudged(JudgedContext result)
     {
-        if (bulletQueue.Count <= 0)
-            return;
-
         if (result.Result <= JudgementResult.Good)
         {
-            BossBulletSpecialController bullet = bulletQueue.Dequeue();
-            bullet.ExplodeToBoss();
+            if (bulletQueue.TryDequeue(out var bullet))
+            {
+                bullet.ExplodeToBoss();
+            }
+            else
+            {
+                Debug.LogError("ExplodeBoss: Dequeue 실패 - 큐에 총알 없음");
+            }
+
         }
         else if (result.Result == JudgementResult.Miss || result.Result == JudgementResult.Bad)
         {
-            BossBulletSpecialController bullet = bulletQueue.Dequeue();
-            bullet.ExPlodeToPlayer();
+            if (bulletQueue.TryDequeue(out var bullet))
+            {
+                bullet.ExPlodeToPlayer();
+            }
+            else
+            {
+                Debug.LogError("ExplodePlayer: Dequeue 실패 - 큐에 총알 없음");
+            }
         }
+
     }
 
     private void SpawnBullet()
@@ -76,7 +87,7 @@ public class BossBulletSpecialSpawner : MonoBehaviour
 
         // 총알이 활성화되면 Queue에 추가합니다.
         bulletQueue.Enqueue(bullet);
-
+        
         bulletIndex++;
     }
 

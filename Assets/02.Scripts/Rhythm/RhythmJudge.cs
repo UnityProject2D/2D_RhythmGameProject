@@ -28,22 +28,19 @@ public class RhythmJudge : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
     }
     private void OnEnable()
     {
-        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
-
+        
         RhythmEvents.OnBeat += OnBeatReceived;
         RhythmEvents.OnMusicStart += OnMusicStartReceived;
     }
 
     private void OnDisable()
     {
-        SceneManager.sceneLoaded -= DestroyOnRestart; 
-        RhythmEvents.OnBeat -= OnBeatReceived;
+       RhythmEvents.OnBeat -= OnBeatReceived;
         RhythmEvents.OnMusicStart -= OnMusicStartReceived;
 
         if (RhythmInputHandler.Instance != null)
@@ -52,13 +49,7 @@ public class RhythmJudge : MonoBehaviour
         }
     }
 
-    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
-    {
-        if (scene.name == "GameTitle")
-        {
-            Destroy(gameObject);
-        }
-    }
+    
     void Update()
     {
         if (!RhythmManager.Instance.IsPlaying) return;
@@ -98,6 +89,8 @@ public class RhythmJudge : MonoBehaviour
 
     public void EvaluateInput(string key)
     {
+
+        if (!RhythmManager.Instance.IsPlaying) return;
         if (currentNoteIndex >= pattern[_currentNotes].notes.Count)
         {
             Debug.Log("모든 노트 완료");

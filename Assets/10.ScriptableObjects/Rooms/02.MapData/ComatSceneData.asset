@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7731105048ca0a641801e8b69ff9a3a4, type: 3}
   m_Name: ComatSceneData
   m_EditorClassIdentifier: 
-  StageName: ComatScene
-  Sprite: {fileID: -471700128794730709, guid: 448fbdf7288da004bae21179cf48966a, type: 3}
-  MonsterPrefab: {fileID: 0}
+  StageName: 
+  StageIndex: 0

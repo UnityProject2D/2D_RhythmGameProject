@@ -1,5 +1,6 @@
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class GameSceneManager : MonoBehaviour
     public GameObject LoadCompleteText;
     public static GameSceneManager Instance { get; private set; }
 
+    public event Action<StageData> OnStageDataLoaded;
     void Awake()
     {
         if (Instance == null){
@@ -23,6 +25,12 @@ public class GameSceneManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+    }
+
+    public void LoadStageData(StageData stageData)
+    {
+        // 스테이지 데이터 로드
+        OnStageDataLoaded?.Invoke(stageData);
     }
 
 
@@ -33,6 +41,12 @@ public class GameSceneManager : MonoBehaviour
 
     private IEnumerator LoadSceneWithLoadingScene(string targetScene)
     {
+
+        if(RhythmManager.Instance != null)
+        {
+            RhythmManager.Instance.StopMusic();
+            RhythmManager.Instance.IsPlaying = false;
+        }
         LoadingUI.SetActive(true);
         // 1. 로딩 씬 먼저 로드
         AsyncOperation loadingSceneOp = SceneManager.LoadSceneAsync("LoadingScene");

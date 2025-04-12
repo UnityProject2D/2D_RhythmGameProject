@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public enum JudgementResult
 {
@@ -63,7 +64,10 @@ public static class RhythmEvents
 
     // ===== Invoke =====
     public static void InvokeOnMusicStart() => OnMusicStart?.Invoke();
-    public static void InvokeOnMusicStopped() => OnMusicStopped?.Invoke();
+    public static void InvokeOnMusicStopped()
+    {
+        if (!RhythmManager.Instance.IsRestart) OnMusicStopped?.Invoke();
+    }
 
     public static void InvokeOnBeat(float beat)
     {
@@ -72,7 +76,6 @@ public static class RhythmEvents
     public static void InvokeOnSubBeat() => OnSubBeat?.Invoke();
     public static void InvokeOnInputJudged(JudgementResult result)
     {
-
         OnInputJudged?.Invoke(new JudgedContext
         {
             RandomValue = UnityEngine.Random.value,
