@@ -18,5 +18,8 @@ MonoBehaviour:
     \uC2DC\uC791\uD558\uAE30 \uC804\uC5D0,\n\uAE30\uBCF8\uC801\uC778 \uC870\uC791\uACFC
     \uD0C0\uC774\uBC0D \uBCF4\uC815\uC774 \uD544\uC694\uD569\uB2C8\uB2E4.\n\uC124\uBA85\uC744
     \uB4E4\uC73C\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
-  Duration: 4
-  DelayTime: 1.5
+  Duration: 0.5
+  DelayTime: 0.5
+  TriggerKeyType: 0
+  TextNextConditionType: 0
+  MusicState: 0

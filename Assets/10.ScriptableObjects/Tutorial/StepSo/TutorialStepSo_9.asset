@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c92f81c38a3aa24f9293bb002e8f7a5, type: 3}
   m_Name: TutorialStepSo_9
   m_EditorClassIdentifier: 
-  Text: "\uD558\uB2E8 \uBC29\uC5B4 \uC131\uACF5."
-  Duration: 4
-  DelayTime: 1.5
+  Text: "\uBC29\uC5B4 \uC131\uACF5."
+  Duration: 0.5
+  DelayTime: 0
+  TriggerKeyType: 0
+  TextNextConditionType: 0
+  MusicState: 2

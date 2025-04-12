@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: TutorialStepSo_7
   m_EditorClassIdentifier: 
   Text: "\uD655\uC778. \uC0C1\uB2E8 \uBC29\uC5B4 \uC131\uACF5!"
-  Duration: 4
-  DelayTime: 1.5
+  Duration: 0.5
+  DelayTime: 0
+  TriggerKeyType: 0
+  TextNextConditionType: 0
+  MusicState: 2
