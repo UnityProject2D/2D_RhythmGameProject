@@ -4,6 +4,7 @@ using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
 using static RhythmEvents;
+using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
@@ -82,7 +83,6 @@ public class EnemyController : MonoBehaviour
     private void OnNotePreviewReceived(NoteData beatNote)
     {
         PlayAttackSound();
-
         int dir = GetIndexFromKey(beatNote.expectedKey);
         if (dir < 0 || dir >= 4) return;
 

@@ -107,7 +107,7 @@ public class TitleMusicPlayer : MonoBehaviour
             Debug.LogWarning("[FMOD] FFT DSP 생성 실패");
         }
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         if (_musicInstance.isValid())
         {

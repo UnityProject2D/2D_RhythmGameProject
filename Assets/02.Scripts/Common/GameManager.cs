@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using System;
 public class PlayerContext
 {
-    public PlayerController Controller =null;
+    public PlayerController Controller = null;
     public PlayerHealth Health = null;
     public Transform Transform = null;
 }
@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public event Action PlayerRegistered;
     public ItemFlag SavedItemFlags;
     public float PlayerHealth = 10;
+    public ItemSO[] SavedItems;
 
     public void RegisterPlayer(PlayerController controller)
     {
@@ -34,6 +35,10 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+
+
+
+        SavedItems = new ItemSO[2];
     }
 
 

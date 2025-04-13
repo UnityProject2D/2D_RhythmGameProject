@@ -21,7 +21,6 @@ public class ShopPlayerController : MonoBehaviour
 
         inputActions = new @PlayerInputAction();
         rb = GetComponent<Rigidbody2D>();
-        inputActions.Shop_Player.Enable();
 
         // Move 입력
         inputActions.Shop_Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
