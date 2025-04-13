@@ -6,4 +6,6 @@ using UnityEngine;
 public class TutorialSequenceSO : ScriptableObject
 {
     public List<TutorialStepSo> Steps;
+
+    public List<TutorialStepSo> Loops;
 }
