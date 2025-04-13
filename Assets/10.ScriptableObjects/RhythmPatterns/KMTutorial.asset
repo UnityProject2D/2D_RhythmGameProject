@@ -16,24 +16,14 @@ MonoBehaviour:
   notes:
   - beat: 20
     expectedKey: W
-  - beat: 21
-    expectedKey: S
   - beat: 22
-    expectedKey: W
-  - beat: 23
     expectedKey: S
   - beat: 28
     expectedKey: W
-  - beat: 29
-    expectedKey: S
   - beat: 30
-    expectedKey: W
-  - beat: 31
     expectedKey: S
   - beat: 36
     expectedKey: A
-  - beat: 37
-    expectedKey: D
   - beat: 38
     expectedKey: A
   - beat: 39
@@ -93,14 +83,6 @@ MonoBehaviour:
   - beat: 85
     expectedKey: S
   - beat: 85.5
-    expectedKey: D
-  - beat: 86
-    expectedKey: S
-  - beat: 86.5
-    expectedKey: D
-  - beat: 87
-    expectedKey: S
-  - beat: 87.5
     expectedKey: D
   - beat: 92
     expectedKey: W

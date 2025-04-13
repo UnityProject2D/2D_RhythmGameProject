@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c92f81c38a3aa24f9293bb002e8f7a5, type: 3}
   m_Name: TutorialStepSo_7
   m_EditorClassIdentifier: 
-  Text: 
+  Text: "\uC2DC\uBBAC\uB808\uC774\uC158\uC744 \uC885\uB8CC\uD569\uB2C8\uB2E4."
   Duration: 0.5
   DelayTime: 0.5
   TriggerKeyType: 0

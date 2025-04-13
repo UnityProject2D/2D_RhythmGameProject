@@ -86,8 +86,6 @@ public class RhythmManager : MonoBehaviour
     private void OnEnable()
     {
         SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
-        
-
     }
 
     public void OnLoadedStage(StageData stageData)
@@ -95,7 +93,7 @@ public class RhythmManager : MonoBehaviour
         Debug.Log($"[RhythmManager] OnLoadedStage 호출됨, {stageData.StageName}, {stageData.StageIndex}");
         _stageMusicIndex = stageData.StageIndex;
         
-        if (_stageMusicIndex >= 0 && IsPlaying == false)
+        if (_stageMusicIndex > 0 && IsPlaying == false)
         {
             IsPlaying = true;
             Play();
@@ -104,6 +102,8 @@ public class RhythmManager : MonoBehaviour
         {
             IsPlaying = false;
         }
+
+        InvokeOnMusicReady();
     }
     private void OnDisable()
     {
@@ -212,7 +212,6 @@ public class RhythmManager : MonoBehaviour
     }
     public void Play()
     {
-
         //음악을 종료하고
         if (_musicInstance.isValid())
         {

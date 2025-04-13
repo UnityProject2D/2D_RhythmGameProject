@@ -164,7 +164,7 @@
 			<value>67.220908530678145</value>
 		</property>
 		<property name="name">
-			<value>Tutorial End</value>
+			<value>Next</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{1f19780f-72cc-4493-84cb-8ac372a22912}</destination>
@@ -178,7 +178,7 @@
 			<value>11.75</value>
 		</property>
 		<property name="name">
-			<value>Prev</value>
+			<value>Next</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{1f19780f-72cc-4493-84cb-8ac372a22912}</destination>
@@ -206,7 +206,7 @@
 			<value>16.625</value>
 		</property>
 		<property name="name">
-			<value>Prev</value>
+			<value>Next</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{1f19780f-72cc-4493-84cb-8ac372a22912}</destination>
@@ -234,7 +234,7 @@
 			<value>21.401726843379976</value>
 		</property>
 		<property name="name">
-			<value>Prev</value>
+			<value>Next</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{1f19780f-72cc-4493-84cb-8ac372a22912}</destination>
@@ -248,7 +248,7 @@
 			<value>26.200379749730889</value>
 		</property>
 		<property name="name">
-			<value>Prev</value>
+			<value>Next</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{1f19780f-72cc-4493-84cb-8ac372a22912}</destination>
@@ -276,7 +276,7 @@
 			<value>30.965892787944021</value>
 		</property>
 		<property name="name">
-			<value>Prev</value>
+			<value>Next</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{1f19780f-72cc-4493-84cb-8ac372a22912}</destination>
@@ -374,7 +374,7 @@
 			<value>42.982408974703979</value>
 		</property>
 		<property name="name">
-			<value>Prev</value>
+			<value>Next</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{1f19780f-72cc-4493-84cb-8ac372a22912}</destination>
@@ -402,7 +402,7 @@
 			<value>47.689927243675996</value>
 		</property>
 		<property name="name">
-			<value>Prev</value>
+			<value>Next</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{1f19780f-72cc-4493-84cb-8ac372a22912}</destination>

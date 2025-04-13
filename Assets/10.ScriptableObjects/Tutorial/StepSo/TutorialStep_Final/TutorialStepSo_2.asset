@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: TutorialStepSo_2
   m_EditorClassIdentifier: 
   Text: "1\uB2E8\uACC4 \uC644\uB8CC"
-  Duration: 0.5
-  DelayTime: 0.5
-  TriggerKeyType: 0
-  TextNextConditionType: 0
+  Duration: 0.1
+  DelayTime: 0
+  TriggerKeyType: 1
+  TextNextConditionType: 1
   MusicState: 0
-  NextSquence: 1
+  NextSquence: 0

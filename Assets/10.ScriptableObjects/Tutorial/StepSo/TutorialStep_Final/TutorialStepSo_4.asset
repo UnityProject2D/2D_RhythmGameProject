@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: "\uC2DC\uBBAC\uB808\uC774\uC158 \uC18D\uB3C4\uB97C \uC7AC\uC870\uC815\uD569\uB2C8\uB2E4."
   Duration: 0.5
-  DelayTime: 0.5
-  TriggerKeyType: 0
-  TextNextConditionType: 0
+  DelayTime: 0
+  TriggerKeyType: 1
+  TextNextConditionType: 1
   MusicState: 0
-  NextSquence: 1
+  NextSquence: 0

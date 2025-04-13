@@ -8,15 +8,15 @@ public enum TextNextConditionType
     OnEvent,
     [InspectorName("버튼 클릭 시 전환")]
     OnButtonClick,
+    [InspectorName("키 입력 시 전환")]
+    OnInput
 }
 
 public enum TriggerKeyType
 {
     NONE,
-    W,
-    A,
-    S,
-    D,
+    Next,
+    Prev,
 }
 
 public enum MusicState

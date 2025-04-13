@@ -1,13 +1,11 @@
-using DG.Tweening;
+using Cysharp.Threading.Tasks;
 using FMOD.Studio;
 using FMODUnity;
 using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Linq;
 using TMPro;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
-using UnityEngine.UI;
 using static RhythmEvents;
 
 public class TutorialManager : MonoBehaviour
@@ -19,9 +17,9 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI Text;
 
     public TextMeshProUGUI[] PressKey;
-    public TextMeshProUGUI[] PressLeftMouse;
+    public TextMeshProUGUI PressSpaceText;
 
-    private bool _isPaused = false;
+    private bool _isPaused;
     public int curBasicStep = -1;
     public int curLoopStep = -1;
     private TutorialStepSo _curTutorialStepSo;
@@ -47,75 +45,86 @@ public class TutorialManager : MonoBehaviour
 
         masterBus = RuntimeManager.GetBus("bus:/BGM");
     }
-    private void Start()
+    private void Init()
     {
-        RhythmInputHandler.Instance.OnInputPerformed += HandleInput;
-
         _textReveal = MMFeedback.FeedbacksList.OfType<MMF_TMPTextReveal>().FirstOrDefault();
         _curTutorialStepSo = TutorialSequenceSO.Steps[0];
         TriggerNextStep();
+        HandleInput().Forget();
+    }
+
+    private async UniTaskVoid HandleInput()
+    {
+        while(curBasicStep < TutorialSequenceSO.Steps.Count)
+        {
+            ButtonClick();
+            await UniTask.Yield();
+        }
     }
     private void OnEnable(){
         TutorialEventSystem.OnTutorialTextEvent += HandleEvent;
-        OnNote += OnNoteReceived;
-
+        RhythmEvents.OnMarkerHit += HandleEvent;
+        OnMusicReady += Init;
+        OnNotePreview += OnNoteReceived;
+        OnNote += DisableText;
     }
 
     private void OnDisable(){
         TutorialEventSystem.OnTutorialTextEvent -= HandleEvent;
-        OnNote -= OnNoteReceived;
+        OnNotePreview -= OnNoteReceived;
+
+        OnNote -= DisableText;
     }
 
-    private void Update()
+    private void DisableText(NoteData note)
     {
-        ButtonClick();
-    }
+        foreach(var pressKey in PressKey)
+        {
 
-    private void SetPause(bool isPaused){
-        if (_isPaused == isPaused) // 같을 경우 제외
-            return;
-        _isPaused = isPaused;
-        masterBus.setPaused(_isPaused);
+            Color color = pressKey.color;
+            pressKey.color = new Color(color.r, color.g, color.b, 0.0f);
+        }
     }
 
 
     public void FeedbackSetting(TutorialStepSo tutorialStepSo){
         if (_textReveal == null) return;
         _textReveal.RevealDuration = tutorialStepSo.Duration;
-        PressKey[0].text = tutorialStepSo.TriggerKeyType.ToString();
+        if(tutorialStepSo.TextNextConditionType == TextNextConditionType.OnInput || tutorialStepSo.TextNextConditionType == TextNextConditionType.OnTimeElapsedOrInput)
+        {
+            PressSpaceText.gameObject.SetActive(true); 
+        }
+        else
+        {
+            PressSpaceText.gameObject.SetActive(false);
+        }
     }
 
     public void HandleEvent(string Trigger = ""){
         switch (_curTutorialStepSo.TextNextConditionType){
             case TextNextConditionType.OnTimeElapsedOrInput:
                 if(Trigger == "TextRenderEnd" || Trigger == "MouseClick")
-                    TriggerNextStep();
-                break;
-            case TextNextConditionType.OnEvent: // 트리거랑 같을 때
-
-                // 해당 트리거 이벤트 성공 여부
-                if(_curTutorialStepSo.TriggerKeyType.ToString() == Trigger && _isPaused)
                 {
-                    foreach (TextMeshProUGUI pressKey in PressKey){
-                        Color color = pressKey.color;
-                        pressKey.color = new Color(color.r, color.g, color.b, 0.0f);
-                    }
-
-                    SetPause(false);
-                    SFXSound.Play();
-                    Time.timeScale = 1.0f;
+                    
                     TriggerNextStep();
-                    foreach (ParticleSystem particle in CompleteParticles){
-                        particle.Play();
-                    }
-
                 }
+                    
+                break;
+            case TextNextConditionType.OnEvent: // OnMarkerHit 이벤트 받을 때
+                if(Trigger != "MouseClick" && Trigger!="TextRenderEnd")
+                    TriggerNextStep();
                 break;
             case TextNextConditionType.OnButtonClick: // 버튼 클릭시 사라지도록
-                if (Trigger != "SinkButton")
-                    return;
-                //OnOffSinkUI(false);
-                TriggerNextStep();
+                if (Trigger == "SinkButton")
+                    TriggerNextStep();
+                break;
+            case TextNextConditionType.OnInput:
+                if (Trigger != "SinkButton" && Trigger != "TextRenderEnd")
+                    TriggerNextStep();
+                if (_curTutorialStepSo.MusicState == MusicState.Play)
+                {
+                    RhythmManager.Instance.Play();
+                }
                 break;
         }
     }
@@ -152,17 +161,16 @@ public class TutorialManager : MonoBehaviour
 
     public bool TutorialBasic()
     {
-        if (++curBasicStep >= TutorialSequenceSO.Steps.Count)
+        if (curBasicStep < TutorialSequenceSO.Steps.Count-1)
         {
-            return false;
-        }
-        else if (curBasicStep == TutorialSequenceSO.Steps.Count - 1)
-        {
-            OnOffTutorialUI(false);
+            curBasicStep++;
+
+            _curTutorialStepSo = TutorialSequenceSO.Steps[curBasicStep];
+            return true;
         }
 
-        _curTutorialStepSo = TutorialSequenceSO.Steps[curBasicStep];
-        return true;
+        OnOffTutorialUI(false);
+        return false;
     }
 
     public bool TutorialLoop()
@@ -206,44 +214,23 @@ public class TutorialManager : MonoBehaviour
         MMFeedback.PlayFeedbacks();
     }
 
-    public void MusicSetting()
-    {
-        if (_curTutorialStepSo.MusicState == MusicState.Stop ||
-            _curTutorialStepSo.MusicState == MusicState.NonPlay) { 
-            SetPause(true);
-        }
-        else{
-            SetPause(false);
-        }
-    }
 
-    // 키 입력 들어옴.
-    private void HandleInput(string key){
-        TutorialEventSystem.OnTextEvents(key); // 키 관련 이벤트
-    }
 
     public void TextEndEvent(){ // 현재 텍스트 렌더링 끝
         TutorialEventSystem.OnTextEvents("TextRenderEnd");
     }
 
     private void OnNoteReceived(NoteData beatNote){
-        if (_curTutorialStepSo.TextNextConditionType != TextNextConditionType.OnEvent)
-            return;
+        PressKey[0].text = beatNote.expectedKey;
         foreach (TextMeshProUGUI pressKey in PressKey){
             Color color = pressKey.color;
             pressKey.color = new Color(color.r, color.g, color.b, 1.0f);
         }
-        //SetPause(true);
-        //Time.timeScale = 0.0f;
-    }
-    
-    public void ClickSinkButton(){
-        TutorialEventSystem.OnTextEvents("SinkButton");
     }
 
     public void ButtonClick()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.Space))
             HandleEvent("MouseClick");
     }
 }
