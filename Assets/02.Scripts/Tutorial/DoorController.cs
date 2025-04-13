@@ -8,6 +8,7 @@ using static RhythmEvents;
 public class DoorController : MonoBehaviour
 {
     private Animator _animator;
+    public GameObject Light;
 
     private void Awake()
     {
@@ -17,5 +18,6 @@ public class DoorController : MonoBehaviour
     public void Open()
     {
         _animator.SetTrigger("Open");
+        Light.SetActive(true);
     }
 }

@@ -35,7 +35,8 @@ public class TutorialManager : MonoBehaviour
     public GameObject RhythmJudgePanel;
 
     public GameObject[] TutorialUI;
-
+    public DoorController DoorController;
+    public GameObject[] Lights;
     public static TutorialManager Instance { get; private set; }
     private void Awake(){
         if (Instance == null) {
@@ -60,6 +61,7 @@ public class TutorialManager : MonoBehaviour
             ButtonClick();
             await UniTask.Yield();
         }
+        
     }
     private void OnEnable(){
         TutorialEventSystem.OnTutorialTextEvent += HandleEvent;
@@ -133,6 +135,25 @@ public class TutorialManager : MonoBehaviour
         if (NextStepSo()){
             StartNextStepAfterDelay();
         }
+        else
+        {
+            StartCoroutine(NextStage());
+        }
+    }
+
+    public IEnumerator NextStage()
+    {
+
+        foreach (var light in Lights)
+        {
+            light.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+        }
+        Lights[^1].SetActive(true);
+        DoorController.Open();
+
+        yield return new WaitForSeconds(1f);
+        GameSceneManager.Instance.ChangeScene("VFXTest");
     }
     public void OnOffTutorialUI(bool Active)
     {
