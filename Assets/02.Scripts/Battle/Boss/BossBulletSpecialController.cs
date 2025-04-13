@@ -4,8 +4,8 @@ using UnityEngine;
 public class BossBulletSpecialController : MonoBehaviour
 {
     private Animator _animator;
-    private Transform _playerTransform;
-    public float _missMoveSpeed = 30f;
+    private Vector3 _playerTransform;
+    public float _missMoveSpeed = 20f;
     public bool isExploded = false;
     public Vector3 Destination;
 
@@ -13,12 +13,26 @@ public class BossBulletSpecialController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
     }
-
+    private void OnEnable()
+    {
+        StartCoroutine(Check());
+    }
+    public IEnumerator Check()
+    {
+        yield return new WaitForSeconds(3.5f);
+        if (!isMoving)
+        {
+            isMoving = false;
+            isExploded = false;
+            gameObject.SetActive(false);
+        }
+    }
     public void Setup(Vector2 spawnPos, Transform player)
     {
         transform.position = spawnPos;
-        _playerTransform = player;
+        _playerTransform = new Vector3(-6.3f, -1f);
         isExploded = false;
+        isMoving = false;
     }
 
     // Good/Perfect 판정 시 호출: 폭발 애니메이션 실행 후 Invoke로 DisableBullet() 호출
@@ -45,15 +59,17 @@ public class BossBulletSpecialController : MonoBehaviour
     public void StartMove()
     {
         StartCoroutine(MoveToPlayerRoutine());
+        isMoving = true;
     }
+    bool isMoving;
     private IEnumerator MoveToPlayerRoutine()
     {
-        while (Vector2.Distance(transform.position, _playerTransform.position) > 1f)
+        while (Vector2.Distance(transform.position, _playerTransform) > 0.01f)
         {
-            transform.position = Vector2.MoveTowards(transform.position, _playerTransform.position, _missMoveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, _playerTransform, _missMoveSpeed * Time.deltaTime);
             yield return null;
         }
-        transform.position = _playerTransform.position; // 정확한 위치로 설정
+        transform.position = _playerTransform; // 정확한 위치로 설정
 
         if (!isExploded)
         {
@@ -69,6 +85,8 @@ public class BossBulletSpecialController : MonoBehaviour
             yield return null;
         }
         gameObject.SetActive(false);
+        isExploded = false;
+        isMoving = false;
     }
 
     // 이 메서드는 폭발 애니메이션 클립에 Animation Event로 등록하세요.

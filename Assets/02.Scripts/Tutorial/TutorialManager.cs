@@ -148,6 +148,8 @@ public class TutorialManager : MonoBehaviour
         foreach (var light in Lights)
         {
             light.SetActive(false);
+
+            RuntimeManager.PlayOneShot("event:/SFX/LightOff");
             yield return new WaitForSeconds(0.5f);
         }
         Lights[^1].SetActive(true);
@@ -155,7 +157,6 @@ public class TutorialManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        RuntimeManager.PlayOneShot("event:/SFX/DoorClose");
         GameSceneManager.Instance.ChangeScene("VFXTest");
     }
     public void OnOffTutorialUI(bool Active)

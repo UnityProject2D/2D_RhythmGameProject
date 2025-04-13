@@ -51,7 +51,7 @@ public class EnemyAttackController : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("EnemyAttackController: 플레이어 없네요 - 구독");
+            //Debug.LogWarning("EnemyAttackController: 플레이어 없네요 - 구독");
             GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
         }
 
@@ -62,7 +62,7 @@ public class EnemyAttackController : MonoBehaviour
     {
         _playerTransform = GameManager.Instance.Player.Transform;
 
-        Debug.Log($"{gameObject.name} EnemyAttackController: PlayerRegistered - {_playerTransform}");
+        //Debug.Log($"{gameObject.name} EnemyAttackController: PlayerRegistered - {_playerTransform}");
     }
 
     //private async UniTaskVoid SetPlayer()

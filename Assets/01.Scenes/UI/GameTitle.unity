@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39835c0fbbe647e4f9d0a61568017934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delay: 0
+  _delay: 5
 --- !u!1 &1186581995
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,7 +2746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39835c0fbbe647e4f9d0a61568017934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delay: 7.8
+  _delay: 5.5
 --- !u!1 &1751237584
 GameObject:
   m_ObjectHideFlags: 0
@@ -3055,7 +3055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2625496500901757144, guid: caa493000a5c8ce40a248fa4f88f1649, type: 3}
       propertyPath: managedReferences[5021678716850536535].Timing.InitialDelay
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4769122862197964788, guid: caa493000a5c8ce40a248fa4f88f1649, type: 3}
       propertyPath: m_text
@@ -3183,7 +3183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39835c0fbbe647e4f9d0a61568017934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delay: 2.5
+  _delay: 6
 --- !u!1001 &2068558471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3417,6 +3417,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4881119328558120666, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
+      propertyPath: managedReferences[5021678716850536535].Timing.InitialDelay
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5761144494509899810, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -3431,7 +3435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8340532590370343200, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
       propertyPath: managedReferences[5021678716850536535].Timing.InitialDelay
-      value: 6.8
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

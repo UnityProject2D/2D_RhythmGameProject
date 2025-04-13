@@ -92,8 +92,9 @@ public class BossAttackController : MonoBehaviour
     private void OnNoteReceived(NoteData beatTime)
     {
         if (_isDead) return; /////////////// 적이 죽었으면 리턴
-        if (page == 1) return;
+
         PlayAttackSound();
+        if (page == 1) return;
         int index = GetIndexFromKey(beatTime.expectedKey); // 입력 키(WASD) → 인덱스로 변환 (0~3)
         if (index < 0 || index >= BossBulletPool.Count) return;
 
@@ -159,6 +160,11 @@ public class BossAttackController : MonoBehaviour
     }
     public void PlayAttackSound()
     {
+        if (page == 1)
+        {
+            RuntimeManager.PlayOneShot("event:/SFX/SpecialAttack");
+        }
+        else
         RuntimeManager.PlayOneShot("event:/SFX/AttackSound");
     }
 
@@ -167,6 +173,8 @@ public class BossAttackController : MonoBehaviour
         if (marker == "Start")
         {
             page++;
+
+            _animator.SetInteger("page", page);
         }
         if (marker == "End")
         {

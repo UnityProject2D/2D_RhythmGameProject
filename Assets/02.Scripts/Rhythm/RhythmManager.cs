@@ -90,7 +90,7 @@ public class RhythmManager : MonoBehaviour
 
     public void OnLoadedStage(StageData stageData)
     {
-        Debug.Log($"[RhythmManager] OnLoadedStage 호출됨, {stageData.StageName}, {stageData.StageIndex}");
+        //Debug.Log($"[RhythmManager] OnLoadedStage 호출됨, {stageData.StageName}, {stageData.StageIndex}");
         _stageMusicIndex = stageData.StageIndex;
         
         if (IsTest||(_stageMusicIndex > 0 && IsPlaying == false))
@@ -114,7 +114,7 @@ public class RhythmManager : MonoBehaviour
     {
         if (scene.name == "GameTitle")
         {
-            Debug.Log("[RhythmManager] DestroyOnRestart 호출됨");
+            //Debug.Log("[RhythmManager] DestroyOnRestart 호출됨");
             Destroy(gameObject);
         }
     }
@@ -143,7 +143,7 @@ public class RhythmManager : MonoBehaviour
                     {
                         _noteStates[i] = NoteTriggerState.Previewed;
                         InvokeOnNotePreview(note);
-                        Debug.Log($"[미리보기] 키: {note.expectedKey}, 비트: {note.beat}");
+                        //Debug.Log($"[미리보기] 키: {note.expectedKey}, 비트: {note.beat}");
                     }
                     break;
 

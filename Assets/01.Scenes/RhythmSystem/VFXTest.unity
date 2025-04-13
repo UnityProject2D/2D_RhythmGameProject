@@ -770,9 +770,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5682628762300575575, guid: 64bc217ad4f318242ab4c646b6354ee3, type: 3}
+      propertyPath: _maxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682628762300575575, guid: 64bc217ad4f318242ab4c646b6354ee3, type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1304987155}
+    - target: {fileID: 5682628762300575575, guid: 64bc217ad4f318242ab4c646b6354ee3, type: 3}
+      propertyPath: _currentHealth
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7170348366289251424, guid: 64bc217ad4f318242ab4c646b6354ee3, type: 3}
       propertyPath: m_Name
       value: DelayedHealthBar

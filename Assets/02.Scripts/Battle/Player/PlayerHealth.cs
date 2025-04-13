@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float PlayerMaxHealth { get; private set; }
+    private float _playerMaxHealth;
+    public float PlayerMaxHealth => _playerMaxHealth;
     public float Damage;
     private float _playerCurrentHealth;
     public bool IsTutorial;
@@ -20,8 +21,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
-        PlayerMaxHealth = 10;
-        _playerCurrentHealth = PlayerMaxHealth;
+        _playerMaxHealth = 20;
+        _playerCurrentHealth = _playerMaxHealth;
     }
     private void OnEnable()
     {
@@ -148,7 +149,7 @@ public class PlayerHealth : MonoBehaviour
 
     private float ApplyEmergencyResponseCore(float finalDamage)
     {
-        if (_playerCurrentHealth < PlayerMaxHealth * PlayerState.Instance.EmergencyResponseCoreThreshold)
+        if (_playerCurrentHealth < _playerMaxHealth * PlayerState.Instance.EmergencyResponseCoreThreshold)
         {
             return finalDamage - finalDamage * PlayerState.Instance.EmergencyResponseCoreReduce;
         }
@@ -169,7 +170,7 @@ public class PlayerHealth : MonoBehaviour
         _playerCurrentHealth = Mathf.Max(0, _playerCurrentHealth - finalDamage);
 
 #if UNITY_EDITOR
-        Debug.Log($"[HP] {_playerCurrentHealth}/{PlayerMaxHealth} (-{finalDamage})");
+        Debug.Log($"[HP] {_playerCurrentHealth}/{_playerMaxHealth} (-{finalDamage})");
 #endif
 
         OnPlayerHealthChanged?.Invoke(_playerCurrentHealth);
@@ -198,7 +199,7 @@ public class PlayerHealth : MonoBehaviour
     /// <param name="amount">체력 회복량</param>
     private void RecoveryHealth(float amount)
     {
-        _playerCurrentHealth = Mathf.Min(PlayerMaxHealth, _playerCurrentHealth + amount);
+        _playerCurrentHealth = Mathf.Min(_playerMaxHealth, _playerCurrentHealth + amount);
         OnHealFeedback?.PlayFeedbacks();
     }
 

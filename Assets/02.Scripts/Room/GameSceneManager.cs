@@ -1,3 +1,4 @@
+using FMODUnity;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using System;
@@ -42,6 +43,7 @@ public class GameSceneManager : MonoBehaviour
 
     public void ChangeScene(string sceneName)
     {
+        RuntimeManager.PlayOneShot("event:/SFX/DoorClose");
         StartCoroutine(LoadSceneWithLoadingScene(sceneName));
     }
 

@@ -49,14 +49,14 @@ public class BossShadowController : MonoBehaviour
         else
         {
             GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
-            Debug.LogWarning("BossShadowController: 플레이어 없네요 - 구독");
+            //Debug.LogWarning("BossShadowController: 플레이어 없네요 - 구독");
         }
     }
     private void Instance_PlayerRegistered()
     {
         _playerTransform = GameManager.Instance.Player.Transform;
 
-        Debug.Log($"BossShadowController: PlayerRegistered - {_playerTransform}");
+        //Debug.Log($"BossShadowController: PlayerRegistered - {_playerTransform}");
     }
     private void OnEnable()
     {
@@ -76,8 +76,9 @@ public class BossShadowController : MonoBehaviour
     private void OnNotePreviewReceived(NoteData beatNote)
     {
         if (_isDead) return; /////////////// 적이 죽었으면 리턴
-        if (pageTwo) return;
+
         PlayAttackSound();
+        if (pageTwo) return;
         if (_spriteRenderer.color.a == 1f) return;
         _spriteRenderer.color = new Color(1f, 0f, 0f, 0.9f); // 투명도 초기화
         FadeInBoss();
@@ -139,7 +140,7 @@ public class BossShadowController : MonoBehaviour
     {
         if (pageTwo)
         {
-            RuntimeManager.PlayOneShot("event:/SFX/PreviewSound");
+            RuntimeManager.PlayOneShot("event:/SFX/SpecialPreview");
         }
         else
         {
@@ -198,6 +199,10 @@ public class BossShadowController : MonoBehaviour
     }
     private void JudgeEnd(string marker)
     {
+        if(marker == "Start")
+        {
+            pageTwo = !pageTwo;
+        }
         if (marker == "End")
         {
             BossDieJdg();
