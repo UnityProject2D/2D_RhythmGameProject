@@ -127,9 +127,9 @@ public class BossShadowController : MonoBehaviour
         return dir switch
         {
             0 => _playerTransform.position + Vector3.down * 0.25f,     // W - 머리
-            1 => _playerTransform.position + Vector3.up * 2f,   // S - 다리
-            2 => gunPoint.position + Vector3.left * 1f,   // A - 왼쪽 몸통
-            3 => gunPoint.position + Vector3.left * 1f,  // D - 오른쪽 몸통
+            1 => _playerTransform.position + Vector3.up * 1.5f,   // S - 다리
+            2 => _playerTransform.position + Vector3.up * 0.5f,   // A - 왼쪽 몸통
+            3 => _playerTransform.position + Vector3.up * 1f,  // D - 오른쪽 몸통
             _ => _playerTransform.position
         };
     }

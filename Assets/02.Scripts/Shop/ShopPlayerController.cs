@@ -1,5 +1,7 @@
+using MoreMountains.Tools;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class ShopPlayerController : MonoBehaviour
@@ -16,6 +18,10 @@ public class ShopPlayerController : MonoBehaviour
     private bool isGrounded;
     private bool ShopActive = false;
     public GameObject ShopUI;
+
+    public string sceneToLoad;
+    public ShopHelper ShopHelper;
+    public DummyDoorController DummyController;
     private void Awake()
     {
 
@@ -29,7 +35,12 @@ public class ShopPlayerController : MonoBehaviour
         // Jump 입력
         inputActions.Shop_Player.Jump.performed += ctx => isJumpPressed = true;
 
-        inputActions.Shop_Player.UseShop.performed += ctx =>
+        inputActions.Shop_Player.UseShop.performed += PerformedE;
+    }
+
+    private void PerformedE(InputAction.CallbackContext callbackContext)
+    {
+        if (ShopHelper.IsShop)
         {
             ShopActive = !ShopActive;
             ShopUI.SetActive(ShopActive);
@@ -37,7 +48,11 @@ public class ShopPlayerController : MonoBehaviour
             {
                 TooltipUI.Instance.Hide();
             }
-        };
+        }
+        else if (DummyController.IsExit)
+        {
+            GameSceneManager.Instance.ChangeScene(sceneToLoad);
+        }
     }
 
     private void OnEnable()

@@ -117,8 +117,8 @@ public class BossAttackController : MonoBehaviour
         {
             case 0: direction = (_playerTransform.position + Vector3.down * 0.25f) - GunPosition[r].position; break;     // W - 머리
             case 1: direction = (_playerTransform.position + Vector3.up * 2f) - GunPosition[r].position; break;   // S - 다리
-            case 2: direction = Vector3.left; break;   // A - 왼쪽 몸통
-            case 3: direction = Vector3.left; break;  // D - 오른쪽 몸통
+            case 2: direction = (_playerTransform.position + Vector3.up * 1f) - GunPosition[r].position; break;  // A - 왼쪽 몸통
+            case 3: direction = (_playerTransform.position + Vector3.up * 0.5f) - GunPosition[r].position; break; // D - 오른쪽 몸통
             default: direction = _playerTransform.position; break;
         }
 

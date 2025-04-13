@@ -15,7 +15,6 @@ public class VFXManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-        DontDestroyOnLoad(gameObject);
         LightMMFPlayers = new List<MMF_Player>();
         RhythmEvents.OnBeat += PlayOnBeatFeedback;
 
@@ -28,13 +27,8 @@ public class VFXManager : MonoBehaviour
             }
         }
     }
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
-    }
     private void OnDisable()
     {
-        SceneManager.sceneLoaded -= DestroyOnRestart;
         _artifactsSettings.SetActive(false);
     }
 
@@ -55,13 +49,6 @@ public class VFXManager : MonoBehaviour
         }
     }
 
-    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
-    {
-        if (scene.name == "GameTitle")
-        {
-            Destroy(gameObject);
-        }
-    }
 
 
     [Header("MMF 피드백")]

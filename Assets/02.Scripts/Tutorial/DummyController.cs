@@ -1,7 +1,6 @@
-using System.Collections.Generic;
 using FMODUnity;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 using static RhythmEvents;
 
 public class DummyController : MonoBehaviour
@@ -109,8 +108,8 @@ public class DummyController : MonoBehaviour
             {
                 case 0: direction = (PlayerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
                 case 1: direction = (PlayerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
-                case 2: direction = (PlayerTransform.position + Vector3.up * 1f) - GunPosition.position; break;  // A - 왼쪽 몸통
-                case 3: direction = (PlayerTransform.position + Vector3.up * 0.5f) - GunPosition.position; break; // D - 오른쪽 몸통
+                case 2: direction = (PlayerTransform.position + Vector3.up * 0.5f) - GunPosition.position; break;  // A - 왼쪽 몸통
+                case 3: direction = (PlayerTransform.position + Vector3.up * 1f) - GunPosition.position; break; // D - 오른쪽 몸통
                 default: direction = PlayerTransform.position; break;
             }
         }

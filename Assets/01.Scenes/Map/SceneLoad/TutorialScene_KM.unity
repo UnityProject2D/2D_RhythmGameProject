@@ -3545,6 +3545,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RhythmManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: stageNotes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498063084464523287, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
+      propertyPath: 'stageNotes.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ce5903fd071eb74a9e390a00f05c474, type: 2}
     - target: {fileID: 9034453706349065766, guid: 2fcf844df5615d04785695d53afe7f52, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
