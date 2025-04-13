@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84ca63dec1e6d6745b9b64a9faf96794, type: 3}
-  m_Name: TutorialRhythmPattern
+  m_Name: TutorialRhythmPattern1
   m_EditorClassIdentifier: 
-  bpm: 97
+  bpm: 100
   notes:
   - beat: 20
     expectedKey: W
@@ -22,14 +22,6 @@ MonoBehaviour:
     expectedKey: S
   - beat: 23
     expectedKey: D
-  - beat: 24
-    expectedKey: W
-  - beat: 25
-    expectedKey: A
-  - beat: 26
-    expectedKey: S
-  - beat: 27
-    expectedKey: D
   - beat: 28
     expectedKey: W
   - beat: 29
@@ -38,19 +30,27 @@ MonoBehaviour:
     expectedKey: S
   - beat: 31
     expectedKey: D
-  - beat: 32
-    expectedKey: W
-  - beat: 33
-    expectedKey: A
-  - beat: 34
-    expectedKey: S
   - beat: 35
-    expectedKey: D
-  - beat: 36
     expectedKey: W
-  - beat: 37
+  - beat: 36
     expectedKey: A
-  - beat: 38
+  - beat: 37
     expectedKey: S
-  - beat: 39
+  - beat: 38
+    expectedKey: D
+  - beat: 42
+    expectedKey: W
+  - beat: 43
+    expectedKey: A
+  - beat: 44
+    expectedKey: S
+  - beat: 45
+    expectedKey: D
+  - beat: 49
+    expectedKey: W
+  - beat: 50
+    expectedKey: A
+  - beat: 51
+    expectedKey: S
+  - beat: 52
     expectedKey: D

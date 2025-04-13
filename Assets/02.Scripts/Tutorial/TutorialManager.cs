@@ -19,9 +19,10 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI Text;
 
     public TextMeshProUGUI[] PressKey;
+    public TextMeshProUGUI[] PressLeftMouse;
 
     private bool _isPaused = false;
-    private int curStep = -1;
+    public int curStep = -1;
     private TutorialStepSo _curTutorialStepSo;
 
     public ParticleSystem[] CompleteParticles;
@@ -29,10 +30,12 @@ public class TutorialManager : MonoBehaviour
 
     private Bus masterBus;
 
-    public Button SinkEndButton;
-    public GameObject SinkPanel;
+    //public Button SinkEndButton;
+    //public GameObject SinkPanel;
 
     public GameObject RhythmJudgePanel;
+
+    public GameObject[] TutorialUI;
 
     public static TutorialManager Instance { get; private set; }
     private void Awake(){
@@ -65,6 +68,11 @@ public class TutorialManager : MonoBehaviour
         OnNote -= OnNoteReceived;
     }
 
+    private void Update()
+    {
+        ButtonClick();
+    }
+
     private void SetPause(bool isPaused){
         if (_isPaused == isPaused) // 같을 경우 제외
             return;
@@ -82,7 +90,7 @@ public class TutorialManager : MonoBehaviour
     public void HandleEvent(string Trigger = ""){
         switch (_curTutorialStepSo.TextNextConditionType){
             case TextNextConditionType.OnTimeElapsedOrInput:
-                if(Trigger == "TextRenderEnd")
+                if(Trigger == "TextRenderEnd" || Trigger == "MouseClick")
                     TriggerNextStep();
                 break;
             case TextNextConditionType.OnEvent: // 트리거랑 같을 때
@@ -91,7 +99,8 @@ public class TutorialManager : MonoBehaviour
                 if(_curTutorialStepSo.TriggerKeyType.ToString() == Trigger && _isPaused)
                 {
                     foreach (TextMeshProUGUI pressKey in PressKey){
-                        pressKey.gameObject.SetActive(false);
+                        Color color = pressKey.color;
+                        pressKey.color = new Color(color.r, color.g, color.b, 0.0f);
                     }
 
                     SetPause(false);
@@ -107,7 +116,7 @@ public class TutorialManager : MonoBehaviour
             case TextNextConditionType.OnButtonClick: // 버튼 클릭시 사라지도록
                 if (Trigger != "SinkButton")
                     return;
-                OnOffSinkUI(false);
+                //OnOffSinkUI(false);
                 TriggerNextStep();
                 break;
         }
@@ -118,13 +127,43 @@ public class TutorialManager : MonoBehaviour
             StartNextStepAfterDelay();
         }
     }
-
+    public void OnOffTutorialUI(bool Active)
+    {
+        foreach (GameObject ui in TutorialUI)
+        {
+            ui.SetActive(Active);
+        }
+        
+    }
     public bool NextStepSo()
     {
         if (++curStep >= TutorialSequenceSO.Steps.Count){
+
             return false;
         }
+        if(curStep == TutorialSequenceSO.Steps.Count - 1)
+        {
+            OnOffTutorialUI(false);
+        }
         _curTutorialStepSo = TutorialSequenceSO.Steps[curStep];
+        
+        if(_curTutorialStepSo.TextNextConditionType == TextNextConditionType.OnTimeElapsedOrInput)
+        {
+            foreach (TextMeshProUGUI pressKey in PressLeftMouse)
+            {
+                Color color = pressKey.color;
+                pressKey.color = new Color(color.r, color.g, color.b, 1.0f);
+            }
+        }
+        else
+        {
+            foreach (TextMeshProUGUI pressKey in PressLeftMouse)
+            {
+                Color color = pressKey.color;
+                pressKey.color = new Color(color.r, color.g, color.b, 0.0f);
+            }
+        }
+
         return true;
     }
     public void StartNextStepAfterDelay(){
@@ -139,7 +178,7 @@ public class TutorialManager : MonoBehaviour
         MusicSetting();
 
         if (_curTutorialStepSo.TextNextConditionType == TextNextConditionType.OnButtonClick){ // 버튼 클릭 이벤트가 있을 경우
-            OnOffSinkUI(true);
+            //OnOffSinkUI(true);
             // 저지 키기
             RhythmJudgePanel.SetActive(true);
         }
@@ -149,10 +188,10 @@ public class TutorialManager : MonoBehaviour
         MMFeedback.PlayFeedbacks();
     }
 
-    public void OnOffSinkUI(bool bOn){
-        SinkEndButton.gameObject.SetActive(bOn);
-        SinkPanel.SetActive(bOn);
-    }
+    //public void OnOffSinkUI(bool bOn){
+    //    SinkEndButton.gameObject.SetActive(bOn);
+    //    SinkPanel.SetActive(bOn);
+    //}
 
     public void MusicSetting()
     {
@@ -178,7 +217,8 @@ public class TutorialManager : MonoBehaviour
         if (_curTutorialStepSo.TextNextConditionType != TextNextConditionType.OnEvent)
             return;
         foreach (TextMeshProUGUI pressKey in PressKey){
-            pressKey.gameObject.SetActive(true);
+            Color color = pressKey.color;
+            pressKey.color = new Color(color.r, color.g, color.b, 1.0f);
         }
         SetPause(true);
         Time.timeScale = 0.0f;
@@ -186,5 +226,11 @@ public class TutorialManager : MonoBehaviour
     
     public void ClickSinkButton(){
         TutorialEventSystem.OnTextEvents("SinkButton");
+    }
+
+    public void ButtonClick()
+    {
+        if (Input.GetMouseButtonDown(1))
+            HandleEvent("MouseClick");
     }
 }

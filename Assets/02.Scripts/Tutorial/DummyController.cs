@@ -115,16 +115,17 @@ public class DummyController : MonoBehaviour
         Vector2 direction;
         if (PlayerTransform == null)
             direction = GunPosition.position;
-
-        switch (directionIndex)
+        else
         {
-            case 0: direction = (PlayerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
-            case 1: direction = (PlayerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
-            case 2: direction = Vector3.left; break;   // A - 왼쪽 몸통
-            case 3: direction = Vector3.left; break;  // D - 오른쪽 몸통
-            default: direction = PlayerTransform.position; break;
+            switch (directionIndex)
+            {
+                case 0: direction = (PlayerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
+                case 1: direction = (PlayerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
+                case 2: direction = (PlayerTransform.position + Vector3.up * 1f) - GunPosition.position; break;  // A - 왼쪽 몸통
+                case 3: direction = (PlayerTransform.position + Vector3.up * 0.5f) - GunPosition.position; break; // D - 오른쪽 몸통
+                default: direction = PlayerTransform.position; break;
+            }
         }
-
         direction = direction.normalized;
 
         // 회전 방향 기준으로 이동 방향 설정
