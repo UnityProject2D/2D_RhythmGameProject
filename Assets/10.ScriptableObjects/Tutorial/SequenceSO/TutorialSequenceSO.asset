@@ -13,20 +13,14 @@ MonoBehaviour:
   m_Name: TutorialSequenceSO
   m_EditorClassIdentifier: 
   Steps:
-  - {fileID: 11400000, guid: 152e6bfd9f502294194c752d793ecbbd, type: 2}
-  - {fileID: 11400000, guid: ea382c711f93cfd4facadcd729f56bbb, type: 2}
-  - {fileID: 11400000, guid: 127f985ff0c45554490eb786b9c3a599, type: 2}
-  - {fileID: 11400000, guid: 024ebf1abeb37ee418f3453555e23c78, type: 2}
-  - {fileID: 11400000, guid: 78acb589ce9dbcc42a7ff0fbbd225600, type: 2}
-  - {fileID: 11400000, guid: 195afb09436f40a439efeaeb5827e71b, type: 2}
-  - {fileID: 11400000, guid: cc9bc8614b5aef24d9b14cbb2bbe381d, type: 2}
-  - {fileID: 11400000, guid: 7993c3ca62cb73f4a8777878581740f6, type: 2}
-  - {fileID: 11400000, guid: 05e01332b13649c4994593073a1c2d79, type: 2}
-  - {fileID: 11400000, guid: be8c31e11a89c9d42bd467527783bb5b, type: 2}
-  - {fileID: 11400000, guid: d30a05d59689d4e4b9a367017717a9a6, type: 2}
-  - {fileID: 11400000, guid: ad603b0788ba78a4abf257765b35f2a5, type: 2}
-  - {fileID: 11400000, guid: 56f94e720c63bd6479659feab0340122, type: 2}
-  - {fileID: 11400000, guid: e64cddbd68d484741ad3d959192ba01f, type: 2}
-  - {fileID: 11400000, guid: 5f44c9d28decd61448d37b3fd46e6191, type: 2}
-  - {fileID: 11400000, guid: 64b5fb641f99730419c704bb6962a066, type: 2}
-  - {fileID: 11400000, guid: 0c19bb6ca6f6509458f511edecd65f28, type: 2}
+  - {fileID: 11400000, guid: a44e41a2c03247d449594b96c36ba093, type: 2}
+  - {fileID: 11400000, guid: 0071183381e20624f8f3f96bde181ec1, type: 2}
+  - {fileID: 11400000, guid: 5a593b7eaaa210c4d8e9b3c549c9f4ef, type: 2}
+  - {fileID: 11400000, guid: cc8a69a7ff658ee4f92b16c2d48aafd7, type: 2}
+  - {fileID: 11400000, guid: 65a9e81e9e457a64ab69296c481fbfc5, type: 2}
+  - {fileID: 11400000, guid: 92aaee3d5942c5c44a023d32ef3b2131, type: 2}
+  - {fileID: 11400000, guid: f30d86d23d6635e468c9f9a67a1007e7, type: 2}
+  - {fileID: 11400000, guid: d4be835f15aa3fb4cb12f91efff0f9f0, type: 2}
+  Loops:
+  - {fileID: 11400000, guid: 2cff38206dfff464cba1b19418d3285b, type: 2}
+  - {fileID: 11400000, guid: 9769911714e65fc4dbcddb9f3790b98f, type: 2}

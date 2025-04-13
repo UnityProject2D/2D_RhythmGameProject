@@ -22,7 +22,8 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI[] PressLeftMouse;
 
     private bool _isPaused = false;
-    public int curStep = -1;
+    public int curBasicStep = -1;
+    public int curLoopStep = -1;
     private TutorialStepSo _curTutorialStepSo;
 
     public ParticleSystem[] CompleteParticles;
@@ -51,20 +52,17 @@ public class TutorialManager : MonoBehaviour
         RhythmInputHandler.Instance.OnInputPerformed += HandleInput;
 
         _textReveal = MMFeedback.FeedbacksList.OfType<MMF_TMPTextReveal>().FirstOrDefault();
+        _curTutorialStepSo = TutorialSequenceSO.Steps[0];
         TriggerNextStep();
     }
     private void OnEnable(){
         TutorialEventSystem.OnTutorialTextEvent += HandleEvent;
-        // RhythmEvents.OnInputJudged += OnJudged; // 판정 이벤트 구독
-        // OnNotePreview += OnNotePreviewReceived;
         OnNote += OnNoteReceived;
 
     }
 
     private void OnDisable(){
         TutorialEventSystem.OnTutorialTextEvent -= HandleEvent;
-        // RhythmEvents.OnInputJudged -= OnJudged; // 판정 이벤트 구독
-        // OnNotePreview -= OnNotePreviewReceived;
         OnNote -= OnNoteReceived;
     }
 
@@ -137,34 +135,54 @@ public class TutorialManager : MonoBehaviour
     }
     public bool NextStepSo()
     {
-        if (++curStep >= TutorialSequenceSO.Steps.Count){
+        switch (_curTutorialStepSo.NextSquence)
+        {
+            case NextSquence.Basic:
+                {
+                    return TutorialBasic();
+                }
 
+            case NextSquence.Loop:
+                {
+                    return TutorialLoop();
+                }
+        }
+        return true;
+    }
+
+    public bool TutorialBasic()
+    {
+        if (++curBasicStep >= TutorialSequenceSO.Steps.Count)
+        {
             return false;
         }
-        if(curStep == TutorialSequenceSO.Steps.Count - 1)
+        else if (curBasicStep == TutorialSequenceSO.Steps.Count - 1)
         {
             OnOffTutorialUI(false);
         }
-        _curTutorialStepSo = TutorialSequenceSO.Steps[curStep];
-        
-        if(_curTutorialStepSo.TextNextConditionType == TextNextConditionType.OnTimeElapsedOrInput)
+
+        _curTutorialStepSo = TutorialSequenceSO.Steps[curBasicStep];
+        return true;
+    }
+
+    public bool TutorialLoop()
+    {
+        if (++curLoopStep >= TutorialSequenceSO.Loops.Count)
         {
-            foreach (TextMeshProUGUI pressKey in PressLeftMouse)
-            {
-                Color color = pressKey.color;
-                pressKey.color = new Color(color.r, color.g, color.b, 1.0f);
-            }
-        }
-        else
-        {
-            foreach (TextMeshProUGUI pressKey in PressLeftMouse)
-            {
-                Color color = pressKey.color;
-                pressKey.color = new Color(color.r, color.g, color.b, 0.0f);
-            }
+            curLoopStep = 0;
         }
 
+        _curTutorialStepSo = TutorialSequenceSO.Loops[curLoopStep];
+
         return true;
+    }
+    public void SetTextMeshRroUGUI(TextMeshProUGUI[] TextMeshProGUIs)
+    {
+        foreach (TextMeshProUGUI textMeshPro in TextMeshProGUIs)
+        {
+            Color color = textMeshPro.color;
+            textMeshPro.color = new Color(color.r, color.g, color.b, 0.0f);
+        }
     }
     public void StartNextStepAfterDelay(){
         FeedbackSetting(_curTutorialStepSo);
@@ -187,11 +205,6 @@ public class TutorialManager : MonoBehaviour
         MMFeedback.ResetFeedbacks();
         MMFeedback.PlayFeedbacks();
     }
-
-    //public void OnOffSinkUI(bool bOn){
-    //    SinkEndButton.gameObject.SetActive(bOn);
-    //    SinkPanel.SetActive(bOn);
-    //}
 
     public void MusicSetting()
     {

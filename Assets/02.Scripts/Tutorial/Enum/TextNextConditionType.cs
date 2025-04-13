@@ -25,3 +25,9 @@ public enum MusicState
     Play,
     Stop,
 }
+
+public enum NextSquence
+{
+    Basic,
+    Loop,
+}
