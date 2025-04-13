@@ -5,7 +5,9 @@ using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Linq;
 using TMPro;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
+using UnityEngine.UI;
 using static RhythmEvents;
 
 public class TutorialManager : MonoBehaviour
@@ -19,10 +21,19 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI[] PressKey;
 
     private bool _isPaused = false;
-    private int curStep = 5;//-1;
+    private int curStep = -1;
     private TutorialStepSo _curTutorialStepSo;
 
+    public ParticleSystem[] CompleteParticles;
+    public SFXSound SFXSound;
+
     private Bus masterBus;
+
+    public Button SinkEndButton;
+    public GameObject SinkPanel;
+
+    public GameObject RhythmJudgePanel;
+
     public static TutorialManager Instance { get; private set; }
     private void Awake(){
         if (Instance == null) {
@@ -42,7 +53,7 @@ public class TutorialManager : MonoBehaviour
     private void OnEnable(){
         TutorialEventSystem.OnTutorialTextEvent += HandleEvent;
         // RhythmEvents.OnInputJudged += OnJudged; // 판정 이벤트 구독
-        OnNotePreview += OnNotePreviewReceived;
+        // OnNotePreview += OnNotePreviewReceived;
         OnNote += OnNoteReceived;
 
     }
@@ -50,7 +61,7 @@ public class TutorialManager : MonoBehaviour
     private void OnDisable(){
         TutorialEventSystem.OnTutorialTextEvent -= HandleEvent;
         // RhythmEvents.OnInputJudged -= OnJudged; // 판정 이벤트 구독
-        OnNotePreview -= OnNotePreviewReceived;
+        // OnNotePreview -= OnNotePreviewReceived;
         OnNote -= OnNoteReceived;
     }
 
@@ -65,24 +76,39 @@ public class TutorialManager : MonoBehaviour
     public void FeedbackSetting(TutorialStepSo tutorialStepSo){
         if (_textReveal == null) return;
         _textReveal.RevealDuration = tutorialStepSo.Duration;
+        PressKey[0].text = tutorialStepSo.TriggerKeyType.ToString();
     }
 
     public void HandleEvent(string Trigger = ""){
         switch (_curTutorialStepSo.TextNextConditionType){
             case TextNextConditionType.OnTimeElapsedOrInput:
-                TriggerNextStep();
+                if(Trigger == "TextRenderEnd")
+                    TriggerNextStep();
                 break;
             case TextNextConditionType.OnEvent: // 트리거랑 같을 때
 
+                // 해당 트리거 이벤트 성공 여부
                 if(_curTutorialStepSo.TriggerKeyType.ToString() == Trigger && _isPaused)
                 {
                     foreach (TextMeshProUGUI pressKey in PressKey){
                         pressKey.gameObject.SetActive(false);
                     }
+
                     SetPause(false);
+                    SFXSound.Play();
                     Time.timeScale = 1.0f;
                     TriggerNextStep();
+                    foreach (ParticleSystem particle in CompleteParticles){
+                        particle.Play();
+                    }
+
                 }
+                break;
+            case TextNextConditionType.OnButtonClick: // 버튼 클릭시 사라지도록
+                if (Trigger != "SinkButton")
+                    return;
+                OnOffSinkUI(false);
+                TriggerNextStep();
                 break;
         }
     }
@@ -112,9 +138,20 @@ public class TutorialManager : MonoBehaviour
         // 음악 셋팅
         MusicSetting();
 
+        if (_curTutorialStepSo.TextNextConditionType == TextNextConditionType.OnButtonClick){ // 버튼 클릭 이벤트가 있을 경우
+            OnOffSinkUI(true);
+            // 저지 키기
+            RhythmJudgePanel.SetActive(true);
+        }
+
         Text.text = _curTutorialStepSo.Text;
         MMFeedback.ResetFeedbacks();
         MMFeedback.PlayFeedbacks();
+    }
+
+    public void OnOffSinkUI(bool bOn){
+        SinkEndButton.gameObject.SetActive(bOn);
+        SinkPanel.SetActive(bOn);
     }
 
     public void MusicSetting()
@@ -134,17 +171,12 @@ public class TutorialManager : MonoBehaviour
     }
 
     public void TextEndEvent(){ // 현재 텍스트 렌더링 끝
-        TutorialEventSystem.OnTextEvents();
-    }
-
-    private void OnJudged(JudgedContext judgementResult){
-
-    }
-
-    private void OnNotePreviewReceived(NoteData beatNote){
+        TutorialEventSystem.OnTextEvents("TextRenderEnd");
     }
 
     private void OnNoteReceived(NoteData beatNote){
+        if (_curTutorialStepSo.TextNextConditionType != TextNextConditionType.OnEvent)
+            return;
         foreach (TextMeshProUGUI pressKey in PressKey){
             pressKey.gameObject.SetActive(true);
         }
@@ -152,4 +184,7 @@ public class TutorialManager : MonoBehaviour
         Time.timeScale = 0.0f;
     }
     
+    public void ClickSinkButton(){
+        TutorialEventSystem.OnTextEvents("SinkButton");
+    }
 }
