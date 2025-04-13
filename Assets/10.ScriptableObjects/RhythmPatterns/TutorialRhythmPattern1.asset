@@ -16,11 +16,11 @@ MonoBehaviour:
   notes:
   - beat: 20
     expectedKey: W
-  - beat: 21
+  - beat: 24
     expectedKey: A
-  - beat: 22
+  - beat: 28
     expectedKey: S
-  - beat: 23
+  - beat: 32
     expectedKey: D
   - beat: 28
     expectedKey: W

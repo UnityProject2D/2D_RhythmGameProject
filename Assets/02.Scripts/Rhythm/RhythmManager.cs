@@ -65,7 +65,13 @@ public class RhythmManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerState.Instance.GetComponent<PlayerHealth>().OnPlayerDied += OnPlayerDie;
+        if(PlayerState.Instance!=null)
+            PlayerState.Instance.GetComponent<PlayerHealth>().OnPlayerDied += OnPlayerDie;
+        else
+        {
+            if(GameManager.Instance!=null)
+                GameManager.Instance.PlayerRegistered += OnRegistered;
+        }
         if (GameSceneManager.Instance != null)
         {
             GameSceneManager.Instance.OnStageDataLoaded += OnLoadedStage;
@@ -73,7 +79,10 @@ public class RhythmManager : MonoBehaviour
         }
     }
 
-
+    private void OnRegistered()
+    {
+        PlayerState.Instance.GetComponent<PlayerHealth>().OnPlayerDied += OnPlayerDie;
+    }
     private void OnEnable()
     {
         SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정

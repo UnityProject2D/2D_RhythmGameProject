@@ -19,23 +19,14 @@ public class DummyController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        OnMusicStopped += EnemyDieJdg;
-        // 총알 오브젝트 풀 생성
         for (int i = 0; i < poolSize; i++)
         {
             GameObject bullet = Instantiate(EnemyBulletPrefab, GunPosition.position, Quaternion.identity);
             bullet.SetActive(false);
             EnemyBulletPool.Add(bullet);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnEnable()
@@ -52,7 +43,7 @@ public class DummyController : MonoBehaviour
     private void OnNoteReceived(NoteData beatTime)
     {
         PlayAttackSound();
-        int index = GetIndexFromKey(beatTime.expectedKey); // 입력 키(WASD) → 인덱스로 변환 (0~3)
+        int index = GetIndexFromKey(beatTime.expectedKey);
         if (index < 0 || index >= EnemyBulletPool.Count) return;
 
         // bullet 메서드
@@ -60,9 +51,6 @@ public class DummyController : MonoBehaviour
 
         _animator.SetInteger("Direction", index + 1);
         _animator.SetTrigger("Attack");
-
-
-        //StartCoroutine(ResetAnimation());
     }
 
     public void PlayAttackSound()
@@ -128,7 +116,6 @@ public class DummyController : MonoBehaviour
         }
         direction = direction.normalized;
 
-        // 회전 방향 기준으로 이동 방향 설정
         bullet.GetComponent<EnemyBullet>().direction = direction;
         bullet.SetActive(true);
     }

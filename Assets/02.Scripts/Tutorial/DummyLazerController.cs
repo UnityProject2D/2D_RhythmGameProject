@@ -1,14 +1,11 @@
-using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
 using static RhythmEvents;
-using System.Collections;
 
 public class DummyLazerController : MonoBehaviour
 {
-    public bool test;
     private Animator _animator;
 
     public Transform gunPoint; // 총구 위치 기준 Transform (필수!)
@@ -45,10 +42,6 @@ public class DummyLazerController : MonoBehaviour
             Debug.LogWarning("EnemyController: 플레이어 없네요 - 구독");
             GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
         }
-
-        //SetPlayer().Forget();
-        OnMarkerHit += JudgeEnd;
-        OnMusicStopped += EnemyDieJdg;
         for (int dir = 0; dir < 4; dir++)
         {
             for (int i = 0; i < PoolSizePerDirection; i++)
@@ -59,15 +52,6 @@ public class DummyLazerController : MonoBehaviour
             }
         }
     }
-    //private async UniTaskVoid SetPlayer()
-    //{
-    //    while(GameManager.Instance.Player.Transform == null)
-    //    {
-    //        await UniTask.Yield();
-    //    }
-
-    //    _playerTransform = GameManager.Instance.Player.Transform;
-    //}
     private void OnEnable()
     {
         OnNotePreview += OnNotePreviewReceived;
@@ -76,8 +60,6 @@ public class DummyLazerController : MonoBehaviour
     private void OnDisable()
     {
         OnNotePreview -= OnNotePreviewReceived;
-        OnMusicStopped -= EnemyDieJdg;
-        OnMarkerHit -= JudgeEnd;
     }
 
     private void OnNotePreviewReceived(NoteData beatNote)
@@ -175,7 +157,7 @@ public class DummyLazerController : MonoBehaviour
         sr.sortingOrder = 10;
         sr.color = GetColor(dir);
         sr.material = new Material(Shader.Find("Sprites/Default"));
-        sr.DOFade(0f, 0f); // DOTween용 초기 투명도 설정
+        sr.DOFade(0f, 0f); 
 
         return obj;
     }
@@ -190,22 +172,5 @@ public class DummyLazerController : MonoBehaviour
             3 => new Color(0.5f, 0f, 1f, 0.3f),
             _ => Color.white
         };
-    }
-
-    private void JudgeEnd(string marker)
-    {
-        if (marker == "End")
-        {
-            EnemyDieJdg();
-        }
-    }
-    ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
-    private void EnemyDieJdg()
-    {
-        if (ScoreManager.Instance.Score >= 10000)
-        {
-            Debug.Log("적 잔상 죽이기");
-            gameObject.SetActive(false);
-        }
     }
 }

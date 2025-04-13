@@ -44,7 +44,7 @@ public class TutorialManager : MonoBehaviour
         }
         else Destroy(gameObject);
 
-        masterBus = RuntimeManager.GetBus("bus:/");
+        masterBus = RuntimeManager.GetBus("bus:/BGM");
     }
     private void Start()
     {
@@ -175,7 +175,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         // 음악 셋팅
-        MusicSetting();
+        //MusicSetting();
 
         if (_curTutorialStepSo.TextNextConditionType == TextNextConditionType.OnButtonClick){ // 버튼 클릭 이벤트가 있을 경우
             //OnOffSinkUI(true);
@@ -220,8 +220,8 @@ public class TutorialManager : MonoBehaviour
             Color color = pressKey.color;
             pressKey.color = new Color(color.r, color.g, color.b, 1.0f);
         }
-        SetPause(true);
-        Time.timeScale = 0.0f;
+        //SetPause(true);
+        //Time.timeScale = 0.0f;
     }
     
     public void ClickSinkButton(){

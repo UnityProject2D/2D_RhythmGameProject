@@ -18,7 +18,7 @@ public class PauseManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        masterBus = RuntimeManager.GetBus("bus:/");
+        masterBus = RuntimeManager.GetBus("bus:/BGM");
         DontDestroyOnLoad(gameObject);
     }
     private void OnEnable()

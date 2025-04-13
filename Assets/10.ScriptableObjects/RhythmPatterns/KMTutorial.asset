@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ca63dec1e6d6745b9b64a9faf96794, type: 3}
+  m_Name: KMTutorial
+  m_EditorClassIdentifier: 
+  bpm: 100
+  notes:
+  - beat: 20
+    expectedKey: W
+  - beat: 21
+    expectedKey: S
+  - beat: 22
+    expectedKey: W
+  - beat: 23
+    expectedKey: S
+  - beat: 28
+    expectedKey: W
+  - beat: 29
+    expectedKey: S
+  - beat: 30
+    expectedKey: W
+  - beat: 31
+    expectedKey: S
+  - beat: 36
+    expectedKey: A
+  - beat: 37
+    expectedKey: D
+  - beat: 38
+    expectedKey: A
+  - beat: 39
+    expectedKey: D
+  - beat: 44
+    expectedKey: W
+  - beat: 45
+    expectedKey: D
+  - beat: 46
+    expectedKey: A
+  - beat: 47
+    expectedKey: S
+  - beat: 52
+    expectedKey: W
+  - beat: 53
+    expectedKey: D
+  - beat: 54
+    expectedKey: D
+  - beat: 55
+    expectedKey: A
+  - beat: 68
+    expectedKey: W
+  - beat: 68.5
+    expectedKey: S
+  - beat: 69
+    expectedKey: W
+  - beat: 69.5
+    expectedKey: S
+  - beat: 70
+    expectedKey: W
+  - beat: 70.5
+    expectedKey: S
+  - beat: 71
+    expectedKey: W
+  - beat: 71.5
+    expectedKey: S
+  - beat: 76
+    expectedKey: W
+  - beat: 76.5
+    expectedKey: D
+  - beat: 77
+    expectedKey: W
+  - beat: 77.5
+    expectedKey: D
+  - beat: 78
+    expectedKey: W
+  - beat: 78.5
+    expectedKey: D
+  - beat: 79
+    expectedKey: W
+  - beat: 79.5
+    expectedKey: D
+  - beat: 84
+    expectedKey: S
+  - beat: 84.5
+    expectedKey: D
+  - beat: 85
+    expectedKey: S
+  - beat: 85.5
+    expectedKey: D
+  - beat: 86
+    expectedKey: S
+  - beat: 86.5
+    expectedKey: D
+  - beat: 87
+    expectedKey: S
+  - beat: 87.5
+    expectedKey: D
+  - beat: 92
+    expectedKey: W
+  - beat: 92.5
+    expectedKey: D
+  - beat: 93
+    expectedKey: S
+  - beat: 94
+    expectedKey: A
+  - beat: 94.5
+    expectedKey: S
+  - beat: 95
+    expectedKey: W
+  - beat: 100
+    expectedKey: A
+  - beat: 100.5
+    expectedKey: S
+  - beat: 101
+    expectedKey: D
+  - beat: 102
+    expectedKey: W
+  - beat: 102.5
+    expectedKey: D
+  - beat: 103
+    expectedKey: A
+  - beat: 108
+    expectedKey: W
+  - beat: 108.5
+    expectedKey: D
+  - beat: 109
+    expectedKey: A
+  - beat: 109.5
+    expectedKey: A

@@ -19,4 +19,4 @@ MonoBehaviour:
   DelayTime: 0.5
   TriggerKeyType: 4
   TextNextConditionType: 1
-  MusicState: 1
+  MusicState: 0

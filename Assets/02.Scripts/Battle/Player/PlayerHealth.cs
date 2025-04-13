@@ -1,13 +1,13 @@
 using MoreMountains.Feedbacks;
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     public float PlayerMaxHealth { get; private set; }
     public float Damage;
     private float _playerCurrentHealth;
+    public bool IsTutorial;
 
     public float PlayerCurrentHealth => _playerCurrentHealth;
 
@@ -163,6 +163,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void ApplyDamage(float finalDamage)
     {
+        if (IsTutorial) return;
         Debug.Log($"[HP] ApplyDamage: {finalDamage}");
         _playerCurrentHealth = Mathf.Max(0, _playerCurrentHealth - finalDamage);
 
