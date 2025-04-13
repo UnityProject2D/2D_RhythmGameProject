@@ -15,7 +15,6 @@ public enum RhythmAction
 public class PlayerController : MonoBehaviour
 {
     public PlayerHealth PlayerHealth;
-
     private Animator _animator;
     private bool _isDead;
     private float _prevHealth = 0;
@@ -68,8 +67,8 @@ public class PlayerController : MonoBehaviour
         {
             case "W": direction = RhythmAction.Jump; break;
             case "S": direction = RhythmAction.Slide; break;
-            case "A": direction = RhythmAction.Roll; break;
-            case "D": direction = RhythmAction.BackFlip; break;
+            case "A": direction = RhythmAction.BackFlip; break;
+            case "D": direction = RhythmAction.Roll; break;
         }
 
         _animator.SetInteger("Direction", (int)direction);

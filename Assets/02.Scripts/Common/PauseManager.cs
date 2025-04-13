@@ -18,13 +18,13 @@ public class PauseManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        masterBus = RuntimeManager.GetBus("bus:/");
+        masterBus = RuntimeManager.GetBus("bus:/BGM");
         DontDestroyOnLoad(gameObject);
     }
     private void OnEnable()
     {
 
-        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정 // 추후 SceneCleanupHandler로 분리 예정
+        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
     }
 
     private void OnDisable()

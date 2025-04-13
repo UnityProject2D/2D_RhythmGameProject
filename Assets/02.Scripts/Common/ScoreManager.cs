@@ -19,7 +19,10 @@ public class ScoreManager : MonoBehaviour
     public event Action OnComboBreaked;
     public event Action<int> OnScoreChanged;
 
+    public int MaxCombo;
     public static ScoreManager Instance;
+
+    public int[] Counts;
 
     [SerializeField]
     private int _baseScore;
@@ -37,6 +40,7 @@ public class ScoreManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Counts = new int[(int)JudgementResult.Count];
     }
     private void OnEnable()
     {
@@ -120,6 +124,9 @@ public class ScoreManager : MonoBehaviour
                 break;
         }
 
+        Counts[(int)judgementResult.Result]++;
+        MaxCombo = Mathf.Max(MaxCombo, _combo);
+        Debug.Log(MaxCombo);
         float comboMultiplier = 1f + (_combo * 0.01f);
 
         _score +=

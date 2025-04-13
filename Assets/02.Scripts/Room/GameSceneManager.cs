@@ -15,6 +15,7 @@ public class GameSceneManager : MonoBehaviour
     public Image FadeImage;
     public GameObject LoadingText;
     public GameObject LoadCompleteText;
+    public int CurrentStage;
     public static GameSceneManager Instance { get; private set; }
 
     public event Action<StageData> OnStageDataLoaded;
@@ -35,6 +36,7 @@ public class GameSceneManager : MonoBehaviour
     {
         // 스테이지 데이터 로드
         OnStageDataLoaded?.Invoke(stageData);
+        CurrentStage = stageData.StageIndex;
     }
 
 

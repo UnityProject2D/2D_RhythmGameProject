@@ -3382,7 +3382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7959039568916188763, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
       propertyPath: sceneToLoad
-      value: TutorialScene
+      value: TutorialScene_KM
       objectReference: {fileID: 0}
     - target: {fileID: 8340532590370343200, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
       propertyPath: managedReferences[5021678716850536535].Timing.InitialDelay

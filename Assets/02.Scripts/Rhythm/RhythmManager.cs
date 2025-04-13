@@ -65,7 +65,13 @@ public class RhythmManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerState.Instance.GetComponent<PlayerHealth>().OnPlayerDied += OnPlayerDie;
+        if(PlayerState.Instance!=null)
+            PlayerState.Instance.GetComponent<PlayerHealth>().OnPlayerDied += OnPlayerDie;
+        else
+        {
+            if(GameManager.Instance!=null)
+                GameManager.Instance.PlayerRegistered += OnRegistered;
+        }
         if (GameSceneManager.Instance != null)
         {
             GameSceneManager.Instance.OnStageDataLoaded += OnLoadedStage;
@@ -73,12 +79,13 @@ public class RhythmManager : MonoBehaviour
         }
     }
 
-
+    private void OnRegistered()
+    {
+        PlayerState.Instance.GetComponent<PlayerHealth>().OnPlayerDied += OnPlayerDie;
+    }
     private void OnEnable()
     {
         SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
-        
-
     }
 
     public void OnLoadedStage(StageData stageData)
@@ -86,7 +93,7 @@ public class RhythmManager : MonoBehaviour
         Debug.Log($"[RhythmManager] OnLoadedStage 호출됨, {stageData.StageName}, {stageData.StageIndex}");
         _stageMusicIndex = stageData.StageIndex;
         
-        if (_stageMusicIndex >= 0 && IsPlaying == false)
+        if (_stageMusicIndex > 0 && IsPlaying == false)
         {
             IsPlaying = true;
             Play();
@@ -95,6 +102,8 @@ public class RhythmManager : MonoBehaviour
         {
             IsPlaying = false;
         }
+
+        InvokeOnMusicReady();
     }
     private void OnDisable()
     {
@@ -203,7 +212,6 @@ public class RhythmManager : MonoBehaviour
     }
     public void Play()
     {
-
         //음악을 종료하고
         if (_musicInstance.isValid())
         {
@@ -270,7 +278,7 @@ public class RhythmManager : MonoBehaviour
             _fftDSP.setParameterInt((int)FMOD.DSP_FFT.WINDOWTYPE, (int)FMOD.DSP_FFT_WINDOW.HANNING);
             _fftDSP.setParameterInt((int)FMOD.DSP_FFT.WINDOWSIZE, FFT_WINDOW_SIZE * 2);
 
-            var bus = FMODUnity.RuntimeManager.GetBus("bus:/");
+            var bus = FMODUnity.RuntimeManager.GetBus("bus:/BGM");
 
             if (bus.hasHandle())
             {

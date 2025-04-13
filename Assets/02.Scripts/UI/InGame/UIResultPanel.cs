@@ -51,6 +51,14 @@ public class UIResultPanel : MonoBehaviour
         ScoreManager.Instance.OnScoreChanged += UpdateScore;
     }
 
+    public string sceneToLoad;
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            GameSceneManager.Instance.ChangeScene(sceneToLoad);
+        }
+    }
     private void InitUI(TextMeshProUGUI txt, Image bg)
     {
         txt.alpha = 0f;
@@ -60,6 +68,10 @@ public class UIResultPanel : MonoBehaviour
             bg.color = new Color(targetBGColor.r, targetBGColor.g, targetBGColor.b, 0f);
             bg.transform.localScale = Vector3.one * 0.8f;
         }
+        ResultMaxCombo.text = ScoreManager.Instance.MaxCombo.ToString();
+
+        ResultPerfect.text = ScoreManager.Instance.Counts[(int)JudgementResult.Perfect].ToString();
+        ResultGood.text = ScoreManager.Instance.Counts[(int)JudgementResult.Good].ToString();
     }
 
     private void UpdateScore(int score)

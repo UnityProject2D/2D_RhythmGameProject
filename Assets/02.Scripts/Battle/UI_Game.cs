@@ -8,18 +8,30 @@ public class UI_Game : MonoBehaviour
         //ShowResultPanel();
     }
 
+    public bool IsShowing;
+    private void JudgeEnd(string marker)
+    {
+        if (marker == "End")
+        {
+            IsShowing = true;
+            ShowResultPanel();
+        }
+    }
     private void OnEnable()
     {
         RhythmEvents.OnMusicStopped += ShowResultPanel;
-
+        RhythmEvents.OnMarkerHit += JudgeEnd;
     }
     private void OnDisable()
     {
         RhythmEvents.OnMusicStopped -= ShowResultPanel;
+
+        RhythmEvents.OnMarkerHit -= JudgeEnd;
     }
 
     private void ShowResultPanel()
     {
+        if (IsShowing) return;
         resultPanel.gameObject.SetActive(true);
         resultPanel.PlayOpenEffect();
     }

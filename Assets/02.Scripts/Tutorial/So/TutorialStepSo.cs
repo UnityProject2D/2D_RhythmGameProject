@@ -17,4 +17,6 @@ public class TutorialStepSo : ScriptableObject
     public TextNextConditionType TextNextConditionType;
 
     public MusicState MusicState;
+
+    public NextSquence NextSquence;
 }
