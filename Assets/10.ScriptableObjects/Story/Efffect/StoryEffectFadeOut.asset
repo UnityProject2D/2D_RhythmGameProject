@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: StoryEffectFadeOut
   m_EditorClassIdentifier: 
   type: 1
-  typingInterval: 0
   duration: 1
   image: {fileID: 0}

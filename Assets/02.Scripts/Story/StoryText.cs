@@ -18,12 +18,16 @@ public class StoryText : MonoBehaviour
         }
     }
 
-    public IEnumerator SetTextCoroutine(string text)
+    public IEnumerator SetTextCoroutine(string text, StoryEffectDataSO typingEffect)
     {
         if (_textReveal != null)
         {
             _isRevealing = true;
             _textReveal.NewText = text;
+            if (typingEffect != null)
+            {
+                _textReveal.RevealDuration = typingEffect.duration;
+            }
             // PlayFeedbacksCoroutine은 피드백이 완료될 때까지 대기
             yield return _feedbackPlayer.PlayFeedbacksCoroutine(this.transform.position);
             _isRevealing = false;
@@ -33,6 +37,29 @@ public class StoryText : MonoBehaviour
             Debug.LogError("MMF_TMPTextReveal component is not assigned.");
             yield break;
         }
+    }
+
+    public IEnumerator ResetText()
+    {
+        if (_textReveal != null)
+        {
+            // 텍스트 리빌 중지
+            _feedbackPlayer.StopFeedbacks();
+
+            _textReveal.NewText = string.Empty;
+
+            // 모든 텍스트 즉시 표시
+            _textReveal.TargetTMPText.maxVisibleCharacters = 0;
+            _textReveal.TargetTMPText.ForceMeshUpdate();
+
+            // 텍스트 리빌 상태 초기화
+            _isRevealing = false;
+        }
+        else
+        {
+            Debug.LogError("MMF_TMPTextReveal component is not assigned.");
+        }
+        yield return null;
     }
 
     // 텍스트 리빌 즉시 완료 메서드
