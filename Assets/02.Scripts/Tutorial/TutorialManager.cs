@@ -74,8 +74,8 @@ public class TutorialManager : MonoBehaviour
     private void OnDisable(){
         TutorialEventSystem.OnTutorialTextEvent -= HandleEvent;
         OnNotePreview -= OnNoteReceived;
-
-        OnNote -= DisableText;
+        OnNote -= DisableText; 
+        OnMusicReady -= Init;
     }
 
     private void DisableText(NoteData note)
@@ -153,6 +153,8 @@ public class TutorialManager : MonoBehaviour
         DoorController.Open();
 
         yield return new WaitForSeconds(1f);
+
+        RuntimeManager.PlayOneShot("event:/SFX/DoorClose");
         GameSceneManager.Instance.ChangeScene("VFXTest");
     }
     public void OnOffTutorialUI(bool Active)

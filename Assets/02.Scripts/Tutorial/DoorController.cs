@@ -19,5 +19,7 @@ public class DoorController : MonoBehaviour
     {
         _animator.SetTrigger("Open");
         Light.SetActive(true);
+
+        RuntimeManager.PlayOneShot("event:/SFX/DoorOpen");
     }
 }

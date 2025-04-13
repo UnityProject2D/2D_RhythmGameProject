@@ -278,7 +278,7 @@ public class RhythmManager : MonoBehaviour
             _fftDSP.setParameterInt((int)FMOD.DSP_FFT.WINDOWTYPE, (int)FMOD.DSP_FFT_WINDOW.HANNING);
             _fftDSP.setParameterInt((int)FMOD.DSP_FFT.WINDOWSIZE, FFT_WINDOW_SIZE * 2);
 
-            var bus = FMODUnity.RuntimeManager.GetBus("bus:/");
+            var bus = FMODUnity.RuntimeManager.GetBus("bus:/BGM");
 
             if (bus.hasHandle())
             {

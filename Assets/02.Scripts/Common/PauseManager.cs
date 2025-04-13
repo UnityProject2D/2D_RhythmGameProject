@@ -24,7 +24,7 @@ public class PauseManager : MonoBehaviour
     private void OnEnable()
     {
 
-        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정 // 추후 SceneCleanupHandler로 분리 예정
+        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
     }
 
     private void OnDisable()
