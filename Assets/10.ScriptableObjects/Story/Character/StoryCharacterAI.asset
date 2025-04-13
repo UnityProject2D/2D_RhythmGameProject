@@ -15,4 +15,4 @@ MonoBehaviour:
   type: 1
   displayName: AI
   nameColor: {r: 0.015686275, g: 0.7176471, b: 0.89019614, a: 1}
-  portrait: {fileID: -64522458287651633, guid: 4e4cfb09ed90a04428fbd1e937281d93, type: 3}
+  portrait: {fileID: 5715529812403037938, guid: 9ccf0ae34da4a4e418e65877b19aeab2, type: 3}

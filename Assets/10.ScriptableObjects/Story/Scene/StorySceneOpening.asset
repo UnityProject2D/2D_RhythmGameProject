@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113538e31738120459b482033767de31, type: 3}
   m_Name: StorySceneOpening
   m_EditorClassIdentifier: 
-  background: {fileID: 8757772970124069984, guid: 6d0aa58cf57397b4f9594e7b23202b61, type: 3}
+  background: {fileID: -1870463319905167204, guid: efe0f746524d1cb45a45ce1f7ee67039, type: 3}
   dialogues:
   - {fileID: 11400000, guid: 6f332e8f3a14e054b8a6771fbe2477b5, type: 2}
   - {fileID: 11400000, guid: c1e493cf87d64894998770c25a49da2a, type: 2}

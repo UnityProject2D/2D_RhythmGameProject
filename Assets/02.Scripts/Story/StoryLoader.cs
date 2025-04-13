@@ -1,10 +1,13 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StoryLoader : MonoBehaviour
 {
     [SerializeField] private StorySceneDataSO _scene;
+    [SerializeField] private Image _backgroundImage;
+    [SerializeField] private StoryDialogue _dialogue;
 
     private void Start()
     {
@@ -24,37 +27,20 @@ public class StoryLoader : MonoBehaviour
 
         foreach (var dialogue in _scene.dialogues)
         {
-            yield return StartCoroutine(PlayDialogue(dialogue));
+            yield return StartCoroutine(_dialogue.SetDialogueCoroutine(dialogue));
             yield return new WaitForSeconds(dialogue.delayAfter);
         }
     }
 
-    private IEnumerator PlayDialogue(StoryDialogueDataSO dialogue)
-    {
-        yield break;
-    }
-
     private void SetBackground(Sprite background)
     {
-        // "Background"라는 이름의 오브젝트 찾기
-        GameObject backgroundObject = GameObject.Find("Background");
-        if (backgroundObject != null)
+        if (_backgroundImage != null)
         {
-            // Image 컴포넌트 가져오기
-            Image imageComponent = backgroundObject.GetComponent<Image>();
-            if (imageComponent != null)
-            {
-                // 배경 이미지 설정
-                imageComponent.sprite = background;
-            }
-            else
-            {
-                Debug.LogError("Image component not found on the Background object.");
-            }
+            _backgroundImage.sprite = background;
         }
         else
         {
-            Debug.LogError("Background object not found in the scene.");
+            Debug.LogError("Background image is not assigned.");
         }
     }
 }

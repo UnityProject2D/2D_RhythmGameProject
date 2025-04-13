@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 959e3cb689bedf24095a90da3edaed45, type: 3}
   m_Name: StoryDialogue 3
   m_EditorClassIdentifier: 
-  character: 1
+  character: {fileID: 11400000, guid: 89ba49fe94aa0c1479a5e9af723b2e8b, type: 2}
   text: "\uADF8\uB7F0\uB370\u2026 \uC800\uB294 \uADF8\uAC78 \uC0DD\uAC01\uD558\uACE0
     \uC788\uC5C8\uC5B4\uC694."
   delayAfter: 1
