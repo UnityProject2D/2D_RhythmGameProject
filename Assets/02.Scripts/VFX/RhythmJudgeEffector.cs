@@ -6,6 +6,11 @@ public class RhythmJudgeEffector : MonoBehaviour
     {
         RhythmEvents.OnInputJudged += OnRhythmJudge;
     }
+    private void OnDestroy()
+    {
+
+        RhythmEvents.OnInputJudged -= OnRhythmJudge;
+    }
 
     private void OnRhythmJudge(JudgedContext judge)
     {

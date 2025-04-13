@@ -93,7 +93,7 @@ public class RhythmManager : MonoBehaviour
         Debug.Log($"[RhythmManager] OnLoadedStage 호출됨, {stageData.StageName}, {stageData.StageIndex}");
         _stageMusicIndex = stageData.StageIndex;
         
-        if (_stageMusicIndex > 0 && IsPlaying == false)
+        if (IsTest||(_stageMusicIndex > 0 && IsPlaying == false))
         {
             IsPlaying = true;
             Play();

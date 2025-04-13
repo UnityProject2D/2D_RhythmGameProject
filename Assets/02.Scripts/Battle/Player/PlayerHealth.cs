@@ -46,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
     /// <param name="result"></param>
     private void HandleJudge(JudgedContext result)
     {
+        if (GameSceneManager.Instance.CurrentStage == 0) return;
         float finalDamage = 0;
         switch (result.Result)
         {

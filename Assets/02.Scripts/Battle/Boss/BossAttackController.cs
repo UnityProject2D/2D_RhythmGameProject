@@ -1,5 +1,6 @@
 using FMODUnity;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static RhythmEvents;
 
@@ -68,6 +69,7 @@ public class BossAttackController : MonoBehaviour
     private void OnEnable()
     {
         OnNote += OnNoteReceived;
+        OnNotePreview += OnNotePreviewReceived;
     }
 
     private void OnDisable()
@@ -76,11 +78,21 @@ public class BossAttackController : MonoBehaviour
         OnMarkerHit -= JudgeEnd;
         OnNote -= OnNoteReceived;
         OnMusicStopped -= BossDieJdg;
-    }
 
+        OnNotePreview -= OnNotePreviewReceived;
+    }
+    public int page = 0;
+    private void OnNotePreviewReceived(NoteData noteData)
+    {
+        if (page == 1)
+        {
+            _animator.SetTrigger("Attack");
+        }
+    }
     private void OnNoteReceived(NoteData beatTime)
     {
         if (_isDead) return; /////////////// 적이 죽었으면 리턴
+        if (page == 1) return;
         PlayAttackSound();
         int index = GetIndexFromKey(beatTime.expectedKey); // 입력 키(WASD) → 인덱스로 변환 (0~3)
         if (index < 0 || index >= BossBulletPool.Count) return;
@@ -152,6 +164,10 @@ public class BossAttackController : MonoBehaviour
 
     private void JudgeEnd(string marker)
     {
+        if (marker == "Start")
+        {
+            page++;
+        }
         if (marker == "End")
         {
             BossDieJdg();
@@ -161,7 +177,7 @@ public class BossAttackController : MonoBehaviour
     ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
     private void BossDieJdg()
     {
-        if (ScoreManager.Instance.Score >= 1000) //10000
+        if (ScoreManager.Instance.Score >= 35000) //10000
         {
             RuntimeManager.PlayOneShot("event:/SFX/EnemyDie");
             _animator.SetTrigger("Die");

@@ -6,7 +6,8 @@ public class BossBulletSpecialController : MonoBehaviour
     private Animator _animator;
     private Transform _playerTransform;
     public float _missMoveSpeed = 30f;
-    private bool isExploded = false;
+    public bool isExploded = false;
+    public Vector3 Destination;
 
     private void Awake()
     {
@@ -21,14 +22,14 @@ public class BossBulletSpecialController : MonoBehaviour
     }
 
     // Good/Perfect 판정 시 호출: 폭발 애니메이션 실행 후 Invoke로 DisableBullet() 호출
-    public void ExplodeToBoss()
-    {
-        if (isExploded)
-            return;
-        isExploded = true;
-        _animator.SetTrigger("Explode");
-        Invoke(nameof(DisableBullet), 0.3f);
-    }
+    //public void ExplodeToBoss()
+    //{
+    //    if (isExploded)
+    //        return;
+    //    isExploded = true;
+    //    _animator.SetTrigger("Explode");
+    //    Invoke(nameof(DisableBullet), 0.3f);
+    //}
 
     // Miss 판정 시 호출
     public void ExPlodeToPlayer()
@@ -40,12 +41,14 @@ public class BossBulletSpecialController : MonoBehaviour
         }
         if (isExploded)
             return;
+    }
+    public void StartMove()
+    {
         StartCoroutine(MoveToPlayerRoutine());
     }
-
     private IEnumerator MoveToPlayerRoutine()
     {
-        while (Vector2.Distance(transform.position, _playerTransform.position) > 0.01f)
+        while (Vector2.Distance(transform.position, _playerTransform.position) > 1f)
         {
             transform.position = Vector2.MoveTowards(transform.position, _playerTransform.position, _missMoveSpeed * Time.deltaTime);
             yield return null;
@@ -57,7 +60,15 @@ public class BossBulletSpecialController : MonoBehaviour
             isExploded = true;
             _animator.SetTrigger("Explode");
             // DisableBullet()는 코루틴이 아닌 애니메이션 이벤트를 통해 호출하도록 합니다.
+            yield break;
         }
+
+        while (Vector2.Distance(transform.position, Destination) > 0.01f)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, Destination, _missMoveSpeed * Time.deltaTime);
+            yield return null;
+        }
+        gameObject.SetActive(false);
     }
 
     // 이 메서드는 폭발 애니메이션 클립에 Animation Event로 등록하세요.

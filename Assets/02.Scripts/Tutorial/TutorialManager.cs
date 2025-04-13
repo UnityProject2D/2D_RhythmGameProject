@@ -76,6 +76,7 @@ public class TutorialManager : MonoBehaviour
         OnNotePreview -= OnNoteReceived;
         OnNote -= DisableText; 
         OnMusicReady -= Init;
+        OnMarkerHit -= HandleEvent;
     }
 
     private void DisableText(NoteData note)

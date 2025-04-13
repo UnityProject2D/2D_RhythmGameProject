@@ -15,6 +15,8 @@ public class BossBulletSpecialSpawner : MonoBehaviour
     public float offsetY = -1f;
     public float rotateOffset = 0f;
 
+    public BossAttackController attackController;
+
     private readonly List<BossBulletSpecialController> bulletPool = new();
     private int bulletIndex = 0;
     private readonly Queue<BossBulletSpecialController> bulletQueue = new();
@@ -35,20 +37,27 @@ public class BossBulletSpecialSpawner : MonoBehaviour
 
     private void OnNotePreviewReceived(NoteData beatNote)
     {
+        if (attackController.page != 1) return;
         SpawnBullet();
     }
 
     private void OnNoteReceived(NoteData note)
     {
+        if (attackController.page != 1) return;
+        if (bulletQueue.TryPeek(out var bullet))
+        {
+            bullet.StartMove();
+        }
     }
 
     private void OnInputJudged(JudgedContext result)
     {
+        if (attackController.page != 1) return;
         if (result.Result <= JudgementResult.Good)
         {
             if (bulletQueue.TryDequeue(out var bullet))
             {
-                bullet.ExplodeToBoss();
+                bullet.isExploded = true;
             }
             else
             {

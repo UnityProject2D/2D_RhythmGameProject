@@ -2476,6 +2476,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1432192635320464104, guid: 677504817d028ab44924a70f345c90c1, type: 3}
+      propertyPath: InitializationMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432192635320464104, guid: 677504817d028ab44924a70f345c90c1, type: 3}
+      propertyPath: managedReferences[8534994407219265614].StartsOff
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994945241403140921, guid: 677504817d028ab44924a70f345c90c1, type: 3}
+      propertyPath: InitializationMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1994945241403140921, guid: 677504817d028ab44924a70f345c90c1, type: 3}
+      propertyPath: managedReferences[8534994407219265618].StartsOff
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347539136559599037, guid: 677504817d028ab44924a70f345c90c1, type: 3}
+      propertyPath: InitializationMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4347539136559599037, guid: 677504817d028ab44924a70f345c90c1, type: 3}
+      propertyPath: managedReferences[8534994407219265614].StartsOff
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349440521724996863, guid: 677504817d028ab44924a70f345c90c1, type: 3}
+      propertyPath: InitializationMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349440521724996863, guid: 677504817d028ab44924a70f345c90c1, type: 3}
+      propertyPath: managedReferences[8534994407219265614].StartsOff
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461435437833026285, guid: 677504817d028ab44924a70f345c90c1, type: 3}
+      propertyPath: InitializationMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461435437833026285, guid: 677504817d028ab44924a70f345c90c1, type: 3}
+      propertyPath: managedReferences[8534994407219265620].StartsOff
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727087601174278058, guid: 677504817d028ab44924a70f345c90c1, type: 3}
+      propertyPath: InitializationMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727087601174278058, guid: 677504817d028ab44924a70f345c90c1, type: 3}
+      propertyPath: managedReferences[8534994407219265614].StartsOff
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8144719982632825978, guid: 677504817d028ab44924a70f345c90c1, type: 3}
       propertyPath: m_Name
       value: Lights_Stage1
@@ -2674,7 +2722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fab14fc885174c468ad4cf6b82ed72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resultPanel: {fileID: 0}
+  resultPanel: {fileID: 1659106590}
   IsShowing: 0
 --- !u!114 &912172903
 MonoBehaviour:

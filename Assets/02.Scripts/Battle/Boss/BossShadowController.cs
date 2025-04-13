@@ -72,10 +72,11 @@ public class BossShadowController : MonoBehaviour
         OnNote -= OnNoteReceived;
         RhythmEvents.OnMusicStopped -= BossDieJdg;
     }
-
+    bool pageTwo = false;
     private void OnNotePreviewReceived(NoteData beatNote)
     {
         if (_isDead) return; /////////////// 적이 죽었으면 리턴
+        if (pageTwo) return;
         PlayAttackSound();
         if (_spriteRenderer.color.a == 1f) return;
         _spriteRenderer.color = new Color(1f, 0f, 0f, 0.9f); // 투명도 초기화
@@ -127,7 +128,7 @@ public class BossShadowController : MonoBehaviour
         return dir switch
         {
             0 => _playerTransform.position + Vector3.down * 0.25f,     // W - 머리
-            1 => _playerTransform.position + Vector3.up * 1.5f,   // S - 다리
+            1 => _playerTransform.position + Vector3.up * 1.75f,   // S - 다리
             2 => _playerTransform.position + Vector3.up * 0.5f,   // A - 왼쪽 몸통
             3 => _playerTransform.position + Vector3.up * 1f,  // D - 오른쪽 몸통
             _ => _playerTransform.position
@@ -136,7 +137,14 @@ public class BossShadowController : MonoBehaviour
 
     public void PlayAttackSound()
     {
-        RuntimeManager.PlayOneShot("event:/SFX/PreviewSound");
+        if (pageTwo)
+        {
+            RuntimeManager.PlayOneShot("event:/SFX/PreviewSound");
+        }
+        else
+        {
+            RuntimeManager.PlayOneShot("event:/SFX/PreviewSound");
+        }
     }
 
     private int GetIndexFromKey(string key)

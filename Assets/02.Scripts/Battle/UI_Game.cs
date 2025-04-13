@@ -13,7 +13,6 @@ public class UI_Game : MonoBehaviour
     {
         if (marker == "End")
         {
-            IsShowing = true;
             ShowResultPanel();
         }
     }
@@ -32,6 +31,8 @@ public class UI_Game : MonoBehaviour
     private void ShowResultPanel()
     {
         if (IsShowing) return;
+
+        IsShowing = true;
         resultPanel.gameObject.SetActive(true);
         resultPanel.PlayOpenEffect();
     }

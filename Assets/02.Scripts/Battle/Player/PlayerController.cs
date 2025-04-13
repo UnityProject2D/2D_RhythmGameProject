@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnPlayerHealthChanged(float changed)
     {
+        if (GameSceneManager.Instance.CurrentStage == 0) return;
         if(changed < _prevHealth)
         {
             _animator.SetTrigger("Hit");

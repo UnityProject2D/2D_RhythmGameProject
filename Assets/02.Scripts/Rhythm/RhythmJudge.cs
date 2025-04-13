@@ -58,7 +58,6 @@ public class RhythmJudge : MonoBehaviour
 
         while (currentNoteIndex < pattern[_currentNotes].notes.Count)
         {
-            Debug.Log(pattern[_currentNotes].notes.Count);
             float noteTime = pattern[_currentNotes].notes[currentNoteIndex].beat * beatDuration;
 
             if (now - noteTime > beatDuration * badRange * (1 + PermenantEffect * PermenantStack) * (1 + TemporaryEffect * TemporaryStack))

@@ -12,7 +12,7 @@ public class DummyController : MonoBehaviour
     public Transform PlayerTransform;
     public Transform GunPosition;
 
-    private int poolSize = 10;
+    private int poolSize = 15;
 
     private void Awake()
     {
@@ -86,11 +86,7 @@ public class DummyController : MonoBehaviour
                 return bullet;
         }
 
-        var newBullet = Instantiate(EnemyBulletPrefab, GunPosition.position, Quaternion.identity);
-
-        newBullet.SetActive(false);
-        EnemyBulletPool.Add(newBullet);
-        return newBullet;
+        return null;
     }
 
     private void FireBullet(int directionIndex)

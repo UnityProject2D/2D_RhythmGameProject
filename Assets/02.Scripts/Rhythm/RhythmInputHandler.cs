@@ -54,4 +54,12 @@ public class RhythmInputHandler : MonoBehaviour
     private void OnSPressed(InputAction.CallbackContext ctx) => OnInputPerformed?.Invoke("S");
     private void OnDPressed(InputAction.CallbackContext ctx) => OnInputPerformed?.Invoke("D");
     private void OnNPressed(InputAction.CallbackContext ctx) => OnInputPerformed?.Invoke("N");
+
+#if UNITY_EDITOR
+    public void SimulateInput(string key)
+    {
+        if (!Application.isPlaying) return;
+        OnInputPerformed?.Invoke(key);
+    }
+#endif
 }

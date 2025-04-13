@@ -17,8 +17,8 @@ public class VFXManager : MonoBehaviour
         else Destroy(gameObject);
         LightMMFPlayers = new List<MMF_Player>();
         RhythmEvents.OnBeat += PlayOnBeatFeedback;
-
-        if(_artifactsSettings == null)
+        RhythmEvents.OnMarkerHit += Add;
+        if (_artifactsSettings == null)
         {
             _artifactsSettings = Artifacts.Instance;
             if (_artifactsSettings == null)
@@ -29,9 +29,15 @@ public class VFXManager : MonoBehaviour
     }
     private void OnDisable()
     {
+        RhythmEvents.OnBeat -= PlayOnBeatFeedback;
+        RhythmEvents.OnMarkerHit -= Add;
         _artifactsSettings.SetActive(false);
     }
-
+    private int page;
+    private void Add(string marker)
+    {
+        if (marker == "Start") page++;
+    }
     private void Start()
     {
         PlayerState.Instance.OnItemUsed += HandleItemEffect;
@@ -61,7 +67,6 @@ public class VFXManager : MonoBehaviour
    
     public void PlayOnBeatFeedback(float t)
     {
-        Debug.Log("PlayOnBeatFeedback");
         foreach (var mmfPlayer in LightMMFPlayers)
         {
             mmfPlayer?.PlayFeedbacks();
@@ -69,10 +74,29 @@ public class VFXManager : MonoBehaviour
     }
     public void PlayOnNoteFeedback()
     {
-        Debug.Log("PlayOnNoteFeedback");
     }
-    public void PlayOnPerfectFeedback() => OnPerfectFeedback?.PlayFeedbacks();
-    public void PlayOnGoodFeedback() => OnGoodFeedback?.PlayFeedbacks();
+    public void PlayOnPerfectFeedback()
+    {
+        if (page != 1)
+        {
+            OnPerfectFeedback?.PlayFeedbacks();
+        }
+        else
+        {
+            ExplosionFeedback?.PlayFeedbacks();
+        }
+    }
+    public void PlayOnGoodFeedback()
+    {
+        if(page != 1)
+        {
+            OnGoodFeedback?.PlayFeedbacks();
+        }
+        else
+        {
+            ExplosionFeedback?.PlayFeedbacks();
+        }
+    }
     public void PlayExplosionFeedback() => ExplosionFeedback?.PlayFeedbacks();
     public void PlayhitFlashFeedback() => hitFlashFeedback?.PlayFeedbacks();
 

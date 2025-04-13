@@ -83,6 +83,6 @@ public class ShopPlayerController : MonoBehaviour
         anim.SetBool("Jump", !isGrounded);
         // 캐릭터 좌우 반전
         if (moveInput.x != 0)
-            transform.localScale = new Vector3(Mathf.Sign(moveInput.x) * 0.5f, transform.localScale.y, transform.localScale.z);
+            transform.localScale = new Vector3(Mathf.Sign(moveInput.x), transform.localScale.y, transform.localScale.z);
     }
 }

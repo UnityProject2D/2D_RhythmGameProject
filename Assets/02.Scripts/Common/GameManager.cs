@@ -35,12 +35,19 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
-
-
-
+        RhythmEvents.OnMusicStopped += InactivePauseManager;
+        RhythmEvents.OnMusicStart += ActivePauseManager;
         SavedItems = new ItemSO[2];
     }
 
+    private void InactivePauseManager()
+    {
+        PauseManager.Instance.gameObject.SetActive(false);
+    }
+    private void ActivePauseManager()
+    {
+        PauseManager.Instance.gameObject.SetActive(true);
+    }
 
     //추후 GameResultHandler로 분리 예정
     #region GameResult

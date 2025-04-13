@@ -102,6 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _missMoveSpeed: 30
+  isExploded: 0
+  Destination: {x: -12, y: -0.5, z: 0}
 --- !u!95 &8702874720819734721
 Animator:
   serializedVersion: 7

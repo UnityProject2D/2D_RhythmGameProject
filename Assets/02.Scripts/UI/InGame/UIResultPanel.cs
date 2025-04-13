@@ -48,7 +48,6 @@ public class UIResultPanel : MonoBehaviour
         InitUI(IndexScore, null);
         InitUI(ResultScore, ScoreBG);
 
-        ScoreManager.Instance.OnScoreChanged += UpdateScore;
     }
 
     public string sceneToLoad;
@@ -72,12 +71,9 @@ public class UIResultPanel : MonoBehaviour
 
         ResultPerfect.text = ScoreManager.Instance.Counts[(int)JudgementResult.Perfect].ToString();
         ResultGood.text = ScoreManager.Instance.Counts[(int)JudgementResult.Good].ToString();
+        ResultScore.text = ScoreManager.Instance.Score.ToString();
     }
 
-    private void UpdateScore(int score)
-    {
-        ResultScore.text = score.ToString();
-    }
 
     // 헬퍼 메서드: 한 그룹의 왼쪽(인덱스) 텍스트, 오른쪽(결과) 텍스트, 그리고 BG 애니메이션을 Sequence에 추가
     private void AppendGroup(Sequence seq, RectTransform leftRect, TextMeshProUGUI leftText,

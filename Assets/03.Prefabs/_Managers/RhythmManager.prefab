@@ -83,7 +83,7 @@ MonoBehaviour:
   stageNotes:
   - {fileID: 11400000, guid: c146a3ada1be51443946f54b3c8315b6, type: 2}
   - {fileID: 11400000, guid: 51d18a65aa3e22f4a9127d1bb060f352, type: 2}
-  - {fileID: 11400000, guid: c146a3ada1be51443946f54b3c8315b6, type: 2}
+  - {fileID: 11400000, guid: 5fa6fe0a0b1f84b4ca6ab7c8065674d5, type: 2}
   musicTracks:
   - Guid:
       Data1: -73106582
