@@ -56,10 +56,9 @@ public class StoryDialogue : MonoBehaviour, IPointerClickHandler
         yield return StartCoroutine(SetTextCoroutine(_dialogueData.text, typingEffect));
 
         // 대화 후 대기 시간 동안 대기 (클릭으로 스킵 가능)
-        if (_dialogueData.delayAfter > 0)
+        if (_dialogueData.delayAfter > 0 && !_skipWaitRequested)
         {
-            _isWaitingAfterDialogue = true;
-            _skipWaitRequested = false;
+            _isWaitingAfterDialogue = true; // 대화 후 대기 상태 설정
 
             float timer = 0f;
             while (timer < _dialogueData.delayAfter && !_skipWaitRequested)
@@ -68,8 +67,9 @@ public class StoryDialogue : MonoBehaviour, IPointerClickHandler
                 yield return null;
             }
 
-            _isWaitingAfterDialogue = false;
+            _isWaitingAfterDialogue = false; // 대기 상태 초기화
         }
+        _skipWaitRequested = false; // 스킵 요청 초기화
 
         // 대기 시간이 끝나거나 스킵된 후에 남은 효과들 실행
         if (effects.Count > 0)
@@ -215,7 +215,15 @@ public class StoryDialogue : MonoBehaviour, IPointerClickHandler
     {
         if (_skipOnClick)
         {
-            CompleteTextRevealIfInProgress();
+            // 텍스트 표시 중이면 완료, 대기 중이면 스킵 요청
+            if (_text != null && _text.IsRevealing)
+            {
+                _text.CompleteTextRevealIfInProgress();
+            }
+            else
+            {
+                _skipWaitRequested = true;
+            }
         }
     }
 
