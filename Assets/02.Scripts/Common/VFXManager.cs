@@ -42,6 +42,10 @@ public class VFXManager : MonoBehaviour
     {
         PlayerState.Instance.OnItemUsed += HandleItemEffect;
     }
+    private void OnDestroy()
+    {
+        PlayerState.Instance.OnItemUsed -= HandleItemEffect;
+    }
 
     void HandleItemEffect(ItemUseStatus item)
     {
