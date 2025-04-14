@@ -18,13 +18,13 @@ public class PauseManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        masterBus = RuntimeManager.GetBus("bus:/");
+        masterBus = RuntimeManager.GetBus("bus:/BGM");
         DontDestroyOnLoad(gameObject);
     }
     private void OnEnable()
     {
 
-        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정 // 추후 SceneCleanupHandler로 분리 예정
+        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
     }
 
     private void OnDisable()
@@ -66,7 +66,7 @@ public class PauseManager : MonoBehaviour
             ResumeGame();
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0f;
         pauseUI.SetActive(true);
@@ -75,7 +75,7 @@ public class PauseManager : MonoBehaviour
         GameManager.Instance.Player.Controller.SetInputEnabled(false);
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         Time.timeScale = 1f;
         pauseUI.SetActive(false);

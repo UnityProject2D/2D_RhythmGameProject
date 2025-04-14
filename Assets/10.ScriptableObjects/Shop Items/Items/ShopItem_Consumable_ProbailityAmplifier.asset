@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShopItem_Consumable_ProbailityAmplifier
   m_EditorClassIdentifier: 
   itemSO: {fileID: 11400000, guid: 0a70fff42efa72143a72cb9a040e1b7b, type: 2}
-  price: 1
+  price: 2
   currencyType: 1
   OnPurchase:
     m_PersistentCalls:

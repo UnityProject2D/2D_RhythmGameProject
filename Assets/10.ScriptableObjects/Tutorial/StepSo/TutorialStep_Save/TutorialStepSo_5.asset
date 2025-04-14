@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c92f81c38a3aa24f9293bb002e8f7a5, type: 3}
+  m_Name: TutorialStepSo_5
+  m_EditorClassIdentifier: 
+  Text: "\uACF5\uACA9\uC740 4\uAC00\uC9C0 \uBC29\uD5A5\uC73C\uB85C \uB4E4\uC5B4\uC635\uB2C8\uB2E4.\nW
+    \uC704, A \uC67C\uCABD, S \uC544\uB798, D \uC624\uB978\uCABD\n\uBC29\uD5A5\uC5D0
+    \uB530\uB77C \uD574\uB2F9 \uD0A4\uB97C \uB20C\uB7EC \uBC29\uC5B4\uD574\uC57C
+    \uD569\uB2C8\uB2E4.\n\uC9C0\uAE08\uBD80\uD130, \uD558\uB098\uC529 \uD14C\uC2A4\uD2B8\uD569\uB2C8\uB2E4."
+  Duration: 0.5
+  DelayTime: 0.5
+  TriggerKeyType: 0
+  TextNextConditionType: 0
+  MusicState: 0

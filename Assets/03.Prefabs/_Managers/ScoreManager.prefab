@@ -47,4 +47,4 @@ MonoBehaviour:
   _combo: 0
   _score: 0
   _totalScore: 0
-  _baseScore: 0
+  _baseScore: 100

@@ -107,7 +107,7 @@ public class TitleMusicPlayer : MonoBehaviour
             Debug.LogWarning("[FMOD] FFT DSP 생성 실패");
         }
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         if (_musicInstance.isValid())
         {
@@ -137,20 +137,6 @@ public class TitleMusicPlayer : MonoBehaviour
         if (self == null) return FMOD.RESULT.OK;
         switch (type)
         {
-            case EVENT_CALLBACK_TYPE.STOPPED:
-                lock (self._lock)
-                {
-                    self._eventQueue.Enqueue(() => RhythmEvents.InvokeOnMusicStopped());
-                }
-                break;
-            case EVENT_CALLBACK_TYPE.TIMELINE_MARKER:
-                var marker = (TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_MARKER_PROPERTIES));
-                string markerName = marker.name;
-                lock (self._lock)
-                {
-                    self._eventQueue.Enqueue(() => RhythmEvents.InvokeOnMarkerHit(markerName));
-                }
-                break;
             case EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                 var beat = (TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(TIMELINE_BEAT_PROPERTIES));
                 float beatTime = beat.position / 1000f;

@@ -1,0 +1,342 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ca63dec1e6d6745b9b64a9faf96794, type: 3}
+  m_Name: KMBoss
+  m_EditorClassIdentifier: 
+  bpm: 105
+  notes:
+  - beat: 36.5
+    expectedKey: A
+  - beat: 37.5
+    expectedKey: D
+  - beat: 38.5
+    expectedKey: A
+  - beat: 39.5
+    expectedKey: D
+  - beat: 44.5
+    expectedKey: A
+  - beat: 45.5
+    expectedKey: D
+  - beat: 46.5
+    expectedKey: A
+  - beat: 47.5
+    expectedKey: D
+  - beat: 52.5
+    expectedKey: W
+  - beat: 53.5
+    expectedKey: S
+  - beat: 54.5
+    expectedKey: W
+  - beat: 55.5
+    expectedKey: W
+  - beat: 68.5
+    expectedKey: W
+  - beat: 69
+    expectedKey: D
+  - beat: 69.5
+    expectedKey: A
+  - beat: 70.5
+    expectedKey: W
+  - beat: 71
+    expectedKey: S
+  - beat: 71.5
+    expectedKey: W
+  - beat: 76.5
+    expectedKey: W
+  - beat: 77
+    expectedKey: D
+  - beat: 77.5
+    expectedKey: A
+  - beat: 78.5
+    expectedKey: W
+  - beat: 79
+    expectedKey: D
+  - beat: 79.5
+    expectedKey: A
+  - beat: 84.5
+    expectedKey: A
+  - beat: 85.5
+    expectedKey: D
+  - beat: 86.5
+    expectedKey: A
+  - beat: 87.5
+    expectedKey: S
+  - beat: 92.5
+    expectedKey: W
+  - beat: 93.5
+    expectedKey: D
+  - beat: 94.5
+    expectedKey: A
+  - beat: 95.5
+    expectedKey: S
+  - beat: 100.5
+    expectedKey: W
+  - beat: 101
+    expectedKey: D
+  - beat: 101.5
+    expectedKey: A
+  - beat: 102
+    expectedKey: S
+  - beat: 102.5
+    expectedKey: D
+  - beat: 103
+    expectedKey: W
+  - beat: 103.5
+    expectedKey: D
+  - beat: 104
+    expectedKey: W
+  - beat: 108.5
+    expectedKey: W
+  - beat: 109
+    expectedKey: S
+  - beat: 109.5
+    expectedKey: D
+  - beat: 110
+    expectedKey: A
+  - beat: 110.5
+    expectedKey: W
+  - beat: 111
+    expectedKey: S
+  - beat: 111.5
+    expectedKey: D
+  - beat: 112
+    expectedKey: A
+  - beat: 116.5
+    expectedKey: D
+  - beat: 117
+    expectedKey: A
+  - beat: 117.5
+    expectedKey: W
+  - beat: 118
+    expectedKey: D
+  - beat: 118.5
+    expectedKey: A
+  - beat: 119
+    expectedKey: D
+  - beat: 120
+    expectedKey: A
+  - beat: 124.5
+    expectedKey: A
+  - beat: 125
+    expectedKey: D
+  - beat: 125.5
+    expectedKey: W
+  - beat: 126
+    expectedKey: S
+  - beat: 126.5
+    expectedKey: D
+  - beat: 127
+    expectedKey: W
+  - beat: 127.5
+    expectedKey: D
+  - beat: 196.5
+    expectedKey: S
+  - beat: 197.5
+    expectedKey: S
+  - beat: 198.5
+    expectedKey: S
+  - beat: 199
+    expectedKey: S
+  - beat: 204.5
+    expectedKey: S
+  - beat: 205.5
+    expectedKey: S
+  - beat: 206.5
+    expectedKey: S
+  - beat: 207
+    expectedKey: S
+  - beat: 212.5
+    expectedKey: S
+  - beat: 213.5
+    expectedKey: S
+  - beat: 214.5
+    expectedKey: S
+  - beat: 215
+    expectedKey: S
+  - beat: 220.5
+    expectedKey: S
+  - beat: 221
+    expectedKey: S
+  - beat: 221.5
+    expectedKey: S
+  - beat: 222
+    expectedKey: S
+  - beat: 222.5
+    expectedKey: S
+  - beat: 223
+    expectedKey: S
+  - beat: 223.5
+    expectedKey: S
+  - beat: 228.5
+    expectedKey: S
+  - beat: 229
+    expectedKey: S
+  - beat: 229.5
+    expectedKey: S
+  - beat: 230
+    expectedKey: S
+  - beat: 230.5
+    expectedKey: S
+  - beat: 231
+    expectedKey: S
+  - beat: 231.5
+    expectedKey: S
+  - beat: 236.5
+    expectedKey: S
+  - beat: 237.25
+    expectedKey: S
+  - beat: 237.5
+    expectedKey: S
+  - beat: 238
+    expectedKey: S
+  - beat: 292.5
+    expectedKey: A
+  - beat: 293.5
+    expectedKey: S
+  - beat: 294.5
+    expectedKey: S
+  - beat: 295.5
+    expectedKey: S
+  - beat: 300.5
+    expectedKey: A
+  - beat: 301.5
+    expectedKey: A
+  - beat: 302.5
+    expectedKey: W
+  - beat: 308.5
+    expectedKey: D
+  - beat: 309.5
+    expectedKey: S
+  - beat: 310.5
+    expectedKey: A
+  - beat: 311.5
+    expectedKey: S
+  - beat: 316.5
+    expectedKey: W
+  - beat: 317.5
+    expectedKey: A
+  - beat: 319.5
+    expectedKey: D
+  - beat: 324.5
+    expectedKey: W
+  - beat: 325.5
+    expectedKey: W
+  - beat: 326.5
+    expectedKey: S
+  - beat: 327.5
+    expectedKey: S
+  - beat: 333.5
+    expectedKey: W
+  - beat: 335.5
+    expectedKey: D
+  - beat: 341
+    expectedKey: A
+  - beat: 342
+    expectedKey: S
+  - beat: 343
+    expectedKey: A
+  - beat: 344
+    expectedKey: S
+  - beat: 349
+    expectedKey: D
+  - beat: 350
+    expectedKey: S
+  - beat: 351
+    expectedKey: W
+  - beat: 351.5
+    expectedKey: D
+  - beat: 356.5
+    expectedKey: A
+  - beat: 357
+    expectedKey: S
+  - beat: 357.5
+    expectedKey: A
+  - beat: 358
+    expectedKey: W
+  - beat: 358.5
+    expectedKey: A
+  - beat: 359
+    expectedKey: W
+  - beat: 359.5
+    expectedKey: A
+  - beat: 360
+    expectedKey: W
+  - beat: 364.5
+    expectedKey: D
+  - beat: 365
+    expectedKey: S
+  - beat: 365.5
+    expectedKey: D
+  - beat: 366
+    expectedKey: S
+  - beat: 366.5
+    expectedKey: D
+  - beat: 367
+    expectedKey: S
+  - beat: 367.5
+    expectedKey: D
+  - beat: 368
+    expectedKey: S
+  - beat: 388.5
+    expectedKey: S
+  - beat: 389
+    expectedKey: W
+  - beat: 389.5
+    expectedKey: S
+  - beat: 390
+    expectedKey: A
+  - beat: 390.5
+    expectedKey: W
+  - beat: 391
+    expectedKey: A
+  - beat: 391.5
+    expectedKey: S
+  - beat: 392
+    expectedKey: S
+  - beat: 396.5
+    expectedKey: W
+  - beat: 396.75
+    expectedKey: S
+  - beat: 397.5
+    expectedKey: A
+  - beat: 397.75
+    expectedKey: D
+  - beat: 398.5
+    expectedKey: S
+  - beat: 398.75
+    expectedKey: W
+  - beat: 399.5
+    expectedKey: D
+  - beat: 399.75
+    expectedKey: A
+  - beat: 404.5
+    expectedKey: D
+  - beat: 405
+    expectedKey: S
+  - beat: 405.5
+    expectedKey: A
+  - beat: 406
+    expectedKey: S
+  - beat: 406.5
+    expectedKey: D
+  - beat: 407
+    expectedKey: A
+  - beat: 407.5
+    expectedKey: S
+  - beat: 408
+    expectedKey: D
+  - beat: 415
+    expectedKey: A
+  - beat: 415.5
+    expectedKey: D
+  - beat: 416
+    expectedKey: S

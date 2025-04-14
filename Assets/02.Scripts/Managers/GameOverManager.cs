@@ -23,10 +23,19 @@ public class GameOverManager : MonoBehaviour
     }
     private void Start()
     {
-
-        PlayerState.Instance.GetComponent<PlayerHealth>().OnPlayerDied += OnPlayerDied;
+        if (GameManager.Instance.Player.Health != null)
+        {
+            OnPlayerRegistered();
+        }
+        else
+        {
+            GameManager.Instance.PlayerRegistered += OnPlayerRegistered;
+        }
     }
-
+    private void OnPlayerRegistered()
+    {
+        GameManager.Instance.Player.Health.OnPlayerDied += OnPlayerDied;
+    }
     public void OnPlayerDied()
     {
         Debug.Log("[GameOverManager] 게임 오버 처리");

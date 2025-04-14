@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShopItem_Consumable_EmergencyEvasion
   m_EditorClassIdentifier: 
   itemSO: {fileID: 11400000, guid: f8228a6fe110d3c459c63319c4f8edeb, type: 2}
-  price: 1
+  price: 8
   currencyType: 1
   OnPurchase:
     m_PersistentCalls:

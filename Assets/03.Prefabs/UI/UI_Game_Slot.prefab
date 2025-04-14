@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b968557c782b17343ae7c617ada9fa9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overDriveEffectPrefab: {fileID: 2787109367624232759, guid: 03b6111312b19254c9b2b92366faf8b0, type: 3}
 --- !u!1 &1985820585637973305
 GameObject:
   m_ObjectHideFlags: 0

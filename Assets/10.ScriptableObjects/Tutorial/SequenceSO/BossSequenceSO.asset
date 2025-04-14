@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06fb114959147a34ea3f0762094d1c79, type: 3}
+  m_Name: BossSequenceSO
+  m_EditorClassIdentifier: 
+  Steps:
+  - {fileID: 11400000, guid: ff4fc827c2e50604eb821d2dcbf7dd01, type: 2}
+  - {fileID: 11400000, guid: 3ac1c562d51efb94799620386260487f, type: 2}
+  - {fileID: 11400000, guid: 9cbffeb03e2fe65479fd2a7c0588c9b4, type: 2}
+  - {fileID: 11400000, guid: a70f500ee567f0641bcc5d040a5f7102, type: 2}
+  - {fileID: 11400000, guid: 53ffc2ef54424964f9b15cfbfdc42ec6, type: 2}
+  - {fileID: 11400000, guid: b73fefb1f06b94e4485df36e6dae5384, type: 2}
+  - {fileID: 11400000, guid: bcad4ebf148c2ef44a2a872744a2b068, type: 2}
+  - {fileID: 11400000, guid: bcad4ebf148c2ef44a2a872744a2b068, type: 2}
+  - {fileID: 11400000, guid: 6ffc061aad3993e458add026ebff1545, type: 2}
+  - {fileID: 11400000, guid: bcad4ebf148c2ef44a2a872744a2b068, type: 2}
+  Loops: []

@@ -1,13 +1,11 @@
 using DG.Tweening;
 using UnityEngine;
-using static RhythmEvents;
 
 public class SubBossController : MonoBehaviour
 {
     private Animator _animator;
     private SubBossSpawner _spawner;
-    private SpriteRenderer _spriteRenderer; // 서브보스몹 페이드인&아웃용
-
+    private SpriteRenderer _spriteRenderer;
 
     public void SetSpawner(SubBossSpawner spawner)
     {
@@ -17,55 +15,41 @@ public class SubBossController : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>(); // 서브보스몹 페이드인&아웃용
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void OnEnable()
+    public void Walk()
     {
-        OnNote += OnNoteReceived;
-        FadeInSubBoss(0.25f); // 서브보스 페이드인
-    }
-    private void Start()
-    {
-        ScoreManager.Instance.OnComboChanged += OnComboChanged;
-    }
-    private void OnDisable()
-    {
-        ScoreManager.Instance.OnComboChanged -= OnComboChanged;
-        OnNote -= OnNoteReceived;
+        _animator.SetTrigger("Attack");
     }
 
-    //private void Update()
-    //{
-    //    _animator.Play("Idle");
-    //}
-
-    private void OnComboChanged(int combo)
+    public void HurtAndDeactivate()
     {
-        if (combo > 0)
-        {
-            _animator.SetTrigger("Hurt");
-            Invoke(nameof(Respawn), 0.1f);
-        }
+        _animator.SetTrigger("Hurt");
+        Invoke(nameof(Deactivate), 0.1f);
     }
 
-    private void Respawn()
+    public void Die()
     {
-        gameObject.SetActive(false);
-        if (_spawner != null)
-        {
-            _spawner.NotifySubBossDeactivated();
-            //FadeInSubBoss(0.5f);
-        }
-        else
-        {
-            Debug.Log("Spawner가 할당되지 않음.");
-        }
+        _animator.SetTrigger("Die");
+
+        // Hurt 애니메이션 시간 끝날 때쯤 페이드아웃 시작 (예: 0.5초 뒤)
+        float delay = 1f;
+        float fadeDuration = 1f;
+
+        // DOTween 활용해서 알파값 0으로
+        _spriteRenderer.DOFade(0, fadeDuration)
+            .SetDelay(delay)
+            .OnComplete(() =>
+            {
+                // 페이드아웃 끝나면 비활성화
+                gameObject.SetActive(false);
+            });
     }
 
-    private void OnNoteReceived(NoteData beatNote)
+    private void Deactivate()
     {
-        _animator.SetTrigger("Walk");
+        _spawner.NotifySubBossDeactivated(gameObject);
     }
 
     public void FadeInSubBoss(float duration)

@@ -11,9 +11,9 @@ public class DelayedHealthBar : MonoBehaviour
 {
     [Header("체력 설정")]
     [Tooltip("최대 체력")]
-    [SerializeField] private float _maxHealth = 100f;
+    [SerializeField] private float _maxHealth = 20f;
     [Tooltip("현재 체력")]
-    [SerializeField] private float _currentHealth = 100f;
+    [SerializeField] private float _currentHealth = 20f;
 
     [Header("색상 설정")]
     [Tooltip("표면 색상")]
@@ -34,7 +34,7 @@ public class DelayedHealthBar : MonoBehaviour
 
     private bool _isInitialized = false;
 
-    private float _previousHealth = 100f; // 이전 체력
+    private float _previousHealth = 20f; // 이전 체력
 
     // 트윈 참조를 저장하기 위한 변수
     private Tween _delayedSliderTween;

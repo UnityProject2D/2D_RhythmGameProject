@@ -15,6 +15,7 @@ public class RhythmInputHandler : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
         inputActions = new @PlayerInputAction();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()
@@ -26,6 +27,7 @@ public class RhythmInputHandler : MonoBehaviour
         inputActions.Player.RhythmAction_S.performed += OnSPressed;
         inputActions.Player.RhythmAction_D.performed += OnDPressed;
 
+        
         SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
     }
 
@@ -51,4 +53,11 @@ public class RhythmInputHandler : MonoBehaviour
     private void OnAPressed(InputAction.CallbackContext ctx) => OnInputPerformed?.Invoke("A");
     private void OnSPressed(InputAction.CallbackContext ctx) => OnInputPerformed?.Invoke("S");
     private void OnDPressed(InputAction.CallbackContext ctx) => OnInputPerformed?.Invoke("D");
+    private void OnNPressed(InputAction.CallbackContext ctx) => OnInputPerformed?.Invoke("N");
+
+    public void SimulateInput(string key)
+    {
+        //if (!Application.isPlaying) return;
+        OnInputPerformed?.Invoke(key);
+    }
 }

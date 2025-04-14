@@ -15,7 +15,6 @@ public enum RhythmAction
 public class PlayerController : MonoBehaviour
 {
     public PlayerHealth PlayerHealth;
-
     private Animator _animator;
     private bool _isDead;
     private float _prevHealth = 0;
@@ -30,12 +29,16 @@ public class PlayerController : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.RegisterPlayer(this);
+            Debug.Log(this);
         }
         _animator = GetComponent<Animator>();
     }
     private void Start()
     {
-        Instance.OnInputPerformed += OnInputPerf;
+        if (Instance != null)
+        {
+            Instance.OnInputPerformed += OnInputPerf;
+        }
         PlayerHealth.OnPlayerHealthChanged += OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독
         PlayerHealth.OnPlayerDied += HandleDie;
         _prevHealth = PlayerHealth.PlayerCurrentHealth;
@@ -43,11 +46,16 @@ public class PlayerController : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.RegisterPlayer(this);
+
+            Debug.Log(this);
         }
     }
     private void OnDestroy()
     {
-        Instance.OnInputPerformed -= OnInputPerf;
+        if (Instance != null)
+        {
+            Instance.OnInputPerformed -= OnInputPerf;
+        }
         PlayerHealth.OnPlayerHealthChanged -= OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독 해제
     }
 
@@ -59,8 +67,8 @@ public class PlayerController : MonoBehaviour
         {
             case "W": direction = RhythmAction.Jump; break;
             case "S": direction = RhythmAction.Slide; break;
-            case "A": direction = RhythmAction.Roll; break;
-            case "D": direction = RhythmAction.BackFlip; break;
+            case "A": direction = RhythmAction.BackFlip; break;
+            case "D": direction = RhythmAction.Roll; break;
         }
 
         _animator.SetInteger("Direction", (int)direction);
@@ -71,11 +79,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnPlayerHealthChanged(float changed)
     {
+        if (GameSceneManager.Instance.CurrentStage == 0) return;
         if(changed < _prevHealth)
         {
-            _prevHealth = changed;
             _animator.SetTrigger("Hit");
         }
+
+        _prevHealth = changed;
     }
 
     private void HandleDie()

@@ -1,7 +1,6 @@
-using System.Collections.Generic;
 using FMODUnity;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 using static RhythmEvents;
 
 public class DummyController : MonoBehaviour
@@ -13,29 +12,20 @@ public class DummyController : MonoBehaviour
     public Transform PlayerTransform;
     public Transform GunPosition;
 
-    private int poolSize = 10;
+    private int poolSize = 15;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        OnMusicStopped += EnemyDieJdg;
-        // 총알 오브젝트 풀 생성
         for (int i = 0; i < poolSize; i++)
         {
             GameObject bullet = Instantiate(EnemyBulletPrefab, GunPosition.position, Quaternion.identity);
             bullet.SetActive(false);
             EnemyBulletPool.Add(bullet);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnEnable()
@@ -52,7 +42,7 @@ public class DummyController : MonoBehaviour
     private void OnNoteReceived(NoteData beatTime)
     {
         PlayAttackSound();
-        int index = GetIndexFromKey(beatTime.expectedKey); // 입력 키(WASD) → 인덱스로 변환 (0~3)
+        int index = GetIndexFromKey(beatTime.expectedKey);
         if (index < 0 || index >= EnemyBulletPool.Count) return;
 
         // bullet 메서드
@@ -60,9 +50,6 @@ public class DummyController : MonoBehaviour
 
         _animator.SetInteger("Direction", index + 1);
         _animator.SetTrigger("Attack");
-
-
-        //StartCoroutine(ResetAnimation());
     }
 
     public void PlayAttackSound()
@@ -99,11 +86,7 @@ public class DummyController : MonoBehaviour
                 return bullet;
         }
 
-        var newBullet = Instantiate(EnemyBulletPrefab, GunPosition.position, Quaternion.identity);
-
-        newBullet.SetActive(false);
-        EnemyBulletPool.Add(newBullet);
-        return newBullet;
+        return null;
     }
 
     private void FireBullet(int directionIndex)
@@ -115,19 +98,19 @@ public class DummyController : MonoBehaviour
         Vector2 direction;
         if (PlayerTransform == null)
             direction = GunPosition.position;
-
-        switch (directionIndex)
+        else
         {
-            case 0: direction = (PlayerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
-            case 1: direction = (PlayerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
-            case 2: direction = Vector3.left; break;   // A - 왼쪽 몸통
-            case 3: direction = Vector3.left; break;  // D - 오른쪽 몸통
-            default: direction = PlayerTransform.position; break;
+            switch (directionIndex)
+            {
+                case 0: direction = (PlayerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
+                case 1: direction = (PlayerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
+                case 2: direction = (PlayerTransform.position + Vector3.up * 0.5f) - GunPosition.position; break;  // A - 왼쪽 몸통
+                case 3: direction = (PlayerTransform.position + Vector3.up * 1f) - GunPosition.position; break; // D - 오른쪽 몸통
+                default: direction = PlayerTransform.position; break;
+            }
         }
-
         direction = direction.normalized;
 
-        // 회전 방향 기준으로 이동 방향 설정
         bullet.GetComponent<EnemyBullet>().direction = direction;
         bullet.SetActive(true);
     }

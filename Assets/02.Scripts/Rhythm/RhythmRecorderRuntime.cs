@@ -8,13 +8,16 @@ public class RhythmRecorderRuntime : MonoBehaviour
     public RhythmPatternSO targetPattern;
     private bool isRecording = false;
     public TMP_Dropdown dropdown;
-    public float bpm = 120f;
+    public float bpm = 100f;
 
     private float beatDuration;
     public void StartRecording()
     {
         beatDuration = 60f / bpm;
-        RhythmManager.Instance.OnLoadedStage(dropdown.value);
+        var tmp = new StageData();
+        tmp.StageIndex =dropdown.value;
+
+        RhythmManager.Instance.OnLoadedStage(tmp);
         StartCoroutine(WaitUntil());
     }
 

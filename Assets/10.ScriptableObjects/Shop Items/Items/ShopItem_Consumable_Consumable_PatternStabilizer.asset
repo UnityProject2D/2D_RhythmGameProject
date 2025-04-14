@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShopItem_Consumable_Consumable_PatternStabilizer
   m_EditorClassIdentifier: 
   itemSO: {fileID: 11400000, guid: c90c76a7c49894544a8d62df7940a9f5, type: 2}
-  price: 1
+  price: 25
   currencyType: 1
   OnPurchase:
     m_PersistentCalls:
