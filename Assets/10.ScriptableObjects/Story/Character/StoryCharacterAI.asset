@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: StoryCharacterAI
   m_EditorClassIdentifier: 
   type: 1
-  displayName: AI
+  displayName: SERA
   nameColor: {r: 0.015686275, g: 0.7176471, b: 0.89019614, a: 1}
   portrait: {fileID: 5715529812403037938, guid: 9ccf0ae34da4a4e418e65877b19aeab2, type: 3}

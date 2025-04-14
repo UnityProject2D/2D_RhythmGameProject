@@ -960,6 +960,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1819567100}
+  - {fileID: 983993022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &866488904 stripped
@@ -3530,7 +3531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7959039568916188763, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
       propertyPath: sceneToLoad
-      value: TutorialScene_KM
+      value: Story_Opening
       objectReference: {fileID: 0}
     - target: {fileID: 8340532590370343200, guid: 3ccf89a779515a548b65dd78dd1ebb54, type: 3}
       propertyPath: managedReferences[5021678716850536535].Timing.InitialDelay

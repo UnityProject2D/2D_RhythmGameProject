@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959e3cb689bedf24095a90da3edaed45, type: 3}
+  m_Name: StoryDialogue 14
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: 89ba49fe94aa0c1479a5e9af723b2e8b, type: 2}
+  text: "\uC774\uD0C8 \uACBD\uB85C \uB0B4 \uC608\uC0C1 \uC804\uD22C \uC218: 17\uD68C. 
+    \r\n\uC704\uD611 \uC608\uCE21 \uC815\uD655\uB3C4\uB294... \n\uCD5C\uB300\uCE58\uAE4C\uC9C0
+    \uB04C\uC5B4\uC62C\uB9AC\uACA0\uC2B5\uB2C8\uB2E4."
+  delayAfter: 1
+  effects:
+  - {fileID: 11400000, guid: b246a247ce3cae44eb1bad64d5b23a65, type: 2}

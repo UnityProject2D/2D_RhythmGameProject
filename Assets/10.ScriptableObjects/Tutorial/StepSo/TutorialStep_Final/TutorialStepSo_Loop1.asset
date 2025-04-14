@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c92f81c38a3aa24f9293bb002e8f7a5, type: 3}
   m_Name: TutorialStepSo_Loop1
   m_EditorClassIdentifier: 
-  Text: "\uAC19\uC740 \uB9AC\uB4EC\uC73C\uB85C \uBC18\uC751\uD558\uC138\uC694"
+  Text: "<color=#00FFFF>SERA</color> \n\uADF8\uB9AC\uACE0... \uB3D9\uC77C\uD55C \uD0C0\uC774\uBC0D\uC73C\uB85C
+    \uC751\uB2F5\uD574\uC8FC\uC138\uC694."
   Duration: 0.5
   DelayTime: 0
   TriggerKeyType: 1

@@ -65,8 +65,8 @@ public class RhythmManager : MonoBehaviour
 
     private void Start()
     {
-        if(PlayerState.Instance!=null)
-            PlayerState.Instance.GetComponent<PlayerHealth>().OnPlayerDied += OnPlayerDie;
+        if(GameManager.Instance.Player.Health!=null)
+            GameManager.Instance.Player.Health.OnPlayerDied += OnPlayerDie;
         else
         {
             if(GameManager.Instance!=null)
@@ -81,7 +81,7 @@ public class RhythmManager : MonoBehaviour
 
     private void OnRegistered()
     {
-        PlayerState.Instance.GetComponent<PlayerHealth>().OnPlayerDied += OnPlayerDie;
+        GameManager.Instance.Player.Health.OnPlayerDied += OnPlayerDie;
     }
     private void OnEnable()
     {

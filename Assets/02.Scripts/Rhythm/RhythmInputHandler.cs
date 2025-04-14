@@ -57,7 +57,7 @@ public class RhythmInputHandler : MonoBehaviour
 
     public void SimulateInput(string key)
     {
-        //if (!Application.isPlaying) return;
+        if (!Application.isPlaying|| Application.isPlaying) return;
         OnInputPerformed?.Invoke(key);
     }
 }

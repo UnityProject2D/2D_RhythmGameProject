@@ -38,6 +38,7 @@ public class StoryLoader : MonoBehaviour
 
         // 씬 종료
         Debug.Log("Scene finished.");
+        GameSceneManager.Instance.ChangeScene("TutorialScene_KM");
     }
 
     private IEnumerator ResetEffects()
@@ -102,6 +103,14 @@ public class StoryLoader : MonoBehaviour
         else
         {
             Debug.LogError("StoryInsert component is not assigned.");
+        }
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameSceneManager.Instance.ChangeScene("TutorialScene_KM");
         }
     }
 }

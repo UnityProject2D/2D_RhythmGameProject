@@ -54,6 +54,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 905
+--- !u!114 &-5880157890534975175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Story
+  m_EditorClassIdentifier: 
+  Path: event:/Story
+  Guid:
+    Data1: -649298362
+    Data2: 1239627089
+    Data3: -1286281311
+    Data4: 2119502952
+  Banks:
+  - {fileID: 2325183216582169763}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 167376
 --- !u!114 &-5828288257492713934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,10 +204,10 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638802081835769954
+  lastModified: 638802210466276898
   FileSizes:
   - Name: Desktop
-    Value: 2076
+    Value: 2070
   Exists: 1
 --- !u!114 &-2519372549183741152
 MonoBehaviour:
@@ -279,7 +306,7 @@ MonoBehaviour:
   - {fileID: -2596667840957986642}
   - {fileID: 1524653733103864878}
   - {fileID: 2325183216582169763}
-  - {fileID: 5454540645594690440}
+  - {fileID: 8396630143728479117}
   EditorEvents:
   - {fileID: 5041779617968266673}
   - {fileID: 8308070795445531540}
@@ -289,7 +316,6 @@ MonoBehaviour:
   - {fileID: -1483674036965872788}
   - {fileID: -2852299458126035513}
   - {fileID: 6559489985047708647}
-  - {fileID: 2585479893305146147}
   - {fileID: 8037341091926086625}
   - {fileID: 7350767493011601478}
   - {fileID: -7769661378763955534}
@@ -303,17 +329,18 @@ MonoBehaviour:
   - {fileID: 8453963535018577810}
   - {fileID: 1616924266267921469}
   - {fileID: 5016662129418740527}
-  - {fileID: 5315743355933361212}
   - {fileID: 7497733092680245266}
   - {fileID: -6852787241493483555}
   - {fileID: 1468849043292641159}
   - {fileID: -5828288257492713934}
+  - {fileID: 7806202686342151671}
+  - {fileID: -5880157890534975175}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2325183216582169763}
   StringsBanks:
   - {fileID: -2596667840957986642}
-  cacheTime: 638802081835769954
+  cacheTime: 638802210466276898
   cacheVersion: 131623
 --- !u!114 &386619556000339076
 MonoBehaviour:
@@ -384,7 +411,7 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master Bank.bank
   Name: Master Bank
   StudioPath: bank:/Master Bank
-  lastModified: 638801894282252567
+  lastModified: 638802194475014802
   FileSizes:
   - Name: Desktop
     Value: 7517248
@@ -431,38 +458,11 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638802081835740033
+  lastModified: 638802210466256532
   FileSizes:
   - Name: Desktop
-    Value: 25652704
+    Value: 27891296
   Exists: 1
---- !u!114 &2585479893305146147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/New Event
-  m_EditorClassIdentifier: 
-  Path: event:/New Event
-  Guid:
-    Data1: -649298362
-    Data2: 1239627089
-    Data3: -1286281311
-    Data4: 2119502952
-  Banks:
-  - {fileID: 2325183216582169763}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &2873620758376609369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,53 +571,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 55459
---- !u!114 &5315743355933361212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Ambient
-  m_EditorClassIdentifier: 
-  Path: event:/Ambient
-  Guid:
-    Data1: -754656923
-    Data2: 1164577949
-    Data3: 1546083498
-    Data4: 1462833567
-  Banks:
-  - {fileID: 5454540645594690440}
-  IsStream: 1
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 398000
---- !u!114 &5454540645594690440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Bank A.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Bank A.bank
-  Name: Bank A
-  StudioPath: bank:/Bank A
-  lastModified: 638801895000735772
-  FileSizes:
-  - Name: Desktop
-    Value: 4154592
-  Exists: 1
 --- !u!114 &6001361326524862247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,6 +733,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 75361
+--- !u!114 &7806202686342151671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambient
+  m_EditorClassIdentifier: 
+  Path: event:/Ambient
+  Guid:
+    Data1: -754656923
+    Data2: 1164577949
+    Data3: 1546083498
+    Data4: 1462833567
+  Banks:
+  - {fileID: 8396630143728479117}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 398000
 --- !u!114 &8037341091926086625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,6 +814,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 240048
+--- !u!114 &8396630143728479117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Bank A.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/FMOD Studio/TestProject/Build/Desktop/Bank A.bank
+  Name: Bank A
+  StudioPath: bank:/Bank A
+  lastModified: 638802194474457275
+  FileSizes:
+  - Name: Desktop
+    Value: 4154592
+  Exists: 1
 --- !u!114 &8453963535018577810
 MonoBehaviour:
   m_ObjectHideFlags: 0

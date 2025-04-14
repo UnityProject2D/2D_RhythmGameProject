@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c92f81c38a3aa24f9293bb002e8f7a5, type: 3}
   m_Name: TutorialStepSo_0
   m_EditorClassIdentifier: 
-  Text: "\uC774\uACF3\uC740 \uC778\uACF5\uC9C0\uB2A5 \uBCF4\uD638 \uD504\uB85C\uD1A0\uCF5C
-    \uC2DC\uBBAC\uB808\uC774\uC158 \uACF5\uAC04\uC785\uB2C8\uB2E4.\n\uC801\uC758
-    \uACF5\uACA9\uC740 \uB9AC\uB4EC\uC5D0 \uB9DE\uCDB0 \uB2E4\uAC00\uC635\uB2C8\uB2E4."
+  Text: "<color=#00FFFF>SERA</color>  \r\n\uC774\uACF3\uC740 \uC778\uACF5\uC9C0\uB2A5
+    \uBCF4\uD638 \uD504\uB85C\uD1A0\uCF5C \uC2DC\uBBAC\uB808\uC774\uC158 \uACF5\uAC04\uC785\uB2C8\uB2E4. 
+    \r\n\uD604\uC7AC \uC0C1\uD669\uC744 \uACE0\uB824\uD574, \uC804\uD22C \uBC18\uC751
+    \uC54C\uACE0\uB9AC\uC998\uC744 \uC7AC\uC810\uAC80\uD569\uB2C8\uB2E4."
   Duration: 0.5
   DelayTime: 0
   TriggerKeyType: 0

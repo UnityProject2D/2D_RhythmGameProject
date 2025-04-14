@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
     private void OnMusicStopped()
     {
         Debug.Log("음악 끝. 3초 뒤 결과 출력");
+        if(GameSceneManager.Instance.CurrentStage == 0) return;
         StartCoroutine(HandleResultAfterDelay());
     }
 
@@ -84,15 +85,16 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        double totalScore = ScoreManager.Instance.TotalScore;
+        double totalScore = ScoreManager.Instance.Score;
 
         if (totalScore >= winScoreThreshold)
         {
-            Debug.Log($"승리! 총 점수: {totalScore}");
+            winScoreThreshold += 80000;
+            
         }
         else
         {
-            Debug.Log($"패배 총 점수: {totalScore}");
+            GameSceneManager.Instance.ChangeScene("UI_GameOver");
         }
     }
     #endregion
