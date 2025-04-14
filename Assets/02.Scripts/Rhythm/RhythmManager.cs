@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using MoreMountains.Tools;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Concurrent;
 
 enum NoteTriggerState
 {
@@ -21,7 +22,7 @@ public class RhythmManager : MonoBehaviour
     public static RhythmManager Instance { get; private set; }
 
     public bool IsTest = true;
-
+    public bool IsRestart = false;
     public bool IsPlaying = false;
     private float _bpm;
     public float BPM
@@ -42,7 +43,7 @@ public class RhythmManager : MonoBehaviour
     private int _stageMusicIndex;
     private List<NoteTriggerState> _noteStates;
 
-    private Queue<Action> _eventQueue = new Queue<Action>();
+    private ConcurrentQueue<Action> _eventQueue = new ConcurrentQueue<Action>();
     private object _lock = new object();
     public CustomMMAudioAnalyzer mmaudioAnalyzer;
 
@@ -59,27 +60,50 @@ public class RhythmManager : MonoBehaviour
             Instance = this;
         }
         else Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        if (IsTest)
+        if(GameManager.Instance.Player.Health!=null)
+            GameManager.Instance.Player.Health.OnPlayerDied += OnPlayerDie;
+        else
         {
-            Play();
+            if(GameManager.Instance!=null)
+                GameManager.Instance.PlayerRegistered += OnRegistered;
         }
-
-        PlayerState.Instance.GetComponent<PlayerHealth>().OnPlayerDied += OnPlayerDie;
-        //GameManager.Instance.PlayerRegistered += () =>
-        //{
-        //    Debug.Log("[RhythmManager] PlayerRegistered");
-        //    GameManager.Instance.Player.Health.OnPlayerDied += OnPlayerDie;
-        //};
+        if (GameSceneManager.Instance != null)
+        {
+            GameSceneManager.Instance.OnStageDataLoaded += OnLoadedStage;
+            Debug.Log($"[RhythmManager] OnStageDataLoaded 등록됨");
+        }
     }
 
-
+    private void OnRegistered()
+    {
+        GameManager.Instance.Player.Health.OnPlayerDied += OnPlayerDie;
+    }
     private void OnEnable()
     {
         SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
+    }
+
+    public void OnLoadedStage(StageData stageData)
+    {
+        //Debug.Log($"[RhythmManager] OnLoadedStage 호출됨, {stageData.StageName}, {stageData.StageIndex}");
+        _stageMusicIndex = stageData.StageIndex;
+        
+        if (IsTest||(_stageMusicIndex > 0 && IsPlaying == false))
+        {
+            IsPlaying = true;
+            Play();
+        }
+        else
+        {
+            IsPlaying = false;
+        }
+
+        InvokeOnMusicReady();
     }
     private void OnDisable()
     {
@@ -90,6 +114,7 @@ public class RhythmManager : MonoBehaviour
     {
         if (scene.name == "GameTitle")
         {
+            //Debug.Log("[RhythmManager] DestroyOnRestart 호출됨");
             Destroy(gameObject);
         }
     }
@@ -97,16 +122,14 @@ public class RhythmManager : MonoBehaviour
     void Update()
     {
         if (!IsPlaying) return;
-        lock (_lock)
+        while (_eventQueue.TryDequeue(out Action action))
         {
-            while (_eventQueue.Count > 0)
-            {
-                _eventQueue.Dequeue()?.Invoke();
-            }
+            action?.Invoke();
         }
 
-        float currentTime = GetCurrentMusicTime();
-            
+        float offset = SyncSettings.InputOffsetMs / 1000f;
+        float currentTime = GetCurrentMusicTime() - offset;
+
         for (int i = 0; i < stageNotes[_stageMusicIndex].notes.Count; i++)
         {
             var note = stageNotes[_stageMusicIndex].notes[i];
@@ -120,7 +143,7 @@ public class RhythmManager : MonoBehaviour
                     {
                         _noteStates[i] = NoteTriggerState.Previewed;
                         InvokeOnNotePreview(note);
-                        Debug.Log($"[미리보기] 키: {note.expectedKey}, 비트: {note.beat}");
+                        //Debug.Log($"[미리보기] 키: {note.expectedKey}, 비트: {note.beat}");
                     }
                     break;
 
@@ -164,19 +187,40 @@ public class RhythmManager : MonoBehaviour
             }
         }
     }
-
-    public void OnLoadedStage(int stageMusicIndex)
+    public void StopMusic()
     {
-        _stageMusicIndex = stageMusicIndex;
+        if (_musicInstance.isValid())
+        {
 
-        Play();
+            // 콜백을 제거하여 더 이상 콜백이 호출되지 않도록 합니다.
+            _musicInstance.setCallback(null);
+            // 사용자 데이터를 초기화합니다.
+            _musicInstance.setUserData(IntPtr.Zero);
+
+
+            IsRestart = true;
+            _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            _musicInstance.release();
+            IsPlaying = false;
+        }
+        if (_timelineHandle.IsAllocated)
+        {
+            _timelineHandle.Free();
+        }
+
+        MusicStartTime = -1f;
     }
     public void Play()
     {
-
         //음악을 종료하고
         if (_musicInstance.isValid())
         {
+            // 콜백을 제거하여 더 이상 콜백이 호출되지 않도록 합니다.
+            _musicInstance.setCallback(null);
+            // 사용자 데이터를 초기화합니다.
+            _musicInstance.setUserData(IntPtr.Zero);
+
+            IsRestart = true;
             _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             _musicInstance.release();
             IsPlaying = false;
@@ -202,7 +246,7 @@ public class RhythmManager : MonoBehaviour
         {
             _noteStates.Add(NoteTriggerState.None);
         }
-
+        IsPlaying = false;
         //음악을 재생한다
         if (!IsPlaying)
         {
@@ -234,7 +278,7 @@ public class RhythmManager : MonoBehaviour
             _fftDSP.setParameterInt((int)FMOD.DSP_FFT.WINDOWTYPE, (int)FMOD.DSP_FFT_WINDOW.HANNING);
             _fftDSP.setParameterInt((int)FMOD.DSP_FFT.WINDOWSIZE, FFT_WINDOW_SIZE * 2);
 
-            var bus = FMODUnity.RuntimeManager.GetBus("bus:/");
+            var bus = FMODUnity.RuntimeManager.GetBus("bus:/BGM");
 
             if (bus.hasHandle())
             {
@@ -273,7 +317,7 @@ public class RhythmManager : MonoBehaviour
     {
         if (_musicInstance.isValid())
         {
-            _musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             _musicInstance.setCallback(null);
             _musicInstance.release();
         }
@@ -283,6 +327,7 @@ public class RhythmManager : MonoBehaviour
     }
     public void OnPlayerDie()
     {
+        IsRestart = false;
         Debug.Log("[RhythmManager] HandleDie() 호출");
         StartCoroutine(FadeOutPitch(_musicInstance,1f));
     }
@@ -322,9 +367,17 @@ public class RhythmManager : MonoBehaviour
         instance.getUserData(out var dataPtr);
         if (dataPtr == IntPtr.Zero) return FMOD.RESULT.OK;
 
-        var handle = GCHandle.FromIntPtr(dataPtr);
-        if (!handle.IsAllocated || handle.Target == null) return FMOD.RESULT.OK;
-
+        try
+        {
+            var handle = GCHandle.FromIntPtr(dataPtr);
+            if (!handle.IsAllocated || handle.Target == null)
+                return FMOD.RESULT.OK;
+        }
+        catch (ArgumentException ex)
+        {
+            Debug.LogError("GCHandle 해제 이후 호출됨: " + ex);
+            return FMOD.RESULT.OK;
+        }
         switch (type)
         {
             case EVENT_CALLBACK_TYPE.STOPPED:

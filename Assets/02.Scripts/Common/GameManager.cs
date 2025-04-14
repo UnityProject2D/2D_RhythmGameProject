@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using System;
 public class PlayerContext
 {
-    public PlayerController Controller =null;
+    public PlayerController Controller = null;
     public PlayerHealth Health = null;
     public Transform Transform = null;
 }
@@ -15,14 +15,15 @@ public class GameManager : MonoBehaviour
     public GameObject Target;
     public PlayerContext Player = new PlayerContext();
     public event Action PlayerRegistered;
+    public ItemFlag SavedItemFlags;
+    public float PlayerHealth = 10;
+    public ItemSO[] SavedItems;
 
     public void RegisterPlayer(PlayerController controller)
     {
         Player.Controller = controller;
         Player.Health = controller.GetComponent<PlayerHealth>();
         Player.Transform = controller.transform;
-
-        Debug.LogWarning($"GameManager: {Player.Controller.gameObject.name} {Player.Health} {Player.Transform.position}");
 
         PlayerRegistered?.Invoke();
     }
@@ -34,8 +35,19 @@ public class GameManager : MonoBehaviour
         else Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+        RhythmEvents.OnMusicStopped += InactivePauseManager;
+        RhythmEvents.OnMusicStart += ActivePauseManager;
+        SavedItems = new ItemSO[2];
     }
 
+    private void InactivePauseManager()
+    {
+        PauseManager.Instance.gameObject.SetActive(false);
+    }
+    private void ActivePauseManager()
+    {
+        PauseManager.Instance.gameObject.SetActive(true);
+    }
 
     //추후 GameResultHandler로 분리 예정
     #region GameResult
@@ -65,6 +77,7 @@ public class GameManager : MonoBehaviour
     private void OnMusicStopped()
     {
         Debug.Log("음악 끝. 3초 뒤 결과 출력");
+        if(GameSceneManager.Instance.CurrentStage == 0) return;
         StartCoroutine(HandleResultAfterDelay());
     }
 
@@ -72,15 +85,16 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        double totalScore = ScoreManager.Instance.TotalScore;
+        double totalScore = ScoreManager.Instance.Score;
 
         if (totalScore >= winScoreThreshold)
         {
-            Debug.Log($"승리! 총 점수: {totalScore}");
+            winScoreThreshold += 80000;
+            
         }
         else
         {
-            Debug.Log($"패배 총 점수: {totalScore}");
+            GameSceneManager.Instance.ChangeScene("UI_GameOver");
         }
     }
     #endregion

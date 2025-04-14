@@ -488,6 +488,7 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - Bank A
   - Master Bank
   BanksToLoad: []
   LiveUpdatePort: 9264

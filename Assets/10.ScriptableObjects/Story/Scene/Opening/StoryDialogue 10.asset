@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959e3cb689bedf24095a90da3edaed45, type: 3}
+  m_Name: StoryDialogue 10
+  m_EditorClassIdentifier: 
+  character: {fileID: 11400000, guid: d6bf76aac6e06934cb3a01616217d277, type: 2}
+  text: "\uADF8\uAC74 \uACC4\uC0B0\uB41C \uB300\uC0AC\uB3C4, \uD14C\uC2A4\uD2B8 \uC785\uB825\uB3C4
+    \uC544\uB2C8\uC5C8\uB2E4.  \r\n\uADF8\uAC74... \uADF8\uB140\uB9CC\uC758 '\uC9C8\uBB38'\uC774\uC5C8\uB2E4.\r\n\uADF8\uB9AC\uACE0,
+    \uB098\uB3C4 \uBAA8\uB974\uAC8C...\n"
+  delayAfter: 1
+  effects:
+  - {fileID: 11400000, guid: b246a247ce3cae44eb1bad64d5b23a65, type: 2}

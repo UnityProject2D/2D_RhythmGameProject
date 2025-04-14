@@ -28,22 +28,19 @@ public class RhythmJudge : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
     }
     private void OnEnable()
     {
-        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
-
+        
         RhythmEvents.OnBeat += OnBeatReceived;
         RhythmEvents.OnMusicStart += OnMusicStartReceived;
     }
 
     private void OnDisable()
     {
-        SceneManager.sceneLoaded -= DestroyOnRestart; 
-        RhythmEvents.OnBeat -= OnBeatReceived;
+       RhythmEvents.OnBeat -= OnBeatReceived;
         RhythmEvents.OnMusicStart -= OnMusicStartReceived;
 
         if (RhythmInputHandler.Instance != null)
@@ -52,26 +49,20 @@ public class RhythmJudge : MonoBehaviour
         }
     }
 
-    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
-    {
-        if (scene.name == "GameTitle")
-        {
-            Destroy(gameObject);
-        }
-    }
+    
     void Update()
     {
         if (!RhythmManager.Instance.IsPlaying) return;
 
-        float now = RhythmManager.Instance.GetCurrentMusicTime();
-        
+        float now = RhythmManager.Instance.GetCurrentMusicTime() + (SyncSettings.InputOffsetMs / 1000f);
+
         while (currentNoteIndex < pattern[_currentNotes].notes.Count)
         {
             float noteTime = pattern[_currentNotes].notes[currentNoteIndex].beat * beatDuration;
 
             if (now - noteTime > beatDuration * badRange * (1 + PermenantEffect * PermenantStack) * (1 + TemporaryEffect * TemporaryStack))
             {
-                Debug.Log($"Miss 판정 (입력 없음) | 노트 시간: {noteTime:F2}s, 현재: {now:F2}s");
+                //Debug.Log($"Miss 판정 (입력 없음) | 노트 시간: {noteTime:F2}s, 현재: {now:F2}s");
                 RhythmEvents.InvokeOnInputJudged(JudgementResult.Miss);
                 currentNoteIndex++;
             }
@@ -98,6 +89,8 @@ public class RhythmJudge : MonoBehaviour
 
     public void EvaluateInput(string key)
     {
+
+        if (!RhythmManager.Instance.IsPlaying) return;
         if (currentNoteIndex >= pattern[_currentNotes].notes.Count)
         {
             Debug.Log("모든 노트 완료");
@@ -105,26 +98,26 @@ public class RhythmJudge : MonoBehaviour
         }
 
         var note = pattern[_currentNotes].notes[currentNoteIndex];
-        float currentTime = RhythmManager.Instance.GetCurrentMusicTime();
+        float currentTime = RhythmManager.Instance.GetCurrentMusicTime() + (SyncSettings.InputOffsetMs / 1000f);
         float noteTime = note.beat * beatDuration;
         float delta = currentTime - noteTime;
         float abs = Mathf.Abs(delta);
         if (abs > beatDuration * (badRange))
         {
-            Debug.Log($"[무시됨] 노트 시간과 입력 시간차 초과 | 오차: {delta:F3}s");
+            //Debug.Log($"[무시됨] 노트 시간과 입력 시간차 초과 | 오차: {delta:F3}s");
             return;
         }
 
         if (key != note.expectedKey)
         {
-            Debug.Log("잘못된 키 → Miss 판정");
+            //Debug.Log("잘못된 키 → Miss 판정");
             RhythmEvents.InvokeOnInputJudged(JudgementResult.Miss);
             currentNoteIndex++;
             return;
         }
 
         var result = GetJudgement(delta);
-        Debug.Log($"{result} | 노트: {noteTime:F3}s, 입력: {currentTime:F3}s, 오차: {delta:F3}s");
+        //Debug.Log($"{result} | 노트: {noteTime:F3}s, 입력: {currentTime:F3}s, 오차: {delta:F3}s");
 
         RhythmEvents.InvokeOnInputJudged(result);
         currentNoteIndex++;

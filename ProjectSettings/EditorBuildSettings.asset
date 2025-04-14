@@ -26,6 +26,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/UI/UI_GameOver.unity
     guid: 50a8a14966732f343a030852d35f44ca
+  - enabled: 1
+    path: Assets/01.Scenes/Common/SyncCalibrationTest.unity
+    guid: 5c6b3b23b339f0244bf48fecdc7da505
+  - enabled: 1
+    path: Assets/01.Scenes/Map/SceneLoad/TutorialScene_KM.unity
+    guid: fa0163dc87709c046a5199499fa0ff8e
+  - enabled: 1
+    path: Assets/01.Scenes/Story/Story_Opening.unity
+    guid: 1efc603d526e8e548b2e4e5b9e044f77
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

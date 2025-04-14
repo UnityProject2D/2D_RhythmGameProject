@@ -16,7 +16,7 @@ public class BossShadowController : MonoBehaviour
     private const int PoolSizePerDirection = 8;
     private List<GameObject>[] shadowPools = new List<GameObject>[4];
 
-    public Transform playerTransform;
+    private Transform _playerTransform;
     private bool _isDead = false; ////////////// 적 사망 여부
     private SpriteRenderer _spriteRenderer; // 적 본체 페이드인&아웃용
 
@@ -31,6 +31,8 @@ public class BossShadowController : MonoBehaviour
     private void Start()
     {
         OnMusicStopped += BossDieJdg;
+
+        OnMarkerHit += JudgeEnd;
         for (int dir = 0; dir < 4; dir++)
         {
             for (int i = 0; i < PoolSizePerDirection; i++)
@@ -40,8 +42,22 @@ public class BossShadowController : MonoBehaviour
                 shadowPools[dir].Add(shadow);
             }
         }
+        if (GameManager.Instance.Player.Controller != null)
+        {
+            Instance_PlayerRegistered();
+        }
+        else
+        {
+            GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
+            //Debug.LogWarning("BossShadowController: 플레이어 없네요 - 구독");
+        }
     }
+    private void Instance_PlayerRegistered()
+    {
+        _playerTransform = GameManager.Instance.Player.Transform;
 
+        //Debug.Log($"BossShadowController: PlayerRegistered - {_playerTransform}");
+    }
     private void OnEnable()
     {
         OnNotePreview += OnNotePreviewReceived;
@@ -51,15 +67,18 @@ public class BossShadowController : MonoBehaviour
 
     private void OnDisable()
     {
+        OnMarkerHit -= JudgeEnd;
         OnNotePreview -= OnNotePreviewReceived;
         OnNote -= OnNoteReceived;
         RhythmEvents.OnMusicStopped -= BossDieJdg;
     }
-
+    bool pageTwo = false;
     private void OnNotePreviewReceived(NoteData beatNote)
     {
         if (_isDead) return; /////////////// 적이 죽었으면 리턴
+
         PlayAttackSound();
+        if (pageTwo) return;
         if (_spriteRenderer.color.a == 1f) return;
         _spriteRenderer.color = new Color(1f, 0f, 0f, 0.9f); // 투명도 초기화
         FadeInBoss();
@@ -90,7 +109,7 @@ public class BossShadowController : MonoBehaviour
         sr.DOFade(1f, 0f);
 
         // Y방향 축소로 사라지게
-        shadow.transform.DOScaleY(0f, 1f).SetEase(Ease.InQuad).OnComplete(() =>
+        shadow.transform.DOScaleY(0f, 0.4f).SetEase(Ease.InQuad).OnComplete(() =>
         {
             shadow.SetActive(false);
         });
@@ -104,22 +123,29 @@ public class BossShadowController : MonoBehaviour
 
     private Vector3 GetTargetPositionFromKey(int dir)
     {
-        if (playerTransform == null)
+        if (_playerTransform == null)
             return gunPoint.position;
 
         return dir switch
         {
-            0 => playerTransform.position + Vector3.down * 0.25f,     // W - 머리
-            1 => playerTransform.position + Vector3.up * 2f,   // S - 다리
-            2 => gunPoint.position + Vector3.left * 1f,   // A - 왼쪽 몸통
-            3 => gunPoint.position + Vector3.left * 1f,  // D - 오른쪽 몸통
-            _ => playerTransform.position
+            0 => _playerTransform.position + Vector3.down * 0.25f,     // W - 머리
+            1 => _playerTransform.position + Vector3.up * 1.75f,   // S - 다리
+            2 => _playerTransform.position + Vector3.up * 0.5f,   // A - 왼쪽 몸통
+            3 => _playerTransform.position + Vector3.up * 1f,  // D - 오른쪽 몸통
+            _ => _playerTransform.position
         };
     }
 
     public void PlayAttackSound()
     {
-        RuntimeManager.PlayOneShot("event:/SFX/PreviewSound");
+        if (pageTwo)
+        {
+            RuntimeManager.PlayOneShot("event:/SFX/SpecialPreview");
+        }
+        else
+        {
+            RuntimeManager.PlayOneShot("event:/SFX/PreviewSound");
+        }
     }
 
     private int GetIndexFromKey(string key)
@@ -171,7 +197,17 @@ public class BossShadowController : MonoBehaviour
             _ => Color.white
         };
     }
-
+    private void JudgeEnd(string marker)
+    {
+        if(marker == "Start")
+        {
+            pageTwo = !pageTwo;
+        }
+        if (marker == "End")
+        {
+            BossDieJdg();
+        }
+    }
     ///////// 적이 죽으면!! -> ScoreManager StageCleared 코드 완성된 후 점검 후 수정할것!
     ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
     private void BossDieJdg()

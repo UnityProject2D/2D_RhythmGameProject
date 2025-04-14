@@ -2,10 +2,10 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{d94c7e46-3551-49e3-a1e7-54b3680c557e}">
 		<property name="name">
-			<value>New Event</value>
+			<value>Story</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{82fb980b-3136-4255-bf9b-aa0809d13677}</destination>
@@ -38,6 +38,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{b0f6145b-c907-4a6c-b2a4-6d82bc201dbb}">
+		<relationship name="modules">
+			<destination>{0a4dd5fd-99d5-4f91-850e-6231d992434f}</destination>
+		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{2c2cea95-a0d1-4e46-9035-7e113cbb56ed}</destination>
 		</relationship>
@@ -50,15 +53,15 @@
 			<destination>{e759bf2f-530d-4c08-80ab-cd40a7ac7dad}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{f85c3dcc-bc07-4a76-b59c-3d5d2b34dd33}</destination>
+			<destination>{a154cc5e-da13-468b-9ef0-d78341a6a34d}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{7217f83d-259d-4bb7-8cdb-da9f570742b2}" />
 	<object class="MarkerTrack" id="{4b36cf48-454b-4732-b4f8-e8d6eadddf1d}" />
 	<object class="Timeline" id="{526f7bdb-195b-4063-9e42-bd56d6dc19f4}">
-		<property name="isProxyEnabled">
-			<value>false</value>
-		</property>
+		<relationship name="modules">
+			<destination>{0a4dd5fd-99d5-4f91-850e-6231d992434f}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{2c2cea95-a0d1-4e46-9035-7e113cbb56ed}">
 		<relationship name="effectChain">
@@ -69,6 +72,14 @@
 		</relationship>
 		<relationship name="mixer">
 			<destination>{bdc7fbd6-3ccd-47dd-bf76-bca5eba922d8}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{0a4dd5fd-99d5-4f91-850e-6231d992434f}">
+		<property name="length">
+			<value>167.376</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{aad34fad-bba3-4757-8690-a6ef6de61633}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{f80ed855-183a-4986-99d6-e88565b6275c}">

@@ -1,10 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Animations;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 
 public class WaveFunction : MonoBehaviour

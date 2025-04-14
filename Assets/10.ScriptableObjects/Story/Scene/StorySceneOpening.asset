@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113538e31738120459b482033767de31, type: 3}
+  m_Name: StorySceneOpening
+  m_EditorClassIdentifier: 
+  background: {fileID: -1870463319905167204, guid: efe0f746524d1cb45a45ce1f7ee67039, type: 3}
+  dialogues:
+  - {fileID: 11400000, guid: 03aac0cade200314fb1716a3856846d9, type: 2}
+  - {fileID: 11400000, guid: 91e8c7eda056fb54b8830bb547e0b645, type: 2}
+  - {fileID: 11400000, guid: 87f4a3af3972ac943998f8fc411d5f00, type: 2}
+  - {fileID: 11400000, guid: bfc387ed8c526e1449a2bae330cab9e7, type: 2}
+  - {fileID: 11400000, guid: d8697efdfe812454aa140354b1afa342, type: 2}
+  - {fileID: 11400000, guid: 37445e5adff0b59408c120ea23cc4cb3, type: 2}
+  - {fileID: 11400000, guid: fac3b0bfcc7bf2f4486a41eb6dfcba35, type: 2}
+  - {fileID: 11400000, guid: 21a0b068dcfd13c479763b404d972c36, type: 2}
+  - {fileID: 11400000, guid: 04b103043d0f38b41b52e81db5872a6b, type: 2}
+  - {fileID: 11400000, guid: 00c7aa7bf4f1c0049b8cc1ee3e6911d6, type: 2}
+  - {fileID: 11400000, guid: f4bc58745fea4534e9c40224e0b27fd9, type: 2}
+  - {fileID: 11400000, guid: 9eb3482abfb02e841a358f03d741f8a3, type: 2}

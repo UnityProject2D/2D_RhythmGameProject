@@ -1,5 +1,7 @@
+using FMODUnity;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -14,8 +16,10 @@ public class GameSceneManager : MonoBehaviour
     public Image FadeImage;
     public GameObject LoadingText;
     public GameObject LoadCompleteText;
+    public int CurrentStage;
     public static GameSceneManager Instance { get; private set; }
 
+    public event Action<StageData> OnStageDataLoaded;
     void Awake()
     {
         if (Instance == null){
@@ -23,16 +27,34 @@ public class GameSceneManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+
+
+        SyncSettings.InputOffsetMs = PlayerPrefs.GetFloat("AudioSync",0);
+        SyncSettings.VideoOffsetMs = PlayerPrefs.GetFloat("VideoSync",0);
+    }
+
+    public void LoadStageData(StageData stageData)
+    {
+        // 스테이지 데이터 로드
+        OnStageDataLoaded?.Invoke(stageData);
+        CurrentStage = stageData.StageIndex;
     }
 
 
     public void ChangeScene(string sceneName)
     {
+        RuntimeManager.PlayOneShot("event:/SFX/DoorClose");
         StartCoroutine(LoadSceneWithLoadingScene(sceneName));
     }
 
     private IEnumerator LoadSceneWithLoadingScene(string targetScene)
     {
+
+        if(RhythmManager.Instance != null)
+        {
+            RhythmManager.Instance.StopMusic();
+            RhythmManager.Instance.IsPlaying = false;
+        }
         LoadingUI.SetActive(true);
         // 1. 로딩 씬 먼저 로드
         AsyncOperation loadingSceneOp = SceneManager.LoadSceneAsync("LoadingScene");
