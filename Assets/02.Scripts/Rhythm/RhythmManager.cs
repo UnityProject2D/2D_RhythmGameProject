@@ -103,7 +103,7 @@ public class RhythmManager : MonoBehaviour
             IsPlaying = false;
         }
 
-        InvokeOnMusicReady();
+        SafeInvokeOnMusicReady();
     }
     private void OnDisable()
     {
@@ -142,7 +142,7 @@ public class RhythmManager : MonoBehaviour
                     if (currentTime >= previewTime)
                     {
                         _noteStates[i] = NoteTriggerState.Previewed;
-                        InvokeOnNotePreview(note);
+                        SafeInvokeOnNotePreview(note);
                         //Debug.Log($"[미리보기] 키: {note.expectedKey}, 비트: {note.beat}");
                     }
                     break;
@@ -151,7 +151,7 @@ public class RhythmManager : MonoBehaviour
                     if (currentTime >= noteTime)
                     {
                         _noteStates[i] = NoteTriggerState.Triggered;
-                        InvokeOnNote(note);
+                        SafeInvokeOnNote(note);
                         //Debug.Log($"[노트 발동] 키: {note.expectedKey}, 비트: {note.beat}");
                     }
                     break;
@@ -250,7 +250,7 @@ public class RhythmManager : MonoBehaviour
         //음악을 재생한다
         if (!IsPlaying)
         {
-            InvokeOnMusicStart();
+            SafeInvokeOnMusicStart();
 
             SetupFmodFFT();
             _musicInstance.start();
@@ -387,7 +387,7 @@ public class RhythmManager : MonoBehaviour
             case EVENT_CALLBACK_TYPE.STOPPED:
                 lock (Instance._lock)
                 {
-                    Instance._eventQueue.Enqueue(() => RhythmEvents.InvokeOnMusicStopped());
+                    Instance._eventQueue.Enqueue(() => RhythmEvents.SafeInvokeOnMusicStopped());
                 }
                 break;
 
@@ -396,7 +396,7 @@ public class RhythmManager : MonoBehaviour
                 string markerName = marker.name;
                 lock (Instance._lock)
                 {
-                    Instance._eventQueue.Enqueue(() => RhythmEvents.InvokeOnMarkerHit(markerName));
+                    Instance._eventQueue.Enqueue(() => RhythmEvents.SafeInvokeOnMarkerHit(markerName));
                 }
                 break;
 
@@ -405,7 +405,7 @@ public class RhythmManager : MonoBehaviour
                 float beatTime = beat.position / 1000f;
                 lock (Instance._lock)
                 {
-                    Instance._eventQueue.Enqueue(() => RhythmEvents.InvokeOnBeat(beatTime));
+                    Instance._eventQueue.Enqueue(() => RhythmEvents.SafeInvokeOnBeat(beatTime));
                 }
                 break;
         }

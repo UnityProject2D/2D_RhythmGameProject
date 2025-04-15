@@ -45,6 +45,10 @@ public class GameSceneManager : MonoBehaviour
     {
         RuntimeManager.PlayOneShot("event:/SFX/DoorClose");
         StartCoroutine(LoadSceneWithLoadingScene(sceneName));
+        if(sceneName == "GameTitle")
+        {
+            RhythmEvents.ClearAllSubscriptions();
+        }
     }
 
     private IEnumerator LoadSceneWithLoadingScene(string targetScene)

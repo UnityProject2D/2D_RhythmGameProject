@@ -142,7 +142,7 @@ public class TitleMusicPlayer : MonoBehaviour
                 float beatTime = beat.position / 1000f;
                 lock (self._lock)
                 {
-                    self._eventQueue.Enqueue(() => RhythmEvents.InvokeOnBeat(beatTime));
+                    self._eventQueue.Enqueue(() => RhythmEvents.SafeInvokeOnBeat(beatTime));
                 }
                 break;
         }

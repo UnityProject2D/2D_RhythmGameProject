@@ -65,29 +65,79 @@ public static class RhythmEvents
     public static event Action OnMusicReady;
 
     // ===== Invoke =====
-    public static void InvokeOnMusicStart() => OnMusicStart?.Invoke();
-    public static void InvokeOnMusicStopped()
+    public static void SafeInvokeOnMusicStart()
     {
-        if (!RhythmManager.Instance.IsRestart) OnMusicStopped?.Invoke();
+        try { OnMusicStart?.Invoke(); }
+        catch (Exception ex) { Debug.LogError($"[RhythmEvents] OnMusicStart Error: {ex.Message}"); }
     }
-    
-    public static void InvokeOnBeat(float beat)
-    {
-        OnBeat?.Invoke(beat);
-    }
-    public static void InvokeOnSubBeat() => OnSubBeat?.Invoke();
-    public static void InvokeOnInputJudged(JudgementResult result)
-    {
-        OnInputJudged?.Invoke(new JudgedContext
-        {
-            RandomValue = UnityEngine.Random.value,
-            Result = result
-        });
-    }
-    public static void InvokeOnMarkerHit(string name) => OnMarkerHit?.Invoke(name);
 
-    public static void InvokeOnNotePreview(NoteData note) => OnNotePreview?.Invoke(note);
-    public static void InvokeOnNote(NoteData note) => OnNote?.Invoke(note); 
-    
-    public static void InvokeOnMusicReady() => OnMusicReady?.Invoke();
+    public static void SafeInvokeOnMusicStopped()
+    {
+        if (!RhythmManager.Instance.IsRestart)
+        {
+            try { OnMusicStopped?.Invoke(); }
+            catch (Exception ex) { Debug.LogError($"[RhythmEvents] OnMusicStopped Error: {ex.Message}"); }
+        }
+    }
+
+    public static void SafeInvokeOnBeat(float beat)
+    {
+        try { OnBeat?.Invoke(beat); }
+        catch (Exception ex) { Debug.LogError($"[RhythmEvents] OnBeat Error: {ex.Message}"); }
+    }
+
+    public static void SafeInvokeOnSubBeat()
+    {
+        try { OnSubBeat?.Invoke(); }
+        catch (Exception ex) { Debug.LogError($"[RhythmEvents] OnSubBeat Error: {ex.Message}"); }
+    }
+
+    public static void SafeInvokeOnInputJudged(JudgementResult result)
+    {
+        try
+        {
+            OnInputJudged?.Invoke(new JudgedContext
+            {
+                Result = result,
+                RandomValue = UnityEngine.Random.value
+            });
+        }
+        catch (Exception ex) { Debug.LogError($"[RhythmEvents] OnInputJudged Error: {ex.Message}"); }
+    }
+
+    public static void SafeInvokeOnMarkerHit(string name)
+    {
+        try { OnMarkerHit?.Invoke(name); }
+        catch (Exception ex) { Debug.LogError($"[RhythmEvents] OnMarkerHit Error: {ex.Message}"); }
+    }
+
+    public static void SafeInvokeOnNotePreview(NoteData note)
+    {
+        try { OnNotePreview?.Invoke(note); }
+        catch (Exception ex) { Debug.LogError($"[RhythmEvents] OnNotePreview Error: {ex.Message}"); }
+    }
+
+    public static void SafeInvokeOnNote(NoteData note)
+    {
+        try { OnNote?.Invoke(note); }
+        catch (Exception ex) { Debug.LogError($"[RhythmEvents] OnNote Error: {ex.Message}"); }
+    }
+
+    public static void SafeInvokeOnMusicReady()
+    {
+        try { OnMusicReady?.Invoke(); }
+        catch (Exception ex) { Debug.LogError($"[RhythmEvents] OnMusicReady Error: {ex.Message}"); }
+    }
+
+    public static void ClearAllSubscriptions()
+    {
+        OnBeat = null;
+        OnSubBeat = null;
+        OnNote = null;
+        OnInputJudged = null;
+        OnMarkerHit = null;
+        OnNotePreview = null;
+        OnMusicStart = null;
+        OnMusicStopped = null;
+    }
 }

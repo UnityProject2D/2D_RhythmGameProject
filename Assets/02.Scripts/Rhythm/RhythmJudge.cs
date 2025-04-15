@@ -63,7 +63,7 @@ public class RhythmJudge : MonoBehaviour
             if (now - noteTime > beatDuration * badRange * (1 + PermenantEffect * PermenantStack) * (1 + TemporaryEffect * TemporaryStack))
             {
                 //Debug.Log($"Miss 판정 (입력 없음) | 노트 시간: {noteTime:F2}s, 현재: {now:F2}s");
-                RhythmEvents.InvokeOnInputJudged(JudgementResult.Miss);
+                RhythmEvents.SafeInvokeOnInputJudged(JudgementResult.Miss);
                 currentNoteIndex++;
             }
             else break;
@@ -111,7 +111,7 @@ public class RhythmJudge : MonoBehaviour
         if (key != note.expectedKey)
         {
             //Debug.Log("잘못된 키 → Miss 판정");
-            RhythmEvents.InvokeOnInputJudged(JudgementResult.Miss);
+            RhythmEvents.SafeInvokeOnInputJudged(JudgementResult.Miss);
             currentNoteIndex++;
             return;
         }
@@ -119,7 +119,7 @@ public class RhythmJudge : MonoBehaviour
         var result = GetJudgement(delta);
         //Debug.Log($"{result} | 노트: {noteTime:F3}s, 입력: {currentTime:F3}s, 오차: {delta:F3}s");
 
-        RhythmEvents.InvokeOnInputJudged(result);
+        RhythmEvents.SafeInvokeOnInputJudged(result);
         currentNoteIndex++;
     }
 
