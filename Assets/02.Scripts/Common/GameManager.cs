@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     {
         RhythmEvents.OnMusicStopped -= OnMusicStopped;
         SceneManager.sceneLoaded -= DestroyOnRestart;
+        RhythmEvents.OnMusicStart -= ActivePauseManager;
     }
 
     private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
@@ -76,14 +77,14 @@ public class GameManager : MonoBehaviour
     }
     private void OnMusicStopped()
     {
-        Debug.Log("음악 끝. 3초 뒤 결과 출력");
+        Debug.Log("음악 끝. 0.01초 뒤 결과 출력");
         if(GameSceneManager.Instance.CurrentStage == 0) return;
         StartCoroutine(HandleResultAfterDelay());
     }
 
     private IEnumerator HandleResultAfterDelay()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.01f);
 
         double totalScore = ScoreManager.Instance.Score;
 

@@ -315,6 +315,10 @@ public class RhythmManager : MonoBehaviour
     }
     private void OnDestroy()
     {
+        if(GameManager.Instance.Player.Health != null)
+            GameManager.Instance.Player.Health.OnPlayerDied -= OnPlayerDie;
+        if(GameManager.Instance != null)
+            GameManager.Instance.PlayerRegistered -= OnRegistered;
         if (_musicInstance.isValid())
         {
             _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);

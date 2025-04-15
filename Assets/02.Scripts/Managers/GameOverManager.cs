@@ -41,7 +41,18 @@ public class GameOverManager : MonoBehaviour
         Debug.Log("[GameOverManager] 게임 오버 처리");
         StartCoroutine(HandleDie());
     }
+    private void OnDestroy()
+    {
 
+        if (GameManager.Instance.Player.Health != null)
+        {
+            GameManager.Instance.Player.Health.OnPlayerDied -= OnPlayerDied;
+        }
+        else
+        {
+            GameManager.Instance.PlayerRegistered -= OnPlayerRegistered;
+        }
+    }
     private IEnumerator HandleDie()
     {
         Debug.Log("[GameOverManager] HandleDie() 호출");
