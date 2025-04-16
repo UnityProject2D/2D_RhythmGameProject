@@ -24,7 +24,6 @@ public class UI_Game : MonoBehaviour
     private void OnDisable()
     {
         RhythmEvents.OnMusicStopped -= ShowResultPanel;
-
         RhythmEvents.OnMarkerHit -= JudgeEnd;
     }
 

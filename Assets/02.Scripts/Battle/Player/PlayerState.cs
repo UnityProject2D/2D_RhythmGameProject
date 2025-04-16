@@ -162,6 +162,13 @@ public class PlayerState : MonoBehaviour
     private void Start()
     {
         RestoreItemFlags(GameManager.Instance.SavedItemFlags);
+        RestartManager.Instance.OnRestartGame += OnRestart;
+    }
+
+    bool _isRestart;
+    private void OnRestart()
+    {
+        _isRestart = true;
     }
 
     private void RestoreItemFlags(ItemFlag flags)
@@ -186,6 +193,8 @@ public class PlayerState : MonoBehaviour
 
     private void OnDestroy()
     {
+        RestartManager.Instance.OnRestartGame -= OnRestart;
+        if (_isRestart) return;
         GameManager.Instance.SavedItemFlags = CollectCurrentFlags();
     }
 

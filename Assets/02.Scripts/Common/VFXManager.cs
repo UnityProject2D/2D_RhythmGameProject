@@ -40,10 +40,20 @@ public class VFXManager : MonoBehaviour
     }
     private void Start()
     {
+        if(PlayerState.Instance == null)
+        {
+            Debug.LogError("PlayerState not found in VFXManager.");
+            return;
+        }
         PlayerState.Instance.OnItemUsed += HandleItemEffect;
     }
     private void OnDestroy()
     {
+        if (PlayerState.Instance == null)
+        {
+            Debug.LogError("PlayerState not found in VFXManager.");
+            return;
+        }
         PlayerState.Instance.OnItemUsed -= HandleItemEffect;
     }
 

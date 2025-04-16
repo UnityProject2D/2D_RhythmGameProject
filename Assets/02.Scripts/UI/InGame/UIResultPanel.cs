@@ -1,6 +1,8 @@
 using DG.Tweening;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIResultPanel : MonoBehaviour
@@ -23,6 +25,8 @@ public class UIResultPanel : MonoBehaviour
     public TextMeshProUGUI ResultGood;
     public TextMeshProUGUI ResultMaxCombo;
     public TextMeshProUGUI ResultScore;
+
+    public TextMeshProUGUI ContinueText;
 
     [Header("배경 이미지")]
     public Image PerfectBG;
@@ -51,11 +55,22 @@ public class UIResultPanel : MonoBehaviour
     }
 
     public string sceneToLoad;
-    private void Update()
+
+    private IEnumerator WaitForKeyInput()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        while (!Input.GetKeyDown(KeyCode.E))
+        {
+            yield return null;
+        }
+        double totalScore = ScoreManager.Instance.Score;
+        if (totalScore >= GameManager.Instance.winScoreThreshold)
         {
             GameSceneManager.Instance.ChangeScene(sceneToLoad);
+            GameManager.Instance.winScoreThreshold += 20000;
+        }
+        else
+        {
+            SceneManager.LoadScene("UI_GameOver");
         }
     }
     private void InitUI(TextMeshProUGUI txt, Image bg)
@@ -102,7 +117,12 @@ public class UIResultPanel : MonoBehaviour
             leftText.transform.DOPunchScale(Vector3.one * 0.2f, 0.3f, 10, 1f);
             rightText.transform.DOPunchScale(Vector3.one * 0.2f, 0.3f, 10, 1f);
         });
+
         seq.AppendInterval(interval);
+        seq.OnComplete(() => {
+            ContinueText.DOFade(1f, 0.5f);
+            WaitForKeyInput(); 
+        });
     }
 
     public void PlayOpenEffect()

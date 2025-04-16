@@ -14,11 +14,10 @@ public class PlayerHealth : MonoBehaviour
 
     public event Action<float> OnPlayerHealthChanged;
     public event Action OnPlayerDied;
+    
 
     public MMF_Player OnMissFeedback;
     public MMF_Player OnHealFeedback;
-
-
     private void Awake()
     {
         _playerMaxHealth = 20;
@@ -33,9 +32,15 @@ public class PlayerHealth : MonoBehaviour
     {
         _playerCurrentHealth = GameManager.Instance.PlayerHealth;
         OnPlayerHealthChanged?.Invoke(_playerCurrentHealth);
+        RestartManager.Instance.OnRestartGame += OnRestart;
+    }
+    private void OnRestart()
+    {
+        _playerCurrentHealth = _playerMaxHealth;
     }
     private void OnDisable()
     {
+        RestartManager.Instance.OnRestartGame -= OnRestart;
         RhythmEvents.OnInputJudged -= HandleJudge;
         GameManager.Instance.PlayerHealth = _playerCurrentHealth;
     }

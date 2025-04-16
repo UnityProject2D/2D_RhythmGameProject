@@ -1,3 +1,4 @@
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using static RhythmInputHandler; // 플레이어 입력 처리
 
@@ -19,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private bool _isDead;
     private float _prevHealth = 0;
     private bool _inputEnabled = true;
-
+    
     public void SetInputEnabled(bool enabled)
     {
         _inputEnabled = enabled;
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
         PlayerHealth.OnPlayerHealthChanged += OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독
         PlayerHealth.OnPlayerDied += HandleDie;
         _prevHealth = PlayerHealth.PlayerCurrentHealth;
-
+        
         if (GameManager.Instance != null)
         {
             GameManager.Instance.RegisterPlayer(this);
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log(this);
         }
     }
+
     private void OnDestroy()
     {
         if (Instance != null)

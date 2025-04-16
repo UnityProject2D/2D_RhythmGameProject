@@ -47,13 +47,20 @@ public class ScoreManager : MonoBehaviour
         RhythmEvents.OnInputJudged += OnJudged;
         RhythmEvents.OnMusicStopped += OnStageCleared;
         SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
-
+        RestartManager.Instance.OnRestartGame += OnRestart;
     }
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= DestroyOnRestart;
         RhythmEvents.OnInputJudged -= OnJudged;
         RhythmEvents.OnMusicStopped -= OnStageCleared;
+        RestartManager.Instance.OnRestartGame -= OnRestart;
+    }
+
+    private void OnRestart()
+    {
+        ClearStageInfo();
+        _totalScore = 0;
     }
 
     private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)

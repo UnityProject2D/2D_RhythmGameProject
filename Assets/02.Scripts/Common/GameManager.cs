@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public PlayerContext Player = new PlayerContext();
     public event Action PlayerRegistered;
     public ItemFlag SavedItemFlags;
-    public float PlayerHealth = 10;
+    public float PlayerHealth = 20;
     public ItemSO[] SavedItems;
 
     public void RegisterPlayer(PlayerController controller)
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     //추후 GameResultHandler로 분리 예정
     #region GameResult
-    [SerializeField] private double winScoreThreshold = 10000; // 승리 기준 점수
+    public double winScoreThreshold = 10000; // 승리 기준 점수
     private void OnEnable()
     {
         RhythmEvents.OnMusicStopped += OnMusicStopped;
@@ -77,26 +77,8 @@ public class GameManager : MonoBehaviour
     }
     private void OnMusicStopped()
     {
-        Debug.Log("음악 끝. 0.01초 뒤 결과 출력");
-        if(GameSceneManager.Instance.CurrentStage == 0) return;
-        StartCoroutine(HandleResultAfterDelay());
+        Debug.Log("게임 종료");
     }
 
-    private IEnumerator HandleResultAfterDelay()
-    {
-        yield return new WaitForSeconds(0.01f);
-
-        double totalScore = ScoreManager.Instance.Score;
-
-        if (totalScore >= winScoreThreshold)
-        {
-            winScoreThreshold += 80000;
-            
-        }
-        else
-        {
-            GameSceneManager.Instance.ChangeScene("UI_GameOver");
-        }
-    }
     #endregion
 }

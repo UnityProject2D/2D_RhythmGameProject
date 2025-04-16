@@ -3944,6 +3944,7 @@ MonoBehaviour:
   ResultGood: {fileID: 678269192}
   ResultMaxCombo: {fileID: 1279461433}
   ResultScore: {fileID: 1446354949}
+  ContinueText: {fileID: 1363278781}
   PerfectBG: {fileID: 655190181}
   GoodBG: {fileID: 527596881}
   MaxComboBG: {fileID: 152557554}

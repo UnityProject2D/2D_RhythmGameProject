@@ -6,6 +6,8 @@ public enum StoryEffectType
     FadeOut, // 페이드 아웃
     InsertImage, // 이미지 삽입
     ChangeBackground, // 배경 변경
+    Glitch, // 글리치
+    Title, // 타이틀
 }
 
 [CreateAssetMenu(fileName = "StoryEffectDataSO", menuName = "Story/StoryEffectDataSO")]

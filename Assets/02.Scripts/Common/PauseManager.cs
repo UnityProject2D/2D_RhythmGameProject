@@ -11,6 +11,7 @@ public class PauseManager : MonoBehaviour
 
     private bool isAppFocused = true;
     private bool isPaused = false;
+    private bool isLoading = false;
     private Bus masterBus;
 
     private void Awake()
@@ -23,7 +24,6 @@ public class PauseManager : MonoBehaviour
     }
     private void OnEnable()
     {
-
         SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
     }
 
@@ -43,7 +43,7 @@ public class PauseManager : MonoBehaviour
     {
         isAppFocused = hasFocus;
 
-        if (!hasFocus && !isPaused)
+        if (!hasFocus && !isPaused && !isLoading)
         {
             PauseGame();
         }

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using MoreMountains.Tools;
+using System;
 
 public enum CurrencyType { QuantumKey, Credit }
 
@@ -20,9 +21,14 @@ public class CurrencyManager : MonoBehaviour
 
         foreach (CurrencyType type in System.Enum.GetValues(typeof(CurrencyType)))
         {
-            currencies[type] = 0;
+            currencies[type] = PlayerPrefs.GetInt(type.ToString(), 0);
         }
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        RestartManager.Instance.OnRestartGame += ResetCredit;
     }
 
     public int Get(CurrencyType type) => currencies[type];
@@ -35,6 +41,10 @@ public class CurrencyManager : MonoBehaviour
         {
             currencies[type] -= amount;
             OnCurrencyChanged?.Invoke(type, currencies[type]);
+            if(type == CurrencyType.QuantumKey)
+            {
+                PlayerPrefs.SetInt(type.ToString(), currencies[type]);
+            }
             return true;
         }
         return false;
@@ -43,6 +53,16 @@ public class CurrencyManager : MonoBehaviour
     public void Add(CurrencyType type, int amount)
     {
         currencies[type] += amount;
+        if (type == CurrencyType.QuantumKey)
+        {
+            PlayerPrefs.SetInt(type.ToString(), currencies[type]);
+        }
+
         OnCurrencyChanged?.Invoke(type, currencies[type]);
+    }
+
+    internal void ResetCredit()
+    {
+        currencies[CurrencyType.Credit] = 0;
     }
 }
