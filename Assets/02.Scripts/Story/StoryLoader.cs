@@ -12,7 +12,8 @@ public class StoryLoader : MonoBehaviour
     [SerializeField] private MMF_Player _feedbackPlayer;
     [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private StoryInsertImage _insertImage;
-
+    [SerializeField] private GameObject Title;
+    [SerializeField] private string _sceneName;
     private void Start()
     {
         if (_scene != null)
@@ -38,7 +39,7 @@ public class StoryLoader : MonoBehaviour
 
         // 씬 종료
         Debug.Log("Scene finished.");
-        GameSceneManager.Instance.ChangeScene("TutorialScene_KM");
+        GameSceneManager.Instance.ChangeScene(_sceneName);
     }
 
     private IEnumerator ResetEffects()
@@ -69,6 +70,39 @@ public class StoryLoader : MonoBehaviour
         }
     }
 
+    public IEnumerator ChangeBackground(Sprite background, float duration)
+    {
+        if (_backgroundImage != null)
+        {
+
+            yield return StartCoroutine(ExecuteFadeOut(duration/2));
+            _backgroundImage.sprite = background;
+
+            yield return StartCoroutine(ExecuteFadeIn(duration/2));
+        }
+        else
+        {
+            Debug.LogError("Background image is not assigned.");
+        }
+    }
+
+    public void ExcuteGlitch(float duration)
+    {
+        if (VFXManager.Instance != null)
+        {
+            VFXManager.Instance.SetArtifacts(true);
+        }
+        else
+        {
+            Debug.LogError("VFX Manager is not assigned.");
+        }
+    }
+
+    public void ShowTitle()
+    {
+        Title.SetActive(true); 
+    }
+
     // 페이드아웃 효과를 위한 공개 메서드
     public IEnumerator ExecuteFadeOut(float duration)
     {
@@ -83,6 +117,26 @@ public class StoryLoader : MonoBehaviour
                 yield return null;
             }
             _canvasGroup.alpha = 1f;
+        }
+        else
+        {
+            Debug.LogError("CanvasGroup component is not properly set up.");
+            yield return new WaitForSeconds(duration); // 에러가 있어도 시간은 대기
+        }
+    }
+    public IEnumerator ExecuteFadeIn(float duration)
+    {
+        if (_canvasGroup != null)
+        {
+            _canvasGroup.alpha = 1f;
+            float elapsedTime = 0f;
+            while (elapsedTime < duration)
+            {
+                elapsedTime += Time.deltaTime;
+                _canvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / duration);
+                yield return null;
+            }
+            _canvasGroup.alpha = 0f;
         }
         else
         {
@@ -110,7 +164,7 @@ public class StoryLoader : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            GameSceneManager.Instance.ChangeScene("TutorialScene_KM");
+            GameSceneManager.Instance.ChangeScene(_sceneName);
         }
     }
 }

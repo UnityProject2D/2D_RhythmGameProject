@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113538e31738120459b482033767de31, type: 3}
+  m_Name: StorySceneEnding
+  m_EditorClassIdentifier: 
+  background: {fileID: 21300000, guid: c7a875423b3e0a344a873d47005abe0d, type: 3}
+  dialogues:
+  - {fileID: 11400000, guid: e4088329aea468547b5f6b9af67cd548, type: 2}
+  - {fileID: 11400000, guid: 815a2452a083f9444bf663f8b35b6f1f, type: 2}
+  - {fileID: 11400000, guid: e4f16cf6e6a5ebb448e8c5bebce5f650, type: 2}
+  - {fileID: 11400000, guid: d48d774e196eeda439c1a6553acdbb92, type: 2}
+  - {fileID: 11400000, guid: 77a85e07b91fee347ad1c753e2268b06, type: 2}
+  - {fileID: 11400000, guid: 42998e15b3cc9e84785245a4ee4b1582, type: 2}
+  - {fileID: 11400000, guid: ebb59d9f5e844b1428701618166f33cc, type: 2}
+  - {fileID: 11400000, guid: 69ca367bb2d46ed4dab4bb180448218c, type: 2}
+  - {fileID: 11400000, guid: 4f66f0a0dd8ed3c4e914869ce1eecd07, type: 2}
+  - {fileID: 11400000, guid: 85c1ba147a8a2b84180ed94063b20e52, type: 2}
+  - {fileID: 11400000, guid: 3fc455621ecee08459bb244d0e6280ff, type: 2}
