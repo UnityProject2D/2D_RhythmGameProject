@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: StoryEffectTyping
   m_EditorClassIdentifier: 
   type: 0
-  duration: 0.1
+  duration: 0.05
   image: {fileID: 0}

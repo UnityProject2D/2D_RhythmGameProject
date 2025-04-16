@@ -117,6 +117,42 @@ public class StoryDialogue : MonoBehaviour, IPointerClickHandler
                     yield return StartCoroutine(ExecuteInsertImageEffect(effect));
                     break;
 
+                case StoryEffectType.ChangeBackground:
+                    // 배경 변경 효과 실행
+                    if (_storyLoader != null)
+                    {
+                        yield return StartCoroutine(_storyLoader.ChangeBackground(effect.image, effect.duration));
+                    }
+                    else
+                    {
+                        Debug.LogError("StoryLoader reference is missing. Cannot execute ChangeBackground effect.");
+                        yield return new WaitForSeconds(effect.duration);
+                    }
+                    break;
+                case StoryEffectType.Glitch:
+                    // 글리치 효과 실행
+                    if (_storyLoader != null)
+                    {
+                        _storyLoader.ExcuteGlitch(effect.duration);
+                    }
+                    else
+                    {
+                        Debug.LogError("StoryLoader reference is missing. Cannot execute Glitch effect.");
+                        yield return new WaitForSeconds(effect.duration);
+                    }
+                    break;
+                case StoryEffectType.Title:
+                    // 타이틀 효과 실행
+                    if (_storyLoader != null)
+                    {
+                        _storyLoader.ShowTitle();
+                    }
+                    else
+                    {
+                        Debug.LogError("StoryLoader reference is missing. Cannot execute Title effect.");
+                        yield return new WaitForSeconds(effect.duration);
+                    }
+                    break;
                 // 필요한 다른 효과 유형 추가
                 default:
                     Debug.LogWarning($"Unhandled effect type: {effect.type}");
