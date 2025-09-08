@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShopItem_Consumable_OverDrive
   m_EditorClassIdentifier: 
   itemSO: {fileID: 11400000, guid: 6de6a1c0c665d4e4cb041e3ad2744728, type: 2}
-  price: 1
+  price: 6
   currencyType: 1
   OnPurchase:
     m_PersistentCalls:

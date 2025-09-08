@@ -10,7 +10,7 @@ public class SquareOrbitEffect : MonoBehaviour
     private Vector3[] pathPoints;
     [SerializeField]private int currentIndex = 0;
 
-    private void Start()
+    private void OnEnable()
     {
         Vector3 center = targetIcon.anchoredPosition;
         float size = tSize / 2;
@@ -29,6 +29,7 @@ public class SquareOrbitEffect : MonoBehaviour
 
     private void Update()
     {
+        if(!gameObject.activeSelf) return;
         if (pathPoints == null || pathPoints.Length == 0) return;
 
         Vector3 target = pathPoints[currentIndex];

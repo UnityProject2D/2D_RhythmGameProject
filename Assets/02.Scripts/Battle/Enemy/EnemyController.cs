@@ -1,8 +1,10 @@
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using FMODUnity;
 using System.Collections.Generic;
 using UnityEngine;
 using static RhythmEvents;
+using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class EnemyController : MonoBehaviour
     public Transform gunPoint; // 총구 위치 기준 Transform (필수!)
 
     public Sprite[] directionSprites = new Sprite[4]; // W, S, A, D 순서
-    private const int PoolSizePerDirection = 8;
+    private const int PoolSizePerDirection = 12;
     private List<GameObject>[] shadowPools = new List<GameObject>[4];
 
     private Transform _playerTransform;
@@ -20,15 +22,33 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-
+        Debug.Log(_animator);
         for (int i = 0; i < 4; i++)
             shadowPools[i] = new List<GameObject>();
     }
 
+    private void Instance_PlayerRegistered()
+    {
+        _playerTransform = GameManager.Instance.Player.Transform;
+
+        Debug.Log($"EnemyController: PlayerRegistered - {_playerTransform}");
+    }
+
     private void Start()
     {
-        _playerTransform = PlayerHealth.Instance.GetComponent<Transform>();
-        ScoreManager.Instance.OnScoreChanged += EnemyDieJdg;
+        if (GameManager.Instance.Player.Controller != null)
+        {
+            Instance_PlayerRegistered();
+        }
+        else
+        {
+            Debug.LogWarning("EnemyController: 플레이어 없네요 - 구독");
+            GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
+        }
+
+        //SetPlayer().Forget();
+        OnMarkerHit += JudgeEnd;
+        OnMusicStopped += EnemyDieJdg;
         for (int dir = 0; dir < 4; dir++)
         {
             for (int i = 0; i < PoolSizePerDirection; i++)
@@ -39,7 +59,15 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+    //private async UniTaskVoid SetPlayer()
+    //{
+    //    while(GameManager.Instance.Player.Transform == null)
+    //    {
+    //        await UniTask.Yield();
+    //    }
 
+    //    _playerTransform = GameManager.Instance.Player.Transform;
+    //}
     private void OnEnable()
     {
         OnNotePreview += OnNotePreviewReceived;
@@ -48,18 +76,24 @@ public class EnemyController : MonoBehaviour
     private void OnDisable()
     {
         OnNotePreview -= OnNotePreviewReceived;
-        ScoreManager.Instance.OnScoreChanged -= EnemyDieJdg;
+        OnMusicStopped -= EnemyDieJdg;
+        OnMarkerHit -= JudgeEnd;
     }
 
     private void OnNotePreviewReceived(NoteData beatNote)
     {
         PlayAttackSound();
-
         int dir = GetIndexFromKey(beatNote.expectedKey);
         if (dir < 0 || dir >= 4) return;
 
-        if (test)
-            _animator.SetTrigger("Attack");
+        // 애니메이터가 null인지 확인
+        if (_animator == null)
+        {
+            Debug.LogError("Animator is not assigned or missing!");
+        }
+
+        // 애니메이션 트리거 설정
+        _animator.SetTrigger("Attack");
 
         GameObject shadow = GetInactiveShadow(dir);
         if (shadow == null) return;
@@ -81,7 +115,7 @@ public class EnemyController : MonoBehaviour
         sr.DOFade(1f, 0f);
 
         // Y방향 축소로 사라지게
-        shadow.transform.DOScaleY(0f, 1f).SetEase(Ease.InQuad).OnComplete(() =>
+        shadow.transform.DOScaleY(0f, 0.4f).SetEase(Ease.InQuad).OnComplete(() =>
         {
             shadow.SetActive(false);
         });
@@ -96,8 +130,8 @@ public class EnemyController : MonoBehaviour
         {
             0 => _playerTransform.position + Vector3.down * 0.25f,     // W - 머리
             1 => _playerTransform.position + Vector3.up * 2f,   // S - 다리
-            2 => gunPoint.position + Vector3.left * 1f,   // A - 왼쪽 몸통
-            3 => gunPoint.position + Vector3.left * 1f,  // D - 오른쪽 몸통
+            2 => _playerTransform.position + Vector3.up * 0.5f,   // A - 왼쪽 몸통
+            3 => _playerTransform.position + Vector3.up * 1f,  // D - 오른쪽 몸통
             _ => _playerTransform.position
         };
     }
@@ -126,6 +160,7 @@ public class EnemyController : MonoBehaviour
             if (!shadow.activeInHierarchy)
                 return shadow;
         }
+
         return null;
     }
 
@@ -157,10 +192,17 @@ public class EnemyController : MonoBehaviour
         };
     }
 
-    ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
-    private void EnemyDieJdg(int score)
+    private void JudgeEnd(string marker)
     {
-        if (score >= 10000)
+        if (marker == "End")
+        {
+            EnemyDieJdg();
+        }
+    }
+    ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
+    private void EnemyDieJdg()
+    {
+        if (ScoreManager.Instance.Score >= 10000)
         {
             Debug.Log("적 잔상 죽이기");
             gameObject.SetActive(false);

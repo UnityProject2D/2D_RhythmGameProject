@@ -14,6 +14,12 @@ public class UI_ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [SerializeField] private int _shortCutIndex;
     private ItemEffectHandler _itemEffectHandler;
 
+    public GameObject[] OrbitEffects;
+
+    [SerializeField] private bool _isEquipmentSlot;
+
+    public ItemSO CurrentItem;
+
     private Sprite _originalSprite;
     private void Start()
     {
@@ -22,23 +28,23 @@ public class UI_ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void Init(ItemEffectHandler handler)
     {
         _itemEffectHandler = handler;
+        if(PlayerState.Instance == null)
+        {
+            Debug.LogError("PlayerState Instance is null");
+            return;
+        }
         PlayerState.Instance.OnItemUsed += OnStatusChanged;
     }
-    public GameObject[] OrbitEffects;
-
-    [SerializeField] private bool _isEquipmentSlot;
-
-    private ItemSO currentItem;
 
     public void OnStatusChanged(ItemUseStatus itemUseStatus)
     {
         Debug.Log($"{gameObject}: {itemUseStatus.itemID}: {itemUseStatus.flag}");
-        if (currentItem == null || itemUseStatus.itemID != currentItem.itemID)
+        if (CurrentItem == null || itemUseStatus.itemID != CurrentItem.itemID)
         {
             Debug.Log($"{gameObject}: currentItem == null or different");
             return;
         }
-        if (itemUseStatus.itemID == currentItem.itemID && currentItem.isConsumable)
+        if (itemUseStatus.itemID == CurrentItem.itemID && CurrentItem.isConsumable)
         {
             if (itemUseStatus.flag)
             {
@@ -60,7 +66,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
     private void ClearSlot()
     {
-        currentItem = null;
+        CurrentItem = null;
         _nameText.text = "";
         _icon.sprite = _originalSprite;
         foreach (var effect in OrbitEffects)
@@ -77,17 +83,17 @@ public class UI_ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             effect.SetActive(true);
         }
         _useButton.interactable = false;
-        yield return new WaitForSeconds(currentItem.EffectDuration);
+        yield return new WaitForSeconds(CurrentItem.EffectDuration);
         ClearSlot();
     }
 
     public void Setup(ItemSO item)
     {
-        if (currentItem != null)
+        if (CurrentItem != null)
         {
-            PlayerState.Instance.SetItemEnabled(currentItem.itemID, false);
+            PlayerState.Instance.SetItemEnabled(CurrentItem.itemID, false);
         }
-        currentItem = item;
+        CurrentItem = item;
 
         _icon.sprite = item.icon;
         _isEquipmentSlot = item.category.categoryName == "장비 아이템" ? true : false;
@@ -118,14 +124,14 @@ public class UI_ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void UseItem()
     {
-        if (_itemEffectHandler == null || currentItem == null || _isEquipmentSlot || !currentItem.isConsumable)
+        if (_itemEffectHandler == null || CurrentItem == null || _isEquipmentSlot || !CurrentItem.isConsumable)
         {
-            Debug.LogWarning($"[UI_ItemSlot]: {_itemEffectHandler == null} || {currentItem == null}|| {_isEquipmentSlot} || {!currentItem.isConsumable}");
+            Debug.LogWarning($"[UI_ItemSlot]: {_itemEffectHandler == null} || {CurrentItem == null}|| {_isEquipmentSlot} || {!CurrentItem.isConsumable}");
             return;
         }
-        var id = currentItem.itemID;
-        float value = currentItem.EffectValue;
-        float duration = currentItem.EffectDuration;
+        var id = CurrentItem.itemID;
+        float value = CurrentItem.EffectValue;
+        float duration = CurrentItem.EffectDuration;
 
         bool success = _itemEffectHandler.ApplyEffect(id, value, duration);
         // 성공 여부에 따라 처리
@@ -143,11 +149,16 @@ public class UI_ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (currentItem != null)
-            TooltipUI.Instance.Show(currentItem);
+        if (CurrentItem != null)
+            TooltipUI.Instance.Show(CurrentItem);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
         TooltipUI.Instance.Hide();
+    }
+
+    public bool HasItem()
+    {
+        return CurrentItem != null;
     }
 }

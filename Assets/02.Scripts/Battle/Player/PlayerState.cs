@@ -10,6 +10,31 @@ public struct ItemUseStatus
     public ItemID itemID;
     public bool flag;
 }
+
+[Flags]
+public enum ItemFlag
+{
+    None = 0,
+    // 영구 및 장비 아이템
+    PerfectRecoveryCore = 1 << 0,
+    EmergencyResponseCore = 1 << 1,
+    AccessLevelCore = 1 << 2,
+    RecoveryAlgorithmCore = 1 << 3,
+    CalibrationChipset = 1 << 4,
+    ForcedEvasion = 1 << 5,
+    AutoComboSystem = 1 << 6,
+    PreciseCalibrationUnit = 1 << 7,
+    HyperScoreKernal = 1 << 8,
+    DataCacheModule = 1 << 9,
+
+    // 소비 아이템
+    EmergencyEvasion = 1 << 10,
+    OverDrive = 1 << 11,
+    ProbabilityAmplifier = 1 << 12,
+    ComboProtector = 1 << 13,
+    HackingTool = 1 << 14,
+}
+
 public class PlayerState : MonoBehaviour
 {
     public static PlayerState Instance { get; private set; }
@@ -45,9 +70,10 @@ public class PlayerState : MonoBehaviour
     public bool AutoComboSystemEnabled;
     [Header("정밀 보정 칩셋: Bad도 콤보 유지, 기본 점수 획득량 감소")]
     public bool PreciseCalibrationUnitEnabled;
-    [Header("보너스 칩: Perfect시 20% 증가된 점수 획득")]
-    public bool BonusChipEnabled;
+    [Header("하이퍼 스코어 커널: Perfect시 20% 증가된 점수 획득")]
+    public bool HyperScoreKernalEnabled;
     [Header("골드 획득기?: 스테이지 클리어시 돈 추가 획득")]
+    public bool DataCacheModuleEnabled;
 
     [Space(10)]
     [Header("소비 아이템")]
@@ -94,7 +120,7 @@ public class PlayerState : MonoBehaviour
                 PreciseCalibrationUnitEnabled = flag;
                 break;
             case ItemID.DataCacheModule:
-                BonusChipEnabled = flag;
+                DataCacheModuleEnabled = flag;
                 break;
             case ItemID.EmergencyEvasion:
                 EmergencyEvasionEnabled = flag;
@@ -111,24 +137,79 @@ public class PlayerState : MonoBehaviour
             case ItemID.HackingTool:
                 HackingToolUsed = flag;
                 break;
+            case ItemID.HyperScoreKernal:
+                HyperScoreKernalEnabled = flag;
+                break;
             default:
                 Debug.LogWarning($"[PlayerState] 알 수 없는 ItemID: {id}");
                 return;
         }
         var itemStatus = new ItemUseStatus(id, flag);
         OnItemUsed?.Invoke(itemStatus);
-
     }
     private void Awake()
     {
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        RestoreItemFlags(GameManager.Instance.SavedItemFlags);
+    }
+
+    private void RestoreItemFlags(ItemFlag flags)
+    {
+        RecoveryCoreEnabled = flags.HasFlag(ItemFlag.PerfectRecoveryCore);
+        EmergencyResponseCoreEnabled = flags.HasFlag(ItemFlag.EmergencyResponseCore);
+        AccessLevelCoreEnabled = flags.HasFlag(ItemFlag.AccessLevelCore);
+        RecoveryAlgorithmCoreEnabled = flags.HasFlag(ItemFlag.RecoveryAlgorithmCore);
+        CalibrationChipsetEnabled = flags.HasFlag(ItemFlag.CalibrationChipset);
+        ForcedEvasionEnabled = flags.HasFlag(ItemFlag.ForcedEvasion);
+        AutoComboSystemEnabled = flags.HasFlag(ItemFlag.AutoComboSystem);
+        PreciseCalibrationUnitEnabled = flags.HasFlag(ItemFlag.PreciseCalibrationUnit);
+        HyperScoreKernalEnabled = flags.HasFlag(ItemFlag.HyperScoreKernal);
+        DataCacheModuleEnabled = flags.HasFlag(ItemFlag.DataCacheModule);
+
+        EmergencyEvasionEnabled = flags.HasFlag(ItemFlag.EmergencyEvasion);
+        OverDriveUsed = flags.HasFlag(ItemFlag.OverDrive);
+        ProbabilityAmplifierUsed = flags.HasFlag(ItemFlag.ProbabilityAmplifier);
+        ComboProtectorUsed = flags.HasFlag(ItemFlag.ComboProtector);
+        HackingToolUsed = flags.HasFlag(ItemFlag.HackingTool);
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.SavedItemFlags = CollectCurrentFlags();
+    }
+
+    private ItemFlag CollectCurrentFlags()
+    {
+        ItemFlag result = ItemFlag.None;
+
+        if (RecoveryCoreEnabled) result |= ItemFlag.PerfectRecoveryCore;
+        if (EmergencyResponseCoreEnabled) result |= ItemFlag.EmergencyResponseCore;
+        if (AccessLevelCoreEnabled) result |= ItemFlag.AccessLevelCore;
+        if (RecoveryAlgorithmCoreEnabled) result |= ItemFlag.RecoveryAlgorithmCore;
+        if (CalibrationChipsetEnabled) result |= ItemFlag.CalibrationChipset;
+        if (ForcedEvasionEnabled) result |= ItemFlag.ForcedEvasion;
+        if (AutoComboSystemEnabled) result |= ItemFlag.AutoComboSystem;
+        if (PreciseCalibrationUnitEnabled) result |= ItemFlag.PreciseCalibrationUnit;
+        if (HyperScoreKernalEnabled) result |= ItemFlag.HyperScoreKernal;
+        if (DataCacheModuleEnabled) result |= ItemFlag.DataCacheModule;
+
+        if (EmergencyEvasionEnabled) result |= ItemFlag.EmergencyEvasion;
+        if (OverDriveUsed) result |= ItemFlag.OverDrive;
+        if (ProbabilityAmplifierUsed) result |= ItemFlag.ProbabilityAmplifier;
+        if (ComboProtectorUsed) result |= ItemFlag.ComboProtector;
+        if (HackingToolUsed) result |= ItemFlag.HackingTool;
+
+        return result;
     }
 }

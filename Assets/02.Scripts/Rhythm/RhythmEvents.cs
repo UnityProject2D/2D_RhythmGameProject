@@ -62,20 +62,22 @@ public static class RhythmEvents
     /// </summary>
     public static event Action OnMusicStopped;
 
+    public static event Action OnMusicReady;
+
     // ===== Invoke =====
     public static void InvokeOnMusicStart() => OnMusicStart?.Invoke();
-    public static void InvokeOnMusicStopped() => OnMusicStopped?.Invoke();
-
+    public static void InvokeOnMusicStopped()
+    {
+        if (!RhythmManager.Instance.IsRestart) OnMusicStopped?.Invoke();
+    }
+    
     public static void InvokeOnBeat(float beat)
     {
-
-        VFXManager.Instance.PlayOnNoteFeedback();
         OnBeat?.Invoke(beat);
     }
     public static void InvokeOnSubBeat() => OnSubBeat?.Invoke();
     public static void InvokeOnInputJudged(JudgementResult result)
     {
-        
         OnInputJudged?.Invoke(new JudgedContext
         {
             RandomValue = UnityEngine.Random.value,
@@ -85,5 +87,7 @@ public static class RhythmEvents
     public static void InvokeOnMarkerHit(string name) => OnMarkerHit?.Invoke(name);
 
     public static void InvokeOnNotePreview(NoteData note) => OnNotePreview?.Invoke(note);
-    public static void InvokeOnNote(NoteData note) => OnNote?.Invoke(note);
+    public static void InvokeOnNote(NoteData note) => OnNote?.Invoke(note); 
+    
+    public static void InvokeOnMusicReady() => OnMusicReady?.Invoke();
 }

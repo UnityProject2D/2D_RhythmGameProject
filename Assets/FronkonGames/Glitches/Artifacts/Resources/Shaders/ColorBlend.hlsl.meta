@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 360c5a98c50a63847a8806485cdd8374
+ShaderIncludeImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 288952
+  packageName: 'Glitches: Artifacts'
+  packageVersion: 2.1.0
+  assetPath: Assets/FronkonGames/Glitches/Artifacts/Resources/Shaders/ColorBlend.hlsl
+  uploadId: 740106

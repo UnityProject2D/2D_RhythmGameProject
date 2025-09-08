@@ -340,9 +340,10 @@ MonoBehaviour:
   _priceText: {fileID: 4840734258381000826}
   _currencyIcon: {fileID: 4088754693229287288}
   _iconImage: {fileID: 5320058751775520035}
+  _priceTextWrapper: {fileID: 7371827039574152136}
   sprites:
-  - {fileID: -3094302376565900353, guid: c52c66e8c335c1640a21e3d2c274bfd7, type: 3}
-  - {fileID: 4606908045521496030, guid: 2b8558b645a07d74582677fd0bf9dfa9, type: 3}
+  - {fileID: -6534872594929070457, guid: 0fb5cc4811ed5824ab2f918fb5b95071, type: 3}
+  - {fileID: 7675826601332790545, guid: 2f0c04447db64ba4f860637ec5527624, type: 3}
 --- !u!1 &1799292200155475519
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +557,6 @@ GameObject:
   - component: {fileID: 313246135971744310}
   - component: {fileID: 1624323776700058865}
   - component: {fileID: 3173458599038042565}
-  - component: {fileID: 8743442946488984279}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -630,23 +630,6 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!114 &8743442946488984279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4680480413043044542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &5533593749630202473
 GameObject:
   m_ObjectHideFlags: 0

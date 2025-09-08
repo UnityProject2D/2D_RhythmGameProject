@@ -1,4 +1,6 @@
+using Cysharp.Threading.Tasks;
 using FMODUnity;
+using MoreMountains.Feedbacks;
 using System.Collections.Generic;
 using UnityEngine;
 using static RhythmEvents;
@@ -18,9 +20,11 @@ public class EnemyAttackController : MonoBehaviour
 
     public GameObject EnemyBulletPrefab;
     private List<GameObject> EnemyBulletPool = new();
-    public Transform PlayerTransform;
+    private Transform _playerTransform;
     public Transform GunPosition;
-
+    public MMF_Player CoinEffect;
+    public GameObject QuantumKey;
+    public bool IsDead;
     private int poolSize = 10;
 
     private void Awake()
@@ -31,6 +35,8 @@ public class EnemyAttackController : MonoBehaviour
     private void Start()
     {
         OnMusicStopped += EnemyDieJdg;
+
+        OnMarkerHit += JudgeEnd;
         // 총알 오브젝트 풀 생성
         for (int i = 0; i < poolSize; i++)
         {
@@ -38,7 +44,38 @@ public class EnemyAttackController : MonoBehaviour
             bullet.SetActive(false);
             EnemyBulletPool.Add(bullet);
         }
+
+        if (GameManager.Instance.Player.Controller != null)
+        {
+            Instance_PlayerRegistered();
+        }
+        else
+        {
+            //Debug.LogWarning("EnemyAttackController: 플레이어 없네요 - 구독");
+            GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
+        }
+
+        //SetPlayer().Forget();
     }
+
+    private void Instance_PlayerRegistered()
+    {
+        _playerTransform = GameManager.Instance.Player.Transform;
+
+        //Debug.Log($"{gameObject.name} EnemyAttackController: PlayerRegistered - {_playerTransform}");
+    }
+
+    //private async UniTaskVoid SetPlayer()
+    //{
+    //    while (GameManager.Instance.Player.Transform == null)
+    //    {
+    //        Debug.Log($"{GameManager.Instance.Player.Transform}");
+    //        await UniTask.Yield();
+    //    }
+
+    //    _playerTransform = GameManager.Instance.Player.Transform;
+    //}
+
 
     private void OnEnable()
     {
@@ -49,6 +86,9 @@ public class EnemyAttackController : MonoBehaviour
     {
         OnNote -= OnNoteReceived;
         OnMusicStopped -= EnemyDieJdg;
+
+        GameManager.Instance.PlayerRegistered -= Instance_PlayerRegistered;
+        OnMarkerHit -= JudgeEnd;
     }
 
     private void OnNoteReceived(NoteData beatTime)
@@ -86,18 +126,20 @@ public class EnemyAttackController : MonoBehaviour
 
         bullet.transform.position = GunPosition.position;
         Vector2 direction;
-        if (PlayerTransform == null)
+        if (_playerTransform == null)
             direction = GunPosition.position;
-
-        switch (directionIndex)
+        else
         {
-            case 0: direction = (PlayerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
-            case 1: direction = (PlayerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
-            case 2: direction = Vector3.left; break;   // A - 왼쪽 몸통
-            case 3: direction = Vector3.left; break;  // D - 오른쪽 몸통
-            default: direction = PlayerTransform.position; break;
-        }
+            switch (directionIndex)
+            {
 
+                case 0: direction = (_playerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
+                case 1: direction = (_playerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
+                case 2: direction = (_playerTransform.position + Vector3.up * 0.5f) - GunPosition.position; break;  // A - 왼쪽 몸통
+                case 3: direction = (_playerTransform.position + Vector3.up * 1f) - GunPosition.position; break; // D - 오른쪽 몸통
+                default: direction = _playerTransform.position; break;
+            }
+        }
         direction = direction.normalized;
 
         // 회전 방향 기준으로 이동 방향 설정
@@ -124,21 +166,33 @@ public class EnemyAttackController : MonoBehaviour
     {
         RuntimeManager.PlayOneShot("event:/SFX/AttackSound");
     }
-    //private IEnumerator ResetAnimation()
-    //{
-    //    yield return new WaitForSeconds(0.5f);
-    //    _animator.SetInteger("Direction", 0);
-    //}
 
-
+    private void JudgeEnd(string marker)
+    {
+        if (marker == "End")
+        {
+            EnemyDieJdg();
+        }
+    }
     ///////// 적이 죽으면!! -> ScoreManager StageCleared 코드 완성된 후 점검 후 수정할것!
     ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
     private void EnemyDieJdg()
     {
+        if (IsDead) return;
+        IsDead = true;
         if (ScoreManager.Instance.Score >= 10000)
         {
             RuntimeManager.PlayOneShot("event:/SFX/EnemyDie");
             _animator.SetTrigger("Die");
+            DropKey().Forget();
+
+            async UniTaskVoid DropKey()
+            {
+                Instantiate(QuantumKey, transform.position, Quaternion.identity);
+                CoinEffect?.PlayFeedbacks();
+                await UniTask.Delay(1000,false);
+                Destroy(gameObject);
+            }
         }
     }
 }

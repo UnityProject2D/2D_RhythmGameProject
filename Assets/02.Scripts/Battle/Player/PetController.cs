@@ -9,9 +9,10 @@ public class PetController : MonoBehaviour
     public GameObject PetBulletPrefab; // 펫 총알 프리팹
     public Transform PetBulletSpawnPoint; // 펫 총알 발사 위치
     private List<GameObject> PetBulletPool = new(); // 펫 총알 오브젝트 풀
+    public Transform[] targetPositions; // 총알이 날아갈 목표 위치들
 
-    private int poolSize = 16; // 총알 풀 사이즈
-
+    private int poolSize = 20; // 총알 풀 사이즈
+    public int page;
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -30,28 +31,47 @@ public class PetController : MonoBehaviour
     private void OnEnable()
     {
         OnInputJudged += OnInputJudgedReceived; // 리듬 입력 판정 이벤트 구독
+        OnMarkerHit += Add;
     }
     private void OnDisable()
     {
         OnInputJudged -= OnInputJudgedReceived; // 리듬 입력 판정 이벤트 구독 해제
     }
+    public void Add(string marker)
+    {
+        if(marker == "Start")
+        {
+            page++;
+        }
+    }
 
     private void OnInputJudgedReceived(JudgedContext result)
     {
-        if (result.Result <= JudgementResult.Good)
+        if (page != 1)
         {
-            FireBullet(); // 퍼펙트 판정일 때만 총알 발사
+            if (result.Result <= JudgementResult.Good)
+            {
+                FireBullet(); // 퍼펙트 판정일 때만 총알 발사
+            }
         }
+        
     }
 
     private void FireBullet()
     {
-        GameObject petBullet = GetPetBulletFromPool(); // 총알 오브젝트를 해당 위치에 배치하고 활성화
-        if (petBullet == null) return; // 비활성화된 총알이 없으면 리턴
-        petBullet.transform.position = PetBulletSpawnPoint.position;
-        petBullet.transform.rotation = Quaternion.identity; // 총알 회전 각도 설정 (Z축 회전)
-        petBullet.GetComponent<PetBullet>().direction = new Vector2(7f, -1f).normalized; // 총알 방향 설정
-        petBullet.SetActive(true);
+        foreach (Transform target in targetPositions)
+        {
+            GameObject petBullet = GetPetBulletFromPool();
+            if (petBullet == null) return;
+
+            petBullet.transform.position = PetBulletSpawnPoint.position;
+            petBullet.transform.rotation = Quaternion.identity;
+
+            Vector2 dir = (target.position - PetBulletSpawnPoint.position).normalized;
+            petBullet.GetComponent<PetBullet>().direction = dir;
+
+            petBullet.SetActive(true);
+        }
     }
 
     // 사용 가능한 총알을 풀에서 찾아 반환

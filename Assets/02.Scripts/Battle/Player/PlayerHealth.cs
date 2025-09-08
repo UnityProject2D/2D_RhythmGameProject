@@ -4,40 +4,42 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float PlayerMaxHealth;
+    private float _playerMaxHealth;
+    public float PlayerMaxHealth => _playerMaxHealth;
     public float Damage;
-
-    private Animator _animator;
     private float _playerCurrentHealth;
+    public bool IsTutorial;
+
+    public float PlayerCurrentHealth => _playerCurrentHealth;
 
     public event Action<float> OnPlayerHealthChanged;
-    public MMF_Player OnMissFeedback;
+    public event Action OnPlayerDied;
 
-    public static PlayerHealth Instance { get; private set; }
+    public MMF_Player OnMissFeedback;
+    public MMF_Player OnHealFeedback;
 
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        _playerCurrentHealth = PlayerMaxHealth;
-        _animator = GetComponent<Animator>();
+        _playerMaxHealth = 20;
+        _playerCurrentHealth = _playerMaxHealth;
+    }
+    private void OnEnable()
+    {
+        RhythmEvents.OnInputJudged += HandleJudge;
     }
 
     private void Start()
     {
-        RhythmEvents.OnInputJudged += HandleJudge;
-        //TODO: 아이템 효과 구독해서 회복
-        //RecoveryAlgorithmCore
-        //체력회복아이템
+        _playerCurrentHealth = GameManager.Instance.PlayerHealth;
+        OnPlayerHealthChanged?.Invoke(_playerCurrentHealth);
     }
+    private void OnDisable()
+    {
+        RhythmEvents.OnInputJudged -= HandleJudge;
+        GameManager.Instance.PlayerHealth = _playerCurrentHealth;
+    }
+
 
     /// <summary>
     /// 판정에 따라 처리
@@ -45,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
     /// <param name="result"></param>
     private void HandleJudge(JudgedContext result)
     {
+        if (GameSceneManager.Instance.CurrentStage == 0) return;
         float finalDamage = 0;
         switch (result.Result)
         {
@@ -146,7 +149,7 @@ public class PlayerHealth : MonoBehaviour
 
     private float ApplyEmergencyResponseCore(float finalDamage)
     {
-        if (_playerCurrentHealth < PlayerMaxHealth * PlayerState.Instance.EmergencyResponseCoreThreshold)
+        if (_playerCurrentHealth < _playerMaxHealth * PlayerState.Instance.EmergencyResponseCoreThreshold)
         {
             return finalDamage - finalDamage * PlayerState.Instance.EmergencyResponseCoreReduce;
         }
@@ -162,15 +165,15 @@ public class PlayerHealth : MonoBehaviour
 
     private void ApplyDamage(float finalDamage)
     {
+        if (IsTutorial) return;
         Debug.Log($"[HP] ApplyDamage: {finalDamage}");
-        if (GetComponent<PlayerController>().IsDead) return;
         _playerCurrentHealth = Mathf.Max(0, _playerCurrentHealth - finalDamage);
 
 #if UNITY_EDITOR
-        Debug.Log($"[HP] {_playerCurrentHealth}/{PlayerMaxHealth} (-{finalDamage})");
+        Debug.Log($"[HP] {_playerCurrentHealth}/{_playerMaxHealth} (-{finalDamage})");
 #endif
 
-        OnPlayerHealthChanged?.Invoke(_playerCurrentHealth);//UI용
+        OnPlayerHealthChanged?.Invoke(_playerCurrentHealth);
 
         if (_playerCurrentHealth == 0)
         {
@@ -184,9 +187,10 @@ public class PlayerHealth : MonoBehaviour
             }
             else
             {
-                Die();
+                OnPlayerDied?.Invoke();
             }
         }
+        
     }
 
     /// <summary>
@@ -195,16 +199,11 @@ public class PlayerHealth : MonoBehaviour
     /// <param name="amount">체력 회복량</param>
     private void RecoveryHealth(float amount)
     {
-        _playerCurrentHealth = Mathf.Min(PlayerMaxHealth, _playerCurrentHealth + amount);
+        _playerCurrentHealth = Mathf.Min(_playerMaxHealth, _playerCurrentHealth + amount);
+        OnHealFeedback?.PlayFeedbacks();
     }
 
     #endregion
 
 
-    private void Die()
-    {
-        Debug.Log("플레이어 사망");
-        GetComponent<PlayerController>().IsDead = true;
-        _animator.SetTrigger("Die");
-    }
 }

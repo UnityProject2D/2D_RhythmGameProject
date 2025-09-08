@@ -1,0 +1,1144 @@
+fileFormatVersion: 2
+guid: 07ae06cb669448143aefc6e4895755f7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8226871420341894611
+    second: BossBulletSpecialExplode_0
+  - first:
+      213: 646707218796892514
+    second: BossBulletSpecialExplode_1
+  - first:
+      213: 1547657837047741065
+    second: BossBulletSpecialExplode_2
+  - first:
+      213: -8713912036504926401
+    second: BossBulletSpecialExplode_3
+  - first:
+      213: -6974710425072861852
+    second: BossBulletSpecialExplode_4
+  - first:
+      213: 8410563243941950255
+    second: BossBulletSpecialExplode_5
+  - first:
+      213: 7207028128249733452
+    second: BossBulletSpecialExplode_6
+  - first:
+      213: -7738962912151917296
+    second: BossBulletSpecialExplode_7
+  - first:
+      213: 7360223921608194581
+    second: BossBulletSpecialExplode_8
+  - first:
+      213: 3225101194714771991
+    second: BossBulletSpecialExplode_9
+  - first:
+      213: -7147128785588740804
+    second: BossBulletSpecialExplode_10
+  - first:
+      213: -2227078040886870625
+    second: BossBulletSpecialExplode_11
+  - first:
+      213: -3942773452059999630
+    second: BossBulletSpecialExplode_12
+  - first:
+      213: 8450119566784416678
+    second: BossBulletSpecialExplode_13
+  - first:
+      213: -3866447787653801930
+    second: BossBulletSpecialExplode_14
+  - first:
+      213: 3265335967154433816
+    second: BossBulletSpecialExplode_15
+  - first:
+      213: -1892912555427478185
+    second: BossBulletSpecialExplode_16
+  - first:
+      213: -999088453169002008
+    second: BossBulletSpecialExplode_17
+  - first:
+      213: -2351090811452132605
+    second: BossBulletSpecialExplode_18
+  - first:
+      213: 231119618847355962
+    second: BossBulletSpecialExplode_19
+  - first:
+      213: -4508795303155345634
+    second: BossBulletSpecialExplode_20
+  - first:
+      213: 8273255115784712869
+    second: BossBulletSpecialExplode_21
+  - first:
+      213: -5056090295096924033
+    second: BossBulletSpecialExplode_22
+  - first:
+      213: -3305999628758976383
+    second: BossBulletSpecialExplode_23
+  - first:
+      213: 611123671997004694
+    second: BossBulletSpecialExplode_24
+  - first:
+      213: 5345570165524272358
+    second: BossBulletSpecialExplode_25
+  - first:
+      213: 2836597381173799978
+    second: BossBulletSpecialExplode_26
+  - first:
+      213: -8086031659904187634
+    second: BossBulletSpecialExplode_27
+  - first:
+      213: 4126949281562140186
+    second: BossBulletSpecialExplode_28
+  - first:
+      213: -3368101784645270179
+    second: BossBulletSpecialExplode_29
+  - first:
+      213: 745595124642119501
+    second: BossBulletSpecialExplode_30
+  - first:
+      213: 4527142927945768412
+    second: BossBulletSpecialExplode_31
+  - first:
+      213: -5317774531691043607
+    second: BossBulletSpecialExplode_32
+  - first:
+      213: 8198922040767187577
+    second: BossBulletSpecialExplode_33
+  - first:
+      213: 5867878105604048783
+    second: BossBulletSpecialExplode_34
+  - first:
+      213: -7505942651944238978
+    second: BossBulletSpecialExplode_35
+  - first:
+      213: -3806066273894044519
+    second: BossBulletSpecialExplode_36
+  - first:
+      213: 653443609992838731
+    second: BossBulletSpecialExplode_37
+  - first:
+      213: 4706117614997602611
+    second: BossBulletSpecialExplode_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 250
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 246
+        height: 668
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ddba4e08f7bb2270800000000000000
+      internalID: 8226871420341894611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_1
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 667
+        width: 227
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 261d1120ac099f800800000000000000
+      internalID: 646707218796892514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_2
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 999
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98a741b5a926a7510800000000000000
+      internalID: 1547657837047741065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_3
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 983
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f378f1ccb27f11780800000000000000
+      internalID: -8713912036504926401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_4
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 951
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46d715e62d9d43f90800000000000000
+      internalID: -6974710425072861852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 819
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f23fd1495b258b470800000000000000
+      internalID: 8410563243941950255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_6
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 991
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c41e29ee5e1840460800000000000000
+      internalID: 7207028128249733452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_7
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 974
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01d2343fb3ea99490800000000000000
+      internalID: -7738962912151917296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_8
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 846
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51af9ca19a4c42660800000000000000
+      internalID: 7360223921608194581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_9
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 719
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71279a3037cd1cc20800000000000000
+      internalID: 3225101194714771991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_10
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 871
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3d93039c3c40dc90800000000000000
+      internalID: -7147128785588740804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_11
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 807
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9d7dd54254d711e0800000000000000
+      internalID: -2227078040886870625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_12
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 710
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2728f106f647849c0800000000000000
+      internalID: -3942773452059999630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_13
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 815
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ab43cfa9fad44570800000000000000
+      internalID: 8450119566784416678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_14
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 333
+        width: 287
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 638dc42f83e975ac0800000000000000
+      internalID: -3866447787653801930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_15
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 297
+        width: 347
+        height: 368
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81feb8af2cdc05d20800000000000000
+      internalID: 3265335967154433816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_16
+      rect:
+        serializedVersion: 2
+        x: 1266
+        y: 640
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7554ed65f060bb5e0800000000000000
+      internalID: -1892912555427478185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_17
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 323
+        width: 300
+        height: 314
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e9caa168568222f0800000000000000
+      internalID: -999088453169002008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_18
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 565
+        width: 69
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 303f5b41d5f3f5fd0800000000000000
+      internalID: -2351090811452132605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_19
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 520
+        width: 42
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a34350e911a153300800000000000000
+      internalID: 231119618847355962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_20
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 310
+        width: 139
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e17d9767f8a8d61c0800000000000000
+      internalID: -4508795303155345634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_21
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 447
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a2f788b1b180d270800000000000000
+      internalID: 8273255115784712869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_22
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 411
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f78a2783aa825d9b0800000000000000
+      internalID: -5056090295096924033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_23
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 337
+        width: 80
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1887f348adabe12d0800000000000000
+      internalID: -3305999628758976383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_24
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 234
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69bb637edb52b7800800000000000000
+      internalID: 611123671997004694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_25
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 198
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e410065eb74f2a40800000000000000
+      internalID: 5345570165524272358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_26
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 200
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2ceaab0a4e9d5720800000000000000
+      internalID: 2836597381173799978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_27
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 153
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0349d40c05a8cf80800000000000000
+      internalID: -8086031659904187634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_28
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 147
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1e909d818ed54930800000000000000
+      internalID: 4126949281562140186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_29
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 124
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d550cd695491241d0800000000000000
+      internalID: -3368101784645270179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_30
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 100
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4f7e86c0d2e85a00800000000000000
+      internalID: 745595124642119501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_31
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 94
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd11a3d184a3de30800000000000000
+      internalID: 4527142927945768412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_32
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 84
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e4afeafc387336b0800000000000000
+      internalID: -5317774531691043607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_33
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 55
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97a8c05082c68c170800000000000000
+      internalID: 8198922040767187577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_34
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 30
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8742d53c04ee6150800000000000000
+      internalID: 5867878105604048783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_35
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 24
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e70096e1de885d790800000000000000
+      internalID: -7505942651944238978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_36
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 8
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99c63f8a3e22e2bc0800000000000000
+      internalID: -3806066273894044519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_37
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 10
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4e3f5e408f711900800000000000000
+      internalID: 653443609992838731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossBulletSpecialExplode_38
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3310429690d7f4140800000000000000
+      internalID: 4706117614997602611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 715144462ac0c75438bc1c46ba09c064
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossBulletSpecialExplode_0: 8226871420341894611
+      BossBulletSpecialExplode_1: 646707218796892514
+      BossBulletSpecialExplode_10: -7147128785588740804
+      BossBulletSpecialExplode_11: -2227078040886870625
+      BossBulletSpecialExplode_12: -3942773452059999630
+      BossBulletSpecialExplode_13: 8450119566784416678
+      BossBulletSpecialExplode_14: -3866447787653801930
+      BossBulletSpecialExplode_15: 3265335967154433816
+      BossBulletSpecialExplode_16: -1892912555427478185
+      BossBulletSpecialExplode_17: -999088453169002008
+      BossBulletSpecialExplode_18: -2351090811452132605
+      BossBulletSpecialExplode_19: 231119618847355962
+      BossBulletSpecialExplode_2: 1547657837047741065
+      BossBulletSpecialExplode_20: -4508795303155345634
+      BossBulletSpecialExplode_21: 8273255115784712869
+      BossBulletSpecialExplode_22: -5056090295096924033
+      BossBulletSpecialExplode_23: -3305999628758976383
+      BossBulletSpecialExplode_24: 611123671997004694
+      BossBulletSpecialExplode_25: 5345570165524272358
+      BossBulletSpecialExplode_26: 2836597381173799978
+      BossBulletSpecialExplode_27: -8086031659904187634
+      BossBulletSpecialExplode_28: 4126949281562140186
+      BossBulletSpecialExplode_29: -3368101784645270179
+      BossBulletSpecialExplode_3: -8713912036504926401
+      BossBulletSpecialExplode_30: 745595124642119501
+      BossBulletSpecialExplode_31: 4527142927945768412
+      BossBulletSpecialExplode_32: -5317774531691043607
+      BossBulletSpecialExplode_33: 8198922040767187577
+      BossBulletSpecialExplode_34: 5867878105604048783
+      BossBulletSpecialExplode_35: -7505942651944238978
+      BossBulletSpecialExplode_36: -3806066273894044519
+      BossBulletSpecialExplode_37: 653443609992838731
+      BossBulletSpecialExplode_38: 4706117614997602611
+      BossBulletSpecialExplode_4: -6974710425072861852
+      BossBulletSpecialExplode_5: 8410563243941950255
+      BossBulletSpecialExplode_6: 7207028128249733452
+      BossBulletSpecialExplode_7: -7738962912151917296
+      BossBulletSpecialExplode_8: 7360223921608194581
+      BossBulletSpecialExplode_9: 3225101194714771991
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

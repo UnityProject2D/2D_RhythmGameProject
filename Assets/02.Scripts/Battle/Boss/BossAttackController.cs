@@ -1,6 +1,6 @@
 using FMODUnity;
-using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static RhythmEvents;
 
@@ -14,7 +14,6 @@ public enum BossAttackState
     BossFlyDown,
     BossWalk,
     BossWalkAttack
-
 }
 
 public class BossAttackController : MonoBehaviour
@@ -23,12 +22,12 @@ public class BossAttackController : MonoBehaviour
 
     public GameObject BossBulletPrefab;
     private List<GameObject> BossBulletPool = new();
-    public Transform PlayerTransform;
-    public Transform GunPosition;
+    private Transform _playerTransform;
+    public Transform[] GunPosition;
 
     private int poolSize = 10;
     private bool _isDead = false; //////////// 적 사망 여부
-    private bool isFlyingLooping = false; //////////// 비행 애니메이션 루프 여부
+    //private bool isFlyingLooping = false; //////////// 비행 애니메이션 루프 여부
 
     private void Awake()
     {
@@ -37,36 +36,65 @@ public class BossAttackController : MonoBehaviour
 
     private void Start()
     {
-        ScoreManager.Instance.OnScoreChanged += BossDieJdg;
+        OnMusicStopped += BossDieJdg;
+        OnMarkerHit += JudgeEnd;
         // 총알 오브젝트 풀 생성
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject bullet = Instantiate(BossBulletPrefab, GunPosition.position, Quaternion.identity);
+            int r = Random.Range(0, GunPosition.Length);
+            GameObject bullet = Instantiate(BossBulletPrefab, GunPosition[r].position, Quaternion.identity);
             bullet.SetActive(false);
             BossBulletPool.Add(bullet);
         }
+        if (GameManager.Instance.Player.Controller != null)
+        {
+            Instance_PlayerRegistered();
+        }
+        else
+        {
+            GameManager.Instance.PlayerRegistered += Instance_PlayerRegistered;
+        }
+    }
+    private void Instance_PlayerRegistered()
+    {
+        _playerTransform = GameManager.Instance.Player.Transform;
+
+        Debug.Log($"BossAttackController: PlayerRegistered - {_playerTransform}");
     }
 
     private void Update()
     {
-        Test();
     }
 
     private void OnEnable()
     {
         OnNote += OnNoteReceived;
+        OnNotePreview += OnNotePreviewReceived;
     }
 
     private void OnDisable()
     {
-        OnNote -= OnNoteReceived;
-        ScoreManager.Instance.OnScoreChanged -= BossDieJdg;
-    }
 
+        OnMarkerHit -= JudgeEnd;
+        OnNote -= OnNoteReceived;
+        OnMusicStopped -= BossDieJdg;
+
+        OnNotePreview -= OnNotePreviewReceived;
+    }
+    public int page = 0;
+    private void OnNotePreviewReceived(NoteData noteData)
+    {
+        if (page == 1)
+        {
+            _animator.SetTrigger("Attack");
+        }
+    }
     private void OnNoteReceived(NoteData beatTime)
     {
         if (_isDead) return; /////////////// 적이 죽었으면 리턴
+
         PlayAttackSound();
+        if (page == 1) return;
         int index = GetIndexFromKey(beatTime.expectedKey); // 입력 키(WASD) → 인덱스로 변환 (0~3)
         if (index < 0 || index >= BossBulletPool.Count) return;
 
@@ -92,18 +120,19 @@ public class BossAttackController : MonoBehaviour
         GameObject bullet = GetBulletFromPool();
         if (bullet == null) return;
 
-        bullet.transform.position = GunPosition.position;
+        int r = Random.Range(0, GunPosition.Length);
+        bullet.transform.position = GunPosition[r].position;
         Vector2 direction;
-        if (PlayerTransform == null)
-            direction = GunPosition.position;
+        if (_playerTransform == null)
+            direction = GunPosition[r].position;
 
         switch (directionIndex)
         {
-            case 0: direction = (PlayerTransform.position + Vector3.down * 0.25f) - GunPosition.position; break;     // W - 머리
-            case 1: direction = (PlayerTransform.position + Vector3.up * 2f) - GunPosition.position; break;   // S - 다리
-            case 2: direction = Vector3.left; break;   // A - 왼쪽 몸통
-            case 3: direction = Vector3.left; break;  // D - 오른쪽 몸통
-            default: direction = PlayerTransform.position; break;
+            case 0: direction = (_playerTransform.position + Vector3.down * 0.25f) - GunPosition[r].position; break;     // W - 머리
+            case 1: direction = (_playerTransform.position + Vector3.up * 2f) - GunPosition[r].position; break;   // S - 다리
+            case 2: direction = (_playerTransform.position + Vector3.up * 1f) - GunPosition[r].position; break;  // A - 왼쪽 몸통
+            case 3: direction = (_playerTransform.position + Vector3.up * 0.5f) - GunPosition[r].position; break; // D - 오른쪽 몸통
+            default: direction = _playerTransform.position; break;
         }
 
         direction = direction.normalized;
@@ -116,13 +145,14 @@ public class BossAttackController : MonoBehaviour
 
     private GameObject GetBulletFromPool()
     {
+        int r = Random.Range(0, GunPosition.Length);
         foreach (var bullet in BossBulletPool)
         {
             if (!bullet.activeInHierarchy)
                 return bullet;
         }
 
-        var newBullet = Instantiate(BossBulletPrefab, GunPosition.position, Quaternion.identity);
+        var newBullet = Instantiate(BossBulletPrefab, GunPosition[r].position, Quaternion.identity);
 
         newBullet.SetActive(false);
         BossBulletPool.Add(newBullet);
@@ -130,18 +160,34 @@ public class BossAttackController : MonoBehaviour
     }
     public void PlayAttackSound()
     {
+        if (page == 1)
+        {
+            RuntimeManager.PlayOneShot("event:/SFX/SpecialAttack");
+        }
+        else
         RuntimeManager.PlayOneShot("event:/SFX/AttackSound");
     }
 
+    private void JudgeEnd(string marker)
+    {
+        if (marker == "Start")
+        {
+            page++;
 
+            _animator.SetInteger("page", page);
+        }
+        if (marker == "End")
+        {
+            BossDieJdg();
+        }
+    }
     ///////// 적이 죽으면!! -> ScoreManager StageCleared 코드 완성된 후 점검 후 수정할것!
     ///////// 리듬 시스템 노트 완벽하게 최적화한 후 score 점수 레벨 디자인 진행할 것
-    private void BossDieJdg(int score)
+    private void BossDieJdg()
     {
-        if (_isDead) return;
-        if (score >= 5000)
+        if (ScoreManager.Instance.Score >= 35000) //10000
         {
-            _isDead = true;
+            RuntimeManager.PlayOneShot("event:/SFX/EnemyDie");
             _animator.SetTrigger("Die");
         }
     }
@@ -154,46 +200,46 @@ public class BossAttackController : MonoBehaviour
         }
     }
 
-    private void Test()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            _animator.SetTrigger("FlyUp");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            _animator.SetTrigger("Special");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            _animator.SetTrigger("FlyDown");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            _animator.SetTrigger("Walk");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            _animator.SetTrigger("WalkAttack");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            isFlyingLooping = !isFlyingLooping;
-            if (isFlyingLooping)
-            {
-                StartCoroutine(FlyingLoopRoutine());
-            }
-        }
-    }
+    //private void Test()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Alpha1))
+    //    {
+    //        _animator.SetTrigger("FlyUp");
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.Alpha2))
+    //    {
+    //        _animator.SetTrigger("Special");
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.Alpha3))
+    //    {
+    //        _animator.SetTrigger("FlyDown");
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.Alpha4))
+    //    {
+    //        _animator.SetTrigger("Walk");
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.Alpha5))
+    //    {
+    //        _animator.SetTrigger("WalkAttack");
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.Alpha6))
+    //    {
+    //        isFlyingLooping = !isFlyingLooping;
+    //        if (isFlyingLooping)
+    //        {
+    //            StartCoroutine(FlyingLoopRoutine());
+    //        }
+    //    }
+    //}
 
-    private IEnumerator FlyingLoopRoutine()
-    {
-        while (isFlyingLooping)
-        {
-            _animator.SetTrigger("FlyUp");
-            yield return new WaitForSeconds(1f);
-            _animator.SetTrigger("FlyDown");
-            yield return new WaitForSeconds(1f);
-        }
-    }
+    //private IEnumerator FlyingLoopRoutine()
+    //{
+    //    while (isFlyingLooping)
+    //    {
+    //        _animator.SetTrigger("FlyUp");
+    //        yield return new WaitForSeconds(1f);
+    //        _animator.SetTrigger("FlyDown");
+    //        yield return new WaitForSeconds(1f);
+    //    }
+    //}
 }

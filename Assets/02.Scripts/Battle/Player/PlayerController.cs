@@ -14,42 +14,61 @@ public enum RhythmAction
 
 public class PlayerController : MonoBehaviour
 {
+    public PlayerHealth PlayerHealth;
     private Animator _animator;
+    private bool _isDead;
+    private float _prevHealth = 0;
+    private bool _inputEnabled = true;
 
-    public bool IsDead;
-    public bool IsAlive = true;
-
+    public void SetInputEnabled(bool enabled)
+    {
+        _inputEnabled = enabled;
+    }
     private void Awake()
     {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.RegisterPlayer(this);
+            Debug.Log(this);
+        }
         _animator = GetComponent<Animator>();
     }
-
-    private void OnEnable()
-    {
-        RhythmEvents.OnInputJudged += OnInputJudg; // 리듬 입력 판정 이벤트 구독
-    }
-
     private void Start()
     {
-        Instance.OnInputPerformed += OnInputPerf;
-    }
+        if (Instance != null)
+        {
+            Instance.OnInputPerformed += OnInputPerf;
+        }
+        PlayerHealth.OnPlayerHealthChanged += OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독
+        PlayerHealth.OnPlayerDied += HandleDie;
+        _prevHealth = PlayerHealth.PlayerCurrentHealth;
 
-    private void OnDisable()
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.RegisterPlayer(this);
+
+            Debug.Log(this);
+        }
+    }
+    private void OnDestroy()
     {
-        Instance.OnInputPerformed -= OnInputPerf;
-        RhythmEvents.OnInputJudged -= OnInputJudg; // 리듬 입력 판정 이벤트 구독 해제
+        if (Instance != null)
+        {
+            Instance.OnInputPerformed -= OnInputPerf;
+        }
+        PlayerHealth.OnPlayerHealthChanged -= OnPlayerHealthChanged; // 플레이어 체력 변경 이벤트 구독 해제
     }
 
     private void OnInputPerf(string key)
     {
-        if (IsDead) return;
+        if (!_inputEnabled || _isDead) return;
         RhythmAction direction = RhythmAction.None;
         switch (key)
         {
             case "W": direction = RhythmAction.Jump; break;
             case "S": direction = RhythmAction.Slide; break;
-            case "A": direction = RhythmAction.Roll; break;
-            case "D": direction = RhythmAction.BackFlip; break;
+            case "A": direction = RhythmAction.BackFlip; break;
+            case "D": direction = RhythmAction.Roll; break;
         }
 
         _animator.SetInteger("Direction", (int)direction);
@@ -57,13 +76,24 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    
 
-    private void OnInputJudg(JudgedContext result)
+    private void OnPlayerHealthChanged(float changed)
     {
-        if (result.Result == JudgementResult.Miss && !IsDead)
+        if (GameSceneManager.Instance.CurrentStage == 0) return;
+        if(changed < _prevHealth)
         {
             _animator.SetTrigger("Hit");
+        }
+
+        _prevHealth = changed;
+    }
+
+    private void HandleDie()
+    {
+        if (!_isDead)
+        {
+            _isDead = true;
+            _animator.SetTrigger("Die");
         }
     }
 }

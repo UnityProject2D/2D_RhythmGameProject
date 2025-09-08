@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c92f81c38a3aa24f9293bb002e8f7a5, type: 3}
+  m_Name: TutorialStepSo_6
+  m_EditorClassIdentifier: 
+  Text: "<color=#00FFFF>SERA</color>  \r\n\uB370\uC774\uD130 \uC218\uC9D1 \uC644\uB8CC. 
+    \r\n\uC815\uD655\uB3C4... \uAE30\uC900\uCE58\uB97C \uCD08\uACFC\uD588\uC2B5\uB2C8\uB2E4."
+  Duration: 0.5
+  DelayTime: 0.5
+  TriggerKeyType: 0
+  TextNextConditionType: 3
+  MusicState: 0
+  NextSquence: 0

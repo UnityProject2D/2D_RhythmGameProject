@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class TooltipUI : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class TooltipUI : MonoBehaviour
     [SerializeField] private TMP_Text _priceText;
     [SerializeField] private Image _currencyIcon;
     [SerializeField] private Image _iconImage;
+    [SerializeField] private GameObject _priceTextWrapper;
 
     [Header("재화 아이콘 모음")]
     [SerializeField] private Sprite[] sprites;
@@ -32,12 +34,28 @@ public class TooltipUI : MonoBehaviour
 
         _tooltipRoot.SetActive(false);
     }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += DestroyOnRestart; // 추후 SceneCleanupHandler로 분리 예정
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= DestroyOnRestart;
+    }
+
+    private void DestroyOnRestart(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        if (scene.name == "GameTitle")
+        {
+            Destroy(gameObject);
+        }
+    }
     void Update()
     {
         if (_isVisible)
         {
             Vector2 mousePos = Input.mousePosition;
-            _tooltipRoot.transform.position = mousePos + new Vector2(200f, -16f);
+            _tooltipRoot.transform.position = mousePos + new Vector2(200f, 50f);
         }
     }
     public void Show(ShopItemSO item)
@@ -48,7 +66,9 @@ public class TooltipUI : MonoBehaviour
         _priceText.text = item.price.ToString();
         _currencyIcon.sprite = sprites[(int)item.currencyType];
         _iconImage.sprite = item.itemSO.icon;
-
+        _priceText.gameObject.SetActive(true);
+        _priceTextWrapper.SetActive(true);
+        _currencyIcon.enabled = true;
         _tooltipRoot.SetActive(true);
         _isVisible = true;
     }
@@ -57,10 +77,11 @@ public class TooltipUI : MonoBehaviour
         _nameText.text = item.itemName;
         _descriptionText.text = item.EffectDescription;
         _categoryText.text = item.category != null ? item.category.categoryName : "";
-        _priceText.text = "";
-        _currencyIcon.sprite = null;
+        _currencyIcon.enabled = false;
         _iconImage.sprite = item.icon;
 
+        _priceText.gameObject.SetActive(false);
+        _priceTextWrapper.SetActive(false);
         _tooltipRoot.SetActive(true);
         _isVisible = true;
     }

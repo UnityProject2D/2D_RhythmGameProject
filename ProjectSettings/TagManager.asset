@@ -10,7 +10,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
@@ -57,6 +57,18 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3695073759
+    locked: 0
+  - name: Particle
+    uniqueID: 215107369
+    locked: 0
+  - name: InGameUI
+    uniqueID: 3460647729
+    locked: 0
+  - name: MainUI
+    uniqueID: 3739207151
+    locked: 0
+  - name: Object1
+    uniqueID: 4128533253
     locked: 0
   m_RenderingLayers:
   - Default
