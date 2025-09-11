@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -5,18 +6,13 @@ using UnityEngine;
 
 public class WaveFunction : MonoBehaviour
 {
-
     public int GRID_SIZE;
     public const int GRID_SCALE = 128;
 
-    // 타일 종류
-    //public const int TILE_TYPE = 6;
-    //public Dictionary<int, Dictionary<DIRECT, HashSet<int>>> Constraints;
-    //// 1. 타일 인덱스, 2. 방향에 따라 적용할 수 있는 타일 셋(방향, 타일 번호)
-
     public List<TileData> TileData;
-
     public MapTilePainter MapTilePainter;
+
+    public TileRuleSetData ruleSet;
 
     private Stack<Vector2Int> propagateStack = new Stack<Vector2Int>();
     public enum DIRECT
@@ -36,69 +32,86 @@ public class WaveFunction : MonoBehaviour
         Vector2Int.down
     };
 
+    // 제한할 태그 이름
+    public string topTag = "sky";
+    public string bottomTag = "ground";
+
+    public enum EdgeSeedMode { Collapse, Constrain }
+
     public List<List<Cell>> cellDatas = new List<List<Cell>>();
 
-    // 초기화 - 셀 정보 설정
+    private void Start()
+    {
+        Init();
+    }
+
+    // 초기화 - 셀 기본 정보 설정
     public void Init()
     {
         cellDatas.Clear();
-        for (int i = 0; i < GRID_SIZE; i++)
+        for (int x = 0; x < GRID_SIZE; x++)
         {
             List<Cell> cells = new List<Cell>();
-            for (int j = 0; j < GRID_SIZE; j++)
+            for (int y = 0; y < GRID_SIZE; y++)
             {
-                Cell cellComponent = new Cell(new Vector2Int(i, j), TileData.Count);
-                int row = i;
-                int col = j;
-                cellComponent.OnCollapsed += (Cell) => On_cell_collapsed(new Vector2Int(row, col));
+                Cell cellComponent = new Cell(new Vector2Int(x, y), TileData.Count);
+                int cx = x;
+                int cy = y;
+                cellComponent.OnCollapsed += (Cell) => On_cell_collapsed(new Vector2Int(cx, cy));
                 cells.Add(cellComponent);
             }
             cellDatas.Add(cells);
         }
     }
 
-    // 모든 타일이 결정(collapse) 되었는지 반환
+    // 모든 타일이 결정되었는지 여부
     public bool Is_fully_collapsed()
     {
-        for (int i = 0; i < GRID_SIZE; i++)
+        for (int x = 0; x < GRID_SIZE; x++)
         {
-            for (int j = 0; j < GRID_SIZE; j++)
+            for (int y = 0; y < GRID_SIZE; y++)
             {
-                if (!cellDatas[i][j].IsCollapsed)
+                if (!cellDatas[x][y].IsCollapsed)
                     return false;
             }
         }
         return true;
     }
 
-    // 가장 엔트로피가 낮은(배치 가능한 타일 종류가 적은 인덱스 반환)
-    public Vector2Int Get_lowest_entropy_coords()
+    // 배치 가능한 타일 종류가 가장 적은 인덱스 반환
+    public Vector2Int GetLowestValueCoords()
     {
-        Vector2Int lowest_coords = Vector2Int.zero;
-        int lowest_entropy = int.MaxValue;
-        for (int i = 0; i < GRID_SIZE; i++)
+        int lowValue = int.MaxValue;
+        List<Vector2Int> cands = null;
+
+        for (int x = 0; x < GRID_SIZE; x++)
         {
-            for (int j = 0; j < GRID_SIZE; j++)
+            for (int y = 0; y < GRID_SIZE; y++)
             {
-                int entropy = cellDatas[i][j].PossibleTiles.Count();
-                if (entropy <= 1)
-                    continue;
-                else if (entropy < lowest_entropy)
+                int entropy = cellDatas[x][y].PossibleTiles.Count();
+                if (entropy <= 1) continue;
+
+                if (entropy < lowValue)
                 {
-                    lowest_entropy = entropy;
-                    lowest_coords = new Vector2Int(i, j);
+                    lowValue = entropy;
+                    cands = new List<Vector2Int> { new Vector2Int(x, y) };
+                }
+                else if (entropy == lowValue)
+                {
+                    cands.Add(new Vector2Int(x, y));
                 }
             }
         }
-        return lowest_coords;
+        if (cands == null || cands.Count == 0) return Vector2Int.zero;
+        return cands[Random.Range(0, cands.Count)];
     }
 
-    // 특정 인덱스 셀 확정(Collapse) - -1 설정(랜덤 값 지정)
-    public void Collapse_at_coords(Vector2Int coords)
+    // 인덱스 셀 확정
+    // -1일 경우 랜덤 값 지정
+    public void CollapseCoords(Vector2Int coords)
     {
         cellDatas[coords.x][coords.y].Collapse(-1, coords.y, coords.x, TileData);
 
-        Propagate(coords);
         Debug.Log($"현재 인덱스: x: {coords.x} y: {coords.y}");
     }
 
@@ -114,64 +127,67 @@ public class WaveFunction : MonoBehaviour
         propagateStack.Push(coords);
 
         while (propagateStack.Count > 0){
-            // 현재 셀 기준 값
+            
+            // 현재 기준 값
             Vector2Int cur_coord = propagateStack.Pop();
             Cell cur_cell = cellDatas[cur_coord.x][cur_coord.y];
             List<int> cur_tiles = cur_cell.PossibleTiles;
 
-            // 상하좌우 방향이 다른 셀
+            // 상하좌우 셀 체크
             for(int i = 0; i < (int)DIRECT.DIRECT_END; i++)
             {
                 // 4가지 방향
                 Vector2Int other_coords = cur_coord + Dirs[i];
 
-                // 해당 인덱스가 유효한지 체크
-                if (!Is_valid_direction(other_coords)) continue;
+                // 유효성 체크
+                if (!Is_valid_direction(other_coords))
+                {
+                    continue;
+                }
 
                 Cell other_cell = cellDatas[other_coords.x][other_coords.y];
                 List<int> other_tiles = other_cell.PossibleTiles;
 
-                // 해당 방향 가능한 이웃 타일 리스트 반환
+                // 해당 방향으로 가능한 이웃들 반환
                 List<int> possible_neighbours = Get_all_possible_neighbours(DIRECT.LEFT + i, cur_tiles);
 
-                bool bChange = false;
+               // 역방향 인덱스
+                int revIndex = i ^ 1;
+
                 // 특정 방향 타일 리스트
+                bool bChange = false;
                 for (int j = other_tiles.Count - 1; j >= 0; j--)
                 {
-
                     int tileId = other_tiles[j];
                     TileData tileData = TileData[tileId];
-                    if (tileData.UseYConstraint)
+
+                    // 역방향 체크
+                    // B의 역방향이 A 후보들 중 하나라도 허용하는지 (B->A)
+                    bool passBackward = false;
+                    for (int k = 0; k < cur_tiles.Count; k++)
                     {
-                        int y = other_coords.y;
-                        if (y < tileData.MinY || y > tileData.MaxY)
+                        var selfA = TileData[cur_tiles[k]];// A 후보
+                        var neighborB = TileData[other_tiles[j]];// B 후보
+                        if (Compatible(neighborB, (WaveFunction.DIRECT)revIndex, selfA, ruleSet))
                         {
-                            other_tiles.RemoveAt(j);
-                            bChange = true;
-                            continue;
+                            passBackward = true;
+                            break;
                         }
                     }
 
-                    if (tileData.UseXConstraint)
-                    {
-                        int x = other_coords.x;
-                        if (x < tileData.MinX || x > tileData.MaxX)
-                        {
-                            other_tiles.RemoveAt(j);
-                            bChange = true;
-                            continue;
-                        }
-                    }
+                    // 가능한 이웃 타일 목록에 해당 인덱스가 없으면 제거(정방향: A->B)
+                    bool passForward = possible_neighbours.Contains(other_tiles[j]);
 
-                    // 가능한 이웃 타일 목록에 해당 인덱스가 없으면 제거
-                    if (!possible_neighbours.Contains(other_tiles[j]))
+                    // 정방향, 역방향 모두 만족하지 않으면 제거
+                    if (!(passForward && passBackward))
                     {
-                        other_tiles.RemoveAt(j); // 해당 인덱스 삭제 후 인덱스 조절(--)
+                        other_tiles.RemoveAt(j);// 해당 인덱스 삭제
                         bChange = true;
                         continue;
                     }
                 }
 
+                // 없으면 false 반환
                 if (other_tiles.Count == 0)
                 {
                     return false;
@@ -185,44 +201,56 @@ public class WaveFunction : MonoBehaviour
     }
 
 
-
-
-    // 해당 셀이 유효한지
+    // 셀 유효성 체크
     public bool Is_valid_direction(Vector2Int coords)
     {
-        return !((coords.x >= GRID_SIZE || coords.x < 0) ||
-            (coords.y >= GRID_SIZE || coords.y < 0));
+        return !((coords.x >= GRID_SIZE || coords.x < 0) || (coords.y >= GRID_SIZE || coords.y < 0));
+    }
+
+    // 태그 유효성 체크
+    bool HasTag(TileData tileData, string tag) => string.IsNullOrEmpty(tag) || (tileData && tileData.tags != null && tileData.tags.Contains(tag));
+
+    public bool Compatible(TileData self, WaveFunction.DIRECT dir, TileData neighbor, TileRuleSetData ruleSetData)
+    {
+        // 우선 순위 높은 규칙부터 체크
+        foreach (var rule in ruleSetData.rules)
+        {
+            if (rule.dir != dir) continue;
+            if (!HasTag(self, rule.selfTag)) continue;
+            if (!HasTag(neighbor, rule.neighborTag)) continue;
+            return rule.allow; // 규칙 매칭 적용
+        }
+        return ruleSetData.defaultAllow; // 매칭 규칙 없음
     }
 
     // 특정 방향으로 유효한 타일 리스트 반환
     public List<int> Get_all_possible_neighbours(DIRECT dir, List<int> tiles)
     {
-        List<int> possibilities = new List<int>();
-
-        // 현재 들어올 수 있는 타일들을 기준으로 이웃 추가
-        foreach (int index in tiles) {
-            possibilities.AddRange(TileData[index].constraints[(int)dir].AllowNeighbours);
+        var possibilities = new List<int>();
+        // 후보와 모든 타일을 모두 대조 후, 하나라도 허용하면 후보로 추가
+        for (int i = 0; i < TileData.Count; i++)
+        {
+            TileData tileData = TileData[i];
+            bool bPossibleTile = false;
+            for (int t = 0; t < tiles.Count; t++)
+            {
+                TileData self = TileData[tiles[t]];
+                if (Compatible(self, dir, tileData, ruleSet))
+                { 
+                    bPossibleTile = true; 
+                    break;
+                }
+            }
+            if (bPossibleTile) 
+                possibilities.Add(i);
         }
-
         return possibilities;
-    }
-
-    public void Solve()
-    {
-        Init();
-        // 모두 Collapse될 때까지 실행
-        while (!Is_fully_collapsed()){
-            Iterate();
-        }
-
-        MapTilePainter.SettingTileMap(TileData, cellDatas);
-        RenderIndex();
     }
 
     public void Iterate()
     {
-        Vector2Int coords = Get_lowest_entropy_coords();
-        Collapse_at_coords(coords);
+        Vector2Int coords = GetLowestValueCoords();
+        CollapseCoords(coords);
         Propagate(coords);
     }
 
@@ -237,6 +265,148 @@ public class WaveFunction : MonoBehaviour
                 else
                     Debug.Log("X");
             }
+        }
+    }
+
+    IEnumerator CoSolve()
+    {
+        const int MaxAttempts = 10;     // 최대 재시도 횟수
+        const int MaxOnce = 50000;      // 1회 시도 최대 횟수
+        const int PaintEvery = 1;       // 중간 페인트 횟수
+
+        for (int attempt = 0; attempt < MaxAttempts; attempt++)
+        {
+            bool isConflict = false;
+            Init(); // 시도마다 다시 리셋
+            // SeedTopBottom(EdgeSeedMode.Constrain);
+            int i = 0;
+
+            while (!Is_fully_collapsed() && i++ < MaxOnce)
+            {
+                Iterate();
+
+                // 모순 발생 시 재시도
+                isConflict = HasContradiction();
+                if (isConflict)
+                {
+                    yield return null; // 한 프레임 쉬고 다음 시도
+                    break;
+                }
+
+                // 진행 사항 렌더링
+                if (i % PaintEvery == 0)
+                {
+                    MapTilePainter.SettingTileMap(TileData, cellDatas);
+                    yield return new WaitForSeconds(0.1f); // 0.1초 후
+                }
+            }
+
+            if (!isConflict)
+            {
+                // 최종 렌더링 후 종료
+                MapTilePainter.SettingTileMap(TileData, cellDatas);
+                RenderIndex();
+                yield break;
+            }
+        }
+
+        Debug.LogError("WFC Fail: Check constraints");
+
+        // 실패 후 상태 렌더링
+        MapTilePainter.SettingTileMap(TileData, cellDatas);
+    }
+
+    public void StartSolve()
+    {
+        StartCoroutine(CoSolve());
+    }
+
+    bool HasContradiction()
+    {
+        for (int x = 0; x < cellDatas.Count; x++)
+        {
+            for (int y = 0; y < cellDatas[x].Count; y++)
+            {
+                Cell c = cellDatas[x][y];
+                if (c == null || c.PossibleTiles == null)
+                {
+                    Debug.LogError($"Cell: ({x},{y}): NULL");
+                    return true;
+                }
+                if (c.PossibleTiles.Count == 0)
+                {
+                    Debug.LogError($"Contradiction: Cell ({x},{y})");
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+
+// 태그로 타일 후보 모으기
+List<int> GetTilesWithTag(string tag)
+{
+    var list = new List<int>();
+    if (string.IsNullOrEmpty(tag)) return list;
+    for (int i = 0; i < TileData.Count; i++)
+    {
+        var tags = TileData[i]?.tags;
+        if (tags != null && tags.Contains(tag)) list.Add(i);
+    }
+    return list;
+}
+
+    // 모드: collapse로 확정할지, constrain만 할지 선택
+
+    /// <summary>
+    /// Collapse: 확정
+    /// Constrain: 확정이 아닌 제한만
+    /// </summary>
+
+    // 맨 위, 아래를 태그로 고정(확정 or 제한) 이후 전파
+    public void SeedTopBottom(EdgeSeedMode mode = EdgeSeedMode.Collapse)
+    {
+        int H = GRID_SIZE;
+        int W = GRID_SIZE;
+
+        var skyTiles = GetTilesWithTag(topTag);
+        var groundTiles = GetTilesWithTag(bottomTag);
+
+        SeedRow(H - 1, skyTiles, mode);
+        SeedRow(0, groundTiles, mode);
+    }
+
+    void SeedRow(int y, List<int> tiles, EdgeSeedMode mode)
+    {
+        for (int x = 0; x < GRID_SIZE; x++)
+        {
+            var cell = cellDatas[x][y];
+            var list = cell.PossibleTiles;
+
+            if (mode == EdgeSeedMode.Constrain)
+            {
+                if (tiles.Count > 0)
+                {
+                    // 후보를 태그로 제한, 비면 태그로 채우기
+                    list.RemoveAll(t => !tiles.Contains(t));
+                    if (list.Count == 0)
+                    {
+                        list.AddRange(tiles);
+                    }
+                }
+            }
+            else // Collapse
+            {
+                if (tiles.Count > 0)
+                {
+                    int pick = tiles[Random.Range(0, tiles.Count)];
+                    cell.Collapse(pick, y, x, TileData);
+                }
+            }
+            // 후보가 변경되었을 수도 있으니 전파
+            Propagate(new Vector2Int(x, y));
         }
     }
 }

@@ -9,14 +9,20 @@ public class MapTilePainter : MonoBehaviour
 
     public void SettingTileMap(List<TileData> tileDataList, List<List<Cell>> cellDataList)
     {
-        for (int i = 0; i < GridSize; i++) // y축
+        for (int x = 0; x < GridSize; x++)
         {
-            for (int j = 0; j < GridSize; j++) // x축
+            for (int y = 0; y < GridSize; y++)
             {
                 Tile tileData = ScriptableObject.CreateInstance<Tile>();
-                if(cellDataList[i][j].PossibleTiles.Count > 0)
-                    tileData.sprite = tileDataList[cellDataList[i][j].PossibleTiles[0]].Sprite;
-                TileMap.SetTile(new Vector3Int(i, j, 0), tileData);
+                if (cellDataList[x][y].PossibleTiles.Count == 1)
+                {
+                    tileData.sprite = tileDataList[cellDataList[x][y].PossibleTiles[0]].Sprite;
+                    TileMap.SetTile(new Vector3Int(x, y, 0), tileData);
+                }
+                else
+                {
+                    TileMap.SetTile(new Vector3Int(x, y, 0), null);
+                }
             }
         }        
     }

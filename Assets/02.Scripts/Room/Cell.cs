@@ -1,9 +1,7 @@
+using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.UIElements;
 
 //const int CELL_SIZE = 128;
 //const float TILE_SCALE_ADJ = 0.9f;
@@ -32,47 +30,26 @@ public class Cell
     {
         if (IsCollapsed)
             return true;
-        // -1일 경우 랜덤
+
+        // -1일 경우 랜덤 적용
         if (-1 == selectedIndex)
         {
-            // x 제한
-            var validTiles = PossibleTiles.Where(id =>
+            if (PossibleTiles.Count == 0)
             {
-                var tile = TileData[id];
-                if (!tile.UseXConstraint) return true;
-                return xPosition >= tile.MinX && xPosition <= tile.MaxX;
-            }).ToList();
-
-            // y 제한
-            validTiles = validTiles.Where(id =>
-            {
-                var tile = TileData[id];
-                if (!tile.UseYConstraint) return true;
-                return yPosition >= tile.MinY && yPosition <= tile.MaxY;
-            }).ToList();
-
-            if (validTiles.Count == 0)
-            {
-                PossibleTiles.Clear();
-                return false; // 또는 리셋 처리
+                return false;
             }
 
-            int randomIndex = UnityEngine.Random.Range(0, validTiles.Count);
-            Collapse(validTiles[randomIndex], yPosition, xPosition, TileData);
+            int randomIndex = UnityEngine.Random.Range(0, PossibleTiles.Count);
+            Collapse(PossibleTiles[randomIndex], yPosition, xPosition, TileData);
             return true;
-            //if (PossibleTiles.Count <= 0)
-            //{
-            //    return;
-            //}
-            //int randomIndex = UnityEngine.Random.Range(0, PossibleTiles.Count);
-            //Debug.Log($"현재 랜덤 인덱스: {randomIndex} 현재 가능한 타일 카운트: {PossibleTiles.Count}");
-            //Debug.Log($"후보 결정: {randomIndex} , 현재 가능한 타일 인덱스: {PossibleTiles[randomIndex]}");
-            //Collapse(PossibleTiles[randomIndex]);
-            //return;
         }
 
         // 후보에 없을 경우
-        if (!PossibleTiles.Contains(selectedIndex)) return true;
+        if (!PossibleTiles.Contains(selectedIndex))
+        {
+            return false;
+        }
+            
 
         PossibleTiles = new List<int> { selectedIndex };
         OnCollapsed?.Invoke(this);
