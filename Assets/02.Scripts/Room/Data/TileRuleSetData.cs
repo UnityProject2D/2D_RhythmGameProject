@@ -15,5 +15,5 @@ public class TileRuleSetData : ScriptableObject
         public int priority = 0;            // 우선 순위 적용(높을 수록 먼저) 
     }
     public bool defaultAllow = true;        // 기본 허용(규칙에 걸리지 않으면): false -> 기본 금지
-    public List<Rule> rules;
+    public List<Rule> rules = new List<Rule>();
 }

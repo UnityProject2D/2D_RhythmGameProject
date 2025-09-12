@@ -39,8 +39,22 @@ public class Cell
                 return false;
             }
 
-            int randomIndex = UnityEngine.Random.Range(0, PossibleTiles.Count);
-            Collapse(PossibleTiles[randomIndex], yPosition, xPosition, TileData);
+            // 가중치 랜덤 선택
+
+            int totalWeight = PossibleTiles.Sum(t => TileData[t].weight); // 현재 셀이 가질 수 있는 후보 타일의 weight 총합
+            int randomValue = UnityEngine.Random.Range(0, totalWeight); // 0 ~ totalWeight 랜덤 값
+            int accumulatedWeight = 0; // 가중치 누적값
+            int chosen = PossibleTiles[0];
+            foreach (var idx in PossibleTiles)
+            {
+                accumulatedWeight += TileData[idx].weight;
+                if (randomValue < accumulatedWeight)
+                {
+                    chosen = idx;
+                    break;
+                }
+            }
+            Collapse(chosen, yPosition, xPosition, TileData);
             return true;
         }
 
@@ -57,45 +71,3 @@ public class Cell
         return true;
     }
 }
-
-
-
-/*
- 
-
-public void Collapse(int selectedIndex = -1, int yPosition = -1)
-{
-    if (IsCollapsed)
-        return;
-
-    // Collapse 대상 필터링
-    if (selectedIndex == -1)
-    {
-        var validTiles = PossibleTiles.Where(id =>
-        {
-            var tile = tileDataDict[id];
-            if (!tile.UseYConstraint) return true;
-            return yPosition >= tile.MinY && yPosition <= tile.MaxY;
-        }).ToList();
-
-        if (validTiles.Count == 0)
-        {
-            Debug.LogWarning($"[Collapse] 유효한 후보가 없습니다. y: {yPosition}");
-            return; // 또는 리셋 처리
-        }
-
-        int randomIndex = UnityEngine.Random.Range(0, validTiles.Count);
-        Collapse(validTiles[randomIndex], yPosition);
-        return;
-    }
-
-    // 필터 통과한 인덱스만 허용
-    if (!PossibleTiles.Contains(selectedIndex)) return;
-
-    PossibleTiles = new List<int> { selectedIndex };
-    OnCollapsed?.Invoke(this);
-}
-
-
-
- */

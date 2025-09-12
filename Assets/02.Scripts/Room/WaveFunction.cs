@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-
 public class WaveFunction : MonoBehaviour
 {
-    public int GRID_SIZE;
+    public int X_GRID_SIZE;
+    public int Y_GRID_SIZE;
     public const int GRID_SCALE = 128;
 
     public List<TileData> TileData;
@@ -49,10 +49,10 @@ public class WaveFunction : MonoBehaviour
     public void Init()
     {
         cellDatas.Clear();
-        for (int x = 0; x < GRID_SIZE; x++)
+        for (int x = 0; x < X_GRID_SIZE; x++)
         {
             List<Cell> cells = new List<Cell>();
-            for (int y = 0; y < GRID_SIZE; y++)
+            for (int y = 0; y < Y_GRID_SIZE; y++)
             {
                 Cell cellComponent = new Cell(new Vector2Int(x, y), TileData.Count);
                 int cx = x;
@@ -67,9 +67,9 @@ public class WaveFunction : MonoBehaviour
     // 모든 타일이 결정되었는지 여부
     public bool Is_fully_collapsed()
     {
-        for (int x = 0; x < GRID_SIZE; x++)
+        for (int x = 0; x < X_GRID_SIZE; x++)
         {
-            for (int y = 0; y < GRID_SIZE; y++)
+            for (int y = 0; y < Y_GRID_SIZE; y++)
             {
                 if (!cellDatas[x][y].IsCollapsed)
                     return false;
@@ -84,9 +84,9 @@ public class WaveFunction : MonoBehaviour
         int lowValue = int.MaxValue;
         List<Vector2Int> cands = null;
 
-        for (int x = 0; x < GRID_SIZE; x++)
+        for (int x = 0; x < X_GRID_SIZE; x++)
         {
-            for (int y = 0; y < GRID_SIZE; y++)
+            for (int y = 0; y < Y_GRID_SIZE; y++)
             {
                 int entropy = cellDatas[x][y].PossibleTiles.Count();
                 if (entropy <= 1) continue;
@@ -204,7 +204,7 @@ public class WaveFunction : MonoBehaviour
     // 셀 유효성 체크
     public bool Is_valid_direction(Vector2Int coords)
     {
-        return !((coords.x >= GRID_SIZE || coords.x < 0) || (coords.y >= GRID_SIZE || coords.y < 0));
+        return !((coords.x >= X_GRID_SIZE || coords.x < 0) || (coords.y >= Y_GRID_SIZE || coords.y < 0));
     }
 
     // 태그 유효성 체크
@@ -256,9 +256,9 @@ public class WaveFunction : MonoBehaviour
 
     public void RenderIndex()
     {
-        for (int i = 0; i < GRID_SIZE; i++)
+        for (int i = 0; i < X_GRID_SIZE; i++)
         {
-            for (int j = 0; j < GRID_SIZE; j++)
+            for (int j = 0; j < Y_GRID_SIZE; j++)
             {
                 if (cellDatas[i][j].IsCollapsed && cellDatas[i][j].PossibleTiles.Count > 0)
                     Debug.Log(cellDatas[i][j].PossibleTiles[0] + " ");
@@ -278,7 +278,7 @@ public class WaveFunction : MonoBehaviour
         {
             bool isConflict = false;
             Init(); // 시도마다 다시 리셋
-            // SeedTopBottom(EdgeSeedMode.Constrain);
+            SeedTopBottom(EdgeSeedMode.Constrain);
             int i = 0;
 
             while (!Is_fully_collapsed() && i++ < MaxOnce)
@@ -352,9 +352,12 @@ List<int> GetTilesWithTag(string tag)
     if (string.IsNullOrEmpty(tag)) return list;
     for (int i = 0; i < TileData.Count; i++)
     {
-        var tags = TileData[i]?.tags;
-        if (tags != null && tags.Contains(tag)) list.Add(i);
-    }
+            var tags = TileData[i]?.tags;
+            if (tags != null && tags.Contains(tag))
+            {
+                list.Add(i);
+            }
+        }
     return list;
 }
 
@@ -368,8 +371,8 @@ List<int> GetTilesWithTag(string tag)
     // 맨 위, 아래를 태그로 고정(확정 or 제한) 이후 전파
     public void SeedTopBottom(EdgeSeedMode mode = EdgeSeedMode.Collapse)
     {
-        int H = GRID_SIZE;
-        int W = GRID_SIZE;
+        int H = Y_GRID_SIZE;
+        int W = X_GRID_SIZE;
 
         var skyTiles = GetTilesWithTag(topTag);
         var groundTiles = GetTilesWithTag(bottomTag);
@@ -380,7 +383,7 @@ List<int> GetTilesWithTag(string tag)
 
     void SeedRow(int y, List<int> tiles, EdgeSeedMode mode)
     {
-        for (int x = 0; x < GRID_SIZE; x++)
+        for (int x = 0; x < X_GRID_SIZE; x++)
         {
             var cell = cellDatas[x][y];
             var list = cell.PossibleTiles;
