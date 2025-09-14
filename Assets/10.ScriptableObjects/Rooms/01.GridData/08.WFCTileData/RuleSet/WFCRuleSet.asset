@@ -1,0 +1,356 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52455e9b977af21498c0523f997b2d97, type: 3}
+  m_Name: WFCRuleSet
+  m_EditorClassIdentifier: 
+  defaultAllow: 0
+  rules:
+  - allow: 0
+    dir: 3
+    selfTag: OBJECT_FLOOR
+    neighborTag: LEFT=LOW
+    priority: 100
+  - allow: 0
+    dir: 3
+    selfTag: OBJECT_FLOOR
+    neighborTag: RIGHT=LOW
+    priority: 100
+  - allow: 0
+    dir: 3
+    selfTag: OBJECT_FLOOR
+    neighborTag: AIR
+    priority: 90
+  - allow: 0
+    dir: 3
+    selfTag: OBJECT_FLOOR
+    neighborTag: FILL
+    priority: 90
+  - allow: 0
+    dir: 3
+    selfTag: OBJECT_FLOOR
+    neighborTag: OBJECT_FLOOR
+    priority: 90
+  - allow: 0
+    dir: 3
+    selfTag: OBJECT_FLOOR
+    neighborTag: OBJECT_CEIL
+    priority: 90
+  - allow: 0
+    dir: 3
+    selfTag: OBJECT_FLOOR
+    neighborTag: OBJECT_STACK
+    priority: 90
+  - allow: 1
+    dir: 3
+    selfTag: OBJECT_FLOOR
+    neighborTag: SURFACE
+    priority: 80
+  - allow: 1
+    dir: 1
+    selfTag: RIGHT=LOW
+    neighborTag: LEFT=LOW
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: RIGHT=HIGH
+    neighborTag: LEFT=HIGH
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: LEFT=LOW
+    neighborTag: RIGHT=LOW
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: LEFT=HIGH
+    neighborTag: RIGHT=HIGH
+    priority: 0
+  - allow: 1
+    dir: 3
+    selfTag: SURFACE
+    neighborTag: FILL
+    priority: 5
+  - allow: 1
+    dir: 2
+    selfTag: FILL
+    neighborTag: SURFACE
+    priority: 0
+  - allow: 1
+    dir: 2
+    selfTag: FILL
+    neighborTag: FILL
+    priority: 0
+  - allow: 1
+    dir: 3
+    selfTag: FILL
+    neighborTag: FILL
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: FILL
+    neighborTag: FILL
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: FILL
+    neighborTag: FILL
+    priority: 0
+  - allow: 1
+    dir: 2
+    selfTag: SURFACE
+    neighborTag: AIR
+    priority: 5
+  - allow: 1
+    dir: 3
+    selfTag: AIR
+    neighborTag: SURFACE
+    priority: 0
+  - allow: 1
+    dir: 2
+    selfTag: AIR
+    neighborTag: AIR
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: AIR
+    neighborTag: AIR
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: AIR
+    neighborTag: AIR
+    priority: 0
+  - allow: 1
+    dir: 3
+    selfTag: AIR
+    neighborTag: AIR
+    priority: 0
+  - allow: 1
+    dir: 3
+    selfTag: OBJECT_FLOOR
+    neighborTag: SURFACE
+    priority: 0
+  - allow: 1
+    dir: 2
+    selfTag: SURFACE
+    neighborTag: OBJECT_FLOOR
+    priority: 5
+  - allow: 1
+    dir: 2
+    selfTag: OBJECT_FLOOR
+    neighborTag: AIR
+    priority: 0
+  - allow: 1
+    dir: 3
+    selfTag: AIR
+    neighborTag: OBJECT_FLOOR
+    priority: 0
+  - allow: 1
+    dir: 2
+    selfTag: OBJECT_FLOOR
+    neighborTag: OBJECT_STACK
+    priority: 0
+  - allow: 1
+    dir: 3
+    selfTag: OBJECT_STACK
+    neighborTag: OBJECT_FLOOR
+    priority: 0
+  - allow: 1
+    dir: 2
+    selfTag: OBJECT_STACK
+    neighborTag: AIR
+    priority: 0
+  - allow: 1
+    dir: 3
+    selfTag: AIR
+    neighborTag: OBJECT_STACK
+    priority: 0
+  - allow: 1
+    dir: 2
+    selfTag: OBJECT_CEIL
+    neighborTag: FILL
+    priority: 0
+  - allow: 1
+    dir: 3
+    selfTag: FILL
+    neighborTag: OBJECT_CEIL
+    priority: 0
+  - allow: 1
+    dir: 3
+    selfTag: OBJECT_CEIL
+    neighborTag: AIR
+    priority: 0
+  - allow: 1
+    dir: 2
+    selfTag: AIR
+    neighborTag: OBJECT_CEIL
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: OBJECT_FLOOR
+    neighborTag: AIR
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: OBJECT_FLOOR
+    neighborTag: AIR
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: AIR
+    neighborTag: OBJECT_FLOOR
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: AIR
+    neighborTag: OBJECT_FLOOR
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: OBJECT_CEIL
+    neighborTag: AIR
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: OBJECT_CEIL
+    neighborTag: AIR
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: AIR
+    neighborTag: OBJECT_CEIL
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: AIR
+    neighborTag: OBJECT_CEIL
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: OBJECT_STACK
+    neighborTag: AIR
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: OBJECT_STACK
+    neighborTag: AIR
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: AIR
+    neighborTag: OBJECT_STACK
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: AIR
+    neighborTag: OBJECT_STACK
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: OBJECT_FLOOR
+    neighborTag: FILL
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: OBJECT_FLOOR
+    neighborTag: SURFACE
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: OBJECT_FLOOR
+    neighborTag: OBJECT_FLOOR
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: OBJECT_FLOOR
+    neighborTag: OBJECT_CEIL
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: OBJECT_FLOOR
+    neighborTag: OBJECT_STACK
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: OBJECT_FLOOR
+    neighborTag: FILL
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: OBJECT_FLOOR
+    neighborTag: SURFACE
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: OBJECT_FLOOR
+    neighborTag: OBJECT_FLOOR
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: OBJECT_FLOOR
+    neighborTag: OBJECT_CEIL
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: OBJECT_FLOOR
+    neighborTag: OBJECT_STACK
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: OBJECT_CEIL
+    neighborTag: FILL
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: OBJECT_CEIL
+    neighborTag: SURFACE
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: OBJECT_CEIL
+    neighborTag: OBJECT_FLOOR
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: OBJECT_CEIL
+    neighborTag: OBJECT_CEIL
+    priority: 0
+  - allow: 1
+    dir: 0
+    selfTag: OBJECT_CEIL
+    neighborTag: OBJECT_STACK
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: OBJECT_CEIL
+    neighborTag: FILL
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: OBJECT_CEIL
+    neighborTag: SURFACE
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: OBJECT_CEIL
+    neighborTag: OBJECT_FLOOR
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: OBJECT_CEIL
+    neighborTag: OBJECT_CEIL
+    priority: 0
+  - allow: 1
+    dir: 1
+    selfTag: OBJECT_CEIL
+    neighborTag: OBJECT_STACK
+    priority: 0
