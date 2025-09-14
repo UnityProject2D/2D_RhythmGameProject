@@ -32,12 +32,6 @@ public class WaveFunction : MonoBehaviour
         Vector2Int.down
     };
 
-    // 제한할 태그 이름
-    public string topTag = "sky";
-    public string bottomTag = "ground";
-
-    public enum EdgeSeedMode { Collapse, Constrain }
-
     public List<List<Cell>> cellDatas = new List<List<Cell>>();
 
     private void Start()
@@ -278,7 +272,8 @@ public class WaveFunction : MonoBehaviour
         {
             bool isConflict = false;
             Init(); // 시도마다 다시 리셋
-            SeedTopBottom(EdgeSeedMode.Constrain);
+            LimitTagToBand("SURFACE", 0, 1);
+            LimitTagToBand("OBJECT_CEIL", Y_GRID_SIZE - 2, Y_GRID_SIZE - 1);
             int i = 0;
 
             while (!Is_fully_collapsed() && i++ < MaxOnce)
@@ -361,55 +356,33 @@ List<int> GetTilesWithTag(string tag)
     return list;
 }
 
-    // 모드: collapse로 확정할지, constrain만 할지 선택
-
-    /// <summary>
-    /// Collapse: 확정
-    /// Constrain: 확정이 아닌 제한만
-    /// </summary>
-
-    // 맨 위, 아래를 태그로 고정(확정 or 제한) 이후 전파
-    public void SeedTopBottom(EdgeSeedMode mode = EdgeSeedMode.Collapse)
+    public void LimitTagToBand(string tag, int yMin, int yMax)
     {
-        int H = Y_GRID_SIZE;
-        int W = X_GRID_SIZE;
+        int W = X_GRID_SIZE, H = Y_GRID_SIZE;
 
-        var skyTiles = GetTilesWithTag(topTag);
-        var groundTiles = GetTilesWithTag(bottomTag);
+        yMin = Mathf.Clamp(yMin, 0, H - 1);
+        yMax = Mathf.Clamp(yMax, 0, H - 1);
+        if (yMin > yMax) return;
 
-        SeedRow(H - 1, skyTiles, mode);
-        SeedRow(0, groundTiles, mode);
-    }
-
-    void SeedRow(int y, List<int> tiles, EdgeSeedMode mode)
-    {
-        for (int x = 0; x < X_GRID_SIZE; x++)
+        for (int y = 0; y < H; y++)
         {
-            var cell = cellDatas[x][y];
-            var list = cell.PossibleTiles;
+            bool inside = (y >= yMin && y <= yMax);
+            if (inside) continue; // 밴드 내부 값은 허용
 
-            if (mode == EdgeSeedMode.Constrain)
+            for (int x = 0; x < W; x++)
             {
-                if (tiles.Count > 0)
+                var c = cellDatas[x][y];
+                if (c.IsCollapsed)
                 {
-                    // 후보를 태그로 제한, 비면 태그로 채우기
-                    list.RemoveAll(t => !tiles.Contains(t));
-                    if (list.Count == 0)
-                    {
-                        list.AddRange(tiles);
-                    }
+                    continue;
+                }
+                int removed = c.PossibleTiles.RemoveAll(id =>
+                    TileData[id]?.tags != null && TileData[id].tags.Contains(tag));
+                if (removed > 0)
+                {
+                    Propagate(new Vector2Int(x, y));
                 }
             }
-            else // Collapse
-            {
-                if (tiles.Count > 0)
-                {
-                    int pick = tiles[Random.Range(0, tiles.Count)];
-                    cell.Collapse(pick, y, x, TileData);
-                }
-            }
-            // 후보가 변경되었을 수도 있으니 전파
-            Propagate(new Vector2Int(x, y));
         }
     }
 }
