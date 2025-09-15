@@ -37,6 +37,7 @@ public class WaveFunction : MonoBehaviour
     private void Start()
     {
         Init();
+        // StartSolve();
     }
 
     // 초기화 - 셀 기본 정보 설정
