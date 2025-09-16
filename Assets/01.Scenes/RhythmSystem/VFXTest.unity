@@ -4606,9 +4606,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 116356321771992551, guid: a2a0cbc849b056b4e99b35c787d14fd8, type: 3}
+      propertyPath: m_Name
+      value: PlayWave1
+      objectReference: {fileID: 0}
     - target: {fileID: 1412928330445572484, guid: a2a0cbc849b056b4e99b35c787d14fd8, type: 3}
       propertyPath: m_Name
       value: PlayWaves
+      objectReference: {fileID: 0}
+    - target: {fileID: 2057273898422616404, guid: a2a0cbc849b056b4e99b35c787d14fd8, type: 3}
+      propertyPath: m_Name
+      value: PlayWave0
       objectReference: {fileID: 0}
     - target: {fileID: 6711035144041714523, guid: a2a0cbc849b056b4e99b35c787d14fd8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4650,11 +4658,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7333973375821800376, guid: a2a0cbc849b056b4e99b35c787d14fd8, type: 3}
+      propertyPath: Waves.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333973375821800376, guid: a2a0cbc849b056b4e99b35c787d14fd8, type: 3}
+      propertyPath: 'Waves.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1851993407}
+    - target: {fileID: 7333973375821800376, guid: a2a0cbc849b056b4e99b35c787d14fd8, type: 3}
+      propertyPath: 'Waves.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1851993406}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2a0cbc849b056b4e99b35c787d14fd8, type: 3}
+--- !u!1 &1851993406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 116356321771992551, guid: a2a0cbc849b056b4e99b35c787d14fd8, type: 3}
+  m_PrefabInstance: {fileID: 1851993405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1851993407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2057273898422616404, guid: a2a0cbc849b056b4e99b35c787d14fd8, type: 3}
+  m_PrefabInstance: {fileID: 1851993405}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1865986268
 GameObject:
   m_ObjectHideFlags: 0

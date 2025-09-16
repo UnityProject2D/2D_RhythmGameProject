@@ -65,10 +65,10 @@ public class PlayWave : MonoBehaviour
         // gap만큼 이동
         if (_gapX <= _moveValue)
         {
-            int idx = _waveTrans[0].position.x <= _waveTrans[0].position.x ? 0 : 1;
+            int idx = _waveTrans[0].position.x <= _waveTrans[1].position.x ? 0 : 1;
 
             // wave 뒤에꺼 변경
-            if (_waveTrans[idx].position.x < _waveTrans[idx].position.x)
+            if (_waveTrans[idx].position.x < _waveTrans[Mathf.Abs((idx - 1))].position.x)
             {
                 _waveTrans[idx].transform.Translate(_gapX * 2, 0.0f, 0.0f);
                 _waveSolvers[idx].StartSolve();

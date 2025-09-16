@@ -14,7 +14,17 @@ public class WaveFunction : MonoBehaviour
 
     public TileRuleSetData ruleSet;
 
-    private Stack<Vector2Int> propagateStack = new Stack<Vector2Int>();
+    private Stack<Vector2Int> propagateStack = new();
+
+
+    /// <summary>
+    /// trail: 전파 중 후보가 제거될 때마다 push - 데이터(coords, removedTile)
+    /// choices: 셀 확정할 때 남은 후보들을 담아두는 분기점
+
+    private Stack<(Vector2Int cell, int removedTile)> trail = new();
+    private Stack<(Vector2Int cell, List<int> remaining)> choices = new();
+
+    /// </summary>
     public enum DIRECT
     {
         LEFT,
@@ -146,7 +156,7 @@ public class WaveFunction : MonoBehaviour
                 // 해당 방향으로 가능한 이웃들 반환
                 List<int> possible_neighbours = Get_all_possible_neighbours(DIRECT.LEFT + i, cur_tiles);
 
-               // 역방향 인덱스
+                // 역방향 인덱스
                 int revIndex = i ^ 1;
 
                 // 특정 방향 타일 리스트
@@ -176,7 +186,11 @@ public class WaveFunction : MonoBehaviour
                     // 정방향, 역방향 모두 만족하지 않으면 제거
                     if (!(passForward && passBackward))
                     {
+                        int removed = other_tiles[j];
                         other_tiles.RemoveAt(j);// 해당 인덱스 삭제
+                        
+                        // 삭제 트레일 추가
+                        trail.Push((other_coords, removed));
                         bChange = true;
                         continue;
                     }
@@ -195,6 +209,90 @@ public class WaveFunction : MonoBehaviour
         return true;
     }
 
+    public bool TryAssign(Vector2Int cell, int tileId)
+    {
+        // trail 길이 저장
+        int mark = trail.Count;
+
+        // 해당 셀 도메인을 tileId 하나로 축소하면서 삭제 기록
+        List<int> values = cellDatas[cell.x][cell.y].PossibleTiles;
+        for (int i = values.Count - 1; i >= 0; --i)
+        {
+            if (values[i] != tileId)
+            {
+                int removed = values[i];
+                values.RemoveAt(i);
+                trail.Push((cell, removed));
+            }
+        }
+
+        // 전파 실패시 false
+        if (!Propagate(cell))
+        {
+            // trail을 mark까지 undo
+            while(trail.Count > mark)
+            {
+                var trailValue = trail.Pop();
+                List<int> list = cellDatas[cell.x][cell.y].PossibleTiles;
+
+                // 다시 가능한 타일로 추가
+                if (!list.Contains(trailValue.removedTile))
+                {
+                    list.Add(trailValue.removedTile);
+                }
+            }
+            return false;
+        }
+        return true;
+    }
+
+    private bool StepOnce()
+    {
+        Vector2Int cell = GetLowestValueCoords();
+        if (cell == Vector2Int.zero)
+        {
+            return true;
+        }
+
+        List<int> cellValue = cellDatas[cell.x][cell.y].PossibleTiles.ToList();
+
+        choices.Push((cell, cellValue.ToList()));
+
+        // 첫 후보부터 시도
+        int last = cellValue[cellValue.Count - 1];
+        cellValue.RemoveAt(cellValue.Count - 1);
+        choices.Pop();
+        choices.Push((cell, cellValue));
+
+        if (TryAssign(cell, last))
+        {
+            return true;
+        }
+        return Backtracking();
+        // return Backtracking();
+    }
+
+    private bool Backtracking()
+    {
+        while (choices.Count > 0)
+        {
+            var (cell, remainging) = choices.Pop();
+            if (remainging.Count == 0)
+            {
+                continue;
+            }
+
+            int next = remainging[remainging.Count - 1];
+            remainging.RemoveAt(remainging.Count - 1);
+            choices.Push((cell, remainging));
+
+            if (TryAssign(cell, next))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     // 셀 유효성 체크
     public bool Is_valid_direction(Vector2Int coords)
@@ -265,51 +363,25 @@ public class WaveFunction : MonoBehaviour
 
     IEnumerator CoSolve()
     {
-        const int MaxAttempts = 10;     // 최대 재시도 횟수
-        const int MaxOnce = 50000;      // 1회 시도 최대 횟수
-        const int PaintEvery = 1;       // 중간 페인트 횟수
+        Init(); // 시도마다 다시 리셋
+        LimitTagToBand("SURFACE", 0, 1);
+        LimitTagToBand("OBJECT_CEIL", Y_GRID_SIZE - 2, Y_GRID_SIZE - 1);
 
-        for (int attempt = 0; attempt < MaxAttempts; attempt++)
+        int playN = 0, maxPlay = 20000;
+        while (!Is_fully_collapsed() && playN++ < maxPlay)
         {
-            bool isConflict = false;
-            Init(); // 시도마다 다시 리셋
-            LimitTagToBand("SURFACE", 0, 1);
-            LimitTagToBand("OBJECT_CEIL", Y_GRID_SIZE - 2, Y_GRID_SIZE - 1);
-            int i = 0;
-
-            while (!Is_fully_collapsed() && i++ < MaxOnce)
+            if (!StepOnce())
             {
-                Iterate();
-
-                // 모순 발생 시 재시도
-                isConflict = HasContradiction();
-                if (isConflict)
-                {
-                    yield return null; // 한 프레임 쉬고 다음 시도
-                    break;
-                }
-
-                // 진행 사항 렌더링
-                if (i % PaintEvery == 0)
-                {
-                    MapTilePainter.SettingTileMap(TileData, cellDatas);
-                    yield return new WaitForSeconds(0.1f); // 0.1초 후
-                }
+                Debug.LogError("error!-step");
+                break;
             }
-
-            if (!isConflict)
-            {
-                // 최종 렌더링 후 종료
-                MapTilePainter.SettingTileMap(TileData, cellDatas);
-                RenderIndex();
-                yield break;
-            }
+            // 중간 렌더
+            MapTilePainter.SettingTileMap(TileData, cellDatas);
+            yield return null;
         }
 
-        Debug.LogError("WFC Fail: Check constraints");
-
-        // 실패 후 상태 렌더링
         MapTilePainter.SettingTileMap(TileData, cellDatas);
+
     }
 
     public void StartSolve()
