@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveFunction : MonoBehaviour
@@ -47,11 +48,27 @@ public class WaveFunction : MonoBehaviour
     private void Start()
     {
         Init();
+
         // StartSolve();
     }
 
-    // 초기화 - 셀 기본 정보 설정
-    public void Init()
+    public void TestSnapShot()
+    {
+        var snap = WfcSnapshot.Capture(cellDatas, X_GRID_SIZE, Y_GRID_SIZE, TileData.Count);
+
+
+        var firstMask = snap.cells[0];
+        for (int t = 0; t < snap.tileCount; t++)
+        {
+            if (WfcSnapshot.HasBit(in firstMask, t))
+            {
+                Debug.Log($"셀(0, 0)의 후보: {t}");
+            }
+        }
+    }
+
+
+    public void SettingGrid()
     {
         cellDatas.Clear();
         for (int x = 0; x < X_GRID_SIZE; x++)
@@ -60,15 +77,39 @@ public class WaveFunction : MonoBehaviour
             for (int y = 0; y < Y_GRID_SIZE; y++)
             {
                 Cell cellComponent = new Cell(new Vector2Int(x, y), TileData.Count);
-                int cx = x;
-                int cy = y;
-                cellComponent.OnCollapsed += (Cell) => On_cell_collapsed(new Vector2Int(cx, cy));
+                cellComponent.OnCollapsed += HandleCollapsed;
                 cells.Add(cellComponent);
             }
             cellDatas.Add(cells);
         }
     }
+    // 초기화 - 셀 기본 정보 설정
+    public void Init()
+    {
+        SettingGrid();
+    }
 
+
+    void HandleCollapsed(Cell c)
+    {
+        Propagate(c.Coords);
+    }
+    public void ResetDomains()
+    {
+        int tileCount = TileData.Count;
+        for (int x = 0; x < X_GRID_SIZE; x++)
+        {
+            for (int y = 0; y < Y_GRID_SIZE; y++)
+            {
+                List<int> list = cellDatas[x][y].PossibleTiles;
+                list.Clear();
+                for (int t = 0; t < tileCount; t++)
+                {
+                    list.Add(t);
+                }
+            }
+        }
+    }
     // 모든 타일이 결정되었는지 여부
     public bool Is_fully_collapsed()
     {
@@ -117,7 +158,7 @@ public class WaveFunction : MonoBehaviour
     {
         cellDatas[coords.x][coords.y].Collapse(-1, coords.y, coords.x, TileData);
 
-        Debug.Log($"현재 인덱스: x: {coords.x} y: {coords.y}");
+        // Debug.Log($"현재 인덱스: x: {coords.x} y: {coords.y}");
     }
 
     public void On_cell_collapsed(Vector2Int coords)
@@ -131,15 +172,16 @@ public class WaveFunction : MonoBehaviour
         // 처음 전파할 값
         propagateStack.Push(coords);
 
-        while (propagateStack.Count > 0){
-            
+        while (propagateStack.Count > 0)
+        {
+
             // 현재 기준 값
             Vector2Int cur_coord = propagateStack.Pop();
             Cell cur_cell = cellDatas[cur_coord.x][cur_coord.y];
             List<int> cur_tiles = cur_cell.PossibleTiles;
 
             // 상하좌우 셀 체크
-            for(int i = 0; i < (int)DIRECT.DIRECT_END; i++)
+            for (int i = 0; i < (int)DIRECT.DIRECT_END; i++)
             {
                 // 4가지 방향
                 Vector2Int other_coords = cur_coord + Dirs[i];
@@ -188,7 +230,7 @@ public class WaveFunction : MonoBehaviour
                     {
                         int removed = other_tiles[j];
                         other_tiles.RemoveAt(j);// 해당 인덱스 삭제
-                        
+
                         // 삭제 트레일 추가
                         trail.Push((other_coords, removed));
                         bChange = true;
@@ -230,10 +272,10 @@ public class WaveFunction : MonoBehaviour
         if (!Propagate(cell))
         {
             // trail을 mark까지 undo
-            while(trail.Count > mark)
+            while (trail.Count > mark)
             {
                 var trailValue = trail.Pop();
-                List<int> list = cellDatas[cell.x][cell.y].PossibleTiles;
+                List<int> list = cellDatas[trailValue.cell.x][trailValue.cell.y].PossibleTiles;
 
                 // 다시 가능한 타일로 추가
                 if (!list.Contains(trailValue.removedTile))
@@ -259,12 +301,16 @@ public class WaveFunction : MonoBehaviour
         choices.Push((cell, cellValue.ToList()));
 
         // 첫 후보부터 시도
-        int last = cellValue[cellValue.Count - 1];
-        cellValue.RemoveAt(cellValue.Count - 1);
+
+        int pickRandIndex = Random.Range(0, cellValue.Count);
+        int pick = cellValue[pickRandIndex];
+
+        cellValue.RemoveAt(pickRandIndex);
+
         choices.Pop();
         choices.Push((cell, cellValue));
 
-        if (TryAssign(cell, last))
+        if (TryAssign(cell, pick))
         {
             return true;
         }
@@ -329,12 +375,12 @@ public class WaveFunction : MonoBehaviour
             {
                 TileData self = TileData[tiles[t]];
                 if (Compatible(self, dir, tileData, ruleSet))
-                { 
-                    bPossibleTile = true; 
+                {
+                    bPossibleTile = true;
                     break;
                 }
             }
-            if (bPossibleTile) 
+            if (bPossibleTile)
                 possibilities.Add(i);
         }
         return possibilities;
@@ -363,9 +409,10 @@ public class WaveFunction : MonoBehaviour
 
     IEnumerator CoSolve()
     {
-        Init(); // 시도마다 다시 리셋
-        LimitTagToBand("SURFACE", 0, 1);
-        LimitTagToBand("OBJECT_CEIL", Y_GRID_SIZE - 2, Y_GRID_SIZE - 1);
+        ResetDomains(); // 시도마다 다시 리셋
+        SettingTagIndex();
+        yield return StartCoroutine(LimitTagToBand_Batched("SURFACE", 0, 1));
+        yield return StartCoroutine(LimitTagToBand_Batched("OBJECT_CEIL", Y_GRID_SIZE - 2, Y_GRID_SIZE - 1));
 
         int playN = 0, maxPlay = 20000;
         while (!Is_fully_collapsed() && playN++ < maxPlay)
@@ -389,46 +436,89 @@ public class WaveFunction : MonoBehaviour
         StartCoroutine(CoSolve());
     }
 
-    bool HasContradiction()
+    Dictionary<string, HashSet<int>> _tagTiles = new();
+    private void SettingTagIndex()
     {
-        for (int x = 0; x < cellDatas.Count; x++)
+        if (_tagTiles.Count > 0)
+            return;
+
+        for (int i = 0; i < TileData.Count; i++)
         {
-            for (int y = 0; y < cellDatas[x].Count; y++)
+            List<string> tags = TileData[i]?.tags;
+            if (tags == null)
             {
-                Cell c = cellDatas[x][y];
-                if (c == null || c.PossibleTiles == null)
+                continue;
+            }
+            foreach (var t in tags)
+            {
+                if (!_tagTiles.ContainsKey(t))
                 {
-                    Debug.LogError($"Cell: ({x},{y}): NULL");
-                    return true;
+                    _tagTiles[t] = new HashSet<int>();
                 }
-                if (c.PossibleTiles.Count == 0)
-                {
-                    Debug.LogError($"Contradiction: Cell ({x},{y})");
-                    return true;
-                }
+                _tagTiles[t].Add(i);
             }
         }
-        return false;
     }
 
-
-
-// 태그로 타일 후보 모으기
-List<int> GetTilesWithTag(string tag)
-{
-    var list = new List<int>();
-    if (string.IsNullOrEmpty(tag)) return list;
-    for (int i = 0; i < TileData.Count; i++)
+    IEnumerator LimitTagToBand_Batched(string tag, int yMin, int yMax,
+                                        int scanChunk = 4096,
+                                        int propChunk = 128)
     {
-            var tags = TileData[i]?.tags;
-            if (tags != null && tags.Contains(tag))
-            {
-                list.Add(i);
-            }
-        }
-    return list;
-}
+        int W = X_GRID_SIZE, H = Y_GRID_SIZE;
+        yMin = Mathf.Clamp(yMin, 0, H - 1);
+        yMax = Mathf.Clamp(yMax, 0, H - 1);
+        if (yMin > yMax) yield break;
 
+        _tagTiles.TryGetValue(tag, out var tagData);
+
+        var seeds = new List<Vector2Int>(scanChunk);
+        int scanned = 0;
+
+        // 1) 스캔
+        // 후보 제거, 변경된 좌표 seeds에 추가
+        for (int y = 0; y < H; y++)
+        {
+            bool inside = (y >= yMin && y <= yMax);
+            if (inside)
+            {
+                continue; // 밴드 내부 값은 허용
+            }
+
+            for (int x = 0; x < W; x++)
+            {
+                var c = cellDatas[x][y];
+                if (c.IsCollapsed)
+                {
+                    continue;
+                }
+
+                // 캐시 체크
+                int beforeCount = c.PossibleTiles.Count;
+                if (tagData != null)
+                    c.PossibleTiles.RemoveAll(id => tagData.Contains(id));
+                else
+                    c.PossibleTiles.RemoveAll(id => TileData[id]?.tags != null && TileData[id].tags.Contains(tag));
+
+                if (c.PossibleTiles.Count != beforeCount)
+                    seeds.Add(new Vector2Int(x, y));
+
+                if (++scanned % scanChunk == 0)
+                    yield return null;
+
+            }
+            for (int i = 0; i < seeds.Count;)
+            {
+                int n = Mathf.Min(propChunk, seeds.Count - i);
+                for (int k = 0; k < n; k++)
+                    Propagate(seeds[i + k]);
+
+                i += n;
+                yield return null;
+            }
+
+            seeds.Clear();
+        }
+    }
     public void LimitTagToBand(string tag, int yMin, int yMax)
     {
         int W = X_GRID_SIZE, H = Y_GRID_SIZE;
@@ -440,7 +530,10 @@ List<int> GetTilesWithTag(string tag)
         for (int y = 0; y < H; y++)
         {
             bool inside = (y >= yMin && y <= yMax);
-            if (inside) continue; // 밴드 내부 값은 허용
+            if (inside)
+            {
+                continue; // 밴드 내부 값은 허용
+            }
 
             for (int x = 0; x < W; x++)
             {
@@ -458,4 +551,5 @@ List<int> GetTilesWithTag(string tag)
             }
         }
     }
+
 }
