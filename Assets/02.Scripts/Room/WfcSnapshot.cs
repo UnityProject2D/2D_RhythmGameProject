@@ -21,29 +21,6 @@ public class WfcSnapshot : MonoBehaviour
     }
 
     static int GetIdx(int x, int y, int width) => y * width + x;
-    public static void SetBit(ref cellMask mask, int tileIndex)
-    {
-        if (tileIndex < 64)
-            mask.firstBit |= (1UL << tileIndex);
-        else
-            mask.secondBit |= (1UL << (tileIndex - 64));
-    }
-    public static void ClearBit(ref cellMask mask, int tileIndex)
-    {
-        if (tileIndex < 64)
-            mask.firstBit &= ~(1UL << tileIndex);
-        else
-            mask.secondBit &= ~(1UL << (tileIndex - 64));
-    }
-
-    public static bool HasBit(in cellMask m, int tileIndex)
-    {
-        // 켜져있을 경우 true 반환
-        if (tileIndex < 64)
-            return (m.firstBit & (1UL << tileIndex)) != 0;
-        else
-            return (m.secondBit & (1UL << (tileIndex - 64))) != 0;
-    }
 
     /// <summary>
     /// 현재 보드의 후보들을 비트마스크로 압축해서 스냅샷 생성
@@ -86,12 +63,12 @@ public class WfcSnapshot : MonoBehaviour
                     int t = list[i];
 
                     // 범위 벗어난 후보 스킵
-                    if (t < 0 || t > tileCount)
+                    if (t < 0 || t >= tileCount)
                     {
                         continue;
                     }
 
-                    SetBit(ref m, t);
+                    SnapShotBitMaskUtils.SetBit(ref m, t);
                 }
                 snap.cells[idx] = m;
             }
