@@ -38,6 +38,7 @@ public static class SnapShotBitMaskUtils
             && (maskA.secondBit == maskB.secondBit));
     }
 
+
     // 후보가 아예 없는 상태인지(둘 다 0인지)
     public static bool IsZero(in CellMask mask)
     {
@@ -51,7 +52,7 @@ public static class SnapShotBitMaskUtils
         for (int i = 0; i < list.Count; i++)
         {
             int t = list[i];
-            if (t < 0 || t > 128)
+            if (t < 0 || t >= 128)
                 continue;
             SetBit(ref mask, list[i]); // 기존 스냅챗 유틸 사용
         }
@@ -59,15 +60,33 @@ public static class SnapShotBitMaskUtils
     }
 
     // 비트 마스크 -> 리스트 변환
-    public static List<int> ListToMask(in CellMask mask, int tileCount)
+    public static List<int> MaskToList(in CellMask mask, int tileCount)
     {
         List<int> list = new List<int>(tileCount);
         int limitCount = tileCount < 128 ? tileCount : 128;
 
         for (int i = 0; i < limitCount; i++)
         {
-            if (HasBit(in mask, tileCount)) list.Add(tileCount);
+            if (HasBit(in mask, i))
+            {
+                list.Add(i);
+            }
         }
         return list;
+    }
+
+    public static void Or(ref CellMask selfMask, in CellMask addMask)
+    {
+        selfMask.firstBit |= addMask.firstBit;
+        selfMask.secondBit |= addMask.secondBit;
+    }
+
+    public static CellMask And(in CellMask selfMask, in CellMask addMask)
+    {
+        CellMask result;
+        result.firstBit = selfMask.firstBit & addMask.firstBit;
+        result.secondBit = selfMask.secondBit & addMask.secondBit;
+
+        return result;
     }
 }

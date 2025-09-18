@@ -9,7 +9,7 @@ public class Cell
 {
     public int GridSize;
     public Vector2Int Coords {  get; private set; }
-    public List<int> PossibleTiles { get; private set; }
+    public List<int> PossibleTiles { get; set; }
     public bool IsCollapsed => PossibleTiles.Count == 1;
 
     public event Action<Cell> OnCollapsed; // collapse 알림

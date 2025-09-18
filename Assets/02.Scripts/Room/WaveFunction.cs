@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
+using CellMask = WfcSnapshot.cellMask;
 
 public class WaveFunction : MonoBehaviour
 {
@@ -16,8 +16,8 @@ public class WaveFunction : MonoBehaviour
     public TileRuleSetData ruleSet;
 
     private Stack<Vector2Int> propagateStack = new();
-
-
+    private WfcSnapshot.cellMask[,] _forwardLUT;
+    private WfcSnapshot.cellMask[,] _backwardLUT;
     /// <summary>
     /// trail: 전파 중 후보가 제거될 때마다 push - 데이터(coords, removedTile)
     /// choices: 셀 확정할 때 남은 후보들을 담아두는 분기점
@@ -48,7 +48,7 @@ public class WaveFunction : MonoBehaviour
     private void Start()
     {
         Init();
-
+        SettingLUT();
         // StartSolve();
     }
 
@@ -56,18 +56,54 @@ public class WaveFunction : MonoBehaviour
     {
         var snap = WfcSnapshot.Capture(cellDatas, X_GRID_SIZE, Y_GRID_SIZE, TileData.Count);
 
-
         var firstMask = snap.cells[0];
         for (int t = 0; t < snap.tileCount; t++)
         {
-            if (WfcSnapshot.HasBit(in firstMask, t))
-            {
-                Debug.Log($"셀(0, 0)의 후보: {t}");
-            }
+            //if (WfcSnapshot.HasBit(in firstMask, t))
+            //{
+            //    Debug.Log($"셀(0, 0)의 후보: {t}");
+            //}
         }
     }
 
+    public void SettingLUT()
+    {
+        int tileCount = TileData.Count;
+        _forwardLUT = new CellMask[(int)DIRECT.DIRECT_END, tileCount];
+        _backwardLUT = new CellMask[(int)DIRECT.DIRECT_END, tileCount];
 
+        for (int dir = 0; dir < (int)DIRECT.DIRECT_END; dir++)
+        {
+            int rev = dir ^ 1;
+
+            for (int a = 0; a < tileCount; a++)
+            {
+                var fMask = default(WfcSnapshot.cellMask);
+                for (int b = 0; b < tileCount; b++)
+                {
+                    var selfA = TileData[a];
+                    var neighB = TileData[b];
+
+                    
+                    // Forward: 현재 나를 기준(내가 특정 타일일 경우 특정 방향에 누가 올 수 있는지)
+                    // 정방향: A(dir) -> B 허용인지
+                    if (Compatible(selfA, (DIRECT)dir, neighB, ruleSet))
+                    {
+                        SnapShotBitMaskUtils.SetBit(ref fMask, b); // b를 허용한다고 표시
+                    }
+
+                    // Backward: 이웃 기준(특정 방향이 해당 타일이라면 나는 뭐가 될 수 있는지)
+                    // 역방향: B(rev) -> A 허용인지
+                    if (Compatible(neighB, (DIRECT)rev, selfA, ruleSet))
+                    {
+                        // b가 있을 때 a를 허용한다고 표시
+                        SnapShotBitMaskUtils.SetBit(ref _backwardLUT[dir, b], a); // b가 있을 때 a를 허용한다고 표시
+                    }
+                }
+                _forwardLUT[dir, a] = fMask;
+            }
+        }
+    }
     public void SettingGrid()
     {
         cellDatas.Clear();
@@ -161,12 +197,6 @@ public class WaveFunction : MonoBehaviour
         // Debug.Log($"현재 인덱스: x: {coords.x} y: {coords.y}");
     }
 
-    public void On_cell_collapsed(Vector2Int coords)
-    {
-        Propagate(coords);
-    }
-
-    // 전파 함수
     public bool Propagate(Vector2Int coords)
     {
         // 처음 전파할 값
@@ -174,11 +204,11 @@ public class WaveFunction : MonoBehaviour
 
         while (propagateStack.Count > 0)
         {
-
             // 현재 기준 값
             Vector2Int cur_coord = propagateStack.Pop();
             Cell cur_cell = cellDatas[cur_coord.x][cur_coord.y];
             List<int> cur_tiles = cur_cell.PossibleTiles;
+
 
             // 상하좌우 셀 체크
             for (int i = 0; i < (int)DIRECT.DIRECT_END; i++)
@@ -195,57 +225,54 @@ public class WaveFunction : MonoBehaviour
                 Cell other_cell = cellDatas[other_coords.x][other_coords.y];
                 List<int> other_tiles = other_cell.PossibleTiles;
 
-                // 해당 방향으로 가능한 이웃들 반환
-                List<int> possible_neighbours = Get_all_possible_neighbours(DIRECT.LEFT + i, cur_tiles);
+                // 1) 리스트 -> 비트
+                var selfMask = SnapShotBitMaskUtils.ListToMask(cur_tiles);
+                var neighborMask = SnapShotBitMaskUtils.ListToMask(other_tiles);
 
-                // 역방향 인덱스
-                int revIndex = i ^ 1;
 
-                // 특정 방향 타일 리스트
-                bool bChange = false;
-                for (int j = other_tiles.Count - 1; j >= 0; j--)
+                // 2) 정방향 지원: A(dir) -> 허용되는 B들의 집합
+                // 내 실제 후보 a들에 대해 OR 누적
+                CellMask forwardSupport = default(CellMask);
+                for (int a = 0; a < TileData.Count; a++)
                 {
-                    int tileId = other_tiles[j];
-                    TileData tileData = TileData[tileId];
-
-                    // 역방향 체크
-                    // B의 역방향이 A 후보들 중 하나라도 허용하는지 (B->A)
-                    bool passBackward = false;
-                    for (int k = 0; k < cur_tiles.Count; k++)
+                    if (SnapShotBitMaskUtils.HasBit(in selfMask, a))
                     {
-                        var selfA = TileData[cur_tiles[k]];// A 후보
-                        var neighborB = TileData[other_tiles[j]];// B 후보
-                        if (Compatible(neighborB, (WaveFunction.DIRECT)revIndex, selfA, ruleSet))
-                        {
-                            passBackward = true;
-                            break;
-                        }
-                    }
-
-                    // 가능한 이웃 타일 목록에 해당 인덱스가 없으면 제거(정방향: A->B)
-                    bool passForward = possible_neighbours.Contains(other_tiles[j]);
-
-                    // 정방향, 역방향 모두 만족하지 않으면 제거
-                    if (!(passForward && passBackward))
-                    {
-                        int removed = other_tiles[j];
-                        other_tiles.RemoveAt(j);// 해당 인덱스 삭제
-
-                        // 삭제 트레일 추가
-                        trail.Push((other_coords, removed));
-                        bChange = true;
-                        continue;
+                        SnapShotBitMaskUtils.Or(ref forwardSupport, in _forwardLUT[i, a]);
                     }
                 }
 
-                // 없으면 false 반환
-                if (other_tiles.Count == 0)
+                // 3) 역방향: B(rev) -> A 허용하는지
+                CellMask backSupport = default(CellMask);
+                for (int b = 0; b < TileData.Count; b++)
                 {
+                    if (!SnapShotBitMaskUtils.HasBit(in neighborMask, b)) continue;
+
+                    var allowA = _backwardLUT[i, b];
+                    bool ok = ((allowA.firstBit & selfMask.firstBit) != 0UL) ||
+                                ((allowA.secondBit & selfMask.secondBit) != 0UL);
+
+                    if (ok)
+                    {
+                        SnapShotBitMaskUtils.SetBit(ref backSupport, b);
+                    }
+                }
+
+                // 4) 최종 마스크 = 기존 (교집합) 정방향 (교집합) 역방향
+                var newMask = SnapShotBitMaskUtils.And(in neighborMask, in forwardSupport);
+                newMask = SnapShotBitMaskUtils.And(in newMask, in backSupport);
+
+                // 5) 모순 체크(후보 0개면 실패 반환)
+                if (SnapShotBitMaskUtils.IsZero(in newMask))
                     return false;
-                }
 
-                if (bChange && !propagateStack.Contains(other_coords))
-                    propagateStack.Push(other_coords);
+                // 6) 변경 시에만 리스트로 한 번에 반영 + 큐 push
+                if (!SnapShotBitMaskUtils.Equal(in newMask, in neighborMask))
+                {
+                    other_cell.PossibleTiles = SnapShotBitMaskUtils.MaskToList(in newMask, TileData.Count);
+
+                    if (!propagateStack.Contains(other_coords))
+                        propagateStack.Push(other_coords);
+                }
             }
         }
         return true;
