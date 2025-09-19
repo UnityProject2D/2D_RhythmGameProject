@@ -349,8 +349,23 @@ MonoBehaviour:
     selfTag: OBJECT_CEIL
     neighborTag: OBJECT_CEIL
     priority: 0
+  - allow: 0
+    dir: 2
+    selfTag: FILL
+    neighborTag: AIR
+    priority: 0
   - allow: 1
     dir: 1
     selfTag: OBJECT_CEIL
     neighborTag: OBJECT_STACK
+    priority: 0
+  - allow: 0
+    dir: 2
+    selfTag: FILL
+    neighborTag: AIR
+    priority: 0
+  - allow: 0
+    dir: 3
+    selfTag: AIR
+    neighborTag: FILL
     priority: 0

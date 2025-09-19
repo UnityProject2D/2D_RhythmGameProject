@@ -25,6 +25,10 @@ public class WaveFunction : MonoBehaviour
     private Stack<(Vector2Int cell, int removedTile)> trail = new();
     private Stack<(Vector2Int cell, List<int> remaining)> choices = new();
 
+    private Dictionary<string, CellMask> _tagMasks = new();
+    private int? _hintY;
+    private bool? _hintLeftHigh;
+
     /// </summary>
     public enum DIRECT
     {
@@ -52,18 +56,54 @@ public class WaveFunction : MonoBehaviour
         // StartSolve();
     }
 
-    public void TestSnapShot()
+    private CellMask GetTagMask(string tag)
     {
-        var snap = WfcSnapshot.Capture(cellDatas, X_GRID_SIZE, Y_GRID_SIZE, TileData.Count);
+        return _tagMasks.TryGetValue(tag, out var m) ? m : default;
+    }
 
-        var firstMask = snap.cells[0];
-        for (int t = 0; t < snap.tileCount; t++)
+    // 왼쪽 경계 + SURFACE + LEFT(HIGH/LOW) 체크를 비트 연산으로 한 번에 고정
+
+    private void ApplyLeftEdgeSurface(int y, bool leftHigh)
+    {
+        if (y < 0 || y >= Y_GRID_SIZE)
         {
-            //if (WfcSnapshot.HasBit(in firstMask, t))
-            //{
-            //    Debug.Log($"셀(0, 0)의 후보: {t}");
-            //}
+            return;
         }
+
+        var c = cellDatas[0][y];
+        if (c.IsCollapsed)
+        {
+            return;
+        }
+
+        CellMask mSurface = GetTagMask("SURFACE");
+        CellMask mEdge = GetTagMask(leftHigh ? "LEFT=HIGH" : "LEFT=LOW");
+
+        var newMask = SnapShotBitMaskUtils.And(in mSurface, in mEdge);
+        if (SnapShotBitMaskUtils.IsZero(in newMask))
+        {
+            Debug.LogWarning("No SURFACE edge");
+            return;
+        }
+
+        c.PossibleTiles = SnapShotBitMaskUtils.MaskToList(in newMask, TileData.Count);
+        Propagate(new Vector2Int(0, y));
+    }
+
+    public (int y, bool rightHigh) GetRightSurfaceInfo()
+    {
+        int x = X_GRID_SIZE - 1;
+        for (int y = 0; y < Y_GRID_SIZE; y++)
+        {
+            var cell = cellDatas[x][y];
+            if (!cell.IsCollapsed || cell.PossibleTiles.Count == 0) continue;
+
+            int id = cell.PossibleTiles[0];
+            var tags = TileData[id]?.tags;
+            if (tags != null && tags.Contains("SURFACE"))
+                return (y, tags.Contains("RIGHT=HIGH"));
+        }
+        return (-1, false);
     }
 
     public void SettingLUT()
@@ -438,9 +478,14 @@ public class WaveFunction : MonoBehaviour
     {
         ResetDomains(); // 시도마다 다시 리셋
         SettingTagIndex();
-        yield return StartCoroutine(LimitTagToBand_Batched("SURFACE", 0, 1));
-        yield return StartCoroutine(LimitTagToBand_Batched("OBJECT_CEIL", Y_GRID_SIZE - 2, Y_GRID_SIZE - 1));
 
+        if (_hintY.HasValue && _hintLeftHigh.HasValue)
+            ApplyLeftEdgeSurface(_hintY.Value, _hintLeftHigh.Value);
+
+        // yield return StartCoroutine(LimitTagToBand_Batched("SURFACE", 0, 1));
+        yield return StartCoroutine(LimitTagToBand_Batched("FILL", 0, Y_GRID_SIZE - 5));
+        yield return StartCoroutine(LimitTagToBand_Batched("OBJECT_CEIL", Y_GRID_SIZE - 2, Y_GRID_SIZE - 1));
+        
         int playN = 0, maxPlay = 20000;
         while (!Is_fully_collapsed() && playN++ < maxPlay)
         {
@@ -458,8 +503,10 @@ public class WaveFunction : MonoBehaviour
 
     }
 
-    public void StartSolve()
+    public void StartSolve(int stitchY = 0, bool requireLeftHigh = false)
     {
+        _hintY = stitchY;
+        _hintLeftHigh = requireLeftHigh;
         StartCoroutine(CoSolve());
     }
 
@@ -469,6 +516,8 @@ public class WaveFunction : MonoBehaviour
         if (_tagTiles.Count > 0)
             return;
 
+        _tagTiles.Clear();
+        _tagMasks.Clear();
         for (int i = 0; i < TileData.Count; i++)
         {
             List<string> tags = TileData[i]?.tags;
@@ -483,6 +532,14 @@ public class WaveFunction : MonoBehaviour
                     _tagTiles[t] = new HashSet<int>();
                 }
                 _tagTiles[t].Add(i);
+
+                if (!_tagMasks.ContainsKey(t))
+                    _tagMasks[t] = default;
+                if (!_tagMasks.TryGetValue(t, out var mask))
+                    mask = default;
+
+                SnapShotBitMaskUtils.SetBit(ref mask, i);
+                _tagMasks[t] = mask;
             }
         }
     }

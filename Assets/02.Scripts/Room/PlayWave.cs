@@ -1,5 +1,6 @@
-using DG.Tweening;
-using Unity.VisualScripting;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayWave : MonoBehaviour
@@ -25,6 +26,13 @@ public class PlayWave : MonoBehaviour
     private void Start()
     {
         SettingValue();
+        StartCoroutine(SettingRightValue());
+    }
+
+    IEnumerator SettingRightValue()
+    {
+        yield return new WaitForSeconds(0.5f);
+        solveDatas(1);
     }
 
     private void SettingComponent()
@@ -45,7 +53,7 @@ public class PlayWave : MonoBehaviour
     private void SettingValue()
     {
         _waveSolvers[0].StartSolve();
-        _waveSolvers[1].StartSolve();
+        //_waveSolvers[1].StartSolve();
 
         _gapX = Mathf.Abs(_waveSolvers[1].transform.position.x - _waveSolvers[0].transform.position.x);
     }
@@ -71,12 +79,19 @@ public class PlayWave : MonoBehaviour
             if (_waveTrans[idx].position.x < _waveTrans[Mathf.Abs((idx - 1))].position.x)
             {
                 _waveTrans[idx].transform.Translate(_gapX * 2, 0.0f, 0.0f);
-                _waveSolvers[idx].StartSolve();
+                solveDatas(idx);
             }
 
             // 누적 이동 리셋(오차 방지를 위해 _gapX만큼 빼기)
             _moveValue -= _gapX;
         }
+    }
+
+    public void solveDatas(int idx)
+    {
+        int other = Mathf.Abs(idx - 1);
+        var info = _waveSolvers[other].GetRightSurfaceInfo();
+        _waveSolvers[idx].StartSolve(info.y, info.rightHigh);
     }
     public void ChangeObject()
     {
