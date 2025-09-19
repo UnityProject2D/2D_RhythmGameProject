@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using CellMask = WfcSnapshot.cellMask;
+
+using WFC.Domain.Core;
+using WFC.Domain.Policy;
+using WFC.Domain.Rules;
+using CellMask = WFC.Domain.Core.CellDomainMask;
 
 public class WaveFunction : MonoBehaviour
 {
@@ -16,8 +20,8 @@ public class WaveFunction : MonoBehaviour
     public TileRuleSetData ruleSet;
 
     private Stack<Vector2Int> propagateStack = new();
-    private WfcSnapshot.cellMask[,] _forwardLUT;
-    private WfcSnapshot.cellMask[,] _backwardLUT;
+    private CellMask[,] _forwardLUT;
+    private CellMask[,] _backwardLUT;
     /// <summary>
     /// trail: 전파 중 후보가 제거될 때마다 push - 데이터(coords, removedTile)
     /// choices: 셀 확정할 때 남은 후보들을 담아두는 분기점
@@ -26,8 +30,8 @@ public class WaveFunction : MonoBehaviour
     private Stack<(Vector2Int cell, List<int> remaining)> choices = new();
 
     private Dictionary<string, CellMask> _tagMasks = new();
-    private int? _hintY;
-    private bool? _hintLeftHigh;
+    private int _hintY;
+    private bool _hintLeftHigh;
 
     /// </summary>
     public enum DIRECT
@@ -61,33 +65,24 @@ public class WaveFunction : MonoBehaviour
         return _tagMasks.TryGetValue(tag, out var m) ? m : default;
     }
 
-    // 왼쪽 경계 + SURFACE + LEFT(HIGH/LOW) 체크를 비트 연산으로 한 번에 고정
+    // 왼쪽 경계 + SURFACE + LEFT(HIGH/LOW) 체크
+    // 도메인으로 점검
 
     private void ApplyLeftEdgeSurface(int y, bool leftHigh)
     {
-        if (y < 0 || y >= Y_GRID_SIZE)
+        EdgePolicies.EdgePolicyContext ctx = new EdgePolicies.EdgePolicyContext
         {
-            return;
-        }
+            GridHeight = Y_GRID_SIZE,
+            TileCount = TileData.Count,
+            GetCandidates = (x, y) => cellDatas[x][y].PossibleTiles,
+            SetCandidates = (x, y, list) =>
+                cellDatas[x][y].PossibleTiles = list,
+            GetTagMask = tag => GetTagMask(tag),
+            Propagate = (x, y) =>
+                Propagate(new UnityEngine.Vector2Int(x, y))
+        };
 
-        var c = cellDatas[0][y];
-        if (c.IsCollapsed)
-        {
-            return;
-        }
-
-        CellMask mSurface = GetTagMask("SURFACE");
-        CellMask mEdge = GetTagMask(leftHigh ? "LEFT=HIGH" : "LEFT=LOW");
-
-        var newMask = SnapShotBitMaskUtils.And(in mSurface, in mEdge);
-        if (SnapShotBitMaskUtils.IsZero(in newMask))
-        {
-            Debug.LogWarning("No SURFACE edge");
-            return;
-        }
-
-        c.PossibleTiles = SnapShotBitMaskUtils.MaskToList(in newMask, TileData.Count);
-        Propagate(new Vector2Int(0, y));
+        EdgePolicies.ApplyLeftEdgeSurface(ctx, y, leftHigh);
     }
 
     public (int y, bool rightHigh) GetRightSurfaceInfo()
@@ -109,38 +104,32 @@ public class WaveFunction : MonoBehaviour
     public void SettingLUT()
     {
         int tileCount = TileData.Count;
+
+        // 도메인 룰셋으로 변환
+        RuleSetModel domainRuleSet = RuleSetMapper.ToDomain(ruleSet);
+
+        // 도메인 규칙 어댑터
+        TileRuleCompatibilityAdapter compatiblilty = new TileRuleCompatibilityAdapter(TileData, domainRuleSet);
+
+        // 도메인 빌더로 정/역 방향 LUT 생성
+        PropagationLUT lut = PropagationLUTBuilder.Build(tileCount, compatiblilty);
+
+        // 기존 필드에 그대로 복사
         _forwardLUT = new CellMask[(int)DIRECT.DIRECT_END, tileCount];
         _backwardLUT = new CellMask[(int)DIRECT.DIRECT_END, tileCount];
 
         for (int dir = 0; dir < (int)DIRECT.DIRECT_END; dir++)
         {
-            int rev = dir ^ 1;
-
             for (int a = 0; a < tileCount; a++)
             {
-                var fMask = default(WfcSnapshot.cellMask);
-                for (int b = 0; b < tileCount; b++)
-                {
-                    var selfA = TileData[a];
-                    var neighB = TileData[b];
+                _forwardLUT[dir, a].firstBit = lut.Forward[dir, a].firstBit;
+                _forwardLUT[dir, a].secondBit = lut.Forward[dir, a].secondBit;
+            }
 
-                    
-                    // Forward: 현재 나를 기준(내가 특정 타일일 경우 특정 방향에 누가 올 수 있는지)
-                    // 정방향: A(dir) -> B 허용인지
-                    if (Compatible(selfA, (DIRECT)dir, neighB, ruleSet))
-                    {
-                        SnapShotBitMaskUtils.SetBit(ref fMask, b); // b를 허용한다고 표시
-                    }
-
-                    // Backward: 이웃 기준(특정 방향이 해당 타일이라면 나는 뭐가 될 수 있는지)
-                    // 역방향: B(rev) -> A 허용인지
-                    if (Compatible(neighB, (DIRECT)rev, selfA, ruleSet))
-                    {
-                        // b가 있을 때 a를 허용한다고 표시
-                        SnapShotBitMaskUtils.SetBit(ref _backwardLUT[dir, b], a); // b가 있을 때 a를 허용한다고 표시
-                    }
-                }
-                _forwardLUT[dir, a] = fMask;
+            for (int b = 0; b < tileCount; b++)
+            {
+                _backwardLUT[dir, b].firstBit = lut.Backward[dir, b].firstBit;
+                _backwardLUT[dir, b].secondBit = lut.Backward[dir, b].secondBit;
             }
         }
     }
@@ -266,8 +255,8 @@ public class WaveFunction : MonoBehaviour
                 List<int> other_tiles = other_cell.PossibleTiles;
 
                 // 1) 리스트 -> 비트
-                var selfMask = SnapShotBitMaskUtils.ListToMask(cur_tiles);
-                var neighborMask = SnapShotBitMaskUtils.ListToMask(other_tiles);
+                var selfMask = BitMaskUtils.ListToMask(cur_tiles);
+                var neighborMask = BitMaskUtils.ListToMask(other_tiles);
 
 
                 // 2) 정방향 지원: A(dir) -> 허용되는 B들의 집합
@@ -275,9 +264,9 @@ public class WaveFunction : MonoBehaviour
                 CellMask forwardSupport = default(CellMask);
                 for (int a = 0; a < TileData.Count; a++)
                 {
-                    if (SnapShotBitMaskUtils.HasBit(in selfMask, a))
+                    if (BitMaskUtils.HasBit(in selfMask, a))
                     {
-                        SnapShotBitMaskUtils.Or(ref forwardSupport, in _forwardLUT[i, a]);
+                        BitMaskUtils.Or(ref forwardSupport, in _forwardLUT[i, a]);
                     }
                 }
 
@@ -285,7 +274,7 @@ public class WaveFunction : MonoBehaviour
                 CellMask backSupport = default(CellMask);
                 for (int b = 0; b < TileData.Count; b++)
                 {
-                    if (!SnapShotBitMaskUtils.HasBit(in neighborMask, b)) continue;
+                    if (!BitMaskUtils.HasBit(in neighborMask, b)) continue;
 
                     var allowA = _backwardLUT[i, b];
                     bool ok = ((allowA.firstBit & selfMask.firstBit) != 0UL) ||
@@ -293,22 +282,22 @@ public class WaveFunction : MonoBehaviour
 
                     if (ok)
                     {
-                        SnapShotBitMaskUtils.SetBit(ref backSupport, b);
+                        BitMaskUtils.SetBit(ref backSupport, b);
                     }
                 }
 
                 // 4) 최종 마스크 = 기존 (교집합) 정방향 (교집합) 역방향
-                var newMask = SnapShotBitMaskUtils.And(in neighborMask, in forwardSupport);
-                newMask = SnapShotBitMaskUtils.And(in newMask, in backSupport);
+                var newMask = BitMaskUtils.And(in neighborMask, in forwardSupport);
+                newMask = BitMaskUtils.And(in newMask, in backSupport);
 
                 // 5) 모순 체크(후보 0개면 실패 반환)
-                if (SnapShotBitMaskUtils.IsZero(in newMask))
+                if (BitMaskUtils.IsZero(in newMask))
                     return false;
 
                 // 6) 변경 시에만 리스트로 한 번에 반영 + 큐 push
-                if (!SnapShotBitMaskUtils.Equal(in newMask, in neighborMask))
+                if (!BitMaskUtils.Equal(in newMask, in neighborMask))
                 {
-                    other_cell.PossibleTiles = SnapShotBitMaskUtils.MaskToList(in newMask, TileData.Count);
+                    other_cell.PossibleTiles = BitMaskUtils.MaskToList(in newMask, TileData.Count);
 
                     if (!propagateStack.Contains(other_coords))
                         propagateStack.Push(other_coords);
@@ -412,47 +401,6 @@ public class WaveFunction : MonoBehaviour
     {
         return !((coords.x >= X_GRID_SIZE || coords.x < 0) || (coords.y >= Y_GRID_SIZE || coords.y < 0));
     }
-
-    // 태그 유효성 체크
-    bool HasTag(TileData tileData, string tag) => string.IsNullOrEmpty(tag) || (tileData && tileData.tags != null && tileData.tags.Contains(tag));
-
-    public bool Compatible(TileData self, WaveFunction.DIRECT dir, TileData neighbor, TileRuleSetData ruleSetData)
-    {
-        // 우선 순위 높은 규칙부터 체크
-        foreach (var rule in ruleSetData.rules)
-        {
-            if (rule.dir != dir) continue;
-            if (!HasTag(self, rule.selfTag)) continue;
-            if (!HasTag(neighbor, rule.neighborTag)) continue;
-            return rule.allow; // 규칙 매칭 적용
-        }
-        return ruleSetData.defaultAllow; // 매칭 규칙 없음
-    }
-
-    // 특정 방향으로 유효한 타일 리스트 반환
-    public List<int> Get_all_possible_neighbours(DIRECT dir, List<int> tiles)
-    {
-        var possibilities = new List<int>();
-        // 후보와 모든 타일을 모두 대조 후, 하나라도 허용하면 후보로 추가
-        for (int i = 0; i < TileData.Count; i++)
-        {
-            TileData tileData = TileData[i];
-            bool bPossibleTile = false;
-            for (int t = 0; t < tiles.Count; t++)
-            {
-                TileData self = TileData[tiles[t]];
-                if (Compatible(self, dir, tileData, ruleSet))
-                {
-                    bPossibleTile = true;
-                    break;
-                }
-            }
-            if (bPossibleTile)
-                possibilities.Add(i);
-        }
-        return possibilities;
-    }
-
     public void Iterate()
     {
         Vector2Int coords = GetLowestValueCoords();
@@ -479,8 +427,7 @@ public class WaveFunction : MonoBehaviour
         ResetDomains(); // 시도마다 다시 리셋
         SettingTagIndex();
 
-        if (_hintY.HasValue && _hintLeftHigh.HasValue)
-            ApplyLeftEdgeSurface(_hintY.Value, _hintLeftHigh.Value);
+        ApplyLeftEdgeSurface(_hintY, _hintLeftHigh);
 
         // yield return StartCoroutine(LimitTagToBand_Batched("SURFACE", 0, 1));
         yield return StartCoroutine(LimitTagToBand_Batched("FILL", 0, Y_GRID_SIZE - 5));
@@ -538,7 +485,7 @@ public class WaveFunction : MonoBehaviour
                 if (!_tagMasks.TryGetValue(t, out var mask))
                     mask = default;
 
-                SnapShotBitMaskUtils.SetBit(ref mask, i);
+                BitMaskUtils.SetBit(ref mask, i);
                 _tagMasks[t] = mask;
             }
         }
