@@ -21,7 +21,7 @@ namespace WFC.Domain.Rules
                     {
                         // Forward: A(dir) -> neigh 허용
                         if (rules.Allow(a, neigh, dir))
-                            BitMaskUtils.SetBit(ref backwardLUT[dir, neigh], a);
+                            BitMaskUtils.SetBit(ref fMask, neigh);
 
                         // Backward: neigh(rev) -> A 허용
                         if (rules.Allow(neigh, a, rev))
