@@ -6,6 +6,9 @@ using UnityEngine;
 using WFC.Domain.Core;
 using WFC.Domain.Policy;
 using WFC.Domain.Rules;
+using WFC.Domain.Contracts;
+using WFC.Infrastructure;
+
 using CellMask = WFC.Domain.Core.CellDomainMask;
 
 public class WaveFunction : MonoBehaviour
@@ -33,6 +36,7 @@ public class WaveFunction : MonoBehaviour
     private int _hintY;
     private bool _hintLeftHigh;
 
+    private IPropagationSolver _solver;
     /// </summary>
     public enum DIRECT
     {
@@ -117,6 +121,8 @@ public class WaveFunction : MonoBehaviour
         // 기존 필드에 그대로 복사
         _forwardLUT = new CellMask[(int)DIRECT.DIRECT_END, tileCount];
         _backwardLUT = new CellMask[(int)DIRECT.DIRECT_END, tileCount];
+
+        _solver = new CpuPropagationSolver(_forwardLUT, _backwardLUT, TileData.Count);
 
         for (int dir = 0; dir < (int)DIRECT.DIRECT_END; dir++)
         {
@@ -258,43 +264,11 @@ public class WaveFunction : MonoBehaviour
                 var selfMask = BitMaskUtils.ListToMask(cur_tiles);
                 var neighborMask = BitMaskUtils.ListToMask(other_tiles);
 
+                if (!_solver.TrySolve(i, in selfMask, in neighborMask, out var newMask))
+                    return false; // 모순 발생
 
-                // 2) 정방향 지원: A(dir) -> 허용되는 B들의 집합
-                // 내 실제 후보 a들에 대해 OR 누적
-                CellMask forwardSupport = default(CellMask);
-                for (int a = 0; a < TileData.Count; a++)
-                {
-                    if (BitMaskUtils.HasBit(in selfMask, a))
-                    {
-                        BitMaskUtils.Or(ref forwardSupport, in _forwardLUT[i, a]);
-                    }
-                }
 
-                // 3) 역방향: B(rev) -> A 허용하는지
-                CellMask backSupport = default(CellMask);
-                for (int b = 0; b < TileData.Count; b++)
-                {
-                    if (!BitMaskUtils.HasBit(in neighborMask, b)) continue;
-
-                    var allowA = _backwardLUT[i, b];
-                    bool ok = ((allowA.firstBit & selfMask.firstBit) != 0UL) ||
-                                ((allowA.secondBit & selfMask.secondBit) != 0UL);
-
-                    if (ok)
-                    {
-                        BitMaskUtils.SetBit(ref backSupport, b);
-                    }
-                }
-
-                // 4) 최종 마스크 = 기존 (교집합) 정방향 (교집합) 역방향
-                var newMask = BitMaskUtils.And(in neighborMask, in forwardSupport);
-                newMask = BitMaskUtils.And(in newMask, in backSupport);
-
-                // 5) 모순 체크(후보 0개면 실패 반환)
-                if (BitMaskUtils.IsZero(in newMask))
-                    return false;
-
-                // 6) 변경 시에만 리스트로 한 번에 반영 + 큐 push
+                // 2) 변경 시에만 리스트로 한 번에 반영 + 큐 push
                 if (!BitMaskUtils.Equal(in newMask, in neighborMask))
                 {
                     other_cell.PossibleTiles = BitMaskUtils.MaskToList(in newMask, TileData.Count);
