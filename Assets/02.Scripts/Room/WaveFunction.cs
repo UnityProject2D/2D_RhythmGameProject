@@ -10,6 +10,8 @@ using WFC.Domain.Contracts;
 using WFC.Infrastructure;
 
 using CellMask = WFC.Domain.Core.CellDomainMask;
+using System;
+using Random = UnityEngine.Random;
 
 public class WaveFunction : MonoBehaviour
 {
@@ -122,8 +124,7 @@ public class WaveFunction : MonoBehaviour
         _forwardLUT = new CellMask[(int)DIRECT.DIRECT_END, tileCount];
         _backwardLUT = new CellMask[(int)DIRECT.DIRECT_END, tileCount];
 
-        _solver = new CpuPropagationSolver(_forwardLUT, _backwardLUT, TileData.Count);
-
+        // _solver = new CpuPropagationSolver(_forwardLUT, _backwardLUT, TileData.Count);
         for (int dir = 0; dir < (int)DIRECT.DIRECT_END; dir++)
         {
             for (int a = 0; a < tileCount; a++)
@@ -138,6 +139,8 @@ public class WaveFunction : MonoBehaviour
                 _backwardLUT[dir, b].secondBit = lut.Backward[dir, b].secondBit;
             }
         }
+        _solver = new JobPropagationSolver(_forwardLUT, _backwardLUT, TileData.Count, (int)DIRECT.DIRECT_END);
+
     }
     public void SettingGrid()
     {
@@ -557,4 +560,11 @@ public class WaveFunction : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (_solver is IDisposable d)
+        {
+            d.Dispose();
+        }
+    }
 }
