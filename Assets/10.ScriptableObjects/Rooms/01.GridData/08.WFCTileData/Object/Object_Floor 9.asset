@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf30d7a1bcf29a149a6ec84af6115b04, type: 3}
-  m_Name: Object_Ceil_Empty
+  m_Name: Object_Floor 9
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: 86f6bed71ed1470439d17ff3f3871204, type: 3}
+  Sprite: {fileID: 3882027052096828612, guid: cdd0bf092756178419ded1e9e21e51f6, type: 3}
   tags:
-  - OBJECT_CEIL
-  weight: 5
+  - OBJECT_FLOOR
+  weight: 1
