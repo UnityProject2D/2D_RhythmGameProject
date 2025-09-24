@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf30d7a1bcf29a149a6ec84af6115b04, type: 3}
+  m_Name: Object_Stack 1
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 52913543, guid: 13d179ac68734914d9de948722a9dbe7, type: 3}
+  tags:
+  - OBJECT_STACK
+  weight: 1
